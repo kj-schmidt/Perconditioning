@@ -1,0 +1,43 @@
+	\subsection{Use case 7 - Afbryd}
+		\begin{center}
+			\begin{tabular}{ | m{4cm} | m{8cm}| } 
+				\hline
+				Goal& Tømme manchetten for luft og afbryde nuværende procedure \\ 
+				\hline
+				Initiation &  Medicinsk personale, Patient\\
+				\hline
+				Actors and stakeholders & 
+				\begin{itemize}
+					\item Medicinsk personale 
+					\item Bruger 
+				\end{itemize} \\ 
+				\hline
+				References & Use case 1, 3 og 6 \\ 
+				\hline
+				Number of concurrent occurrences & En til mange \\ 
+				\hline	
+				Precondition & 
+				\begin{itemize}
+					\item Use case 1, 3 eller 6 er igangværende 
+ 				\end{itemize} \\ 
+				\hline
+				Postcondition & 
+				\begin{itemize}
+					\item Behandlingen er afbrudt og manchetten er tom for luft
+				\end{itemize} \\ 
+				\hline
+				Main scenario & \begin{enumerate}
+					\setlength\itemsep{0cm} % Decrease line distance
+					\item Brugeren trykker på knappen [Start/Stop konditionering]
+					\item Det igangværende use case afbrydes
+					\item Manchetten tømmes for luft og tidsstempel med “Gennemført afklemning = false” gemmes i hukommelsen
+					\subitem[Extension \#1]
+				\end{enumerate} \\ 
+				\hline
+				Extensions & [Extension \#1] Use case 6 er aktiv: ingen data gemmes i hukommelsen. \\ 
+				\hline
+			\end{tabular}
+		\end{center}
+	\pagebreak
+
+		

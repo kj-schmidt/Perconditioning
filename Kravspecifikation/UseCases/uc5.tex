@@ -1,0 +1,44 @@
+	\subsection{Use case 5 - Sikkerhedskontrol med pulsoximeter}
+		\begin{center}
+			\begin{tabular}{ | m{4cm} | m{8cm}| } 
+				\hline
+				Goal& Sikre at patientens kredsløb tåler konditionering \\ 
+				\hline
+				Initiation &  Use case 1\\
+				\hline
+				Actors and stakeholders & 
+				\begin{itemize}
+					\item Patient (sekundær)
+					\item Medicinsk personale (sekundær)
+				\end{itemize} \\ 
+				\hline
+				References & - \\ 
+				\hline
+				Number of concurrent occurrences & En til mange \\ 
+				\hline	
+				Precondition & 
+				\begin{itemize}
+					\item Use case 1 igangværende
+					\item Pulsoximeteret er monteret på patients finger
+					\item Patient har gennemført én afklemnings cyklus
+					\item Mode switch er sat til “\textit{Konditionering}”
+ 				\end{itemize} \\ 
+				\hline
+				Postcondition & 
+				\begin{itemize}
+					\item Patients tilstand er bestemt 
+				\end{itemize} \\ 
+				\hline
+				Main scenario & \begin{enumerate}
+					\setlength\itemsep{0cm} % Decrease line distance
+					\item Saturation og puls detekteres
+					\item Saturation og puls er tilfredsstillende
+					\subitem [Extension \#1]
+					\item Behandlingen kan fortsætte
+				\end{enumerate} \\ 
+				\hline
+				Extensions &  [Extension \#1] Tegn på dårlig kredsløb: Blodtryksapparatet stopper konditionerings forløbet \\ 
+				\hline
+			\end{tabular}
+		\end{center}
+			\pagebreak

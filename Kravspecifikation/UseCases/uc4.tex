@@ -1,0 +1,42 @@
+	\subsection{Use case 4 - Hent gemt data}
+		\begin{center}
+			\begin{tabular}{ | m{4cm} | m{8cm}| } 
+				\hline
+				Goal& Eksportér data fra blodtryksapparat til databasen\\ 
+				\hline
+				Initiation &  Medicinsk personale\\
+				\hline
+				Actors and stakeholders & 
+				\begin{itemize}
+					\item Medicinsk personale(primær)
+					\item Patient (sekundær)
+				\end{itemize} \\ 
+				\hline
+				References & - \\ 
+				\hline
+				Number of concurrent occurrences & Én pr behandlingsforløb \\ 
+				\hline	
+				Precondition & 
+				\begin{itemize}
+					\item Der eksisterer en logfil på hukommelsen
+				\end{itemize} \\ 
+				\hline
+				Postcondition & 
+				\begin{itemize}
+					\item Logfile overført til database
+					\item Blodtryksapparat udstyres med formateret hukommelse og klar til næste patient
+				\end{itemize} \\ 
+				\hline
+				Main scenario & \begin{enumerate}
+					\setlength\itemsep{0cm} % Decrease line distance
+					\item Tag SD kortet ud af blodtryksapparatet 
+					\item Sæt SD kortet i computeren og overfør filen 
+					\item Formatér SD kortet
+					\item Sæt SD kortet tilbage i konditioneringsapparatet 
+				\end{enumerate} \\ 
+				\hline
+				Extensions & -\\ 
+				\hline
+			\end{tabular}
+		\end{center}
+			\pagebreak

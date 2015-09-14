@@ -1,0 +1,40 @@
+	\subsection{Use case 3 - Mål blodtryk}
+		\begin{center}
+			\begin{tabular}{ | m{4cm} | m{8cm}| } 
+				\hline
+				Goal& Mål et systolisk, diastolisk og middel(MAP) tryk\\ 
+				\hline
+				Initiation &  Use case 1 eller 2\\
+				\hline
+				Actors and stakeholders & - \\
+				\hline
+				References & - \\ 
+				\hline
+				Number of concurrent occurrences & En til mange\\ 
+				\hline	
+				Precondition & 
+				\begin{itemize}
+					\item Patient ID er oprettet
+					\item Manchetten er placeret på armen
+					\item Mode switch er sat til “\textit{Konditionering}”
+				\end{itemize} \\ 
+				\hline
+				Postcondition & 
+				\begin{itemize}
+					\item Blodtrykket er mål
+				\end{itemize} \\ 
+				\hline
+				Main scenario & \begin{enumerate}
+					\setlength\itemsep{0cm} % Decrease line distance
+					\item Manchetten fyldes til tryk over systolisk niveau 
+					\item Luften lukkes gradvist ud og det systoliske tryk registreres 
+					\item Middel trykket (MAP) måles 
+					\item Det diastoliske tryk udregnes ud fra systole og MAP 
+					\item Blodtrykket vises på skærmen og værdien gemmes i hukommelsen med et tidsstempel 
+				\end{enumerate} \\ 
+				\hline
+				Extensions & -\\ 
+				\hline
+			\end{tabular}
+		\end{center}
+			\pagebreak
