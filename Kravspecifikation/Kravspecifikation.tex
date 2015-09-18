@@ -6,6 +6,7 @@
 \usepackage{longtable}
 \usepackage{graphicx}
 \graphicspath{ {Illustrationer/} }
+\usepackage{tikz}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -15,11 +16,27 @@
 
 \renewcommand*\contentsname{Indholdsfortegnelse}
 
+\renewcommand*\contentsname{Indholdsfortegnelse}
+\newcommand{\namesigdatehrule}[1]{\par\tikz \draw [black, densely dotted, ultra thick] (0,0) -- (#1,0);\par}
+\newcommand{\namesigdate}[2][3cm]{%
+	\begin{minipage}{#1}%
+		#2 \vspace{0.5cm}\namesigdatehrule{#1}\smallskip
+		\small \noindent\textit{Underskrift}
+		\vspace{0.5cm}\namesigdatehrule{#1}\smallskip
+		\small \textit{Dato}
+	\end{minipage}
+}
+
 \begin{document}
 	\begin{titlepage}
 		\begin{center}
 			\Large\textbf{Kravspecifikation}\\
-			\large\textit{Version: 0.1}
+			\large\textit{Version: 0.1} \linebreak \vspace{3cm}
+		
+		\noindent \namesigdate{Vejleder: Peter Johansen} \hfill \namesigdate[3cm]{Karl-Johan Schmidt}
+		\hfill \namesigdate[3cm]{Simon Vammen Grønbæk}
+		\linebreak \vspace{1cm} \linebreak
+
 		\end{center}
 	\end{titlepage}
 	
