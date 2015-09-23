@@ -1,39 +1,4 @@
-\documentclass[12pt, a4paper]{memoir}
-\usepackage[utf8]{inputenc}  % To control and create table of content
-%\usepackage{fancyhdr} 	% To create header
-\usepackage{dirtytalk} % To create citations
-\usepackage{array} % To control and create fixed size tables
-\usepackage{longtable}
-\usepackage{graphicx}
-\usepackage{enumitem}
-\usepackage{multirow} %Merging across columns and rows
-\graphicspath{ {Illustrationer/} }
-\usepackage{tikz}
-\usepackage[a4paper]{pdflscape} % Enable landscape view of page
-\usepackage{lipsum}
-
-\setlrmarginsandblock{3.5cm}{2.5cm}{*}		% \setlrmarginsandblock{Indbinding}{Kant}{Ratio}
-\setulmarginsandblock{2.5cm}{3.0cm}{*}		% \setulmarginsandblock{Top}{Bund}{Ratio}
-\checkandfixthelayout 						% Oversaetter vaerdier til brug for andre pakker
-
-
-
-%\pagestyle{fancy}
-%\fancyhf{}
-%\lhead{Kravspecifikation}
-%\rhead{Version 0.1}
-%\rfoot{Page \thepage}
-
-\renewcommand*\contentsname{Indholdsfortegnelse}
-\newcommand{\namesigdatehrule}[1]{\par\tikz \draw [black, densely dotted, ultra thick] (0,0) -- (#1,0);\par}
-\newcommand{\namesigdate}[2][3cm]{%
-	\begin{minipage}{#1}%
-		#2 \vspace{0.5cm}\namesigdatehrule{#1}\smallskip
-		\small \noindent\textit{Underskrift}
-		\vspace{0.5cm}\namesigdatehrule{#1}\smallskip
-		\small \textit{Dato}
-	\end{minipage}
-}
+\input{preamble_Accepttest}
 
 \begin{document}
 
@@ -41,10 +6,6 @@
 			\Large\textbf{Accepttest}\\
 			\large\textit{Version: 0.1} \linebreak \vspace{3cm}
 		
-			\noindent \namesigdate{Vejleder: Peter Johansen} \hfill \namesigdate[3cm]{Karl-Johan Schmidt}
-			\hfill \namesigdate[3cm]{Simon Vammen Grønbæk}
-			\linebreak \vspace{1cm} \linebreak
-			
 		\end{center}
 	
 
@@ -52,7 +13,6 @@
 	\tableofcontents
 	\newpage
 	
-	\begin{landscape}
 	\section{Funktionelle krav}
 		
 	\subsection{Use case 1}
@@ -144,6 +104,7 @@
 							Tjekke tidsstempling på SD kortet & \\ \hline
 					\end{longtable}
 				
+				\pagebreak
 					\subsection{Use case 6}
 						\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
 								\hline
@@ -251,5 +212,4 @@
 					2.6.1b& [Mål blodtryk] & &  & \\ \cline{1-2}
 					2.6.2& Hvert apparat udstyres med et unik serie nummer, kaldet apparat ID & &  & \\ \hline
 				\end{longtable}
-	\end{landscape}
 	\end{document}
