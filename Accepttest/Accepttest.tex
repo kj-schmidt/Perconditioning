@@ -1,6 +1,6 @@
-\documentclass[11pt]{article}
+\documentclass[12pt, a4paper]{memoir}
 \usepackage[utf8]{inputenc}  % To control and create table of content
-\usepackage{fancyhdr} 	% To create header
+%\usepackage{fancyhdr} 	% To create header
 \usepackage{dirtytalk} % To create citations
 \usepackage{array} % To control and create fixed size tables
 \usepackage{longtable}
@@ -9,12 +9,20 @@
 \usepackage{multirow} %Merging across columns and rows
 \graphicspath{ {Illustrationer/} }
 \usepackage{tikz}
+\usepackage[a4paper]{pdflscape} % Enable landscape view of page
+\usepackage{lipsum}
 
-\pagestyle{fancy}
-\fancyhf{}
-\lhead{Kravspecifikation}
-\rhead{Version 0.1}
-\rfoot{Page \thepage}
+\setlrmarginsandblock{3.5cm}{2.5cm}{*}		% \setlrmarginsandblock{Indbinding}{Kant}{Ratio}
+\setulmarginsandblock{2.5cm}{3.0cm}{*}		% \setulmarginsandblock{Top}{Bund}{Ratio}
+\checkandfixthelayout 						% Oversaetter vaerdier til brug for andre pakker
+
+
+
+%\pagestyle{fancy}
+%\fancyhf{}
+%\lhead{Kravspecifikation}
+%\rhead{Version 0.1}
+%\rfoot{Page \thepage}
 
 \renewcommand*\contentsname{Indholdsfortegnelse}
 \newcommand{\namesigdatehrule}[1]{\par\tikz \draw [black, densely dotted, ultra thick] (0,0) -- (#1,0);\par}
@@ -28,7 +36,7 @@
 }
 
 \begin{document}
-	\begin{titlepage}
+
 		\begin{center}
 			\Large\textbf{Accepttest}\\
 			\large\textit{Version: 0.1} \linebreak \vspace{3cm}
@@ -38,22 +46,21 @@
 			\linebreak \vspace{1cm} \linebreak
 			
 		\end{center}
-	\end{titlepage}
 	
 
-	
+	\newpage
 	\tableofcontents
 	\newpage
 	
+	\begin{landscape}
 	\section{Funktionelle krav}
-	
+		
 	\subsection{Use case 1}
-		\begin{center}
-			\begin{longtable}{|p{1.5cm}|p{2cm}|p{3cm}|p{3cm}|p{1.1cm}|}
+			\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
 			\hline
 			Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
 		    1.1.1& Medicinsk personale placerer manchetten på patienten & Manchetten sidder tæt om armen, så trykket fordeles ligeligt over hele området. Hele velcro hæfte siden skal fæstnes i filtsiden. & Manchetten trækkes løst over armen og fastspændes så den er placeret tætsiddende omkring overarmen med 2-3 cms afstand fra albuehulen  &   \\\hline
-			1.1.2& Knappen [Start/Stop] trykkes & \multirow{3}{3cm}{Der vises et patient ID på skærmen} &\multirow{3}{3cm}{Knappen [Start/Stop] trykkes}  & \multirow{3}{3cm}{}  \\ \cline{1-2}
+			1.1.2& Knappen [Start/Stop] trykkes & \multirow{3}{\linewidth}{Der vises et patient ID på skærmen} &\multirow{3}{\linewidth}{Knappen [Start/Stop] trykkes}  & \multirow{3}{\linewidth}{}  \\ \cline{1-2}
 			1.1.3& Et nyt patient ID genereres & &  &  \\ \cline{1-2}
 			1.1.4& Patient ID’et vises på skærmen & &  &   \\ \hline
 			1.1.5& Blodtrykket måles via use case 3 & \multicolumn{3}{l|}{Se krav nr. 1.3.1 til 1.3.5} \\ \hline
@@ -65,132 +72,112 @@
 			1.1.10& Deflaterer cuffen helt og forbliver i dette stadie i 5 min (Reperfusion). Ved deflation start gemmes tidsstempel. Tid til næste okklusion vises på displayet & Manchet trykket er < 10 mmHg i 5 min. kontinuerlig tids nedtælling vises på display. Tidsstempel for deflation start kan aflæses på fil.  & Observér analogt barometer 5 min. Tjekke tidsstempling på SD kortet &  \\ \hline
 			1.1.11& Gentag punkt 7-11 (en cyklus) fire gange. Det nuværende cyklus nummer vises i displayet & Det specificerede antal cyklusser gennemfører & Observér at det totale antal cyklusser er tilsvarende antallet vist på displayet (tallet til højre for cyklus nr.) &  \\ \hline 
 		\end{longtable}
-		\end{center}
-		
+
 		\subsection*{Extension}
-		\begin{center}
-			\begin{longtable}{|p{1.5cm}|p{2cm}|p{3cm}|p{3cm}|p{1.1cm}|}
+			\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
 				\hline
 				Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
 				1.1.ex1 & Et patient ID eksisterer allerede på apparatet. Der genereres ikke noget nyt patient ID & Allerede eksisterende logfil vedføjes data. Ingen ny logfil generes og det gamle ID vises på skærmen & Kør use case 1 to gange og observér antallet af logfiler, samt ID på display er det samme hver gang &  \\
 				\hline
 				1.1.ex2 & Blodtrykket kunne ikke måles. Gentag use case 3 hvis extension 2 ikke lige er eksekveret. Ellers skrives i display “FEJL kunne ikke måle blodtryk” og use casen stopper  & Ved gentagne fejl ved blodtryksmåling skrives en fejlmeddelelse i displayet & Montér manchet på cylinder og start use case 1. observere antal oppustning. Efter 2 opfyldninger af manchetten observeres displayet & \\ \hline
 			\end{longtable}
-		\end{center}
 
 	\subsection{Use case 2}
-	\begin{center}
-		\begin{longtable}{|p{1.5cm}|p{2cm}|p{3cm}|p{3cm}|p{1.1cm}|}
+		\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
 			\hline
 			Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
-			1.2.1 & Brugeren trykker på [Mål blodtryk] & \multirow{3}{3cm}{Der vises et patient ID på skærmen} & \multirow{3}{3cm}{Knappen [Start/Stop] trykkes} & \multirow{3}{3cm}{}  \\ \cline{1-2} 
+			1.2.1 & Brugeren trykker på [Mål blodtryk] & \multirow{3}{\linewidth}{Der vises et patient ID på skærmen} & \multirow{3}{\linewidth}{Knappen [Start/Stop] trykkes} & \multirow{3}{\linewidth}{}  \\ \cline{1-2} 
 			1.2.2 & Et nyt patient ID genereres & & &  \\ \cline{1-2}
 			1.2.3 & Patient ID’et vises på skærmen & & &  \\ \hline
 			1.2.4 & & \multicolumn{3}{l|}{Se krav nr. 1.3.1 til 1.3.5} \\ 
 			\hline
 			
 		\end{longtable}
-	\end{center}
 	
 	\subsection*{Extension}
-	\begin{center}
-		\begin{longtable}{|p{1.5cm}|p{2cm}|p{3cm}|p{3cm}|p{1.1cm}|}
+		\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
 			\hline
 			Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
 			1.2.ex1 & Et patient ID eksisterer allerede på apparatet. Der genereres ikke noget nyt patient ID & Allerede eksisterende logfil vedføjes data. Ingen ny logfil generes og det gamle ID vises på skærmen & Kør use case 2 to gange og observér antallet af logfiler, samt ID på display er det samme hver gang &  \\ \hline
 			1.2.ex2 & Blodtrykket kunne ikke måles. Gentag use case 3 hvis extension 2 ikke lige er eksekveret. Ellers skrives i display “FEJL kunne ikke måle blodtryk” og use casen stopper.  & Ved gentagne fejl ved blodtryksmåling skrives en fejlmeddelelse i displayet & Montér manchet på cylinder og start use case 2. observere antal oppustning. Efter to opfyldninger af manchetten observeres displayet & \\ \hline
 		\end{longtable}
-	\end{center}
 	
 	\pagebreak
 			\subsection{Use case 3}
-			\begin{center}
-				\begin{longtable}{|p{1.5cm}|p{2cm}|p{3cm}|p{3cm}|p{1.1cm}|}
+				\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
 					\hline
 					Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
 					1.3.1 & Manchetten fyldes til tryk over systoliske niveau & & &  \\ \hline
-					1.3.2 & Luften lukkes gradvist ud og det systoliske tryk måles & \multirow{3}{3cm}{Trykket stemmer overens med reference apparatet med en tolerance på: Mean error +/- 5mmHg. Se EN 1060-3, punkt 7.9} & \multirow{3}{3cm}{Det målte tryk sammenlignes med trykket målt fra S-105B} & \multirow{3}{3cm}{}  \\ \cline{1-2} 
+					1.3.2 & Luften lukkes gradvist ud og det systoliske tryk måles & \multirow{3}{\linewidth}{Trykket stemmer overens med reference apparatet med en tolerance på: Mean error +/- 5mmHg. Se EN 1060-3, punkt 7.9} & \multirow{3}{\linewidth}{Det målte tryk sammenlignes med trykket målt fra S-105B} & \multirow{3}{\linewidth}{}  \\ \cline{1-2} 
 					1.3.3 & Middel blodtrykket måles & & & \\ \cline{1-2} 
 					1.3.4 &  Det diastoliske tryk udregnes ud fra MAP og systoliske tryk  & & & \\ \hline
 					1.3.5 & Blodtrykket vises på displayet og værdien gemmes i hukommelse & Systolisk, diastolisk og MAP vises på displayet & Gennemfør testmetode 1.1.1 til 1.1.5 & \\ \hline
 				\end{longtable}
-			\end{center}
 			
 			\pagebreak
-					\subsection{Use case 4}
-					\begin{center}
-						\begin{longtable}{|p{1.5cm}|p{2cm}|p{3cm}|p{3cm}|p{1.1cm}|}
+			\subsection{Use case 4}
+				\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
 							\hline
 							Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
-							1.4.1 & Tag SD kortet ud af blodtryksapparatet  & \multirow{3}{3cm}{Der eksisterer en logfil på SD-kortet og den kopieres til det lokale drev}& \multirow{3}{3cm}{Indsæt SD-kort i computer. Tjek om fil eksisterer på kortet. Overfør fil til computeren.}& \multirow{3}{3cm}{} \\ \cline{1-2}
+							1.4.1 & Tag SD kortet ud af blodtryksapparatet  & \multirow{3}{\linewidth}{Der eksisterer en logfil på SD-kortet og den kopieres til det lokale drev}& \multirow{3}{\linewidth}{Indsæt SD-kort i computer. Tjek om fil eksisterer på kortet. Overfør fil til computeren.}& \multirow{3}{\linewidth}{} \\ \cline{1-2}
 							1.4.2 & Sæt SD kortet i computeren og overfør filen & & & \\ \hline
-							1.4.3 & Formatér SD kortet & \multirow{3}{3cm}{SD-kortet er formateret og tomt for filer} & \multirow{3}{3cm}{Formatér SD til FAT32. Indsæt SD-kort i apparatet og foretag blodtryksmåling. Tjek om logfil oprettes på SD-kort. } & \multirow{3}{3cm}{}\\ [2cm]\cline{1-2}
+							1.4.3 & Formatér SD kortet & \multirow{3}{\linewidth}{SD-kortet er formateret og tomt for filer} & \multirow{3}{\linewidth}{Formatér SD til FAT32. Indsæt SD-kort i apparatet og foretag blodtryksmåling. Tjek om logfil oprettes på SD-kort. } & \multirow{3}{\linewidth}{}\\ [2cm]\cline{1-2}
 							1.4.4 & Sæt SD kortet tilbage i konditioneringsapparatet & & & \\ \hline
-						\end{longtable}
-					\end{center}
+				\end{longtable}
 					
-					\subsection{Use case 5}
-					\begin{center}
-						\begin{longtable}{|p{1.5cm}|p{2cm}|p{3cm}|p{3cm}|p{1.1cm}|}
+				\subsection{Use case 5}
+					\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
 							\hline
 							Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
 							1.5.1 & Saturation og puls detekteres & Der kan aflæses en puls og saturation på displayet& Testes med reference pulsoximeter & \\ \hline
 							1.5.2 & Saturation gemmes på SD-kort & Saturation et gemt på på SD-kort & Tjekke tidsstempling og saturation på SD kortet & \\ \hline
 							\pagebreak \hline
-							1.5.3 & Saturation er \textgreater90\%  & \multirow{2}{3cm}{Saturation er \textgreater90\% } & \multirow{2}{3cm}{Afklem arm i 5 min og test med reference pulsoximeter} & \multirow{2}{3cm}{}  \\ \cline{1-2}
+							1.5.3 & Saturation er \textgreater90\%  & \multirow{2}{\linewidth}{Saturation er \textgreater90\% } & \multirow{2}{\linewidth}{Afklem arm i 5 min og test med reference pulsoximeter} & \multirow{2}{\linewidth}{}  \\ \cline{1-2}
 							1.5.4 & Behandlingen kan fortsætte & & & \\ \hline
-							\end{longtable}
-					\end{center}
+					\end{longtable}
 					
-					\subsection*{Extensions}
-					\begin{center}
-						\begin{longtable}{|p{1.5cm}|p{2cm}|p{3cm}|p{3cm}|p{1.1cm}|}
+				\subsection*{Extensions}
+					\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
 							\hline
 							Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
 							1.5.ex1.1 & Tegn på dårlig kredsløb: Blodtryksapparatet stopper konditionerings forløbet & Saturation er \textless90\% og der gemmes et tidsstempel for hvor der afbrydes & Afklem arm til saturationen er  under niveau og observe displayet.
 							Tjekke tidsstempling på SD kortet & \\ \hline
-						\end{longtable}
-				\end{center}
+					\end{longtable}
 				
-						\subsection{Use case 6}
-						\begin{center}
-							\begin{longtable}{|p{1.5cm}|p{2cm}|p{3cm}|p{3cm}|p{1.1cm}|}
+					\subsection{Use case 6}
+						\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
 								\hline
 								Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
 								1.6.1 & Montere manchetten på arm/ben & Manchetten sidder tæt om arm/ben. Hele velcro hæfte siden skal fæstnes i filtsiden & Manchetten trækkes løst over arm/ben og fastspændes så det ønskede område afklemmes. Kontrollér om manchetten er passer i størrelsen & \\ \hline
 								1.6.2 & Tryk på knap [Start/Stop] & Luftpumpen startet & Knappen [Start/Stop] trykkes & \\ \hline
-								1.6.3 & Manchetten pumpes op til 100mmHg & \multirow{2}{3cm}{Trykket i mancheten er 100 mmHg med en tolerance på +/- 10 mmHg}& \multirow{2}{3cm}{Observere analogt barometer i 3 min}& \multirow{2}{3cm}{} \\ \cline{1-2}
+								1.6.3 & Manchetten pumpes op til 100mmHg & \multirow{2}{\linewidth}{Trykket i mancheten er 100 mmHg med en tolerance på +/- 10 mmHg}& \multirow{2}{\linewidth}{Observere analogt barometer i 3 min}& \multirow{2}{\linewidth}{} \\ \cline{1-2}
 								1.6.4 & Trænings-sættet begyndes og trykkes holdes konstant på 100mmHg (+/-5mmHg) & & & \\ \hline
-								1.6.5 & Tryk på knap [Start/Stop]  & \multirow{2}{3cm}{Manchet trykket er < 10 mmHg efter 1min.} & \multirow{2}{3cm}{Knappen [Start/Stop] trykkes og observer at trykket på det analog barometer} & \multirow{2}{3cm}{} \\ [2cm] \cline{1-2}
+								1.6.5 & Tryk på knap [Start/Stop]  & \multirow{2}{\linewidth}{Manchet trykket er < 10 mmHg efter 1min.} & \multirow{2}{\linewidth}{Knappen [Start/Stop] trykkes og observer at trykket på det analog barometer} & \multirow{2}{\linewidth}{} \\ [2cm] \cline{1-2}
 								1.6.6 & Manchetten deflateres  & & & \\ \hline
-							\end{longtable}
-						\end{center}
+						\end{longtable}
 						
 					
 					\subsection{Use case 7}
-					\begin{center}
-						\begin{longtable}{|p{1.5cm}|p{2cm}|p{3cm}|p{3cm}|p{1.1cm}|}
+						\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
 							\hline
 							Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
-							1.7.1 & Brugeren trykker på knappen [Start/Stop] & \multirow{2}{3cm}{Use casen afbryges og manchetten tømmes for luft} & \multirow{2}{3cm}{Start use case 1, 3 eller 6 og på et vilkårligt tidspunkt tryk på knappen [Start/Stop]} & \multirow{2}{3cm}{} \\ \cline{1-2}
+							1.7.1 & Brugeren trykker på knappen [Start/Stop] & \multirow{2}{\linewidth}{Use casen afbryges og manchetten tømmes for luft} & \multirow{2}{\linewidth}{Start use case 1, 3 eller 6 og på et vilkårligt tidspunkt tryk på knappen [Start/Stop]} & \multirow{2}{\linewidth}{} \\ \cline{1-2}
 							1.7.2 & Den igangværende use case afbrydes & & & \\ \hline
 							1.7.3 & Manchetten tømmes for luft og tidsstempel med “Gennemført afklemning = false” gemmes i hukommelsen & Manchet trykket er < 10 mmHg efter 1 min. Tidsstempel for  “Gennemført afklemning = false” gemmes i fil & Observere analogt barometer 1 min.
 							Tjek tidsstempling på SD kortet & \\ \hline
 						\end{longtable}
-					\end{center}
+						
+						\pagebreak
 					
 					\subsection*{Extension}
-					\begin{center}
-						\begin{longtable}{|p{1.5cm}|p{2cm}|p{3cm}|p{3cm}|p{1.1cm}|}
+						\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
 							\hline
 							Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
 							1.7.ex1 & Use case 6 er aktiv: ingen data gemmes i hukommelsen & Der gemmes ingen data & Kør use case 6 efterfulgt af use case 7 og observér logfilen & \\ \hline
 						\end{longtable}
-					\end{center}
 					
 					\subsection{Use case 8}
-					\begin{center}
-						\begin{longtable}{|p{1.5cm}|p{2cm}|p{3cm}|p{3cm}|p{1.1cm}|}
+						\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
 							\hline
 							Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
 							1.8.1 & Brugeren trykker på knappen [Start/Stop] for at vælge Tid pr cyklus & Ved knaptryk på [Start/Stop] vælges “Tid pr cyklus” og det valgte område begynder at blinke & Tryk på knappen [Start/Stop] og observér displayet & \\ \hline
@@ -201,27 +188,22 @@
 							1.8.6 & Ved knap tryk på [Mål blodtryk] ændre Antal af cyklusser & Værdien i det valgte område ændres med 1 per tryk. & Tryk på knappen [Mål blodtryk] og observér ændringen & \\ \hline
 							1.8.7 & Brugeren trykker på knappen [Start/Stop] for at gemme ændringen & Værdien gemmes og det valgte område stopper med at blinke & Tryk på knappen [Mål blodtryk] og observér ændringen.
 							start use case 1 og tjek total antal cyklusser & \\ \hline
-						\end{longtable}
-					\end{center}
-					
-		
+						\end{longtable}		
 		
 	\section{Ikke funktionelle krav}
 			\subsection{Microcontroller}
-			\begin{center}
-				\begin{longtable}{|p{1.5cm}|p{2cm}|p{3cm}|p{3cm}|p{1.1cm}|}
+				\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
 					\hline
 					Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
 					 2.1.1 & Type: Atmega32 & Atmega32 & Visuel inspektion af microcontroller & \\ \hline
 				\end{longtable}
-			\end{center}
 			
+			\pagebreak
 			\subsection{Filformat og opsætning}
-			\begin{center}
-				\begin{longtable}{|p{1.5cm}|p{2cm}|p{3cm}|p{3cm}|p{1.1cm}|}
+				\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
 					\hline
 					Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
-					2.2.1 & Data logged i formatet .csv og hver kolonne indeholder følgende værdier og enheder:  & \multirow{7}{3cm}{Logfil er kommasepareret og at enhederne stemmer overens. of filen er af type .csv }&  \multirow{7}{3cm}{Inspicer logfil i texteditor (Gedit, notepad, textedit osv.)}& \multirow{7}{3cm}{} \\ \cline{1-2}
+					2.2.1 & Data logged i formatet .csv og hver kolonne indeholder følgende værdier og enheder:  & \multirow{7}{\linewidth}{Logfil er kommasepareret og at enhederne stemmer overens. of filen er af type .csv }&  \multirow{7}{\linewidth}{Inspicer logfil i texteditor (Gedit, notepad, textedit osv.)}& \multirow{7}{\linewidth}{} \\ \cline{1-2}
 					2.2.1a& Tidsstempel [yy:mm:dd hh:mm:ss] & &  & \\ \cline{1-2}
 					2.2.1b& Afklemnings-tryk [mmHg] & &  & \\ \cline{1-2}
 					2.2.1c&  Gennemført afklemning [Boolean] & &  & \\ \cline{1-2}
@@ -229,55 +211,45 @@
 					2.2.1e&  Middel-blodtryk (MAP) [mmHg] & &  & \\ \cline{1-2}
 					2.2.1f&  Diastolisk blodtryk [mmHg]  & &  & \\ \hline
 					2.2.2 & Der oprettet én fil pr patient, med filnavn tilsvarende det unikke patient ID og apparatets ID i følgende format: “PatientID \_ApparatID”  & En enkel fil eksistere på SD-kortet. filnavnet består af “PatientID\_ApparatID” & Kør use case 2 flere gange og observer antallet og navngivningen af logfil(er)  & \\ \hline
-
 				\end{longtable}
-			\end{center}
 			
 			\pagebreak
 			\subsection{Patient ID}
-			\begin{center}
-				\begin{longtable}{|p{1.5cm}|p{2cm}|p{3cm}|p{3cm}|p{1.1cm}|}
+				\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
 					\hline
 					Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
 					2.3.1 & Består af karaktererne A-Z og tallene 0-9 & PatientID består af karaktererne  & Kør use case 2  og observer navngivningen af logfil & \\ \hline
-					2.3.1a& ID’et er fem karakterer lang: ***** svarende til 60 millioner kombinationer & \multirow{2}{3cm}{A-Z og tallene 0-9} & \multirow{2}{3cm}{Visuel inspektion af logfilen}  & \multirow{2}{3cm}{} \\ \cline{1-2}
+					2.3.1a& ID’et er fem karakterer lang: ***** svarende til 60 millioner kombinationer & \multirow{2}{0.2\linewidth}{A-Z og tallene 0-9} & \multirow{2}{0.2\linewidth}{Visuel inspektion af logfilen}  & \multirow{2}{0.2\linewidth}{} \\ \cline{1-2}
 					2.3.1b& ID’et er ikke case sensitiv  & &  & \\ \hline
 				\end{longtable}
-			\end{center}
 			
 			\subsection{Hukommelse}
-			\begin{center}
-				\begin{longtable}{|p{1.5cm}|p{2cm}|p{3cm}|p{3cm}|p{1.1cm}|}
+				\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
 					\hline
 					Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
-					2.4.1& Information lagres på micro SDSC af typen: & \multirow{3}{3cm}{SD kortet er af typen micro SDSC, class 4, fat32 og minimum 128mb} & \multirow{3}{3cm}{Tag SD kortet ud og se specifikationer}  & \multirow{3}{3cm}{}  \\ \cline{1-2}
+					2.4.1& Information lagres på micro SDSC af typen: & \multirow{3}{\linewidth}{SD kortet er af typen micro SDSC, class 4, fat32 og minimum 128mb} & \multirow{3}{\linewidth}{Tag SD kortet ud og se specifikationer}  & \multirow{3}{\linewidth}{}  \\ \cline{1-2}
 					2.4.1a& Class 4 & &  & \\ \cline{1-2}
 					2.4.1b& Fil system [fat32] og minimum 128mb  & &  & \\ \hline
 				\end{longtable}
-			\end{center}
 			
 			\pagebreak
 			\subsection{Forsyning}
-			\begin{center}
-				\begin{longtable}{|p{1.5cm}|p{2cm}|p{3cm}|p{3cm}|p{1.1cm}|}
+				\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
 					\hline
 					Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
 					2.5.1& Konditione-ringsap-paratet skal forsynes med 12V, min 2A & &  & \\ \hline
 					2.5.1a& DC-connector, ydre Ø=5,5mm, indre Ø = 2,1  & Connectoren har målene: ydre Ø=5,5mm, indre Ø = 2,1 mm & Mål med skydelære  & \\ \hline
 					2.5.1b& 8 stk AAA batterier (1,5V)  & 8 stk AAA batterier & Visuel inspektion  & \\ \hline
 				\end{longtable}
-			\end{center}
 			
 			\subsection{Fysiske krav}
-			\begin{center}
-				\begin{longtable}{|p{1.5cm}|p{2cm}|p{3cm}|p{3cm}|p{1.1cm}|}
+				\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
 					\hline
 					Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
-					2.6.1& Knapper & \multirow{4}{3cm}{Knapperne er tilstede på apparatet}  & \multirow{4}{3cm}{Visuel inspektion}  & \multirow{4}{3cm}{}  \\ \cline{1-2}
+					2.6.1& Knapper & \multirow{4}{\linewidth}{Knapperne er tilstede på apparatet}  & \multirow{4}{\linewidth}{Visuel inspektion}  & \multirow{4}{\linewidth}{}  \\ \cline{1-2}
 					2.6.1a& [Start/Stop] & &  & \\ \cline{1-2}
 					2.6.1b& [Mål blodtryk] & &  & \\ \cline{1-2}
 					2.6.2& Hvert apparat udstyres med et unik serie nummer, kaldet apparat ID & &  & \\ \hline
 				\end{longtable}
-			\end{center}
-	
+	\end{landscape}
 	\end{document}
