@@ -1,0 +1,53 @@
+	\chapter{Ikke-funktionelle krav }
+	
+	\section{Microcontroller}
+	\begin{enumerate}
+		\setlength\itemsep{0cm}
+		\item Atmega32
+		\end{enumerate}
+	
+	\section{Filformat og opsætning}
+	\begin{enumerate}
+		\setlength\itemsep{0cm} % Decrease line distance
+		\item Data logged i formatet .csv og hver kolonne indeholder følgende værdier og enheder: 
+		\begin{enumerate}
+			\item Tidsstempel [yy:mm:dd hh:mm:ss]
+			\item Afklemningstryk [mmHg]
+			\item Gennemført afklemning [Boolean]
+			\item Systoliske blodtryk [mmHg]
+			\item Middelblodtryk (MAP) [mmHg]
+			\item Diastolisk blodtryk [mmHg]
+		\end{enumerate}
+		\item Der oprettet én fil pr patient, med filnavn tilsvarende det unikke patient ID
+	\end{enumerate}
+	
+	\section{Patient ID}
+	\begin{enumerate}
+		\setlength\itemsep{0cm} % Decrease line distance
+		\item Består af karaktererne A-Z og tallene 0-9
+		\begin{enumerate}
+			\item ID’et er fem karakterer lang: ***** svarende til 60 millioner kombinationer
+			\item ID’et er ikke case sensitiv
+		\end{enumerate}
+	\end{enumerate}
+	
+	
+	\section{Hukommelse}
+	\begin{enumerate}
+		\setlength\itemsep{0cm} % Decrease line distance
+		\item Information lagres på micro SDSC af typen:
+		\begin{enumerate}
+			\item Class 4
+			\item Fil system [fat32] og minimum 128mb
+		\end{enumerate}
+	\end{enumerate}
+	
+	\section{Forsyning}
+	\begin{enumerate}
+		\setlength\itemsep{0cm} % Decrease line distance
+		\item Konditionerings apparatet skal forsynes med 12V, min 2A
+		\begin{enumerate}
+			\item DC-connector (angiv diameter) 
+			\item 8 stk AAA batterier (1,5V)
+		\end{enumerate}
+	\end{enumerate}

@@ -1,114 +1,31 @@
-\input{preamble_Krav.tex}
+\input{filer/preamble_Krav.tex}
 \raggedbottom
 
 \begin{document}
-		\begin{center}
-			\Large\textbf{Kravspecifikation}\\
-			\large\textit{Version: 0.1} \linebreak \vspace{3cm}
-		
-
-		\end{center}
-		
+	
+	%forside
+	\input{filer/forside.tex}
+	
+	%titelplad
+	\input{filer/titelblad.tex}
+	
 	\newpage
-	\tableofcontents
+	\tableofcontents*{}
 	\newpage
 	
-	\section{Introduktion og baggrund}
-	Formålet med dette dokument er at beskrive funktionelle og ikke-funktionelle krav for per konditionerings blodtryks apparatet. De funktionelle krav vil blive beskrevet ved hjælp af fully dressed use case diagrammer. 
+	%Indledning
+	\input{filer/indledning}
 	
-	Beskrivelse af projektet: 
-	
-	{\textit{Akut blodprop i hjernen (Acute Ischemic Stroke – AIS) er en førende årsag til død og alvorlig handicap hos personer over 60 år.Intravenøs trombolysebehandling administreret indenfor 4,5 time fra symptomdebut er den nuværende bedste medicinske behandling. Grundet sikkerhedshensyn og det snævre tidsvindue er det desværre kun et fåtal af AIS patienterne, der modtager denne behandling. Målet er at opløse blodproppen og genoprette blodforsyning og dermed redde hjernevæv, der lider af iltmangel men endnu ikke er dødt. Om et område af hjernen dør eller står til at redde ved en blodprop afhænger ikke kun af selve blodproppen men også om hjernen er i stand til at få blod via omveje dannet af hjernens små blodkar. Et område af hjernen går til grunde med det samme (infarktkernen). Denne kerne af dødt hjernevæv kan i dagene efter en blodprop sprede sig og vokse. Der er således behov for at kunne beskytte hjernen mod iltmangel og øge andelen af hjernevæv, der overlever en blodprop. Iltmangel induceret periodevis i et fjernt organ (remote ischemic conditioning RIC) kan udføres ved at puste en blodtryksmanchet med afklemning af armen. Konditionering kan leveres som pre, per, og postconditionering, afhængig af om stimulus udøves før iltmangel, under iltmangel men før blodproppen er opløst og endelig efter blodproppen er opløst. Dyrestudier og senest kliniske studier har vist at RIC kan mindske det område af hjertet eller hjernen, der dør ved en blodprop. Det er ikke tilstrækkeligt undersøgt om RIC mindsker risikoen for handicap efter en blodprop i hjernen.}
-	
-	\section{System beskrivelse}
-	System er beregnet til behandling af patienter med \textit{acute ischemic stroke(AIS)}. Formålet er pre, per og postkonditioning af disse patienter. Systemet skal kunne lave arteriel okklusion i de øverste ydre ekstremiteter. For at sikre tilstrækkelig okklusion, skal det systoliske blodtryk først måles og derefter pumpe cuffen op til plus 25 mmHg over det målet tryk. Som minimum skal der afklemmes med et tryk på 180 mmHg. Okklusionen bliver holdt konstant i 5 minutter, hvor efter trykket lukkes ud der holdes en "pause" på 5 minutter. Denne process gentages ind til konditioneringen er færdig. 
+	%Systembeskrivesle
+	\input{filer/systembeskrivelse}
 
-	\section{Funktionelle krav}
-	
-	%Aktør beskrivelse
-	\input{UseCases/actorDescription.tex}
-	\pagebreak
-	
-	%Use case 1
-%	\input{UseCases/uc1.tex}
-	
-	%Use case 2
-	\input{UseCases/uc2.tex}
-	
-	%Use case 3
-	\input{UseCases/uc3.tex}
-	
-	%Use case 4
-	\input{UseCases/uc4.tex}
-	
-	%UseCase 5
-	\input{UseCases/uc5.tex}
-	
-	%UseCase 6
-	\input{UseCases/uc6.tex}
-	
-	%UseCase 7
-	\input{UseCases/uc7.tex}
-	
-	%UseCase8
-	\input{UseCases/uc8.tex}
-	
-	\section{Ikke-funktionelle krav }
-	
-	\subsection{Microcontroller}
-	\begin{enumerate}
-		\setlength\itemsep{0cm}
-		\item Atmega32
-		\end{enumerate}
-	
-	\subsection{Filformat og opsætning}
-	\begin{enumerate}
-		\setlength\itemsep{0cm} % Decrease line distance
-		\item Data logged i formatet .csv og hver kolonne indeholder følgende værdier og enheder: 
-		\begin{enumerate}
-			\item Tidsstempel [yy:mm:dd hh:mm:ss]
-			\item Afklemningstryk [mmHg]
-			\item Gennemført afklemning [Boolean]
-			\item Systoliske blodtryk [mmHg]
-			\item Middelblodtryk (MAP) [mmHg]
-			\item Diastolisk blodtryk [mmHg]
-		\end{enumerate}
-		\item Der oprettet én fil pr patient, med filnavn tilsvarende det unikke patient ID
-	\end{enumerate}
-	
-	\subsection{Patient ID}
-	\begin{enumerate}
-		\setlength\itemsep{0cm} % Decrease line distance
-		\item Består af karaktererne A-Z og tallene 0-9
-		\begin{enumerate}
-			\item ID’et er fem karakterer lang: ***** svarende til 60 millioner kombinationer
-			\item ID’et er ikke case sensitiv
-		\end{enumerate}
-	\end{enumerate}
+	%Functional requirements
+	\input{filer/funkSpec.tex}
 	
 	
-	\subsection{Hukommelse}
-	\begin{enumerate}
-		\setlength\itemsep{0cm} % Decrease line distance
-		\item Information lagres på micro SDSC af typen:
-		\begin{enumerate}
-			\item Class 4
-			\item Fil system [fat32] og minimum 128mb
-		\end{enumerate}
-	\end{enumerate}
-	
-	\subsection{Forsyning}
-	\begin{enumerate}
-		\setlength\itemsep{0cm} % Decrease line distance
-		\item Konditionerings apparatet skal forsynes med 12V, min 2A
-		\begin{enumerate}
-			\item DC-connector (angiv diameter) 
-			\item 8 stk AAA batterier (1,5V)
-		\end{enumerate}
-	\end{enumerate}
+	%Non functional requirements
+	\input{filer/ikkeFunkSpec.tex}
 	
 	%User interface 
-	\input{userInterface.tex}
-	
-	
+	\input{filer/userInterface.tex}
 \end{document}
