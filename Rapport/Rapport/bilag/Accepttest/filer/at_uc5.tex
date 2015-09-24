@@ -1,0 +1,18 @@
+\section{Use case 5}
+					\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
+							\hline
+							Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
+							2.5.1 & Saturation og puls detekteres & Der kan aflæses en puls og saturation på displayet& Testes med reference pulsoximeter & \\ \hline
+							2.5.2 & Saturation gemmes på SD-kort & Saturation et gemt på på SD-kort & Tjekke tidsstempling og saturation på SD kortet & \\ \hline
+							\pagebreak \hline
+							2.5.3 & Saturation er \textgreater90\%  & \multirow{2}{\linewidth}{Saturation er \textgreater90\% } & \multirow{2}{\linewidth}{Afklem arm i 5 min og test med reference pulsoximeter} & \multirow{2}{\linewidth}{}  \\ \cline{1-2}
+							2.5.4 & Behandlingen kan fortsætte & & & \\ \hline
+					\end{longtable}
+					
+					\section*{Extensions}
+					\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
+						\hline
+						Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
+						2.5.ex1.1 & Tegn på dårlig kredsløb: Blodtryksapparatet stopper konditionerings forløbet & Saturation er \textless90\% og der gemmes et tidsstempel for hvor der afbrydes & Afklem arm til saturationen er  under niveau og observe displayet.
+						Tjekke tidsstempling på SD kortet & \\ \hline
+					\end{longtable}
