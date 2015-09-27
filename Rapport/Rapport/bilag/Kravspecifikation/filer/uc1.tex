@@ -2,57 +2,52 @@
 \begin{center}
 		\begin{longtable}{ | p{0.3\textwidth} | p{0.7\textwidth}| } 
 			\hline
-			Goal& Gennemføre konditioneringsbehandling  \\ 
+			Mål & Gennemføre én konditioneringsbehandling  \\ 
 			\hline
-			Initiation &  Medicinsk personale\\
+			Initiering &  Medicinsk personale\\
 			\hline
-			Actors and stakeholders & 
+			Aktører og interessenter & 
 			\begin{itemize}
 				\item Medicinsk personale(primær)
 				\item Patient (sekundær)
 			\end{itemize} \\ 
 			\hline
-			References & Use case 3 \\ 
+			Referencer & Use case 3 \\ 
 			\hline
-			Number of concurrent occurrences & En til mange\\ 
+			Antal samtlige forekomster & En til mange\\ 
 			\hline	
-			Precondition & 
+			Startbetingelser & 
 			\begin{itemize}
 				\item Mode switch er sat til “\textit{Konditionering}”
 			\end{itemize} \\ 
 			\hline
-			Postcondition & 
+			Slutbetingelser & 
 			\begin{itemize}
 				\item 5 hele cyklus er gennemført og gemt på hukommelsen
 			\end{itemize} \\ 
 			\hline
-			Main scenario & \begin{enumerate}
+			Normal forløb & \begin{enumerate}
 				\setlength\itemsep{0cm} % Decrease line distance
 				\item \textit{Medicinsk personale} placerer manchetten på patienten
-				\item Knappen [Start/Stop] trykkes
+				\item \textit{Medicinsk personale} trykker på knappen [Start/Stop]
 				\item Et nyt patient ID genereres
-				\subitem[Extension \#1] 
+				\subitem[Undtagelse \#1] 
 				\item Patient ID’et vises på skærmen
 				\item Blodtrykket måles via \textit{use case 3}
-				\subitem[Extension \#2]
-				\item Blodtrykket vises på displayet og værdien gemmes i hukommelse
-				\item Cuffen fyldes med luft til et tryk på 25 mmHG over systolisk tryk (minimum 180 mmHg)
-			\end{enumerate} \\ 
-			\hline
-			Main scenario & \begin{enumerate}
-				\setlength\itemsep{0cm} % Decrease line distance
-				\setcounter{enumi}{7}				
+				\subitem[Undtagelse \#2]
+				\item Blodtrykket vises på displayet og værdien gemmes i hukommelsen
+				\item Manchetten fyldes med luft til et tryk på 25 mmHG over systolisk tryk (minimum 180 mmHg)					
 				\item Tidsstempel gemmes når trykket er opnået
 				\item Trykket opretholdes i 5 minutter(Okklusion) og resterende tid vises på displayet
 				\item Blodtrykket måles via \textit{use case 3}
 				fra punkt 2.
-				\item Deflaterer cuffen helt og forbliver i dette stadie i 5 min(Reperfusion) Ved deflation start gemmes tidsstempel. Tid til næste okklusion vises på displayet
-				\item Gentag punkt 7-11 (en cyklus) fire gange. Det nuværende cyklus nummer vises i displayet
+				\item Deflaterer manchetten helt og forbliver i dette stadie i 5 min(Reperfusion) Ved deflation start gemmes tidsstempel. Tid til næste okklusion vises på displayet
+				\item Gentag punkt 7-11 (en \textit{cyklus}) fire gange. Det nuværende cyklus nummer vises i displayet
 			\end{enumerate} \\ 
 			\hline
-			Extensions & [Extension \#1] Et patient ID eksisterer allerede på apparatet. Der genereres ikke noget nyt patient ID.
+			Undtagelser & [Undtagelse \#1] Et patient ID eksisterer allerede på apparatet. Der genereres ikke noget nyt patient ID.
 			
-			[Extension \#2] Blodtrykket kunne ikke måles. Gentag use case 3 hvis extension 2 ikke lige er eksekveret. Ellers skrives i display “FEJL kunne ikke måle blodtryk” og use casen stopper    .  \\
+			[Undtagelse \#2] Blodtrykket kunne ikke måles. Gentag use case 3 hvis undtagelse 2 ikke lige er eksekveret. Ellers skrives i display “FEJL kunne ikke måle blodtryk” og use casen stopper  \\
 			\hline
 		\end{longtable}
 		

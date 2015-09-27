@@ -2,39 +2,39 @@
 		\begin{center}
 			\begin{tabular}{ | p{0.3\textwidth} | p{0.7\textwidth}| } 
 				\hline
-				Goal& Tømme manchetten for luft og afbryde nuværende procedure \\ 
+				Mål & Tømme manchetten for luft og afbryde nuværende procedure \\ 
 				\hline
-				Initiation &  Medicinsk personale, Patient\\
+				Initiering &  Medicinsk personale, Patient\\
 				\hline
-				Actors and stakeholders & 
+				Aktører og interessenter & 
 				\begin{itemize}
 					\item Medicinsk personale 
 					\item Bruger 
 				\end{itemize} \\ 
 				\hline
-				References & Use case 1, 3 og 6 \\ 
+				Referencer & Konditionering (UC1) og Mål blodtryk (UC3) \\ 
 				\hline
-				Number of concurrent occurrences & En til mange \\ 
+				Antal samtlige forekomster & En til mange \\ 
 				\hline	
-				Precondition & 
+				Startbetingelser & 
 				\begin{itemize}
-					\item Use case 1, 3 eller 6 er igangværende 
+					\item Konditionering (UC1) og Mål blodtryk (UC3) er igangværende 
  				\end{itemize} \\ 
 				\hline
-				Postcondition & 
+				Slutbetingelser & 
 				\begin{itemize}
 					\item Behandlingen er afbrudt og manchetten er tom for luft
 				\end{itemize} \\ 
 				\hline
-				Main scenario & \begin{enumerate}
+				Normal forløb & \begin{enumerate}
 					\setlength\itemsep{0cm} % Decrease line distance
 					\item Brugeren trykker på knappen [Start/Stop konditionering]
-					\item Det igangværende use case afbrydes
-					\item Manchetten tømmes for luft og tidsstempel med “Gennemført afklemning = false” gemmes i hukommelsen
-					\subitem[Extension \#1]
+					\item Den igangværende use case afbrydes
+					\item Manchetten tømmes for luft og tidsstempel med “\textit{Gennemført afklemning} = false” gemmes i hukommelsen
+					\subitem[Undtagelse \#1]
 				\end{enumerate} \\ 
 				\hline
-				Extensions & [Extension \#1] Use case 6 er aktiv: ingen data gemmes i hukommelsen. \\ 
+				Undtagelser & [Undtagelse \#1] Use case 6 er aktiv: ingen data gemmes i hukommelsen. \\ 
 				\hline
 			\end{tabular}
 		\end{center}

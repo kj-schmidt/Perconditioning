@@ -1,33 +1,33 @@
-	\subsection{Use case 4 - Hent gemt data}
+	\subsection{Use case 4 - Overfør data}
 		\begin{center}
 			\begin{tabular}{ | p{0.3\textwidth} | p{0.7\textwidth}| } 
 				\hline
-				Goal& Eksportér data fra blodtryksapparat til databasen\\ 
+				Mål & Eksportér data fra blodtryksapparat til databasen\\ 
 				\hline
-				Initiation &  Medicinsk personale\\
+				Initiering &  Medicinsk personale\\
 				\hline
-				Actors and stakeholders & 
+				Aktører og interessenter & 
 				\begin{itemize}
 					\item Medicinsk personale(primær)
 					\item Patient (sekundær)
 				\end{itemize} \\ 
 				\hline
-				References & - \\ 
+				Referencer & - \\ 
 				\hline
-				Number of concurrent occurrences & Én pr behandlingsforløb \\ 
+				Antal samtlige forekomster & Én pr behandlingsforløb \\ 
 				\hline	
-				Precondition & 
+				Startbetingelser & 
 				\begin{itemize}
 					\item Der eksisterer en logfil på hukommelsen
 				\end{itemize} \\ 
 				\hline
-				Postcondition & 
+				Slutbetingelser & 
 				\begin{itemize}
-					\item Logfile overført til database
+					\item Logfilen er overført til database
 					\item Blodtryksapparat udstyres med formateret hukommelse og klar til næste patient
 				\end{itemize} \\ 
 				\hline
-				Main scenario & \begin{enumerate}
+				Normal forløb & \begin{enumerate}
 					\setlength\itemsep{0cm} % Decrease line distance
 					\item Tag SD kortet ud af blodtryksapparatet 
 					\item Sæt SD kortet i computeren og overfør filen 
@@ -35,7 +35,7 @@
 					\item Sæt SD kortet tilbage i konditioneringsapparatet 
 				\end{enumerate} \\ 
 				\hline
-				Extensions & -\\ 
+				Undtagelser & -\\ 
 				\hline
 			\end{tabular}
 		\end{center}

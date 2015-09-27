@@ -2,44 +2,42 @@
 		\begin{center}
 			\begin{tabular}{ | p{0.3\textwidth} | p{0.7\textwidth}| } 
 				\hline
-				Goal& Sikre at patientens kredsløb tåler konditionering \\ 
+				Mål & Sikre at patientens kredsløb tåler konditionering \\ 
 				\hline
-				Initiation &  Use case 1\\
+				Initiering &  Konditionering (UC1)\\
 				\hline
-				Actors and stakeholders & 
+				Aktører og interessenter & 
 				\begin{itemize}
 					\item Patient (sekundær)
-					\item Medicinsk personale (sekundær)
 				\end{itemize} \\ 
 				\hline
-				References & - \\ 
+				Referencer & - \\ 
 				\hline
-				Number of concurrent occurrences & En til mange \\ 
+				Antal samtlige forekomster & En til mange \\ 
 				\hline	
-				Precondition & 
+				Startbetingelser & 
 				\begin{itemize}
-					\item Use case 1 igangværende
+					\item Konditionering (UC1) igangværende
 					\item Pulsoximeteret er monteret på patients finger
 					\item Patient har gennemført én afklemnings cyklus
-					\item Mode switch er sat til “\textit{Konditionering}”
  				\end{itemize} \\ 
 				\hline
-				Postcondition & 
+				Slutbetingelser & 
 				\begin{itemize}
 					\item Patients tilstand er bestemt 
 				\end{itemize} \\ 
 				\hline
-				Main scenario & \begin{enumerate}
+				Normal forløb & \begin{enumerate}
 					\setlength\itemsep{0cm} % Decrease line distance
 					\item Saturation detekteres
 					\item Saturation gemmes på SD-kort
 					\item Saturation er tilfredsstillende
-					\subitem [Extension \#1.1][Extension \#1.2]
+					\subitem [Undtagelse \#1.1][Undtagelse \#1.2]
 					\item Behandlingen kan fortsætte
 				\end{enumerate} \\ 
 				\hline
-				Extensions &  [Extension \#1.1] Tegn på dårlig kredsløb: Blodtryksapparatet stopper konditionerings forløbet 
-				[Extension \#1.2] Kør use case 7\\ 
+				Undtagelser &  [Undtagelse \#1.1] Tegn på dårlig kredsløb: Blodtryksapparatet stopper konditionerings forløbet 
+				[Undtagelse \#1.2] Kør use case 7\\ 
 				\hline
 			\end{tabular}
 		\end{center}
