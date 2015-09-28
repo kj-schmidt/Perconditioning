@@ -2,13 +2,15 @@
 			\section{Microcontroller}
 				\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
 					\hline
+					\rowcolor{usDef}
 					Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
-					 3.1.1 & Type: Atmega32 & Atmega32 & Visuel inspektion af microcontroller & \\ \hline
+					 3.1.1 & Type: Atmega32 & Atmega32 & Kontroller type nr. på microcontroller & \\ \hline
 				\end{longtable}
 			
 			\section{Filformat og opsætning}
 				\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
 					\hline
+					\rowcolor{usDef}
 					Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
 					3.2.1 & Data logged i formatet .csv og hver kolonne indeholder følgende værdier og enheder:  & \multirow{7}{\linewidth}{Logfil er kommasepareret og at enhederne stemmer overens. of filen er af type .csv }&  \multirow{7}{\linewidth}{Inspicer logfil i texteditor (Gedit, notepad, textedit osv.)}& \multirow{7}{\linewidth}{} \\ \cline{1-2}
 					3.2.1a& Tidsstempel [yy:mm:dd hh:mm:ss] & &  & \\ \cline{1-2}
@@ -17,22 +19,23 @@
 					3.2.1d&  Systoliske blodtryk [mmHg] & &  & \\ \cline{1-2}
 					3.2.1e&  Middel-blodtryk (MAP) [mmHg] & &  & \\ \cline{1-2}
 					3.2.1f&  Diastolisk blodtryk [mmHg]  & &  & \\ \hline
-					3.2.2 & Der oprettet én fil pr patient, med filnavn tilsvarende det unikke patient ID og apparatets ID i følgende format: “PatientID \_ApparatID”  & En enkel fil eksistere på SD-kortet. filnavnet består af “PatientID\_ApparatID” & Kør use case 2 flere gange og observer antallet og navngivningen af logfil(er)  & \\ \hline
+					3.2.2 & Der oprettes én fil pr patient, med filnavn tilsvarende det unikke patient ID og apparatets ID i følgende format: “PatientID \_ApparatID”  & En enkel fil eksistere på SD-kortet. filnavnet består af “PatientID\_ApparatID” & Kør use case 2 flere gange og observer antallet og navngivningen af logfil(er)  & \\ \hline
 				\end{longtable}
 			
-			\pagebreak
 			\section{Patient ID}
 				\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
 					\hline
+					\rowcolor{usDef}
 					Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
 					3.3.1 & Består af karaktererne A-Z og tallene 0-9 & PatientID består af karaktererne  & Kør use case 2  og observer navngivningen af logfil & \\ \hline
-					3.3.1a& ID’et er fem karakterer lang: ***** svarende til 60 millioner kombinationer & \multirow{2}{0.2\linewidth}{A-Z og tallene 0-9} & \multirow{2}{0.2\linewidth}{Visuel inspektion af logfilen}  & \multirow{2}{0.2\linewidth}{} \\ \cline{1-2}
+					3.3.1a& ID’et er fem karakterer langt: ***** svarende til 60 millioner kombinationer & \multirow{2}{0.2\linewidth}{A-Z og tallene 0-9} & \multirow{2}{0.2\linewidth}{Visuel inspektion af logfilen}  & \multirow{2}{0.2\linewidth}{} \\ \cline{1-2}
 					3.3.1b& ID’et er ikke case sensitiv  & &  & \\ \hline
 				\end{longtable}
 			
 			\section{Hukommelse}
 				\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
 					\hline
+					\rowcolor{usDef}
 					Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
 					3.4.1& Information lagres på micro SDSC af typen: & \multirow{3}{\linewidth}{SD kortet er af typen micro SDSC, class 4, fat32 og minimum 128mb} & \multirow{3}{\linewidth}{Tag SD kortet ud og se specifikationer}  & \multirow{3}{\linewidth}{}  \\ \cline{1-2}
 					3.4.1a& Class 4 & &  & \\ \cline{1-2}
@@ -43,6 +46,7 @@
 			\section{Forsyning}
 				\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
 					\hline
+					\rowcolor{usDef}
 					Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
 					3.5.1& Konditione-ringsap-paratet skal forsynes med 12V, min 2A & &  & \\ \hline
 					3.5.1a& DC-connector, ydre Ø=5,5mm, indre Ø = 2,1  & Connectoren har målene: ydre Ø=5,5mm, indre Ø = 2,1 mm & Mål med skydelære  & \\ \hline
@@ -52,9 +56,21 @@
 			\section{Fysiske krav}
 				\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
 					\hline
+					\rowcolor{usDef}
 					Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
 					3.6.1& Knapper & \multirow{4}{\linewidth}{Knapperne er tilstede på apparatet}  & \multirow{4}{\linewidth}{Visuel inspektion}  & \multirow{4}{\linewidth}{}  \\ \cline{1-2}
 					3.6.1a& [Start/Stop] & &  & \\ \cline{1-2}
 					3.6.1b& [Mål blodtryk] & &  & \\ \cline{1-2}
 					3.6.2& Hvert apparat udstyres med et unik serie nummer, kaldet apparat ID & &  & \\ \hline
+				\end{longtable}
+				
+				\pagebreak
+				\section{Setup}
+				\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
+					\hline
+					\rowcolor{usDef}
+					Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
+					3.7.1& Der kan ændres i tid pr cyklus og antallet af cyklusser & \multirow{3}{\linewidth}{\fxnote{Tilføj test}}  & \multirow{3}{\linewidth}{}  & \multirow{3}{\linewidth}{}  \\ \cline{1-2}
+					3.7.1a& Tid pr cykles kan sættes mellem 3 til 8 minutter og skifter med intervaller af 30 sekunder & &  & \\ \cline{1-2}
+					3.7.1b& Antal cyklusser kan sættes mellem 1-10 og skifter med intervaller af 1& &  & \\ \hline
 				\end{longtable}

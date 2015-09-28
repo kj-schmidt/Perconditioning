@@ -1,26 +1,28 @@
-	\section{Use case 1}
+	\section{Use case 1 - Konditionering}
 			\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
 			\hline
+			\rowcolor{usDef}
 			Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
 		    2.1.1& Medicinsk personale placerer manchetten på patienten & Manchetten sidder tæt om armen, så trykket fordeles ligeligt over hele området. Hele velcro hæfte siden skal fæstnes i filtsiden. & Manchetten trækkes løst over armen og fastspændes så den er placeret tætsiddende omkring overarmen med 2-3 cms afstand fra albuehulen  &   \\\hline
-			2.1.2& Knappen [Start/Stop] trykkes & \multirow{3}{\linewidth}{Der vises et patient ID på skærmen} &\multirow{3}{\linewidth}{Knappen [Start/Stop] trykkes}  & \multirow{3}{\linewidth}{}  \\ \cline{1-2}
+			2.1.2& Medicinsk personale trykker på knappen [Start/Stop] & \multirow{3}{\linewidth}{Der vises et patient ID på skærmen} &\multirow{3}{\linewidth}{Knappen [Start/Stop] trykkes og displayet observeres}  & \multirow{3}{\linewidth}{}  \\ \cline{1-2}
 			2.1.3& Et nyt patient ID genereres & &  &  \\ \cline{1-2}
 			2.1.4& Patient ID’et vises på skærmen & &  &   \\ \hline
 			2.1.5& Blodtrykket måles via use case 3 & \multicolumn{3}{l|}{Se krav nr. 2.3.1 til 2.3.5} \\ \hline
-			2.1.6& Manchetten fyldes med luft til et tryk på 25 mmHG over systolisk tryk (minimum 180 mmHg) & Manchet-trykket er 25 mmHg over det systoliske tryk & Aflæs tryk på analogt barometer. Systolisk tryk - manchettryk = 25 mmHg &  \\ \hline
-			2.1.7& Tidsstempel gemmes når trykket er opnået & Tidsstemplet er gemt i loggen & Tjekke tidsstempling på SD kortet &   \\ \hline
-		
-			2.1.8& Trykket opretholdes i 5 minutter (Okklusion) og resterende tid vises på displayet & Manchet trykket holdes på mindst systolisk tryk + 10 mmHg i 5 min & Observere analogt barometer i 5 min &  \\ \hline
-			2.1.9& Blodtrykket måles via use case 3 fra punkt 2. & \multicolumn{3}{l|}{Se krav nr. 2.3.2 til 2.3.5}  \\ \hline
-			2.1.10& Deflaterer cuffen helt og forbliver i dette stadie i 5 min (Reperfusion). Ved deflation start gemmes tidsstempel. Tid til næste okklusion vises på displayet & Manchet trykket er < 10 mmHg i 5 min. kontinuerlig tids nedtælling vises på display. Tidsstempel for deflation start kan aflæses på fil.  & Observér analogt barometer 5 min. Tjekke tidsstempling på SD kortet &  \\ \hline
-			2.1.11& Gentag punkt 7-11 (en cyklus) fire gange. Det nuværende cyklus nummer vises i displayet & Det specificerede antal cyklusser gennemfører & Observér at det totale antal cyklusser er tilsvarende antallet vist på displayet (tallet til højre for cyklus nr.) &  \\ \hline 
+			2.1.6& Blodtrykket vises på displayet og værdien gemmes i hukommelsen & Blodtrykket bliver vist på skærmen & Observér displayey & \\ \hline
+			2.1.7& Manchetten fyldes med luft til et tryk på 25 mmHG over systolisk tryk (minimum 180 mmHg) & Manchet-trykket er 25 mmHg over det systoliske tryk & Aflæs trykket på analogt barometer. Manchettryk - systolisk tryk = 25 mmHg &  \\ \hline
+			2.1.8& Tidsstempel gemmes når trykket er opnået & Tidsstemplet er gemt i loggen & Kontroller tidsstempling på SD kortet &   \\ \hline
+			2.1.9& Trykket opretholdes i 5 minutter (Okklusion) og resterende tid vises på displayet & Manchet trykket skal minimum svare til systolisk tryk + 10 mmHg i 5 min & Observere analogt barometer i 5 min &  \\ \hline
+			2.1.10& Blodtrykket måles via use case 3 fra punkt 2. & \multicolumn{3}{l|}{Se krav nr. 2.3.2 til 2.3.5}  \\ \hline
+			2.1.11& Deflaterer manchetten helt og forbliver i dette stadie i 5 min (Reperfusion). Ved deflation start gemmes tidsstempel. Tid til næste okklusion vises på displayet & Manchet trykket er \textgreater 10 mmHg i 5 min. Kontinuerlig tids nedtælling vises på display. Tidsstemplet for deflation start kan aflæses på fil.  & Observér analogt barometer 5 min. Kontroller tidsstempling på SD kortet &  \\ \hline
+			2.1.12& Gentag punkt 7-11 (en \textit{cyklus}) fire gange. Det nuværende cyklus nummer vises i displayet & Det specificerede antal cyklusser gennemføres & Observér at det totale antal cyklusser er tilsvarende antallet vist på displayet (tallet til højre for cyklus nr.) &  \\ \hline 
 		\end{longtable}
 
-		\section*{Extension}
+		\section*{Undtagelser}
 			\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
 				\hline
+									\rowcolor{usDef}
 				Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
 				2.1.ex1 & Et patient ID eksisterer allerede på apparatet. Der genereres ikke noget nyt patient ID & Allerede eksisterende logfil vedføjes data. Ingen ny logfil generes og det gamle ID vises på skærmen & Kør use case 1 to gange og observér antallet af logfiler, samt ID på display er det samme hver gang &  \\
 				\hline
-				2.1.ex2 & Blodtrykket kunne ikke måles. Gentag use case 3 hvis extension 2 ikke lige er eksekveret. Ellers skrives i display “FEJL kunne ikke måle blodtryk” og use casen stopper  & Ved gentagne fejl ved blodtryksmåling skrives en fejlmeddelelse i displayet & Montér manchet på cylinder og start use case 1. observere antal oppustning. Efter 2 opfyldninger af manchetten observeres displayet & \\ \hline
+				2.1.ex2 & Blodtrykket kunne ikke måles. Gentag use case 3 hvis undtagelse 2 ikke er blevet eksekveret inden for 2 minutter. Ellers skrives i display “FEJL kunne ikke måle blodtryk” og use casen stopper  & Ved gentagne fejl ved blodtryksmåling skrives en fejlmeddelelse i displayet & Montér manchet på cylinder og start use case 1. observere antal oppustning. Efter 2 opfyldninger af manchetten observeres displayet & \\ \hline
 			\end{longtable}

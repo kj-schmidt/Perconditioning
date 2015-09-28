@@ -1,18 +1,20 @@
 \section{Use case 7}
 						\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
 							\hline
+							\rowcolor{usDef}
 							Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
-							2.7.1 & Brugeren trykker på knappen [Start/Stop] & \multirow{2}{\linewidth}{Use casen afbryges og manchetten tømmes for luft} & \multirow{2}{\linewidth}{Start use case 1, 3 eller 6 og på et vilkårligt tidspunkt tryk på knappen [Start/Stop]} & \multirow{2}{\linewidth}{} \\ \cline{1-2}
-							2.7.2 & Den igangværende use case afbrydes & & & \\ \hline
-							2.7.3 & Manchetten tømmes for luft og tidsstempel med “Gennemført afklemning = false” gemmes i hukommelsen & Manchet trykket er < 10 mmHg efter 1 min. Tidsstempel for  “Gennemført afklemning = false” gemmes i fil & Observere analogt barometer 1 min.
-							Tjek tidsstempling på SD kortet & \\ \hline
+							2.7.1 & Brugeren trykker på knappen [Start/Stop] & \multirow{2}{\linewidth}{Use casen afbrydes og manchetten tømmes for luft} & \multirow{2}{\linewidth}{Start use case 1, 3 eller 6 og på et vilkårligt tidspunkt tryk på knappen [Start/Stop]} & \multirow{2}{\linewidth}{} \\ \cline{1-2}
+							2.7.2 & Den igang-værende use case afbrydes & & & \\ \hline
+							2.7.3 & Manchetten tømmes for luft og tidsstempel med “\textit{Gennemført afklemning} = false” gemmes i hukommelsen & Manchet trykket er \textless 10 mmHg efter 1 min. Tidsstempel for  “\textit{Gennemført afklemning} = false” gemmes i fil & Observere analogt barometer 1 min.
+							Kontroller tidsstempling på SD kortet & \\ \hline
 						\end{longtable}
 						
 						\pagebreak
 					
-					\section*{Extension}
+					\section*{Undtagelser}
 						\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
 							\hline
+							\rowcolor{usDef}
 							Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
 							2.7.ex1 & Use case 6 er aktiv: ingen data gemmes i hukommelsen & Der gemmes ingen data & Kør use case 6 efterfulgt af use case 7 og observér logfilen & \\ \hline
 						\end{longtable}
