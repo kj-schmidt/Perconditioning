@@ -2,13 +2,59 @@
 
 \subsection{Hardware}
 Diagrammet viser interaktioner mellem systemets hardware dele \\
-\includegraphics[width=\textwidth]{pdfs/InternalBlockdiagram(Hardware).png}
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{pdfs/InternalBlockdiagram(Hardware).png}
+	\caption{Internal block diagram over flow for hardwaren i \textit{Konditioneringsapparatet}}
+\end{figure}
 (Skal rettes til PDF)
 
 \subsubsection{Beskrivelse af hardware}
 INDSÆT reference til kapitel 2
 
 \subsubsection{Arduino Mega og Motor Shield}
-\includegraphics[width=\textwidth]{pdfs/MegaPlusShield-crop.pdf}
+Til udvikling af prototypen bruges en arduino Mega og et 12V motor shield. Se oversigt tegning nedenfor \\
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{pdfs/MegaPlusShield-crop.pdf}
+	\caption{Arduino Mega med 12V motor shield monteret}
+\end{figure}
+
 
 \subsection{Software}
+\textit{Konditioneringsapparet} består kun af ét software system og det kræver ikke flere software systemer for at apparatet fungere. Dette giver derfor et simpelt struktur for softwaren 
+
+\subsubsection{Class diagram}
+Diagrammer præsentere software klasser med funktioner og de er opdelt i hver sit namespace. Denne struktur er valgt for at opnå høj samhørighed og lav kobling.
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{pdfs/ClassDiagram.png}
+	\caption{Class diagram for softwaren i \textit{Konditioneringsapparatet}}
+\end{figure}
+
+
+\subsubsection{Sprog}
+\begin{itemize}
+	\item \textbf{C++} - brugt til at skrive source code til arduino
+	\item \textbf{SysML} - brugt til udvikling af system diagrammer
+\end{itemize}
+
+\subsubsection{3-lags modellen}
+Softwaren er struktureret efter 3-lags princippet. Dette design er valgt for at give klare grænseflader og ansvarsfordeling. Det tre lags er præsentationslaget, logik laget og datalaget. Lagdelingen giver stor fleksibilitet fordi det er nemmere at vedligeholde og genbruge kode fra et bestemt lag uden at den influere med andre lag. De tre lag er repræsenteret som hvert sit namespace i software arkitekturen
+
+\subsubsection{Udviklingsværktøjer}
+
+\textbf{Eclipse} \\
+IDE til udvikling af C og C++. Dette miljø bruges til at skrive koden til arduinoen og dermed styringen af prototypen. Der er valgt versionen: “Juno Service Release”. Denne version understøtter integration af Arduino’ eget IDE, samtidig med at man kan gøre brug af Eclipses programmerings funktioner.  
+
+\textbf{Arduino IDE} \\
+Arduinos eget udviklingsmiljø bruges som et plugin via Eclipse. Den brugte version er 1.5.5. Grundet manglende funktion er det blevet fravalgt at bruge Arduino IDE alene. 
+
+\textbf{Git, GitHub Desktop og SmartGit} \\
+Til versionsstyring af til projekt dokumentation og source code. Bachelor gruppen har købt et privat repository grundede den igangværende patentsag. Som bruger interface for git er blevet brugt henholdsvis GitHub Desktop og SmartGit
+
+\textbf{Eksterne biblioteker} \\
+Arduino biblioteker 
+\begin{itemize}
+\item EEPROM - muliggøre operationer på arduinoen indbyggede hukommelse
+\item SD - muliggøre operationer med SD kort
+\item TFT - funktioner til at bruge tft displays til arduino 
+\end{itemize}
+
