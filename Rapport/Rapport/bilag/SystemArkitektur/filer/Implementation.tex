@@ -11,8 +11,8 @@ Diagrammet viser interaktioner mellem systemets hardware dele \\
 \subsubsection{Beskrivelse af hardware}
 Se beskrivelser i kapitel \ref{title:systemPart}
 
-\subsubsection{Arduino Mega og Motor Shield}
-Til udvikling af prototypen bruges en arduino Mega og et 12V motor shield. Se oversigt tegning nedenfor \\
+\subsubsection{Arduino Mega 2560 og Motor Shield}
+Til udvikling af prototypen bruges en Arduino Mega med en AtMega2560 processor og et 12V motor shield. Se oversigt tegning nedenfor \\
 \begin{figure}[H]
 	\includegraphics[width=\textwidth]{pdfs/MegaPlusShield-crop.pdf}
 	\caption{Arduino Mega med 12V motor shield monteret}
@@ -22,8 +22,8 @@ Til udvikling af prototypen bruges en arduino Mega og et 12V motor shield. Se ov
 \subsection{Software}
 \textit{Konditioneringsapparet} består kun af ét software system og det kræver ikke flere software systemer for at apparatet fungere. Dette giver derfor et simpelt struktur for softwaren 
 
-\subsubsection{Class diagram}
-Diagrammer præsentere software klasser med funktioner og de er opdelt i hver sit namespace. Denne struktur er valgt for at opnå høj samhørighed og lav kobling.
+\subsubsection{Klasse diagram}
+Diagrammet præsentere software klasser med funktioner og de er opdelt i hver sit namespace. Denne struktur er valgt for at opnå høj samhørighed og lav kobling.
 \begin{figure}[H]
 	\includegraphics[width=\textwidth]{pdfs/ClassDiagram.png}
 	\caption{Class diagram for softwaren i \textit{Konditioneringsapparatet}}
@@ -37,7 +37,7 @@ Diagrammer præsentere software klasser med funktioner og de er opdelt i hver si
 \end{itemize}
 
 \subsubsection{3-lags modellen}
-Softwaren er struktureret efter 3-lags princippet. Dette design er valgt for at give klare grænseflader og ansvarsfordeling. Det tre lags er præsentationslaget, logik laget og datalaget. Lagdelingen giver stor fleksibilitet fordi det er nemmere at vedligeholde og genbruge kode fra et bestemt lag uden at den influere med andre lag. De tre lag er repræsenteret som hvert sit namespace i software arkitekturen
+Softwaren er struktureret efter 3-lags princippet. Dette design er valgt for at give klare grænseflader og ansvarsfordeling. De tre lags er præsentationslaget, logik laget og datalaget. Lagdelingen giver stor fleksibilitet fordi det er nemmere at vedligeholde og genbruge kode fra et bestemt lag uden at den influere med andre lag. De tre lag er repræsenteret som hvert sit namespace i software arkitekturen
 
 \subsubsection{Udviklingsværktøjer}
 
