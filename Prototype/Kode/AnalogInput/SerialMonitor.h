@@ -7,9 +7,12 @@
 #ifndef _SerialMonitor_H_
 #define _SerialMonitor_H_
 #include "Arduino.h"
-#include "Library.cpp"
+//#include "Library.h"
+
+
 //add your includes for the project SerialMonitor here
 
+//class LinearNode; // Forward Declaration
 
 //end of add your includes here
 #ifdef __cplusplus
@@ -18,10 +21,12 @@ extern "C" {
 void loop();
 void setup();
 void sample_Data();
-void plot(int data1);//, int data2, int data3, int data4, int data5, int data6);
 
 #ifdef __cplusplus
 } // extern "C"
+
+
+
 #endif
 
 //add your function definitions for the project SerialMonitor here

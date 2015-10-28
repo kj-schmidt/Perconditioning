@@ -1,7 +1,8 @@
 // Do not remove the include below
 #include "SerialMonitor.h"
-#include <EEPROM.h>
-#include "Library.cpp"
+//#include "Library.h"
+//#include <EEPROM.h>
+#include "Library.h"
 
 //Constant variables
 const int AnalogIn = 0;     // the number of the pushbutton pin
@@ -12,7 +13,8 @@ unsigned short i;
 unsigned short time[Arraysize];
 unsigned short volt[Arraysize];
 
-
+// instances
+Library lib;
 
 //The setup function is called once at startup of the sketch
 void setup()
@@ -27,8 +29,8 @@ void setup()
 // Add your initialization code here
 //	  pinMode(AnalogIn, INPUT);
 
-	  Serial.begin(9600);
-	  //Serial.println("Hello world!");
+	Serial.begin(9600);
+	  Serial.println("Hello world!");
 }
 
 // The loop function is called in an endless loop
@@ -45,12 +47,12 @@ void loop()
 	  delay(1);
 	  }
 
-	  for (i=0;i<Arraysize;i++) {
 	    //Serial.print(time[i]);
 	    //Serial.print(" , ");
 	    //Serial.println(volt[i]);
-	    //plot(volt[i]);
-	  }
+//	  library.plot(volt[i]);
+	  lib.plot(volt[i]);
+	  Serial.println(i);
 
 	  delay(500);
 
@@ -64,7 +66,6 @@ void sample_Data(){
 		  delay(5);
 	  }
 }
-
 
 
 
