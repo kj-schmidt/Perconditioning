@@ -126,3 +126,5 @@ sympy-plots-for-*.tex/
 *.sav
 Kravspecifikation.pdf
 Accepttest.pdf
+
+##Files to ignore from c++ projects
