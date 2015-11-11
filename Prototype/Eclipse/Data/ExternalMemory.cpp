@@ -31,7 +31,7 @@ String ExternalMemory::generateRandomNumber(){
 	randomSeed(analogRead(A5)); //Ensure that the random number is not generated in the same order
 	long randNumber = random(100000, 999999); //Generates a 6 digit random number
 	String randNumberHEX = String(String(randNumber, HEX) + ".csv"); //Convert number to HEX and adds the file type
-	Serial.print("2. The generated id: "); Serial.println(randNumberHEX);
+	//Serial.print("2. The generated id: "); Serial.println(randNumberHEX);
 	return randNumberHEX; //Pass the 5 digit random ID
 }
 
@@ -66,20 +66,28 @@ void ExternalMemory::writeToSDCard(String textToSD){
 	  char bufTextRecieved[textToSD.length()+1];
 
 	  if(!nameReadFromSD.equalsIgnoreCase("empty")){ //Check if there is a .csv file on the SD card
-		nameReadFromSD.toCharArray(bufName, nameReadFromSD.length()+1);
+		nameReadFromSD.toCharArray(bufName, nameReadFromSD.length()+1); //Read the name of the file and convert to char array
 	    file = SD.open(bufName, FILE_WRITE);
+	    //Serial.print("Read from SD: "); Serial.println(file.readStringUntil('\n'));
 	    textToSD.toCharArray(bufTextRecieved, textToSD.length()+1);
-	    file.write(bufTextRecieved);
+	    file.println(textToSD);
 	    file.close();
-	    Serial.println("2. No new file was created");
+	    //Serial.println("2. No new file was created");
 	  } else{ //Create new file with the random ID
 		createFileTemplate(generateRandomNumber());
-	    Serial.print("3. A new file was created with name: "); Serial.println(generateRandomNumber());
+	    Serial.print("A new file was created with name: "); Serial.println(generateRandomNumber());
 	  }
 }
 
 void ExternalMemory::readFromSDCard(){
-
+	File file;
+	String filename = "62EA6.CSV";
+	char buf[filename.length() + 1];
+	filename.toCharArray(buf, filename.length()+1);
+	file = SD.open(buf, FILE_READ);
+	Serial.println("File contains: ");
+	Serial.println(file.readString());
+	file.close();
 }
 
 void ExternalMemory::createFileTemplate(String filename){
@@ -88,7 +96,7 @@ void ExternalMemory::createFileTemplate(String filename){
 	filename.toCharArray(buf, filename.length()+1);
 	file = SD.open(buf, FILE_WRITE);
 	Serial.print("File name is set to: "); Serial.println(buf);
-	file.write("Tidsstempel,\nAfklemningstryk,\nGennemf\x9Brt afklemning,\nSystolisk blodtryk,\nMiddeltryk(MAP),\nDiastolisk blodtryk,\n");
+	file.println("Tidsstempel,Afklemningstryk,Gennemf\x9Brt afklemning,Systolisk blodtryk,Middeltryk(MAP),Diastolisk blodtryk,Afklemning afbrudt");
 	file.close();
 }
 

@@ -25,8 +25,8 @@ public:
 	void countdown(unsigned short totalTime);
 	String displayTimer();
 	bool getTimerStatus();
-	void setTimerStatus();
-	void StopTimer();
+	void setTimerStatus(bool val);
+	String timeToString();
 };
 
 } /* namespace Logic */

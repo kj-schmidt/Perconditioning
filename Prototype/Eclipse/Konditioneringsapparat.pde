@@ -22,6 +22,7 @@ GUI::Buttons btt;
 GUI::Display disp;
 Logic::Timer timer;
 Data::ExternalMemory ext;
+Logic::MemoryParser mem;
 //The setup function is called once at startup of the sketch
 
 void intCon_ISR(){
@@ -44,8 +45,9 @@ void intSel_ISR(){
 void setup()
 {
 	Serial.begin(9600);
-	/*ext.initializeSDCard();
-	ext.writeToSDCard("kl 15:20");*/
+	ext.initializeSDCard();
+	mem.writeToSDCard(timer.timeToString(), false, 130, 180, 140, 120, false);
+	ext.readFromSDCard();
 	//*****
 	disp.initDisplay();
 

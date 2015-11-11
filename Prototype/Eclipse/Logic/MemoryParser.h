@@ -25,7 +25,7 @@ public:
 	unsigned short getTimePerCycle();
 	void setTimePerCycle(unsigned short val);
 
-	void writeToSDCard(unsigned short lineNo, String val);
+	void writeToSDCard(String timeStamp, boolean occlusionComplete, unsigned short occlusionPressure, unsigned short sys, unsigned short map, unsigned short dia, boolean interruptOcclusion);
 };
 
 } /* namespace Logic */

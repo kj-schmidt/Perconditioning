@@ -49,10 +49,10 @@ void MemoryParser::setTimePerCycle(unsigned short val){
 			intMem.writeToEEPROM(205, val);
 }
 
-void MemoryParser::writeToSDCard(unsigned short lineNo, String val){
-	//Add lineNO
-	unsigned short r = lineNo;
-	extMem.writeToSDCard(val);
+
+void MemoryParser::writeToSDCard(String timeStamp, boolean occlusionComplete, unsigned short occlusionPressure, unsigned short sys, unsigned short map, unsigned short dia, boolean interruptOcclusion){
+	String totalString = String(timeStamp + "," + String(occlusionComplete) + "," + String(occlusionPressure, DEC) + "," + String(sys, DEC) + "," + String(map, DEC) + "," + String(dia, DEC) + "," + String(interruptOcclusion));
+	extMem.writeToSDCard(totalString);
 }
 
 } /* namespace Logic */

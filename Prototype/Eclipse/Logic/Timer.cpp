@@ -85,13 +85,34 @@ bool Timer::getTimerStatus(){
 	return timerHasEnded;
 }
 
-void Timer::setTimerStatus(){
-	timerHasEnded = false;
+void Timer::setTimerStatus(bool val){
+	timerHasEnded = val;
 }
 
-void Timer::StopTimer()
-{
-	timerHasEnded = true;
+String Timer::timeToString(){
+	Time timeFormat = getTimestamp();
+	String hourString, minString, secString;
+
+	if(0 <= timeFormat.hr && timeFormat.hr < 10)
+		hourString = String("0" + String(timeFormat.hr, DEC));
+	else
+		hourString = String(timeFormat.hr, DEC);
+
+	if(0 <= timeFormat.min && timeFormat.min < 10)
+		minString = String("0" + String(timeFormat.min, DEC));
+	else
+		minString = String(timeFormat.min, DEC);
+
+	if(0 <= timeFormat.sec && timeFormat.sec < 10)
+		secString = String("0" + String(timeFormat.sec, DEC));
+	else
+		secString = String(timeFormat.sec, DEC);
+
+	String dayString = String(timeFormat.date, DEC);
+	String monthString = String(timeFormat.mon, DEC);
+	String yearString = String(timeFormat.yr, DEC);
+	String timestampString = String(hourString + ":" + minString + ":" + secString + " " + dayString + "-" + monthString + "-" + yearString);
+	return timestampString;
 }
 
 } /* namespace Logic */

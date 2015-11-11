@@ -31,8 +31,6 @@ public:
 	void updateConditioning(volatile bool *buttonPressed);
 	void updateOcclusion(volatile bool *buttonPressed);
 	void updateSetup(volatile unsigned short *state);
-	void displayTime(unsigned short minutes, unsigned short seconds);
-
 	unsigned short getNoCycleLeft();
 	void setNoCycleLeft(unsigned short val);
 

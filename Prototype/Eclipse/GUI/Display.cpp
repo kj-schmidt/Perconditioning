@@ -108,13 +108,6 @@ void Display::initConditioning(){
 	TFTscreen.println("Resterende tid: ");
 }
 void Display::initOcclusion(){
-	//OLD TIMER
-	/*timer.SetTimer(0,0,0); // 0 minutes
-	//StartTimer();
-	//Setup pin to read from sensor
-	pinMode(sensorPin, INPUT);*/
-
-
 	TFTscreen.setTextSize(1);
 	TFTscreen.setCursor(0, 60);
 	TFTscreen.println("Tryk: ");
@@ -165,30 +158,25 @@ void Display::updateConditioning(volatile bool *buttonPressed){
 		} else{ //If the timer has ended
 			clearAreaDisp(280, 0, 10, 20);
 			if(getNoCycleLeft() == 0){ //If all cycles have been run
-				timer.StopTimer();
+				timer.setTimerStatus(true);
 			}
 			else{ //If more cycles are left
 				timer.setTimestamp();
-				timer.setTimerStatus(); //Reset the timer
+				timer.setTimerStatus(false); //Reset the timer
 				setNoCycleLeft(getNoCycleLeft() - 1); //** IS TO READ OF FROM THE SD CARD **
 			}
 		}
-		Serial.println("In the while loop");
 	}
 	if(!*buttonPressed){
-		Serial.println("I entered theNOTbuttonPressed");
 		updateTimeLeft(timer.displayTimer());
 		clearAreaDisp(70, 55,220, 150); //Clear the sensor value
 	}
-	updateNoOfCycles(noOfCyclesLeft);
-	//** FIX SO THIS IS DONE IN THE BUTTON CLASS OR IN THE MAIN.PDE
-	//To avoid that the user should press to times on start/stop button when conditioning cycle has stopped
+	updateNoOfCycles(noOfCyclesLeft); //Reset noOfCycleLeft
+
 	if(memory.getNoOfCycles() == 0)
 		*buttonPressed = false;
 }
 void Display::updateOcclusion(volatile bool *buttonPressed){
-
-
 	while(*buttonPressed){
 		timer.stopWatch();
 		updateStopWatchTime(timer.displayTimer());
@@ -196,23 +184,17 @@ void Display::updateOcclusion(volatile bool *buttonPressed){
 	}
 	//This is only executed after the while loop and if the state of "startButtonPressed" is changed
 	if(!*buttonPressed)
-		timer.StopTimer();
+		timer.setTimerStatus(true);
 	clearAreaDisp(70, 55,220, 150); //Clear the sensor value
 
 }
 void Display::updateSetup(volatile unsigned short *state){
 	switch (*state){
 		case 0:
-			Serial.println("Case 0");
-			noInterrupts();
 			moveSqaure(165, 55,5,55,140,60);
-			interrupts();
 			break;
 		case 1:
-			Serial.println("Case 1");
-			noInterrupts();
 			moveSqaure(5,55,165,55,140,60);
-			interrupts();
 			break;
 		case 2:
 			noInterrupts();

@@ -116,10 +116,13 @@ bool Buttons::startStopConditiong(volatile bool startButtonPressed){
 }
 bool Buttons::btPressed(volatile bool btPressed){
 	//Only handles interrupt if conditioning is not ongoing
-	if(!startButtonPressed){
+	btPressed = !btPressed;
+	if(!btPressed){
 		//initialyze blood pressure reading
 	}
-	return startButtonPressed;
+
+
+	return btPressed;
 }
 
 } /* namespace GUI */
