@@ -20,8 +20,8 @@ public:
 	virtual ~ExternalMemory();
 	void initializeSDCard();
 	void writeToSDCard(String textToSD);
-	void readFromSDCard();
-	String generateRandomNumber(); //** IS TO BE MOVED TO LOGIC LAYER**
+	void readFromSDCard(); //** SKAL SLETTES **
+	String generateRandomNumber();
 	String checkFilesSD(File dir, String val);
 	void createFileTemplate(String filename);
 };

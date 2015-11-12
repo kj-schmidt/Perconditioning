@@ -9,9 +9,9 @@
 
 namespace GUI {
 //Pins for the display
-#define cs 	10
-#define dc 	9
-#define reset	8
+#define cs 	34
+#define dc 	32
+#define reset	30
 
 //** IS TO READ FROM THE DATA NAMESPACE **
 unsigned short sensorPin = A0;

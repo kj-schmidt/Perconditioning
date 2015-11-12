@@ -6,16 +6,17 @@
 #include "Adafruit_GFX.h"
 #include "Adafruit_ILI9340.h"
 
-#define cs 	10
-#define dc 	9
-#define reset	8
+#define cs 	34
+#define dc 	32
+#define reset	30
 
-int interruptPin0 = 2;
-int interruptPin1 = 3;
+int interruptPin0 = 18;
+int interruptPin1 = 20;
 
 volatile unsigned short state;
 volatile bool startStopPressed = false;
 volatile bool btPressed = false;
+
 unsigned short programToRun = 0;
 
 GUI::Buttons btt;
@@ -26,28 +27,36 @@ Logic::MemoryParser mem;
 //The setup function is called once at startup of the sketch
 
 void intCon_ISR(){
-	startStopPressed = btt.startStopConditiong(startStopPressed);
+	delay(100);
+	if(digitalRead(interruptPin0))
+		startStopPressed = btt.startStopConditiong(startStopPressed);
 }
 void intBT_ISR(){
-	startStopPressed = btt.btPressed(btPressed);
+	delay(100);
+	if(digitalRead(interruptPin1))
+		startStopPressed = btt.btPressed(btPressed);
 }
 void intOcc_ISR(){
 	startStopPressed = btt.startStopOcclusion(startStopPressed);
 }
 void intCha_ISR(){
-	state = btt.changer(state);
+	delay(100);
+	if(digitalRead(interruptPin0))
+		state = btt.changer(state);
 }
 void intSel_ISR(){
-	state = btt.selector(state);
+	delay(100);
+	if(digitalRead(interruptPin1))
+		state = btt.selector(state);
 }
 
 
 void setup()
 {
 	Serial.begin(9600);
-	ext.initializeSDCard();
+	/*ext.initializeSDCard();
 	mem.writeToSDCard(timer.timeToString(), false, 130, 180, 140, 120, false);
-	ext.readFromSDCard();
+	ext.readFromSDCard();*/
 	//*****
 	disp.initDisplay();
 

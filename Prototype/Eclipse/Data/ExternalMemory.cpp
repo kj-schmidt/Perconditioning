@@ -9,6 +9,8 @@
 
 namespace Data {
 
+#define cs_pin 4
+
 File fileToRead;
 long patientID;
 ExternalMemory::ExternalMemory() {
@@ -21,7 +23,7 @@ ExternalMemory::~ExternalMemory() {
 }
 
 void ExternalMemory::initializeSDCard(){
-	SD.begin(4); //cs is connected to pin 4
+	SD.begin(cs_pin); //cs is connected to pin 4
 	/*String filename = String(String(patientID, DEC) + ".txt"); //generates random filename
 	SD.open(filename, FILE_WRITE);*/
 }
@@ -61,15 +63,12 @@ void ExternalMemory::writeToSDCard(String textToSD){
 	  File file;
 	  File root = SD.open("/"); //Tell the method where to look on the SD card
 	  String nameReadFromSD = checkFilesSD(root, ".csv");
-	  String randomNumb = generateRandomNumber();
 	  char bufName[nameReadFromSD.length()+1]; //Buffer to hold converted strings
-	  char bufTextRecieved[textToSD.length()+1];
 
 	  if(!nameReadFromSD.equalsIgnoreCase("empty")){ //Check if there is a .csv file on the SD card
 		nameReadFromSD.toCharArray(bufName, nameReadFromSD.length()+1); //Read the name of the file and convert to char array
 	    file = SD.open(bufName, FILE_WRITE);
 	    //Serial.print("Read from SD: "); Serial.println(file.readStringUntil('\n'));
-	    textToSD.toCharArray(bufTextRecieved, textToSD.length()+1);
 	    file.println(textToSD);
 	    file.close();
 	    //Serial.println("2. No new file was created");
@@ -79,6 +78,7 @@ void ExternalMemory::writeToSDCard(String textToSD){
 	  }
 }
 
+//** SKAL SLETTES **
 void ExternalMemory::readFromSDCard(){
 	File file;
 	String filename = "62EA6.CSV";
