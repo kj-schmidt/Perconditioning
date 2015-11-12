@@ -1,0 +1,29 @@
+	\chapter{Indledning}
+	Implementeringsdokument giver et overblik over hvordan både hardware og software er blevet implementeret i udviklingen af prototypen. Dokumentet indeholder beskrivelse af strukturen af software klasser og deres funktionalitet. For hardware delen er der beskrevet de forskellige hardware blokke og hvordan de er blevet implementeret for at kunne leve op til kravene stille i kravspecifikationen. 
+	
+	\section{Formål}
+	Dette dokument har til formål at give læseren et indblik i \textit{Konditioneringsapparatets} funktionalitet og skabe fuld forståelse for alle systemets under dele. Som en forlængelse af system arkitekturen, som beskrev for dette system skulle designes, beskriver dette dokument det færdig design og hvordan det har opnået sin funktionalitet
+	
+	\section{Projektreferencer}
+	\begin{itemize}
+		\item Reference til kravspecifikation
+		\item Reference til accepttest
+		\item Reference til system arkitekturen
+		\item Reference til software
+	\end{itemize}
+	
+	\section{Læsevejledning og dokumentstruktur}
+	Da dette dokument er en del af udviklingsdokumentation, er det vigtigt at læse i sammenhæng med kravspecifikationen og systemarkitekturen. Undervejs i dokumentet vil der være referencer til kravspecifikationen, disse reference vil fortælle hvilke(n) krav den implementerede funktionalitet opfylder. Dette dokument skal også ses som en forklaring på software implementeringen, og derfor passer navne og overskrifter i software beskrivelse overens med navne på metoder og klasser i softwaren. 
+
+	\section{Definitioner og forkortelser}
+	\begin{longtable}{ |p{0.5\textwidth} |p{0.5\textwidth}| } 
+		\hline
+		\textbf{Udtryk / Forkortelse} &  \textbf{Forklaring} \\
+		\hline
+		Modeswitch & Knap til at styre hvilket program Konditioneringsapparatet skal køre \\
+		\hline
+		Tid pr cyklus & Variable som indeholder hvor mange sekunder et konditioneringscyklus skal vare \\
+		\hline
+		Antal cyklusser & Variable som indeholder hvor mange cyklusser et konditioneringsforløb skal vare \\
+		\hline
+	\end{longtable}
