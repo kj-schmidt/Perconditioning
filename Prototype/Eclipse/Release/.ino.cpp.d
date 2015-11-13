@@ -26,7 +26,7 @@
   /Applications/Arduino1.5.5.app/Contents/Resources/Java/hardware/arduino/avr/libraries/SPI/SPI.h \
   ../GUI/../Logic/../Data/InternalMemory.h \
   /Applications/Arduino1.5.5.app/Contents/Resources/Java/hardware/arduino/avr/libraries/EEPROM/EEPROM.h \
-  ../GUI/Display.h ../Data/ExternalMemory.h ../Konditioneringsapparat.pde
+  ../GUI/Display.h ../Konditioneringsapparat.pde
 
 /Applications/Arduino1.5.5.app/Contents/Resources/Java/hardware/arduino/avr/cores/arduino/Arduino.h:
 
@@ -87,7 +87,5 @@
 /Applications/Arduino1.5.5.app/Contents/Resources/Java/hardware/arduino/avr/libraries/EEPROM/EEPROM.h:
 
 ../GUI/Display.h:
-
-../Data/ExternalMemory.h:
 
 ../Konditioneringsapparat.pde:

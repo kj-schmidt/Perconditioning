@@ -2,9 +2,6 @@
 #include "Arduino.h"
 #include "GUI/Buttons.h"
 #include "GUI/Display.h"
-#include "Data/ExternalMemory.h"
-#include "Adafruit_GFX.h"
-#include "Adafruit_ILI9340.h"
 
 #define cs 	34
 #define dc 	32
@@ -22,7 +19,6 @@ unsigned short programToRun = 0;
 GUI::Buttons btt;
 GUI::Display disp;
 Logic::Timer timer;
-Data::ExternalMemory ext;
 Logic::MemoryParser mem;
 //The setup function is called once at startup of the sketch
 
