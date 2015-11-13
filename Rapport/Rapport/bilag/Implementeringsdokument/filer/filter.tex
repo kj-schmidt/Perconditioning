@@ -38,11 +38,11 @@ Hvis manchet signalet ikke simuleres, men i stedet måles på et rigtigt mennesk
 \newpage
 
 \begin{figure}[H]
-	\includegraphics[width=\textwidth]{billeder/scope_8.png}
+	\includegraphics[width=\textwidth]{billeder/scope_2.png}
 	\caption{Når manchet trykket nærmer sig det systolliske tryk obesrveres 	der et signal som ser lidt anderledes u.}\label{fig:filterfour}
 \end{figure}
 
-Det ses meget tydeligt på billede (XX og XX) at det pulserende signal svinger meget med hensyn til peak amplituden over tid. Dette fænomen ses kan sskyldes mange ting, her iblandt respirationen og andre mekaniske bevægelse. Den analoge filtrering når sin begrændsning, da den ikke kan filtrere peak amplituden til at passe en optimal blodtryksmåling, som kan ses på figur XX, hvor amplituderne er konstant stigende ind til MAP og så aftagende efterfølgende. Til at håndterer dette problem anvendes der digital filtrering.
+Det ses meget tydeligt på billede (se figur \ref{fig:filterthree} og \ref{fig:filterfour}) at det pulserende signal svinger meget med hensyn til peak amplituden over tid. Dette fænomen ses kan skyldes mange ting, her iblandt respirationen og andre mekaniske bevægelse. Den analoge filtrering når sin begrænsning, da den ikke kan filtrere peak amplituden til at passe en optimal blodtryksmåling, som kan ses på figur \ref{fig:goodMeasurement}, hvor amplituderne er konstant stigende ind til MAP og så aftagende efterfølgende. Til at håndterer dette problem anvendes der digital filtrering.
 \newpage
 
 \begin{figure}[H]
@@ -52,8 +52,10 @@ Det ses meget tydeligt på billede (XX og XX) at det pulserende signal svinger m
 
 \subsection{Digital filtrering}
 Til digital filtrering er der anvendt et ekspotentiel midlingsfilter med zero group delay.
-y(n) = ax(n)+(1-a)y(n-1)
-Filteret midler peak ampletryderne, så den gennemsnitlige ampletyde forøgelse/dæmpning kommer til udtryk. Blodtryks filteret anvender en alfaværdi på a = 0.11. Udermere filtreres data fra begge sider, altså først fra venstre mod højre og så bag efter fra højre mod venstre. Denne teknik sikre ingen group delay, som er vigtigt for at kunne bestemme MAP, som det tryk der er i manchetten på samme tidspunkt som den maksimal målte peak ampletyde. Dette er bedst ilistreret på figur XX, hvor manchettrykket er faldende over tid og peak amplituderne er stigende og efter MAP så faldende. Når det rå signal midles fra venstre mod højre opstår et group delay på peak ampletyderne, som ikke er på manchet tryk data'en. Af denne grund må der ikke være group delay på signalet.
+\begin{equation}
+	y(n) = \alpha x(n)+(1-\alpha )y(n-1)
+\end{equation}
+Filteret midler peak ampletryderne, så den gennemsnitlige ampletyde forøgelse/dæmpning kommer til udtryk. Blodtryks filteret anvender en alfaværdi på $\alpha = 0.11$. Udermere filtreres data fra begge sider, altså først fra venstre mod højre og så bag efter fra højre mod venstre. Denne teknik sikre ingen group delay, som er vigtigt for at kunne bestemme MAP, som det tryk der er i manchetten på samme tidspunkt som den maksimal målte peak ampletyde. Dette er bedst ilistreret på figur XX, hvor manchettrykket er faldende over tid og peak amplituderne er stigende og efter MAP så faldende. Når det rå signal midles fra venstre mod højre opstår et group delay på peak ampletyderne, som ikke er på manchet tryk data'en. Af denne grund må der ikke være group delay på signalet.
 
 \textbf{INDSÆT BILLEDE}
 
