@@ -1,4 +1,9 @@
 \subsubsection{Anden ordens butterworth filter}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 0.5\textwidth]{billeder/2ordensButterworth.png}
+	\caption{2. ordens butterworth filter}\label{fig:butterworth}
+\end{figure}
 
 \begin{equation}
 	s^2 + 1.414s +1 = 0 
@@ -18,6 +23,11 @@ $C_1 = 2.046*10^-7$ eller $ C_1 = -2.046*10^-7$ \\
 $C_2 = 1.023*10^-7$ eller $ C_2 = -1.023*10^-7$ \\
 
 \subsubsection{Høj pas filter}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 0.5\textwidth]{billeder/HighPass.png}
+	\caption{1. ordens høj pas filter}\label{fig:highpass}
+\end{figure}
 
 Knæk frekvens $f_c = 0.3$ \\
 Modstand værdi, $R = 1M\Omega$
@@ -27,8 +37,14 @@ $f_c = \frac{1}{2\pi * R * C} \Rightarrow C = 5.3052 * 10^-7$ \\
 
 Dette bliver en kondensator på 530nF, den nærmeste komponent hedder 680nF og derfor udregnes den nye knæk frekvens til:  \\
 $ f_c = \frac{1}{2\pi * R * 680 * 10^-9} $
+
 
 \subsubsection{Lav pas filter}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 0.5\textwidth]{billeder/LowPass.png}
+	\caption{1. ordens lav pas filter}\label{fig:lowpass}
+\end{figure}
 Knæk frekvens $f_c = 0.3$ \\
 Modstand værdi, $R = 1M\Omega$
 
@@ -38,7 +54,13 @@ $f_c = \frac{1}{2\pi * R * C} \Rightarrow C = 5.3052 * 10^-7$ \\
 Dette bliver en kondensator på 530nF, den nærmeste komponent hedder 680nF og derfor udregnes den nye knæk frekvens til:  \\
 $ f_c = \frac{1}{2\pi * R * 680 * 10^-9} $
 
+\newpage
 \subsubsection{Gain på manchet oscillationer }
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 0.5\textwidth]{billeder/OpAMP_gain.png}
+	\caption{Gain til manchet oscillationer}\label{fig:opam1}
+\end{figure}
 \textbf{Udregning af gain: } \\
 Der ønskes et gain på 2, dvs $A = 100$ \\
 $ A = \frac{V_0}{V_i} = 1 + \frac{R_f}{R_g}$
@@ -48,11 +70,15 @@ Indsættelse af komponent værdier, $R_f$ sættes til $100k\Omega$ og $R_g$ udre
 $ A = 1 + \frac{R_f}{R_g} = 1010$ \\
 Derfor vælger $R_g$ til at være $1k\Omega$
 
-\subsubsection{Gain på tryksensor signal }
+\subsubsection{Gain på manchettryk signal }
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 0.5\textwidth]{billeder/OpAMP_gain.png}
+	\caption{Gain til manchettryk signal}\label{fig:opam2}
+\end{figure}
 \textbf{Udregning af gain: } \\
 Der ønskes et gain på 100, dvs $A = 2$ \\
 $ A = \frac{V_0}{V_i} = 1 + \frac{R_f}{R_g}$
-
 \textbf{Udregning af komponenter:}\\
 Indsættelse af komponent værdier, $R_f$ sættes til $100k\Omega$ og $R_g$ udregnes: \\
 $ A = 1 + \frac{R_f}{R_g} = 100000$ \\
