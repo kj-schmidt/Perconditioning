@@ -1,30 +1,37 @@
 \section{Namespace: Logik laget}
 
+\begin{figure}[H]
+\includegraphics[trim = 0 170 0 0, clip = true, width=\textwidth]{klassediagram_Logic-crop.pdf}
+\caption{Klasse diagram over namespacet Logic}\label{fig:classDiagramLogic}
+\end{figure}
+
 \subsection{Klasse: BPalgorithm}
 
-\subsubsection{}
+\subsubsection{Metode: calculateMap()}
 \textbf{Parameter: } \textit{unsigned short peaks[], unsigned short cuffPressure[], unsigned short peakArrayLength, unsigned short *totalNumberOfPeaks}
 \\ \textbf{Returtype: } \textit{unsigned short}
 \\ \textbf{Beskrivelse: } Denne metode beregner MAP ud fra digitalt filtreret peakdata i peaks[] og cuffPressure[]. MAP findes som trykket i manchetten ved den højeste peak ampletyde (se figur \ref{fig:bpMeasurement})
+
+\newpage
 \begin{figure}[H]
 	\includegraphics[width=\textwidth]{billeder/4_11_2016.png}
 	\caption{Graf med data fra en blodtryksmåling}\label{fig:bpMeasurement}
 \end{figure}
 Her ses at det rå signal er støjfyldt. Grøn er manchet trykket, blå er de rå peak amplituder, rød er filtreret en gang fra venstre mod højre, sort	er filtreret fra begge sider.
 
-\subsubsection{calculateSYS()}
+\subsubsection{Metode: calculateSYS()}
 \textbf{Parameter: } \textit{unsigned short peaks[], unsigned short cuffPressure[],unsigned short peakArrayLength, unsigned short *totalNumberOfPeaks, unsigned short MAP}
 \\ \textbf{Returtype: } \textit{unsigned short}
 \\ \textbf{Beskrivelse: } Denne metode beregner SYS ud fra MAP og digitalt filtreret peakdata i peaks[] og cuffPressure[]. SYS findes som trykket i manchetten ved peak amplityder på XX\% af MAP.\fixme{ret procentsats.}
 
-\subsubsection{calculateDIA()}
+\subsubsection{Metode: calculateDIA()}
 \textbf{Parameter: } \textit{unsigned short peaks[], unsigned short cuffPressure[],unsigned short peakArrayLength, unsigned short *totalNumberOfPeaks, unsigned short MAP}
 \\ \textbf{Returtype: } \textit{unsigned short}
 \\ \textbf{Beskrivelse: } Denne metode beregner DIA ud fra MAP og digitalt filtreret peakdata i peaks[] og cuffPressure[]. DIA findes som trykket i manchetten ved peak amplityder på XX \% af MAP \fixme{ret procentsats}.
 
 \subsection{Klasse: DigitalFiltering}
 
-\subsubsection{averagingZeroGroupDelay()}
+\subsubsection{Metode: averagingZeroGroupDelay()}
 \textbf{Parameter: } \textit{nsigned short peaks[],unsigned short peakArrayLength, unsigned short *totalNumberOfPeaks, double alpha}
 \\ \textbf{Returtype: } \textit{void}
 \\ \textbf{Beskrivelse: } Denne metode anvender eksponentiel midligsfilter teknik uden group delay til at midle over parameteren peaks.
@@ -44,7 +51,7 @@ Her ses at det rå signal er støjfyldt. Grøn er manchet trykket, blå er de r�
 
 \subsection{Klasse: Scenarios}
 
-\subsubsection{bloodPressure()}
+\subsubsection{Metode: bloodPressure()}
 \textbf{Parameter: } \textit{unsigned short *MAP, unsigned short *SYS, unsigned short *DIA, BPAlgorithm bpa, Data::PressureControl pc, Data::PressureSampling ps, Logic::DigitalFiltering df, Utilities util}
 \\ \textbf{Returtype: } \textit{void}
 \\ \textbf{Beskrivelse: } Denne metode indeholder opskriften til en blodtryksmåling. Det vil sige kaldes denne metode udføres det en blodtryksmåling og alle andre klasser og metoder, som skal bruges til dette selv eksekveres inde i denne metode. Pointerne til de tre variabler får værdierne MAP, SYS og DIA fra blodtryksmålingen.
@@ -52,17 +59,17 @@ Her ses at det rå signal er støjfyldt. Grøn er manchet trykket, blå er de r�
 \subsection{Klasse: Timer}
 Klassen timer gør brug af en hardware Real Time Clock(RTC) med IC’en \textit{DS1302}. For at kommunikere med denne RTC, så gør klassen brug af et biblioteket \textit{DS1302}. Derfor oprettet et objekt af klassen \textit{DS1302.h} ved navn timestamp. Et Time objektet indeholder hhv: år, måned, dag, time, minut, sekund og ugedag. 
 
-\subsubsection{setTimeStamp()}
+\subsubsection{Metode: setTimeStamp()}
 \textbf{Parameter: } \textit{void}
 \\ \textbf{Returtype: } \textit{void}
 \\ \textbf{Beskrivelse: } Denne metode aflæser den nuværende værdi af timeren og sætter en variable til denne værdi. 
 
-\subsubsection{getTimeStamp()}
+\subsubsection{Metode: getTimeStamp()}
 \textbf{Parameter: } \textit{Void}
 \\ \textbf{Returtype: } \textit{Time}
 \\ \textbf{Beskrivelse: } Returnerer et Time objekt med værdien af timestamp. 
 
-\subsubsection{countdown()}
+\subsubsection{Metode: countdown()}
 \textbf{Parameter: } \textit{unsigned short totalTime}
 \\ \textbf{Returtype: } \textit{void}
 \\ \textbf{Beskrivelse: } Denne metode modtager parameteren \textit{totalTime}, som indeholder det ønskede antal sekunder nedtællingen skal vare. Variablen \textit{elapsedTime} indeholder den nuværende tid og timestamp indeholder et tidsstempel der bliver sat når timeren skal starte. Hver gang metoden køres trækkes den nuværende tid i hhv timer, minutter og sekunder fra hinanden. Dernæst omregnes de forskellige difference til samlede antal sekunder, hvorefter det tal omregnes til sekunder og minutter. For at få antal sekunder tage differencen mellem \textit{totalTime} og \textit{elapsedTotalSeconds} udregner modulus 60 til dette tal. Dette samme gøres for minutter blot hvor seconds også trækkes fra. Se kode nedenfor. 
@@ -81,12 +88,12 @@ Klassen timer gør brug af en hardware Real Time Clock(RTC) med IC’en \textit{
 \end{lstlisting}
 Når det er regnes ud hvor mange minutter og sekunder der er tilbage i nedtællingen, gemmes det er de lokale variable minutes og seconds. 
 
-\subsubsection{stopWatch()}
+\subsubsection{Metode: stopWatch()}
 \textbf{Parameter: } \textit{void}
 \\ \textbf{Returtype: } \textit{void}
 \\ \textbf{Beskrivelse: } Metode til at styre simulere og styre et stopur under okklusionstræning, den forløbne tid udregnes på samme måde \textit{countdown()}, blot hvor det er tidsstemplet der trækkes fra den nuværende tid. Denne metode gemmer også minutter og sekunder i to lokale variabler, når udregning er den forløbne tid er færdig. 
 
-\subsubsection{displayTimer()}
+\subsubsection{Metode: displayTimer()}
 \textbf{Parameter: } \textit{void}
 \\ \textbf{Returtype: } \textit{ String}
 \\ \textbf{Beskrivelse: } Denne metode bruges til at konvertere tiden fra enten stopuret eller nedtællingen til formatet mm:ss. Desuden konverteres tiden til en string. 
@@ -108,17 +115,17 @@ Når det er regnes ud hvor mange minutter og sekunder der er tilbage i nedtælli
 \end{lstlisting}
 For at sikre at tiden vises på formatet mm:ss, tjekker metoden for om \textit{seconds} eller \textit{minutes} er større eller lig med 0 og mindre en 10. Hvis det er tilfældet tilføjes et nul foran værdien 
 
-\subsubsection{getTimerStatus()}
+\subsubsection{Metode: getTimerStatus()}
 \textbf{Parameter: } \textit{void}
 \\ \textbf{Returtype: } \textit{bool}
 \\ \textbf{Beskrivelse: } Metode til at returnere værdien af statussen for timeren, hvis værdien er sand er timeren slut og omvendt hvis værdien er falsk kan timeren stadig være igangværende. 
 
-\subsubsection{setTimerStatus()}
+\subsubsection{Metode: setTimerStatus()}
 \textbf{Parameter: } \textit{bool val}
 \\ \textbf{Returtype: } \textit{void}
 \\ \textbf{Beskrivelse: } Denne metode bruges til at sætte værdien af statussen for timeren, den sættes til true for at stoppe timeren. Derfor modtager en metode en parameter af typen bool. 
 
-\subsubsection{timeToString()}
+\subsubsection{Metode: timeToString()}
 \textbf{Parameter: } \textit{void}
 \\ \textbf{Returtype: } \textit{String}
 \\ \textbf{Beskrivelse: } For at kunne gemme tidsstempler på SD kortet, er denne metode lavet til at konvertere et tidsstempel til en string på formatet: \textit{tt:mm:ss DD-MM-YY}. Ligesom metoden \textit{displayTimer()} tager denne metode også hånd hvis enten timer, minutter eller sekunder er mindre end 10 og sætter et nul for and. Metoden returnere en samlede string med et tidsstempel 
@@ -126,17 +133,17 @@ For at sikre at tiden vises på formatet mm:ss, tjekker metoden for om \textit{s
 \subsection{Klasse: MemoryParser}
 Denne klasse er lavet for at overholde 3-lags modellen. Da informations læsning fra fx EEPROM og SD kort skal foregå i data laget, skal der en række metoder til at sende information igennem logik laget og videre til GUI laget. Derfor indeholder denne klasse som udgangspunkt kun get og set metoder. 
 
-\subsubsection{getNoOfCycles()}
+\subsubsection{Metode: getNoOfCycles()}
 \textbf{Parameter: } \textit{void}
 \\ \textbf{Returtype: } \textit{unsigned short}
 \\ \textbf{Beskrivelse: } Denne metode returnere værdien fra data laget via metoden \textit{“intMem.readFromEEPROM()”}.
 
-\subsubsection{setNoOfCycles()}
+\subsubsection{Metode: setNoOfCycles()}
 \textbf{Parameter: } \textit{unsigned short val}
 \\ \textbf{Returtype: } \textit{void}
 \\ \textbf{Beskrivelse: } Metode der skriver til data laget via metoden: \textit{intMem.writeToEEPROM(200, val)}. Parameteren \textit{val} videres til med denne metode. 
 
-\subsubsection{getTimePerCycle()}
+\subsubsection{Metode: getTimePerCycle()}
 \textbf{Parameter: } \textit{void}
 \\ \textbf{Returtype: } \textit{unsigned short}
 \\ \textbf{Beskrivelse: } Da værdien af timePerCycle indeholder hvor mange sekunder én konditioneringscyklus skal vare, er denne værdi ofte større end 255. Denne værdi skal læses fra EEPROM og en plads kan indeholde værdier på maks 255. Derfor sørger metoden for at hente værdien over 2 plads, hvis den er større en maks værdien. 
@@ -150,7 +157,7 @@ Denne klasse er lavet for at overholde 3-lags modellen. Da informations læsning
 \end{lstlisting}
 
 
-\subsubsection{setTimePerCycle()}
+\subsubsection{Metode: setTimePerCycle()}
 \textbf{Parameter: } \textit{unsigned short val}
 \\ \textbf{Returtype: } \textit{void}
 \\ \textbf{Beskrivelse: } Beskrivelse: Når denne metode køres skrives tiden pr. cyklus til EEPROM, som forklaring i metoden \textit{getTimePerCycle()}, skal den metode håndtere overload. 
@@ -168,7 +175,7 @@ Det er forinden bestemt at adresserne 205 og 206 bruges til at gemme \textit{Tim
 
 String timeStamp, boolean occlusionComplete, unsigned short occlusionPressure, unsigned short sys, unsigned short map, unsigned short dia, boolean interruptOcclusion
 
-\subsubsection{writeToSDCard()}
+\subsubsection{Metode: writeToSDCard()}
 \textbf{Parameter: } \textit{String timeStamp, boolean occlusionComplete, unsigned short occlusionPressure, unsigned short sys, unsigned short map, unsigned short dia, boolean interruptOcclusion}
 \\ \textbf{Returtype: } \textit{void}
 \\ \textbf{Beskrivelse: }  Denne metode syv parametre af typerne \textit{String}, \textit{boolean} og \textit{unsigned short}. Metoden konverterer og samler alle parametrene til en string og ved denne sendes videre til datalaget.

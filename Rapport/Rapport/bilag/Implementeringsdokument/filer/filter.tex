@@ -1,7 +1,7 @@
 \newpage
-\section{Filter design} \label{title:filters}
+\chapter{Filter design} \label{title:filters}
 
-\subsection{Analoge filtre}
+\section{Analoge filtre}
 
 Det analoge filter design har blandt andet funktionen at isolerer og forstærke DC niveauet fra tryksensoren, som er koblet til manchetten. Tryksensoren (MPX5100) er lineær og kan derfor ud fra en enkel koefficient kalibreres.1 DC niveauet skal forstærkes for at øge ADC opløsningen i forhold til mmHg per bit. Arduino MEGA 2560 har en ADC opløsning på 10bit. I volt er dette en opløsning på 5/1023=4.9mV. Sensoren har en sensitivitet på 45mV/kPA, svarende til 6mV/mmHg. Uden DC forstærkning er opløsningen altså 4.9/6=0.817mmHg. Ved at anvende gain X2 øges opløsningen til 0.817/2=0.408mmHg. Ren DC opnås ved at lavpas filteret fjerner alt AC over knækfrekvensen.
 
@@ -13,10 +13,10 @@ CuffPressure er forstærket DC og Oscillations er forstærket AC mellem 0.22Hz o
 
 Oscillationerne i manchetten isoleres med 11Hz anden ordens butterworth for at opnå god dæmpning på 50Hz brummen. L.A. Geddes et al. Sætter knæk frekvensen til 30Hz2, men efter som at puls signalet befinder sig på ca 1Hz og at Geddes med høj sandsynlighed har anvendt kaskade filtre sættes butterworth filterets knæk til 11Hz, svarende til elve afledte af puls grund frekvensen. Højpasfilteret fjerner DC ved at knække ved 0.22Hz. For at forstærke oscillationerne op i en størrelse, som arduinoen kan sample forstærkes det pulserende signal med gain X101.
 
-\subsection{Komponent udregninger}
+\section{Komponent udregninger}
 \input{filer/filterCalculations}
 
-\subsection{Praksis}
+\section{Praksis}
 Signal generator med frekvens 0.8Hz svarende til en sund puls. Simuleringen er vist på billederne under. Den lilla kurve er inputsignalet, rød er det oscillerende udgangssignal efter filteret og den grønne kurve er udgangssignalet efter det ikke oscillerende filter.
 
 \begin{figure}[H]
@@ -52,7 +52,7 @@ Det ses meget tydeligt på billede (se figur \ref{fig:filterthree} og \ref{fig:f
 \end{figure}
 Reference \fixme{Billedet er taget fra CHARACTERIZATION 	 OF THE OSClLLOMETRlC METHOD FOR MEASURING INDIRECT BLOOD 	PRESSURE}
 
-\subsection{Digital filtrering}
+\section{Digital filtrering}
 Til digital filtrering er der anvendt et ekspotentiel midlingsfilter med zero group delay.
 \begin{equation}
 	y(n) = \alpha x(n)+(1-\alpha )y(n-1)
