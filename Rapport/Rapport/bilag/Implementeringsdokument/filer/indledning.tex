@@ -1,5 +1,5 @@
 	\chapter{Indledning}
-	Implementeringsdokument giver et overblik over hvordan både hardware og software er blevet implementeret i udviklingen af prototypen. Dokumentet indeholder beskrivelse af strukturen af software klasser og deres funktionalitet. For hardware delen er der beskrevet de forskellige hardware blokke og hvordan de er blevet implementeret for at kunne leve op til kravene stille i kravspecifikationen. 
+	Implementeringsdokument giver et overblik over hvordan både hardware og software er blevet implementeret i udviklingen af prototypen. Dokumentet indeholder beskrivelse af strukturen af software klasser og deres funktionalitet. For hardware delen er der beskrevet de forskellige hardware blokke og hvordan de er blevet implementeret for at kunne leve op til kravene stillet i kravspecifikationen. 
 	
 	\section{Formål}
 	Dette dokument har til formål at give læseren et teknisk indblik i \textit{Konditioneringsapparatets} funktionalitet og opbygning, samt skabe fuld forståelse for alle systemets under dele. Som en forlængelse af system arkitekturen, som beskrev for dette system skulle designes, beskriver dette dokument det færdig design og hvordan det har opnået sin funktionalitet
@@ -13,10 +13,10 @@
 	\end{itemize}
 	
 	\section{Læsevejledning og dokumentstruktur}
-	Da dette dokument er en del af udviklingsdokumentation, er det vigtigt at læse i sammenhæng med kravspecifikationen og systemarkitekturen. Undervejs i dokumentet vil der være referencer til kravspecifikationen, disse reference vil fortælle hvilke(n) krav den implementerede funktionalitet opfylder. Dette dokument skal også ses som en forklaring på software implementeringen, og derfor passer navne og overskrifter i software beskrivelse overens med navne på metoder og klasser i softwaren. 
+	Da dette dokument er en del af udviklingsdokumentation, er det vigtigt at læse i sammenhæng med kravspecifikationen og systemarkitekturen. Undervejs i dokumentet vil der være referencer til kravspecifikationen og derfor er der stor samhørighed mellem disse to dokumenter. Dette dokument skal også ses som en forklaring på software implementeringen, og derfor passer navne og overskrifter i software beskrivelse overens med navne på metoder og klasser i softwaren. Desuden beskrives hver software metode ud fra tre punkter; paramter, returtype og beskrivelse. Parameter beskriver hvilke parameter og typen af disse parameter, som metode skal have. Returtypen fortæller hvilken værdi metode returnere og hvilken type det er. Beskrivelsen forklare funktionaliteten af metode, og hvordan denne funktionalitet er opnået. Nogle metoder indeholder også kode eksempler, når det anses som nødvendigt for at forstå metoden. 
 
 	\section{Definitioner og forkortelser}
-	\begin{longtable}{ |p{0.5\textwidth} |p{0.5\textwidth}| } 
+	\begin{longtable}{ |p{0.3\textwidth} |p{0.7\textwidth}| } 
 		\hline
 		\textbf{Udtryk / Forkortelse} &  \textbf{Forklaring} \\
 		\hline
@@ -25,5 +25,11 @@
 		Tid pr cyklus & Variable som indeholder hvor mange sekunder et konditioneringscyklus skal vare \\
 		\hline
 		Antal cyklusser & Variable som indeholder hvor mange cyklusser et konditioneringsforløb skal vare \\
+		\hline
+		EEPROM & Intern flash hukommelse på arduino som der kan skrives og læses fra \\
+		\hline
+		Interrupt & Hver gang arduino kører en clock cyklus aflæses værdien af en række digital pins, hvorved man kan afbryde kode og kører en anden sekvens. Arduinoen har både interne og eksterne interrupt, men dette projekt gør kun brug af de eksterne interrupt \\
+		\hline
+		Sand/True, Falsk/False & Arduino genkender en sand/true når typen er bool og værdien er 1. Modsat registreres 0 som falsk/false \\
 		\hline
 	\end{longtable}

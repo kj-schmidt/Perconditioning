@@ -11,7 +11,7 @@ Det analoge filter design har blandt andet funktionen at isolerer og forstærke 
 \end{figure}
 CuffPressure er forstærket DC og Oscillations er forstærket AC mellem 0.22Hz og 11Hz
 
-Oscillationerne i manchetten isoleres med 11Hz anden ordens butterworth for at opnå god dæmpning på 50Hz brummen. L.A. Geddes et al. Sætter knæk frekvensen til 30Hz2, men efter som at puls signalet befinder sig på ca 1Hz og at Geddes med høj sandsynlighed har anvendt kaskade filtre sættes butterworth filterets knæk til 11Hz, svarende til elve afledte af puls grund frekvensen. Højpasfilteret fjerner DC ved at knække ved 0.22Hz. For at forstærke oscillationerne op i en størrelse, som arduinoen kan sample forstærkes det pulserende signal med gain X101.
+Oscillationerne i manchetten isoleres med 11Hz anden ordens butterworth for at opnå god dæmpning på 50Hz brummen. L.A. Geddes\fixme{REFERENCE} et al. Sætter knæk frekvensen til 30Hz, men efter som at puls signalet befinder sig på ca 1Hz og at Geddes med høj sandsynlighed har anvendt kaskade filtre sættes butterworth filterets knæk til 11Hz, svarende til elve afledte af puls grund frekvensen. Højpasfilteret fjerner DC ved at knække ved 0.22Hz. For at forstærke oscillationerne op i en størrelse, som arduinoen kan sample forstærkes det pulserende signal med gain X101.
 
 \section{Komponent udregninger}
 \input{filer/filterCalculations}
@@ -21,7 +21,7 @@ Signal generator med frekvens 0.8Hz svarende til en sund puls. Simuleringen er v
 
 \begin{figure}[H]
 	\includegraphics[width=\textwidth]{billeder/scope_9.png}
-	\caption{Lilla er input sinus 0.8Hz. Grøn er ren DC. Rød er det filtrerede signal med oscillationerne. Den lyserøde kurve er FFT af det lella signal, hvor det ses at det består af 0.8Hz grundtone.}\label{fig:filterone}
+	\caption{Lilla er input sinus 0.8Hz. Grøn er ren DC. Rød er det filtrerede signal med oscillationerne. Den lyserøde kurve er FFT af det lilla signal, hvor det ses at det består af 0.8Hz grundtone.}\label{fig:filterone}
 \end{figure}
 
 \begin{figure}[H]
@@ -32,7 +32,7 @@ Signal generator med frekvens 0.8Hz svarende til en sund puls. Simuleringen er v
 
 \begin{figure}[H]
 	\includegraphics[width=\textwidth]{billeder/scope_10.png}
-	\caption{Oscilloskop billedet viser udgangssignalet efter den oscillerende 	filtrering (Rød) og en FFT af signalet (lyserød). Her ses det tydeligt at grundtonen er ca 1Hz og har mindst 4 afledte der af 	(2,3,4,5 Hz), som gider den spidse smalle form.}\label{fig:filterthree}
+	\caption{Oscilloskop billedet viser udgangssignalet efter den oscillerende 	filtrering (Rød) og en FFT af signalet (lyserød). Her ses det tydeligt at grundtonen er ca 1Hz og har mindst 4 afledte der af 	(2,3,4,5 Hz), som giver den spidse smalle form.}\label{fig:filterthree}
 \end{figure}
 
 Hvis manchet signalet ikke simuleres, men i stedet måles på et rigtigt menneske ligner signalet ikke perfekte sinuser, men i stedet korte udsving, med en grundfrekvens og en masse overtoner. På nedenstående billede ses forskellige typiske udgangssignaler under en normal blodtryksmåling.
@@ -40,10 +40,10 @@ Hvis manchet signalet ikke simuleres, men i stedet måles på et rigtigt mennesk
 
 \begin{figure}[H]
 	\includegraphics[width=\textwidth]{billeder/scope_2.png}
-	\caption{Når manchet trykket nærmer sig det systolliske tryk obesrveres 	der et signal som ser lidt anderledes u.}\label{fig:filterfour}
+	\caption{Når manchet trykket nærmer sig det systolliske tryk obesrveres der et signal som ser lidt anderledes ud}\label{fig:filterfour}
 \end{figure}
 
-Det ses meget tydeligt på billede (se figur \ref{fig:filterthree} og \ref{fig:filterfour}) at det pulserende signal svinger meget med hensyn til peak amplituden over tid. Dette fænomen ses kan skyldes mange ting, her iblandt respirationen og andre mekaniske bevægelse. Den analoge filtrering når sin begrænsning, da den ikke kan filtrere peak amplituden til at passe en optimal blodtryksmåling, som kan ses på figur \ref{fig:goodMeasurement}, hvor amplituderne er konstant stigende ind til MAP og så aftagende efterfølgende. Til at håndterer dette problem anvendes der digital filtrering.
+Det ses meget tydeligt på billede (se figur \ref{fig:filterthree} og \ref{fig:filterfour}) at det pulserende signal svinger meget med hensyn til peak amplituden over tid. Fænomenet som ses kan skyldes mange ting, her iblandt respirationen og andre mekaniske bevægelse. Den analoge filtrering når sin begrænsning, da den ikke kan filtrere peak amplituden til at passe en optimal blodtryksmåling, som kan ses på figur \ref{fig:goodMeasurement}, hvor amplituderne er konstant stigende ind til MAP og så aftagende efterfølgende. Til at håndterer dette problem anvendes der digital filtrering.
 \newpage
 
 \begin{figure}[H]
@@ -52,12 +52,12 @@ Det ses meget tydeligt på billede (se figur \ref{fig:filterthree} og \ref{fig:f
 \end{figure}
 Reference \fixme{Billedet er taget fra CHARACTERIZATION 	 OF THE OSClLLOMETRlC METHOD FOR MEASURING INDIRECT BLOOD 	PRESSURE}
 
-\section{Digital filtrering}
+\section{Digital filtrering} \label{title:digitalFilter}
 Til digital filtrering er der anvendt et ekspotentiel midlingsfilter med zero group delay.
 \begin{equation}
 	y(n) = \alpha x(n)+(1-\alpha )y(n-1)
 \end{equation}
-Filteret midler peak ampletryderne, så den gennemsnitlige ampletyde forøgelse/dæmpning kommer til udtryk. Blodtryks filteret anvender en alfaværdi på $\alpha = 0.11$. Udermere filtreres data fra begge sider, altså først fra venstre mod højre og så bag efter fra højre mod venstre. Denne teknik sikre ingen group delay, som er vigtigt for at kunne bestemme MAP, som det tryk der er i manchetten på samme tidspunkt som den maksimal målte peak ampletyde. Dette er bedst ilistreret på figur XX, hvor manchettrykket er faldende over tid og peak amplituderne er stigende og efter MAP så faldende. Når det rå signal midles fra venstre mod højre opstår et group delay på peak ampletyderne, som ikke er på manchet tryk data'en. Af denne grund må der ikke være group delay på signalet.
+Filteret midler over peak amplituderne, så den gennemsnitlige amplitude forøgelse/dæmpning kommer til udtryk. Blodtryks filteret anvender en alfaværdi på $\alpha = 0.11$. Ydermere filtreres data fra begge sider, altså først fra venstre mod højre og så bag efter fra højre mod venstre. Denne teknik sikre ingen group delay, som er vigtigt for at kunne bestemme MAP, som det tryk der er i manchetten på samme tidspunkt som den maksimal målte peak ampletyde. Dette er bedst illustreret på figur \ref{fig:filterWithoutMap}, hvor manchettrykket er faldende over tid og peak amplituderne er stigende og efter MAP så faldende. Når det rå signal midles fra venstre mod højre opstår et group delay på peak amplituderne, som ikke er på manchet tryk data'en. Af denne grund må der ikke være group delay på signalet.
 
 \begin{figure}[H]
 	\includegraphics[width=\textwidth]{billeder/4_11_2016_udenMap.png}

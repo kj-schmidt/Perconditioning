@@ -19,8 +19,8 @@ Den ønskede knækfrekvens er $f_c = 11Hz$ og efter som $f_c = \frac{\omega_c}{2
 
 Nu løses de to ligninger med de to ubekendte $R \sqrt{C_1 * C_2} = \frac{1}{\omega_0}$ og $ \frac{C_2}{C_1} = \zeta^2$ og $C_1$ og $C_2$ bliver:
 
-$C_1 = 2.046*10^-7$ eller $ C_1 = -2.046*10^-7$ \\
-$C_2 = 1.023*10^-7$ eller $ C_2 = -1.023*10^-7$ \\
+$C_1 = 2.046*10^-7F$ eller $ C_1 = -2.046*10^-7F$ \\
+$C_2 = 1.023*10^-7F$ eller $ C_2 = -1.023*10^-7F$ \\
 
 \subsection{Høj pas filter}
 \begin{figure}[H]
@@ -32,11 +32,17 @@ $C_2 = 1.023*10^-7$ eller $ C_2 = -1.023*10^-7$ \\
 Knæk frekvens $f_c = 0.3$ \\
 Modstand værdi, $R = 1M\Omega$
 
-Nu udregnes værdien af kondensatoren ved at isolere C: \\
-$f_c = \frac{1}{2\pi * R * C} \Rightarrow C = 5.3052 * 10^-7$ \\
+Nu udregnes værdien af kondensatoren ved at isolere C: 
+\begin{equation}
+	f_c = \frac{1}{2\pi * R * C} \Rightarrow C = 5.3052 * 10^-7F
+\end{equation}
 
-Dette bliver en kondensator på 530nF, den nærmeste komponent hedder 680nF og derfor udregnes den nye knæk frekvens til:  \\
-$ f_c = \frac{1}{2\pi * R * 680 * 10^-9} $
+
+Dette bliver en kondensator på 530nF, den nærmeste komponent hedder 680nF og derfor udregnes den nye knæk frekvens til: 
+\begin{equation}
+	f_c = \frac{1}{2\pi * R * 680 * 10^-9} = 0.23Hz
+\end{equation}
+
 
 
 \subsection{Lav pas filter}
@@ -48,11 +54,17 @@ $ f_c = \frac{1}{2\pi * R * 680 * 10^-9} $
 Knæk frekvens $f_c = 0.3$ \\
 Modstand værdi, $R = 1M\Omega$
 
-Nu udregnes værdien af kondensatoren ved at isolere C: \\
-$f_c = \frac{1}{2\pi * R * C} \Rightarrow C = 5.3052 * 10^-7$ \\
+Nu udregnes værdien af kondensatoren ved at isolere C:
+\begin{equation}
+	f_c = \frac{1}{2\pi * R * C} \Rightarrow C = 5.3052 * 10^-7F
+\end{equation}
 
-Dette bliver en kondensator på 530nF, den nærmeste komponent hedder 680nF og derfor udregnes den nye knæk frekvens til:  \\
-$ f_c = \frac{1}{2\pi * R * 680 * 10^-9} $
+
+Dette bliver en kondensator på 530nF, den nærmeste komponent hedder 680nF og derfor udregnes den nye knæk frekvens til:
+\begin{equation}
+	 f_c = \frac{1}{2\pi * R * 680 * 10^-9} = 0.23Hz
+\end{equation}
+
 
 \newpage
 \subsection{Gain på manchet oscillationer }
@@ -62,13 +74,19 @@ $ f_c = \frac{1}{2\pi * R * 680 * 10^-9} $
 	\caption{Gain til manchet oscillationer}\label{fig:opam1}
 \end{figure}
 \textbf{Udregning af gain: } \\
-Der ønskes et gain på 2, dvs $A = 100$ \\
-$ A = \frac{V_0}{V_i} = 1 + \frac{R_f}{R_g}$
+Der ønskes et gain på 2, dvs $A = 100$
+\begin{equation}
+	A = \frac{V_0}{V_i} = 1 + \frac{R_f}{R_g}
+\end{equation}
+
 
 \textbf{Udregning af komponenter:}\\
-Indsættelse af komponent værdier, $R_f$ sættes til $100k\Omega$ og $R_g$ udregnes: \\
-$ A = 1 + \frac{R_f}{R_g} = 1010$ \\
-Derfor vælger $R_g$ til at være $1k\Omega$
+Indsættelse af komponent værdier, $R_f$ sættes til $100k\Omega$ og $R_g$ udregnes: 
+\begin{equation}
+	 A = 1 + \frac{R_f}{R_g} \Rightarrow R_g =  1010
+\end{equation}
+
+Derfor vælges $R_g$ til at være $1k\Omega$
 
 \subsection{Gain på manchettryk signal }
 \begin{figure}[H]
@@ -77,9 +95,15 @@ Derfor vælger $R_g$ til at være $1k\Omega$
 	\caption{Gain til manchettryk signal}\label{fig:opam2}
 \end{figure}
 \textbf{Udregning af gain: } \\
-Der ønskes et gain på 100, dvs $A = 2$ \\
-$ A = \frac{V_0}{V_i} = 1 + \frac{R_f}{R_g}$
+Der ønskes et gain på 100, dvs $A = 2$
+\begin{equation}
+	A = \frac{V_0}{V_i} = 1 + \frac{R_f}{R_g}
+\end{equation}
+
 \textbf{Udregning af komponenter:}\\
-Indsættelse af komponent værdier, $R_f$ sættes til $100k\Omega$ og $R_g$ udregnes: \\
-$ A = 1 + \frac{R_f}{R_g} = 100000$ \\
-Derfor vælger $R_g$ til at være $100k\Omega$
+Indsættelse af komponent værdier, $R_f$ sættes til $100k\Omega$ og $R_g$ udregnes:
+\begin{equation}
+	 A = 1 + \frac{R_f}{R_g} \Rightarrow R_g = 100000
+\end{equation}
+
+Derfor vælges $R_g$ til at være $100k\Omega$

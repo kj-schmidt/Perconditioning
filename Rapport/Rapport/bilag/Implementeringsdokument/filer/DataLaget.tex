@@ -8,47 +8,47 @@
 \subsection{Klasse: PressureControl}
 
 \subsubsection{Metode: runMotor()}
-\textbf{Parameter: } \textit{void}
+\textbf{Parameter: } 
 \\ \textbf{Returtype: } \textit{void}
-\\ \textbf{Beskrivelse: }  Funktionen starter motoren og lader den kører ved fuld PWM ind til interrupt knappen på pin 18 ikke længere leverer en høj.
+\\ \textbf{Beskrivelse: }  Funktionen starter motoren og lader den kører ved 100\% duty cycle indtil interrupt knappen på pin 18 ikke længere leverer en høj.
 
 \subsubsection{Metode: runValve()}
-\textbf{Parameter: } \textit{void}
+\textbf{Parameter: } 
 \\ \textbf{Returtype: } \textit{void}
-\\ \textbf{Beskrivelse: }  Funktionen åbner for ventilen og lader den kører ved fuld PWM ind til interrupt knappen på pin 19 ikke længere leverer en høj.
+\\ \textbf{Beskrivelse: }  Funktionen åbner for ventilen og lader den kører ved 100\% duty cycle indtil interrupt knappen på pin 19 ikke længere leverer en høj.
 
 \subsubsection{Metode: turnMotorOn()}
-\textbf{Parameter: } \textit{void}
+\textbf{Parameter: } 
 \\ \textbf{Returtype: } \textit{void}
 \\ \textbf{Beskrivelse: } Funktionen tænder for motoren med den hastighed, angivet i parameteren (0-255).
 
 \subsubsection{Metode: turnMotorOff()}
-\textbf{Parameter: } \textit{void}
+\textbf{Parameter: } 
 \\ \textbf{Returtype: } \textit{void}
 \\ \textbf{Beskrivelse: }   Funktionen stopper for motoren ved at sætte pin 3 lav
 
 \subsubsection{Metode: turnValveOn()}
-\textbf{Parameter: } \textit{void}
+\textbf{Parameter: } 
 \\ \textbf{Returtype: } \textit{void}
 \\ \textbf{Beskrivelse: }  Funktionen åbner for ventilen ved at sætte pin 11 høj
 
 \subsubsection{Metode: turnValveOff()}
-\textbf{Parameter: } \textit{void}
+\textbf{Parameter: } 
 \\ \textbf{Returtype: } \textit{void}
 \\ \textbf{Beskrivelse: }  Funktionen lukker for ventilen ved at sætte pin 11 lav
 
 \subsection{Klasse: ExternalMemory}
-Denne klasse gør brug af to arduino biblioteker hhv SD og SPI.  De to biblioteker muliggøre kommunikation med SD kortet via en SPI forbindelse. 
+Denne klasse gør brug af to arduino biblioteker hhv. SD og SPI.  De to biblioteker muliggøre kommunikation med SD kortet via en SPI forbindelse. 
 
 \subsubsection{Metode: initializeSDCard()}
-\textbf{Parameter: } \textit{void}
+\textbf{Parameter: } 
 \\ \textbf{Returtype: } \textit{void}
 \\ \textbf{Beskrivelse: }  Simple metode der starter kommunikation med SD kortet.
 
-\subsubsection{Metode: generateRandomNumber()}
-\textbf{Parameter: } \textit{void}
+\subsubsection{Metode: generateRandomNumber()} \label{title:RandomNumber}
+\textbf{Parameter: } 
 \\ \textbf{Returtype: } \textit{String}
-\\ \textbf{Beskrivelse: }  Denne metode generer et 6-cifret tilfældigt nummer. Arduinos indbyggede funktion \textit{random()} laver et tilfældigt nummer i det interval man specificerer, men den generer dem i samme rækkefølge hver gang. For at gøre nummeret “mere tilfældigt” styres rækkefølgen af de generede numre af værdien fra en analog port, som svæver. 
+\\ \textbf{Beskrivelse: }  Denne metode generer et 6-cifret tilfældigt nummer. Arduinos indbyggede funktion \textit{random()} laver et tilfældigt nummer i det interval man specificerer, men den generer dem i samme rækkefølge hver gang. For at gøre nummeret “mere tilfældigt” styres rækkefølgen af de generede numre af værdien fra en analog port, som svæver. Den tilfældige HEX værdi skal bruges som ID for patienten der modtager konditioneringsbehandling 
 \begin{lstlisting}
 	randomSeed(analogRead(A5)); 
 	long randNumber = random(100000, 999999); /
@@ -57,21 +57,21 @@ Denne klasse gør brug af to arduino biblioteker hhv SD og SPI.  De to bibliotek
 \end{lstlisting}
 Når der er lavet et 6-cifre tilfældigt nummer, bliver dette konverteret til en HEX, så værdien nu indeholder tal mellem 0-9 og bogstaver mellem A-F. Denne værdi bliver returneret som en string. 
 
-\subsubsection{Metode: checkFilesSD()}
+\subsubsection{Metode: checkFilesSD()} \label{title:checkFiles}
 \textbf{Parameter: } \textit{File dir, String val}
 \\ \textbf{Returtype: } \textit{String}
-\\ \textbf{Beskrivelse: }  Metode der kontrollere alle filer på SD kortet. Hver gang der findes en fil, tjekkes der for om de sidste 4 karaktere matcher med karaktererne “.csv”. Hvis den fundne fil matcher dette, bliver hele filnavnet gemt på en variable og returneret. 
+\\ \textbf{Beskrivelse: }  Metode der kontrollere alle filer på SD kortet. Hver gang der findes en fil, tjekkes der for om de sidste 4 karaktere matcher med karaktererne “.csv”. Hvis den fundne fil matcher dette, bliver hele filnavnet gemt i en variable og returneret. 
 
 
-\subsubsection{Metode: createFileTemplate()}
+\subsubsection{Metode: createFileTemplate()} \label{title:createTemplate}
 \textbf{Parameter: } \textit{String filename}
 \\ \textbf{Returtype: } \textit{void}
-\\ \textbf{Beskrivelse: }  Når der skal laves en ny fil på SD-kortet, skal der skrives en header til hver kolonne i .csv filen. Denne metode modtager et filnavn, som den åbner og skriver en header til. 
+\\ \textbf{Beskrivelse: }  Når der skal laves en ny fil på SD-kortet, skal der skrives en header til hver kolonne i .csv filen. Denne metode modtager et filnavn, som den åbner og skriver i en header til. 
 
 \subsubsection{Metode: writeToSDCard()}
 \textbf{Parameter: } \textit{String textToSD}
 \\ \textbf{Returtype: } \textit{void}
-\\ \textbf{Beskrivelse: }  Denne metode gør brug af de tre forrige metoder; \textit{generateRandomNumber()}, \textit{checkFilesSD()} og \textit{createFileTemplate(}). Først oprettes et objekt af typen file og ved hjælp af funktion SD.open(“/”) og “.csv” vil \textit{checkFilesSD} nu tjekke alle filer på SD kortet og se som der findes en .csv fil. Hvis metode finder en fil, konverteres det fundne filnavn til et char array og filen åbnes. Nu skrives \textit{textToSD} til SD kortet og filen lukkes igen. 
+\\ \textbf{Beskrivelse: }  Denne metode gør brug af de tre forrige metoder; \textit{generateRandomNumber()} (\ref{title:RandomNumber}), \textit{checkFilesSD()} \ref{title:checkFiles} og \textit{createFileTemplate(}) (\ref{title:createTemplate}). Først oprettes et objekt af typen file og ved hjælp af funktion SD.open(“/”) og “.csv” vil \textit{checkFilesSD} nu tjekke alle filer på SD kortet og se om der findes en .csv fil. Hvis metoden finder en fil, konverteres det fundne filnavn til et char array og filen åbnes. Nu skrives \textit{textToSD} til SD kortet og filen lukkes igen. 
 \begin{lstlisting}
 	File file;
 	File root = SD.open("/");
@@ -105,7 +105,7 @@ Klassen gør brug af bibliotektet \textit{EEPROM}, dette bibliotek gør kommunik
 \subsection{Klasse: PressureSampling}
 
 \subsubsection{Metode: getCuffPressure()}
-\textbf{Parameter: } \textit{void}
+\textbf{Parameter: } 
 \\ \textbf{Returtype: } \textit{unsigned short }
 \\ \textbf{Beskrivelse: } Returnerer det aktuelle tryk i manchetten ved at sample 10 gange og tage middelværdien
 
@@ -113,7 +113,7 @@ Klassen gør brug af bibliotektet \textit{EEPROM}, dette bibliotek gør kommunik
 \textbf{Parameter: } \textit{unsigned short peaks[], unsigned short cuffPressure[],unsigned short peakArrayLength, unsigned short *totalNumberOfPeaks, PressureControl pc, Utilities util}
 \\ \textbf{Returtype: } \textit{void}
 \\ \textbf{Beskrivelse: } Denne metode anvender en pointer til et array med peak værdier, et array med manchettryk værdier, en variabel med værdien tilsvarende længden af de to arrays, samt en pointer til en variabel hvor metoden skriver hvor mange peaks, som der er blevet fundet. De sidste parametre er bare objekter af de klasser som indeholder metoder der skal bruges i runningPeakDetect().
-Metoden sampler et sample ad gangen (i alt 13) og tjekker om værdien er højerer end middelværdien af de 6 samples før og de 6 samples efter. Hvis sample x(n-6) er størst og er højerer end tressholdværdien for et detekteret puls signal, så gemmes peak værdien i “peaks[]” og manchettrykket i “cuffPressure[]”.
+Metoden sampler et sample ad gangen (i alt 13) og tjekker om værdien er højerer end middelværdien af de 6 samples før og de 6 samples efter. Hvis sample x(n-6) er størst og er højerer end thresholdværdien for et detekteret puls signal, så gemmes peak værdien i “peaks[]” og manchettrykket i “cuffPressure[]”.
 \begin{lstlisting}
 	if(timestamp<millis()-400 && n6>thresshold && (n12+n11+n10+n9+n8+n7)/6 < n6 && (n+n1+n2+n3+n4+n5)/6 < n6)
 	{
@@ -135,4 +135,4 @@ Fordi de to arrays, som indeholder henholdsvis peaks og cuffpressure er prealoke
 		cuffPressure[i] = NULL;
 	}
 \end{lstlisting}
-Til sidst lukkes den restererythende luft ud af manchetten, altså de sidste 40mmHg.
+Til sidst lukkes den resterende luft ud af manchetten, altså de sidste 40mmHg.

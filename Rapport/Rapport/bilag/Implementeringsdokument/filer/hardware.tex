@@ -2,30 +2,32 @@
 \chapter{Hardware}
 
 \section{Schmetic}
+På figur \ref{fig:schematics} ses tegning over hardware setup. \textit{Signal in}, \textit{Signal out(A3)} og \textit{Signal out(A4)} skal ses som interface med arduino og tryksensoren. Disse er undladt for ikke gøre diagrammet for kompleks
 \begin{figure}[H]
 	\includegraphics[trim = 0 30 0 0, clip=true, width = \textwidth]{billeder/Konditionering_schem.pdf}
 	\caption{}\label{fig:schematics}
 \end{figure}
 
+\newpage
 \section{Knapper} \label{title:buttons}
-For at imødegå debouncing ved tryk på knapperne, er der bygget et støttekredsløbs til disse. Debouning kan ses på figur \ref{fig:withbounce} hvor det mekaniske splip på knappen, giver anledning til en løs forbindelse ses på multimeteret som en lav efterfulgt af en høj, for så at blive lav igen. Microcontrolleren er hurtig nok til at registrer dette som et nyt knaptryk.
+For at imødegå debouncing ved tryk på knapperne, er der bygget et støttekredsløbs til disse. Debouncing kan ses på figur \ref{fig:withbounce} hvor det mekaniske slip på knappen, giver anledning til en løs forbindelse ses på multimeteret som en lav efterfulgt af en høj, for så at blive lav igen. Microcontrolleren er hurtig nok til at registrer dette som et nyt knaptryk.
 \begin{figure}[H]
-	\includegraphics[width = \textwidth]{billeder/scope_14.png}
-	\caption{Figuren viser et knaptryk, hvor der opstår debouncing.}\label{fig:withbounce}
+	\begin{minipage}{0.50\textwidth}
+		\includegraphics[width = \textwidth]{billeder/scope_14.png}
+		\caption{Figuren viser et knaptryk, hvor der opstår debouncing.}\label{fig:withbounce}
+	\end{minipage}
+	\begin{minipage}{0.50\textwidth}
+		\includegraphics[width = \textwidth]{billeder/scope_15.png}
+		\caption{Knaptryk hvor der er implementeret et anti debouncing kredsløb.}\label{fig:withoutbounce}
+	\end{minipage}
 \end{figure}
 
-For at imødekomme  er der implementeret et debounce kredsløb (figur \ref{fig:antidebouncingcircuit}) med en inverting schmitt trigger. schmitt triggeren leverer en stabil høj og kapacitoren forhindre den lav ved kortvarig open circuit under knaptryk. 
+For at imødekomme  er der implementeret et debounce kredsløb (figur \ref{fig:antidebouncingcircuit}) med en inverting schmitt trigger. Schmitt triggeren leverer en stabil høj og kapacitoren forhindre den lav ved kortvarig open circuit under knaptryk. 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width = 0.4\textwidth]{billeder/debounceSchematic.png}
 	\caption{Anti debouncing kredsløb}\label{fig:antidebouncingcircuit}
 \end{figure}
-
-\begin{figure}[H]
-	\includegraphics[width = \textwidth]{billeder/scope_15.png}
-	\caption{Knaptryk hvor der er implementeret et anti debouncing kredsløb.}\label{fig:withoutbounce}
-\end{figure}
-
 
 \section{Filter}
 Filtreringen af signalet er opdelt i isolering af manchet tryk og isolering af pulserende signal. På figur \ref{fig:filterschematics} ses opdelingen af signalet i to til ADCen. Dyberer forklaring af filterdesignet kan findes under afsnit \ref{title:filters} omkring filter design.
@@ -34,3 +36,10 @@ Filtreringen af signalet er opdelt i isolering af manchet tryk og isolering af p
 	\includegraphics[width = \textwidth]{billeder/filterSchematics.png}
 	\caption{Schematics over filter design}\label{fig:filterschematics}
 \end{figure}
+
+\section{Timer}
+Tilføj beskrivelse af timer
+
+\section{Display}
+
+\section{Motor shield}
