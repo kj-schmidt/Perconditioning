@@ -14,20 +14,20 @@
 
 \newpage
 \begin{figure}[H]
-	\includegraphics[width=\textwidth]{billeder/4_11_2016.png}
+	\includegraphics[width=\textwidth]{billeder/Alpha015-crop.pdf}
 	\caption{Graf med data fra en blodtryksmåling}\label{fig:bpMeasurement}
 \end{figure}
-Her ses at det rå signal er støjfyldt. Grøn er manchet trykket, blå er de rå peak amplituder, rød er filtreret en gang fra venstre mod højre, sort	er filtreret fra begge sider.
+Her ses at det rå signal er støjfyldt. Sort er manchet trykket, blå er de rå peak amplituder, rød er filtreret en gang fra venstre mod højre, sort	er filtreret fra begge sider.
 
 \subsubsection{Metode: calculateSYS()}
 \textbf{Parameter: } \textit{unsigned short peaks[], unsigned short cuffPressure[],unsigned short peakArrayLength, unsigned short *totalNumberOfPeaks, unsigned short MAP}
 \\ \textbf{Returtype: } \textit{unsigned short}
-\\ \textbf{Beskrivelse: } Denne metode beregner SYS ud fra MAP og digitalt filtreret peakdata i peaks[] og cuffPressure[]. SYS findes som trykket i manchetten ved peak amplituder på 31\% af MAP.
+\\ \textbf{Beskrivelse: } Denne metode beregner SYS ud fra MAP og digitalt filtreret peakdata i peaks[] og cuffPressure[]. SYS findes som trykket i manchetten ved peak amplituder på 31\% af MAP. (Se figur \ref{fig:bpMeasurement})
 
 \subsubsection{Metode: calculateDIA()}
 \textbf{Parameter: } \textit{unsigned short peaks[], unsigned short cuffPressure[],unsigned short peakArrayLength, unsigned short *totalNumberOfPeaks, unsigned short MAP}
 \\ \textbf{Returtype: } \textit{unsigned short}
-\\ \textbf{Beskrivelse: } Denne metode beregner DIA ud fra MAP og digitalt filtreret peakdata i peaks[] og cuffPressure[]. DIA findes som trykket i manchetten ved peak amplituder på 52 \% af MAP. 
+\\ \textbf{Beskrivelse: } Denne metode beregner DIA ud fra MAP og digitalt filtreret peakdata i peaks[] og cuffPressure[]. DIA findes som trykket i manchetten ved peak amplituder på 52\% af MAP. (Se figur \ref{fig:bpMeasurement})
 
 \subsection{Klasse: DigitalFiltering}
 
