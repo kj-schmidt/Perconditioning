@@ -192,7 +192,7 @@ if(*btPressed && !*buttonPressed)
 	TFTscreen.print(util.rawToMmHg(MAP));
 	TFTscreen.print(")");
 
-	*btPressed = false;
+	//*btPressed = false;
 
 }
 
@@ -270,7 +270,7 @@ if(util.rawToMmHg(SYS)<175)
 
 		}
 
-	if(!*buttonPressed){
+	if(!*btPressed && !*buttonPressed){
 		s.occlude(0);
 		updateTimeLeft(timer.displayTimer());
 		clearAreaDisp(70, 55,220, 150); //Clear the sensor value

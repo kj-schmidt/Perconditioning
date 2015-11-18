@@ -69,6 +69,7 @@ for (int i = 0; i < ArraysizePeaks; i++) {
 	}
 Serial.print("\n");
 
+
 }
 
 unsigned short Senarios::occlusiontraining(volatile bool *start)
