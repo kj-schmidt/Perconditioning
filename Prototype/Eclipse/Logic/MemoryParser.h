@@ -25,6 +25,8 @@ public:
 	unsigned short getTimePerCycle();
 	void setTimePerCycle(unsigned short val);
 
+	String getID();
+
 	void writeToSDCard(String timeStamp, boolean occlusionComplete, unsigned short occlusionPressure, unsigned short sys, unsigned short map, unsigned short dia, boolean interruptOcclusion);
 };
 

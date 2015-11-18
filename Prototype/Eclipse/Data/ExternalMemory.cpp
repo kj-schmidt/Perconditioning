@@ -9,24 +9,14 @@
 
 namespace Data {
 
-#define cs_pin 4
-
 File fileToRead;
+String filename  = "empty";
 long patientID;
 ExternalMemory::ExternalMemory() {
 	// TODO Auto-generated constructor stub
 
 }
 
-ExternalMemory::~ExternalMemory() {
-	// TODO Auto-generated destructor stub
-}
-
-void ExternalMemory::initializeSDCard(){
-	SD.begin(cs_pin); //cs is connected to pin 4
-	/*String filename = String(String(patientID, DEC) + ".txt"); //generates random filename
-	SD.open(filename, FILE_WRITE);*/
-}
 
 //** IS TO BE MOVE TO LOGIC LAYER**
 String ExternalMemory::generateRandomNumber(){
@@ -37,46 +27,64 @@ String ExternalMemory::generateRandomNumber(){
 	return randNumberHEX; //Pass the 5 digit random ID
 }
 
-String ExternalMemory::checkFilesSD(File dir, String val){
-
+String ExternalMemory::checkFilesSD(){
 	String fileExists = "empty";
+	String valToCheck = ".csv";
+	File root = SD.open("/"); //Tell the method where to look on the SD card
 		while(true){
-			File entry = dir.openNextFile();
-			String filename, filetype;
-			if(!entry){
-				//Serial.println("** NO MORE FILES **");
-				break;
-			}
+			File entry = root.openNextFile();
+			String filetype;
+
+			//When a file is found, check the last four characters
 			filename = entry.name();
 			filetype = filename.substring(5,9);
+			entry.close();
 
-			if(filetype.equalsIgnoreCase(val)){
+			Serial.print("=== filename is "); Serial.println(filename);
+			Serial.print("=== filetype is "); Serial.println(filetype);
+
+			//If a .csv is found
+			if(filetype.equalsIgnoreCase(valToCheck)){
 				fileExists = filename;
-				Serial.print("1. A .csv file was found with name: "); Serial.println(filename);
+				Serial.print("=== a file was found with name: "); Serial.println(fileExists);
+				break;
+
+			}
+
+			//If no file was found, creates a file
+			else if(! entry){
+				String newFileName = generateRandomNumber();
+				File file;
+				char bufName[newFileName.length()+1];
+				newFileName.toCharArray(bufName, newFileName.length()+1);
+				file = SD.open(bufName);
+				file.close();
+				fileExists = newFileName;
+				Serial.print("=== a new file was created with name: "); Serial.println(fileExists);
 				break;
 			}
+
 		}
 	return fileExists;
-
 }
 
 void ExternalMemory::writeToSDCard(String textToSD){
 	  File file;
-	  File root = SD.open("/"); //Tell the method where to look on the SD card
-	  String nameReadFromSD = checkFilesSD(root, ".csv");
+
+	  String nameReadFromSD = checkFilesSD();
 	  char bufName[nameReadFromSD.length()+1]; //Buffer to hold converted strings
 
-	  if(!nameReadFromSD.equalsIgnoreCase("empty")){ //Check if there is a .csv file on the SD card
-		nameReadFromSD.toCharArray(bufName, nameReadFromSD.length()+1); //Read the name of the file and convert to char array
-	    file = SD.open(bufName, FILE_WRITE);
+	  //if(!nameReadFromSD.equalsIgnoreCase("empty")){ //Check if there is a .csv file on the SD card
+	  nameReadFromSD.toCharArray(bufName, nameReadFromSD.length()+1); //Read the name of the file and convert to char array
+	  file = SD.open(bufName, FILE_WRITE);
 	    //Serial.print("Read from SD: "); Serial.println(file.readStringUntil('\n'));
-	    file.println(textToSD);
-	    file.close();
+	  file.println(textToSD);
+	  file.close();
 	    //Serial.println("2. No new file was created");
-	  } else{ //Create new file with the random ID
+	  /*} else{ //Create new file with the random ID
 		createFileTemplate(generateRandomNumber());
 	    Serial.print("A new file was created with name: "); Serial.println(generateRandomNumber());
-	  }
+	  }*/
 }
 
 //** SKAL SLETTES **

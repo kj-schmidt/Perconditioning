@@ -1,11 +1,7 @@
 //This is a automatic generated file
 //Please do not modify this file
 //If you touch this file your change will be overwritten during the next build
-<<<<<<< Updated upstream
-//This file has been generated on 2015-11-17 09:56:11
-=======
-//This file has been generated on 2015-11-18 11:00:32
->>>>>>> Stashed changes
+//This file has been generated on 2015-11-18 15:48:34
 
 #include "Arduino.h"
 #include "Arduino.h"
@@ -25,5 +21,5 @@ void intSel_ISR();
 void setup() ;
 void loop() ;
 
-
 #include "Konditioneringsapparat.pde"
+

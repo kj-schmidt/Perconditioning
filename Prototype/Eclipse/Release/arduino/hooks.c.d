@@ -1,2 +1,2 @@
-arduino/hooks.c.d arduino/hooks.c.o:  \
- /home/simon/Dropbox/arduino-1.5.5/hardware/arduino/avr/cores/arduino/hooks.c
+arduino/hooks.c.o arduino/hooks.c.o:  \
+ /Applications/Arduino1.5.5.app/Contents/Resources/Java/hardware/arduino/avr/cores/arduino/hooks.c

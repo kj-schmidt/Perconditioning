@@ -17,12 +17,10 @@ namespace Data {
 class ExternalMemory {
 public:
 	ExternalMemory();
-	virtual ~ExternalMemory();
-	void initializeSDCard();
 	void writeToSDCard(String textToSD);
 	void readFromSDCard(); //** SKAL SLETTES **
 	String generateRandomNumber();
-	String checkFilesSD(File dir, String val);
+	String checkFilesSD();
 	void createFileTemplate(String filename);
 };
 

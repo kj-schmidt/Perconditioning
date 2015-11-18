@@ -108,7 +108,8 @@ void Buttons::startStopConditiong(volatile bool *startButtonPressed){
 	if(!*startButtonPressed){
 		disp.clearAreaDisp(180, 220, 80, 30);
 		disp.clearAreaDisp(2890, 0, 10, 20);
-		disp.setNoCycleLeft(memoryBT.getNoOfCycles()); //Reset the no of cycles
+		disp.setNoCycleLeft(memoryBT.getNoOfCycles()*2); //Reset the no of cycles
+		// X2 to handle both occlusion and perfusion
 	} else
 		timerButtons.setTimestamp();//Set the starting point for the timer
 

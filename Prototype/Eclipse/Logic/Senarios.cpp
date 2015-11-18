@@ -68,8 +68,15 @@ for (int i = 0; i < ArraysizePeaks; i++) {
 	  Serial.print(",");
 	}
 Serial.print("\n");
+<<<<<<< HEAD
+	mem.writeToSDCard(timer.timeToString(), false, 0, util.rawToMmHg(*SYS), util.rawToMmHg(*MAP), util.rawToMmHg(*DIA), false); // Save the blood pressure onto the SD card
+=======
 
 
+<<<<<<< Updated upstream
+=======
+>>>>>>> origin/master
+>>>>>>> Stashed changes
 }
 
 unsigned short Senarios::occlusiontraining(volatile bool *start)

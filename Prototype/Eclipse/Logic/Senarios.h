@@ -13,8 +13,9 @@
 #include "DigitalFiltering.h"
 #include "../Data/PressureControl.h"
 #include "../Data/PressureSampling.h"
+#include "MemoryParser.h"
 #include "../Utilities.h"
-#include "../Timer.h"
+#include "../Logic/Timer.h"
 
 
 
@@ -28,9 +29,8 @@ class Senarios {
 	Logic::DigitalFiltering df;
 	Data::PressureControl pc;
 	Data::PressureSampling ps;
-	Data::ExternalMemory exMem;
+	Logic::MemoryParser mem;
 	Logic::Timer timer;
-
 public:
 
 	void bloodPressure(unsigned short *MAP, unsigned short *SYS, unsigned short *DIA); //, Logic::BPAlgorithm bpa, Data::PressureControl pc, Data::PressureSampling ps, Logic::DigitalFiltering df,  Utilities util);

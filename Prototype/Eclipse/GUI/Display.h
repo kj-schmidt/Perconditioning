@@ -27,7 +27,6 @@ Utilities util;
 
 public:
 	Display();
-	virtual ~Display();
 	void initDisplay();
 	void clearAreaDisp(unsigned short pointX, unsigned short pointY, unsigned short width, unsigned short height);
 	void initConditioning();
@@ -48,6 +47,7 @@ private:
 	void updateTimeLeft(String value);
 	void updateNoOfCycles(unsigned short value);
 	void updateStopWatchTime(String value);
+	void updateBloodPressure(unsigned short sys, unsigned short dia, unsigned short map);
 };
 
 } /* namespace GUI */

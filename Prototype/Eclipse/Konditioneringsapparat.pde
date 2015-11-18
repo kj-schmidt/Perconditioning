@@ -13,8 +13,6 @@
 #define dc 	32
 #define reset	30
 
-
-
 //Pin setup
 int interruptPin0 = 18;
 int interruptPin1 = 19;
@@ -31,8 +29,7 @@ unsigned short programToRun = 0;
 //instances
 GUI::Buttons btt;
 GUI::Display disp;
-Logic::Timer timer;
-Logic::MemoryParser mem;
+Data::ExternalMemory ex;
 
 //The setup function is called once at startup of the sketch
 void intCon_ISR(){
@@ -62,11 +59,9 @@ void intSel_ISR(){
 
 void setup()
 {
+	SD.begin(4); //Initialize SD card
 	Serial.begin(9600);
-	/*ext.initializeSDCard();
-	mem.writeToSDCard(timer.timeToString(), false, 130, 180, 140, 120, false);
-	ext.readFromSDCard();*/
-	//*****
+
 	disp.initDisplay();
 
 	programToRun = btt.readModeSwitch();

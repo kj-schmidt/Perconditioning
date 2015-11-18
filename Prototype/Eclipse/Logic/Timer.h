@@ -16,7 +16,6 @@ namespace Logic {
 class Timer {
 public:
 	Timer();
-	virtual ~Timer();
 
 	void setTimestamp();
 	Time getTimestamp();
