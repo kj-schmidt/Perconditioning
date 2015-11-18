@@ -41,7 +41,7 @@ Time Timer::getTimestamp(){
 
 void Timer::stopWatch(){
 	Time elapsedTime = rtc.time();
-	unsigned short hoursToSec = (elapsedTime.hr-timestamp.hr) * 24 * 60;
+	unsigned short hoursToSec = (elapsedTime.hr-timestamp.hr) * 60 * 60;
 	unsigned short minutesToSec = (elapsedTime.min- timestamp.min) * 60;
 	unsigned short elapsedTotalSeconds = hoursToSec + minutesToSec + (elapsedTime.sec - timestamp.sec);
 	seconds = elapsedTotalSeconds % 60;
@@ -53,7 +53,7 @@ void Timer::countdown(unsigned short totalTime){
 	timerHasEnded = false;
 	Time elapsedTime = rtc.time();
 	String elapsedTimeString;
-	unsigned short hoursToSec = (elapsedTime.hr-timestamp.hr) * 24 * 60;
+	unsigned short hoursToSec = (elapsedTime.hr-timestamp.hr) * 60 * 60;
 	unsigned short minutesToSec = (elapsedTime.min- timestamp.min) * 60;
 	unsigned short elapsedTotalSeconds = hoursToSec + minutesToSec + (elapsedTime.sec - timestamp.sec);
 	seconds = (totalTime - elapsedTotalSeconds) % 60;

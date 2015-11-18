@@ -26,8 +26,8 @@ public:
 	unsigned short changer(volatile unsigned short state);
 	unsigned short selector(volatile unsigned short state);
 	bool startStopOcclusion(volatile bool startButtonPressed);
-	bool startStopConditiong(volatile bool startButtonPressed);
-	bool btPressed(volatile bool startButtonPressed);
+	void startStopConditiong(volatile bool *startButtonPressed);
+	void btPressed(volatile bool *startButtonPressed);
 };
 } /* namespace GUI */
 

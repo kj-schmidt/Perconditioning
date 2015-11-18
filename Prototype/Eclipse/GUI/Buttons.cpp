@@ -12,8 +12,8 @@ namespace GUI {
 //values handle by interrupts
 
 volatile unsigned short state = 0; //volatile enable the value to change during an interrupt
-volatile bool startButtonPressed= false;
-volatile bool btPressed = false;
+//volatile bool startButtonPressed= false;
+//volatile bool btPressed = false;
 
 //pin values for modeswitch
 unsigned short conditioningPin = 26;
@@ -101,28 +101,26 @@ bool Buttons::startStopOcclusion(volatile bool startButtonPressed){
 	return startButtonPressed;
 }
 
-bool Buttons::startStopConditiong(volatile bool startButtonPressed){
+void Buttons::startStopConditiong(volatile bool *startButtonPressed){
 	//Clear the timer to set disp for new conditioning threatment
-	startButtonPressed = !startButtonPressed; //Invert the value of state
+	*startButtonPressed = !*startButtonPressed; //Invert the value of state
 
-	if(!startButtonPressed){
+	if(!*startButtonPressed){
 		disp.clearAreaDisp(180, 220, 80, 30);
 		disp.clearAreaDisp(2890, 0, 10, 20);
 		disp.setNoCycleLeft(memoryBT.getNoOfCycles()); //Reset the no of cycles
 	} else
 		timerButtons.setTimestamp();//Set the starting point for the timer
 
-	return startButtonPressed;
+
 }
-bool Buttons::btPressed(volatile bool btPressed){
+void Buttons::btPressed(volatile bool *btPressed){
 	//Only handles interrupt if conditioning is not ongoing
-	btPressed = !btPressed;
-	if(!btPressed){
+	*btPressed = !*btPressed;
+	if(!*btPressed){
 		//initialyze blood pressure reading
 	}
 
-
-	return btPressed;
 }
 
 } /* namespace GUI */

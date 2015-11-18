@@ -38,25 +38,26 @@ String ExternalMemory::generateRandomNumber(){
 }
 
 String ExternalMemory::checkFilesSD(File dir, String val){
-	while(true){
-		String fileExists = "empty";
-		File entry = dir.openNextFile();
-		String filename, filetype;
-		if(!entry){
-			//Serial.println("** NO MORE FILES **");
-			break;
-		}
-		filename = entry.name();
-		filetype = filename.substring(5,9);
 
-		if(filetype.equalsIgnoreCase(val)){
-			fileExists = filename;
-			Serial.print("1. A .csv file was found with name: "); Serial.println(filename);
-			return fileExists;
-			break;
-		}else
-			return fileExists;
-	}
+	String fileExists = "empty";
+		while(true){
+			File entry = dir.openNextFile();
+			String filename, filetype;
+			if(!entry){
+				//Serial.println("** NO MORE FILES **");
+				break;
+			}
+			filename = entry.name();
+			filetype = filename.substring(5,9);
+
+			if(filetype.equalsIgnoreCase(val)){
+				fileExists = filename;
+				Serial.print("1. A .csv file was found with name: "); Serial.println(filename);
+				break;
+			}
+		}
+	return fileExists;
+
 }
 
 void ExternalMemory::writeToSDCard(String textToSD){

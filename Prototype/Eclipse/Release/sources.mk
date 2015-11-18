@@ -2,41 +2,44 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-O_UPPER_SRCS := 
-O_SRCS := 
-EEP_SRCS := 
-C_UPPER_SRCS := 
-CPP_SRCS := 
-AR_SRCS := 
-PDE_SRCS := 
+INO_SRCS := 
 ASM_SRCS := 
+O_UPPER_SRCS := 
+CPP_SRCS := 
+S_UPPER_SRCS := 
+O_SRCS := 
+ELF_SRCS := 
+C_UPPER_SRCS := 
 CXX_SRCS := 
 C++_SRCS := 
-ELF_SRCS := 
-C_SRCS := 
-S_UPPER_SRCS := 
+PDE_SRCS := 
 CC_SRCS := 
+AR_SRCS := 
+EEP_SRCS := 
+C_SRCS := 
+C_UPPER_DEPS := 
+PDE_DEPS := 
 C_DEPS := 
 AR := 
-FLASH_IMAGE := 
 EEP := 
-CXX_DEPS := 
-S_UPPER_DEPS := 
-ELF := 
-C++_DEPS := 
-ASM_DEPS := 
+FLASH_IMAGE := 
 CC_DEPS := 
 AR_OBJ := 
-CPP_DEPS := 
-PDE_DEPS := 
+C++_DEPS := 
 LINK_OBJ := 
-C_UPPER_DEPS := 
+CXX_DEPS := 
+ASM_DEPS := 
+INO_DEPS := 
 SIZEDUMMY := 
+S_UPPER_DEPS := 
+ELF := 
+CPP_DEPS := 
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 arduino/core \
 arduino/core/avr-libc \
+. \
 Logic \
 Libraries/SPI \
 Libraries/SD/src/utility \
@@ -45,7 +48,6 @@ Libraries/EEPROM \
 Libraries/DS1302 \
 Libraries/Adafruit_ILI9340 \
 Libraries/Adafruit_GFX \
-. \
 GUI \
 Data \
 

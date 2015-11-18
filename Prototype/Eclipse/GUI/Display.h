@@ -15,10 +15,16 @@
 #include "Adafruit_ILI9340.h"
 #include "../Logic/Timer.h"
 #include "../Logic/MemoryParser.h"
+#include "../Logic/Senarios.h"
+#include "../Utilities.h"
 
 namespace GUI {
 
 class Display {
+
+Logic::Senarios s;
+Utilities util;
+
 public:
 	Display();
 	virtual ~Display();
@@ -28,14 +34,14 @@ public:
 	void initOcclusion();
 	void initSetup();
 	void moveSqaure(unsigned short startX, unsigned short startY, unsigned short endX, unsigned short endY, unsigned short width, unsigned short height);
-	void updateConditioning(volatile bool *buttonPressed);
+	void updateConditioning(volatile bool *buttonPressed, volatile bool *btPressed);
 	void updateOcclusion(volatile bool *buttonPressed);
 	void updateSetup(volatile unsigned short *state);
 	unsigned short getNoCycleLeft();
 	void setNoCycleLeft(unsigned short val);
 
 	//Is to be move to DATA namespace
-	void updateSensorVal();
+	void updateSensorVal(unsigned short sensorVal);
 
 
 private:
