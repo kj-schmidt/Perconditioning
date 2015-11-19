@@ -34,9 +34,9 @@
   ../GUI/../Logic/../Data/../Utilities.h ../GUI/../Logic/MemoryParser.h \
   ../GUI/../Logic/../Utilities.h ../GUI/../Logic/../Logic/Timer.h \
   ../GUI/../Utilities.h ../GUI/Display.h ../Data/PressureControl.h \
-  ../Data/PressureSampling.h ../Logic/DigitalFiltering.h \
-  ../Logic/BPAlgorithm.h ../Logic/Senarios.h ../Utilities.h \
-  ../Konditioneringsapparat.pde
+  ../Data/PressureSampling.h ../Data/ExternalMemory.h \
+  ../Logic/DigitalFiltering.h ../Logic/BPAlgorithm.h ../Logic/Senarios.h \
+  ../Utilities.h ../Konditioneringsapparat.pde
 
 /Applications/Arduino1.5.5.app/Contents/Resources/Java/hardware/arduino/avr/cores/arduino/Arduino.h:
 
@@ -123,6 +123,8 @@
 ../Data/PressureControl.h:
 
 ../Data/PressureSampling.h:
+
+../Data/ExternalMemory.h:
 
 ../Logic/DigitalFiltering.h:
 

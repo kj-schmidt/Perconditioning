@@ -59,8 +59,14 @@ void MemoryParser::writeToSDCard(String timeStamp, boolean occlusionComplete,
 }
 
 String MemoryParser::getID(){
-	String filename = extMem.checkFilesSD();
+	String filename = extMem.getFilename();
 	return filename.substring(0,5);
 }
+
+void MemoryParser::startInitSD(){
+	extMem.initializeSD();
+}
+
+
 
 } /* namespace Logic */

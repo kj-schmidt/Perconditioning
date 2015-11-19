@@ -11,14 +11,17 @@ namespace Data {
 
 File fileToRead;
 String filename  = "empty";
-long patientID;
+
 ExternalMemory::ExternalMemory() {
 	// TODO Auto-generated constructor stub
 
 }
 
+void ExternalMemory::initializeSD(){
+	SD.begin(4);
+	filename = checkFilesSD();
+}
 
-//** IS TO BE MOVE TO LOGIC LAYER**
 String ExternalMemory::generateRandomNumber(){
 	randomSeed(analogRead(A5)); //Ensure that the random number is not generated in the same order
 	long randNumber = random(100000, 999999); //Generates a 6 digit random number
@@ -28,63 +31,50 @@ String ExternalMemory::generateRandomNumber(){
 }
 
 String ExternalMemory::checkFilesSD(){
-	String fileExists = "empty";
+	String tempName, tempType, finalFile;
 	String valToCheck = ".csv";
 	File root = SD.open("/"); //Tell the method where to look on the SD card
 		while(true){
 			File entry = root.openNextFile();
-			String filetype;
 
 			//When a file is found, check the last four characters
-			filename = entry.name();
-			filetype = filename.substring(5,9);
-			entry.close();
-
-			Serial.print("=== filename is "); Serial.println(filename);
-			Serial.print("=== filetype is "); Serial.println(filetype);
+			tempName = entry.name();
+			tempType = tempName.substring(5,9);
 
 			//If a .csv is found
-			if(filetype.equalsIgnoreCase(valToCheck)){
-				fileExists = filename;
-				Serial.print("=== a file was found with name: "); Serial.println(fileExists);
+			if(tempType.equalsIgnoreCase(valToCheck)){
+				Serial.print("*** A file was found with name: "); Serial.println(tempName);
+				finalFile = tempName;
 				break;
-
 			}
-
 			//If no file was found, creates a file
-			else if(! entry){
+			if(!tempType.equalsIgnoreCase(valToCheck) && !entry){
 				String newFileName = generateRandomNumber();
-				File file;
-				char bufName[newFileName.length()+1];
-				newFileName.toCharArray(bufName, newFileName.length()+1);
-				file = SD.open(bufName);
-				file.close();
-				fileExists = newFileName;
-				Serial.print("=== a new file was created with name: "); Serial.println(fileExists);
+				//Create a new file with the random HEX as filename and generate a new header
+				Serial.print("*** A new file was created: "); Serial.println(tempName);
+				createFileTemplate(newFileName);
+				finalFile = newFileName;
 				break;
 			}
-
+			entry.close();
 		}
-	return fileExists;
+	return finalFile;
 }
 
 void ExternalMemory::writeToSDCard(String textToSD){
-	  File file;
+	//Create new instance of File and get the filename
+	File file;
+	String nameReadFromSD = filename;
 
-	  String nameReadFromSD = checkFilesSD();
-	  char bufName[nameReadFromSD.length()+1]; //Buffer to hold converted strings
+	//Convert filename to char array
+	char bufName[nameReadFromSD.length()+1];
+	nameReadFromSD.toCharArray(bufName, nameReadFromSD.length()+1); //
 
-	  //if(!nameReadFromSD.equalsIgnoreCase("empty")){ //Check if there is a .csv file on the SD card
-	  nameReadFromSD.toCharArray(bufName, nameReadFromSD.length()+1); //Read the name of the file and convert to char array
-	  file = SD.open(bufName, FILE_WRITE);
-	    //Serial.print("Read from SD: "); Serial.println(file.readStringUntil('\n'));
-	  file.println(textToSD);
-	  file.close();
-	    //Serial.println("2. No new file was created");
-	  /*} else{ //Create new file with the random ID
-		createFileTemplate(generateRandomNumber());
-	    Serial.print("A new file was created with name: "); Serial.println(generateRandomNumber());
-	  }*/
+	//Open file and write data to it
+	file = SD.open(bufName, FILE_WRITE);
+	file.println(textToSD);
+	file.close();
+	Serial.print("*** Data was written to: "); Serial.println(filename);
 }
 
 //** SKAL SLETTES **
@@ -105,10 +95,12 @@ void ExternalMemory::createFileTemplate(String filename){
 	filename.toCharArray(buf, filename.length()+1);
 	file = SD.open(buf, FILE_WRITE);
 	Serial.print("File name is set to: "); Serial.println(buf);
-	file.println("Tidsstempel,Afklemningstryk,Gennemf\x9Brt afklemning,Systolisk blodtryk,Middeltryk(MAP),Diastolisk blodtryk,Afklemning afbrudt");
+	file.println("Tidsstempel,Gennemfoert afklemning,Afklemningstryk,Systolisk blodtryk,Middeltryk(MAP),Diastolisk blodtryk,Afklemning afbrudt");
 	file.close();
 }
 
-
+String ExternalMemory::getFilename(){
+	return filename;
+}
 
 } /* namespace Data */

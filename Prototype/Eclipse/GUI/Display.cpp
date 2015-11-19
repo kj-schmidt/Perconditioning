@@ -120,6 +120,10 @@ void Display::clearAreaDisp(unsigned short pointX, unsigned short pointY, unsign
 }
 
 void Display::initConditioning(){
+	//Begin communication with SD card
+	memory.startInitSD();
+	Serial.println("** THIS METHOD IS RUN **");
+
 	//Writes statics parameters onto the screen
 	unsigned short noOfCyclesVal = memory.getNoOfCycles();
 	noOfCyclesLeft = memory.getNoOfCycles()*2;				//times two to imitate occlude and relaxed cuff
@@ -207,58 +211,17 @@ bool donedeflateingOrInflating = false;
 		s.bloodPressure(&MAP, &SYS, &DIA);
 
 		updateBloodPressure(SYS, DIA, MAP);
-
-<<<<<<< Updated upstream
-if(*btPressed && !*buttonPressed)
-{
-	TFTscreen.setTextColor(ILI9340_WHITE);
-	TFTscreen.setTextSize(3);
-	TFTscreen.setCursor(75, 60);
-	TFTscreen.println("Arbejder...");
-
-
-//	s.bloodPressure(&MAP, &SYS, &DIA);
-
-	TFTscreen.setTextColor(ILI9340_BLACK);
-	TFTscreen.setCursor(75, 60);
-	TFTscreen.println("Arbejder...");
-
-	TFTscreen.setTextColor(ILI9340_WHITE);
-	TFTscreen.setCursor(75, 60);
-	TFTscreen.print(util.rawToMmHg(SYS));
-	TFTscreen.print("/");
-	TFTscreen.print(util.rawToMmHg(DIA));
-	TFTscreen.print(" (");
-	TFTscreen.print(util.rawToMmHg(MAP));
-	TFTscreen.print(")");
-
-	//*btPressed = false;
-
-}
-
-if(!*btPressed && *buttonPressed && getNoCycleLeft() != 0){
-	TFTscreen.setTextColor(ILI9340_WHITE);
-	TFTscreen.setTextSize(3);
-	TFTscreen.setCursor(75, 60);
-	TFTscreen.println("Arbejder...");
-
-
-	//s.bloodPressure(&MAP, &SYS, &DIA);
-=======
-		*btPressed = false;
 	}
->>>>>>> Stashed changes
 
-<<<<<<< HEAD
 	//*** When "Start/Stop" is pressed, and blood pressure is to be measured ***
 	if(!*btPressed && *buttonPressed && getNoCycleLeft() != 0){
+
+		//Print the ID on the display
 		TFTscreen.setTextColor(ILI9340_WHITE);  TFTscreen.setTextSize(2);
 		TFTscreen.setCursor(40, 0);
 		TFTscreen.println(memory.getID());
-=======
-	//*btPressed = false;
->>>>>>> origin/master
 
+		//*btPressed = false;
 		//Clear previous BP
 		clearAreaDisp(75,160, 220, 30);
 		TFTscreen.setTextColor(ILI9340_WHITE);
@@ -279,7 +242,7 @@ if(!*btPressed && *buttonPressed && getNoCycleLeft() != 0){
 			SYS = util.mmHgToRaw(175);
 		else if(util.rawToMmHg(SYS)>275)
 			SYS = util.mmHgToRaw(275);
-
+		memory.writeToSDCard(timer.timeToString(), false, 0, util.rawToMmHg(SYS), util.rawToMmHg(MAP), util.rawToMmHg(DIA), false); //Temp save
 	}
 
 	//*** Running the conditioning ***
@@ -334,6 +297,7 @@ if(!*btPressed && *buttonPressed && getNoCycleLeft() != 0){
 		}
 	}
 
+	//*** When no buttons is pressed
 	if(!*btPressed && !*buttonPressed){
 		s.occlude(0);
 		updateTimeLeft(timer.displayTimer());
@@ -345,6 +309,7 @@ if(!*btPressed && *buttonPressed && getNoCycleLeft() != 0){
 	if(memory.getNoOfCycles() == 0)
 		*buttonPressed = false;
 }
+
 void Display::updateOcclusion(volatile bool *buttonPressed){
 
 	//Run occlusion trail
@@ -361,6 +326,7 @@ void Display::updateOcclusion(volatile bool *buttonPressed){
 	//Display the sensorvalue
 	updateSensorVal(s.occlusiontraining(&*buttonPressed));
 }
+
 void Display::updateSetup(volatile unsigned short *state){
 	switch (*state){
 		case 0: //Move cursor

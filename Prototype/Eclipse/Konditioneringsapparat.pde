@@ -4,6 +4,7 @@
 #include "GUI/Display.h"
 #include "Data/PressureControl.h"
 #include "Data/PressureSampling.h"
+#include "Data/ExternalMemory.h"
 #include "Logic/DigitalFiltering.h"
 #include "Logic/BPAlgorithm.h"
 #include "Logic/Senarios.h"
@@ -59,7 +60,8 @@ void intSel_ISR(){
 
 void setup()
 {
-	SD.begin(4); //Initialize SD card
+	/*SD.begin(4); //Initialize SD card
+	ex.checkFilesSD();*/
 	Serial.begin(9600);
 
 	disp.initDisplay();
@@ -75,7 +77,7 @@ void setup()
 		pinMode(interruptPin0, INPUT);
 		pinMode(interruptPin1, INPUT);
 
-	switch(btt.readModeSwitch()){
+	switch(programToRun){
 		case 1: //Conditioning
 			attachInterrupt(digitalPinToInterrupt(interruptPin0), intCon_ISR, RISING);
 			attachInterrupt(digitalPinToInterrupt(interruptPin1), intBT_ISR, RISING);

@@ -96,6 +96,7 @@ bool Buttons::startStopOcclusion(volatile bool startButtonPressed){
 	if(!startButtonPressed){
 		disp.clearAreaDisp(50, 20, 80, 30);
 		timerButtons.setTimestamp();
+
 	}
 	startButtonPressed = !startButtonPressed; //Invert the value of state
 	return startButtonPressed;
@@ -110,6 +111,9 @@ void Buttons::startStopConditiong(volatile bool *startButtonPressed){
 		disp.clearAreaDisp(2890, 0, 10, 20);
 		disp.setNoCycleLeft(memoryBT.getNoOfCycles()*2); //Reset the no of cycles
 		// X2 to handle both occlusion and perfusion
+
+		//Save info, that the conditioning was interrupted
+		memoryBT.writeToSDCard(timerButtons.timeToString(), false, 0, 0, 0, 0, true);
 	} else
 		timerButtons.setTimestamp();//Set the starting point for the timer
 
