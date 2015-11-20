@@ -24,6 +24,9 @@ namespace Logic {
 
 class Senarios {
 
+private:
+static long tmpTimestamp;
+
 	Utilities util;
 	Logic::BPAlgorithm bpa;
 	Logic::DigitalFiltering df;

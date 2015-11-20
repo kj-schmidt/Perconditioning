@@ -1,56 +1,56 @@
-Libraries/SD/src/File.cpp.o Libraries/SD/src/File.cpp.o:  \
- /Applications/Arduino1.5.5.app/Contents/Resources/Java/libraries/SD/src/File.cpp \
-  /Applications/Arduino1.5.5.app/Contents/Resources/Java/libraries/SD/src/SD.h \
-  /Applications/Arduino1.5.5.app/Contents/Resources/Java/hardware/arduino/avr/cores/arduino/Arduino.h \
-  /Applications/Arduino1.5.5.app/Contents/Resources/Java/hardware/arduino/avr/cores/arduino/binary.h \
-  /Applications/Arduino1.5.5.app/Contents/Resources/Java/hardware/arduino/avr/cores/arduino/WCharacter.h \
-  /Applications/Arduino1.5.5.app/Contents/Resources/Java/hardware/arduino/avr/cores/arduino/WString.h \
-  /Applications/Arduino1.5.5.app/Contents/Resources/Java/hardware/arduino/avr/cores/arduino/HardwareSerial.h \
-  /Applications/Arduino1.5.5.app/Contents/Resources/Java/hardware/arduino/avr/cores/arduino/Stream.h \
-  /Applications/Arduino1.5.5.app/Contents/Resources/Java/hardware/arduino/avr/cores/arduino/Print.h \
-  /Applications/Arduino1.5.5.app/Contents/Resources/Java/hardware/arduino/avr/cores/arduino/Printable.h \
-  /Applications/Arduino1.5.5.app/Contents/Resources/Java/hardware/arduino/avr/cores/arduino/new.h \
-  /Applications/Arduino1.5.5.app/Contents/Resources/Java/hardware/arduino/avr/variants/mega/pins_arduino.h \
-  /Applications/Arduino1.5.5.app/Contents/Resources/Java/libraries/SD/src/utility/SdFat.h \
-  /Applications/Arduino1.5.5.app/Contents/Resources/Java/libraries/SD/src/utility/Sd2Card.h \
-  /Applications/Arduino1.5.5.app/Contents/Resources/Java/libraries/SD/src/utility/Sd2PinMap.h \
-  /Applications/Arduino1.5.5.app/Contents/Resources/Java/libraries/SD/src/utility/SdInfo.h \
-  /Applications/Arduino1.5.5.app/Contents/Resources/Java/libraries/SD/src/utility/FatStructs.h \
-  /Applications/Arduino1.5.5.app/Contents/Resources/Java/hardware/arduino/avr/cores/arduino/Print.h \
-  /Applications/Arduino1.5.5.app/Contents/Resources/Java/libraries/SD/src/utility/SdFatUtil.h
+Libraries/SD/src/File.cpp.d Libraries/SD/src/File.cpp.o:  \
+ /home/simon/Dropbox/arduino-1.5.5/libraries/SD/src/File.cpp \
+  /home/simon/Dropbox/arduino-1.5.5/libraries/SD/src/SD.h \
+  /home/simon/Dropbox/arduino-1.5.5/hardware/arduino/avr/cores/arduino/Arduino.h \
+  /home/simon/Dropbox/arduino-1.5.5/hardware/arduino/avr/cores/arduino/binary.h \
+  /home/simon/Dropbox/arduino-1.5.5/hardware/arduino/avr/cores/arduino/WCharacter.h \
+  /home/simon/Dropbox/arduino-1.5.5/hardware/arduino/avr/cores/arduino/WString.h \
+  /home/simon/Dropbox/arduino-1.5.5/hardware/arduino/avr/cores/arduino/HardwareSerial.h \
+  /home/simon/Dropbox/arduino-1.5.5/hardware/arduino/avr/cores/arduino/Stream.h \
+  /home/simon/Dropbox/arduino-1.5.5/hardware/arduino/avr/cores/arduino/Print.h \
+  /home/simon/Dropbox/arduino-1.5.5/hardware/arduino/avr/cores/arduino/Printable.h \
+  /home/simon/Dropbox/arduino-1.5.5/hardware/arduino/avr/cores/arduino/new.h \
+  /home/simon/Dropbox/arduino-1.5.5/hardware/arduino/avr/variants/mega/pins_arduino.h \
+  /home/simon/Dropbox/arduino-1.5.5/libraries/SD/src/utility/SdFat.h \
+  /home/simon/Dropbox/arduino-1.5.5/libraries/SD/src/utility/Sd2Card.h \
+  /home/simon/Dropbox/arduino-1.5.5/libraries/SD/src/utility/Sd2PinMap.h \
+  /home/simon/Dropbox/arduino-1.5.5/libraries/SD/src/utility/SdInfo.h \
+  /home/simon/Dropbox/arduino-1.5.5/libraries/SD/src/utility/FatStructs.h \
+  /home/simon/Dropbox/arduino-1.5.5/hardware/arduino/avr/cores/arduino/Print.h \
+  /home/simon/Dropbox/arduino-1.5.5/libraries/SD/src/utility/SdFatUtil.h
 
-/Applications/Arduino1.5.5.app/Contents/Resources/Java/libraries/SD/src/SD.h:
+/home/simon/Dropbox/arduino-1.5.5/libraries/SD/src/SD.h:
 
-/Applications/Arduino1.5.5.app/Contents/Resources/Java/hardware/arduino/avr/cores/arduino/Arduino.h:
+/home/simon/Dropbox/arduino-1.5.5/hardware/arduino/avr/cores/arduino/Arduino.h:
 
-/Applications/Arduino1.5.5.app/Contents/Resources/Java/hardware/arduino/avr/cores/arduino/binary.h:
+/home/simon/Dropbox/arduino-1.5.5/hardware/arduino/avr/cores/arduino/binary.h:
 
-/Applications/Arduino1.5.5.app/Contents/Resources/Java/hardware/arduino/avr/cores/arduino/WCharacter.h:
+/home/simon/Dropbox/arduino-1.5.5/hardware/arduino/avr/cores/arduino/WCharacter.h:
 
-/Applications/Arduino1.5.5.app/Contents/Resources/Java/hardware/arduino/avr/cores/arduino/WString.h:
+/home/simon/Dropbox/arduino-1.5.5/hardware/arduino/avr/cores/arduino/WString.h:
 
-/Applications/Arduino1.5.5.app/Contents/Resources/Java/hardware/arduino/avr/cores/arduino/HardwareSerial.h:
+/home/simon/Dropbox/arduino-1.5.5/hardware/arduino/avr/cores/arduino/HardwareSerial.h:
 
-/Applications/Arduino1.5.5.app/Contents/Resources/Java/hardware/arduino/avr/cores/arduino/Stream.h:
+/home/simon/Dropbox/arduino-1.5.5/hardware/arduino/avr/cores/arduino/Stream.h:
 
-/Applications/Arduino1.5.5.app/Contents/Resources/Java/hardware/arduino/avr/cores/arduino/Print.h:
+/home/simon/Dropbox/arduino-1.5.5/hardware/arduino/avr/cores/arduino/Print.h:
 
-/Applications/Arduino1.5.5.app/Contents/Resources/Java/hardware/arduino/avr/cores/arduino/Printable.h:
+/home/simon/Dropbox/arduino-1.5.5/hardware/arduino/avr/cores/arduino/Printable.h:
 
-/Applications/Arduino1.5.5.app/Contents/Resources/Java/hardware/arduino/avr/cores/arduino/new.h:
+/home/simon/Dropbox/arduino-1.5.5/hardware/arduino/avr/cores/arduino/new.h:
 
-/Applications/Arduino1.5.5.app/Contents/Resources/Java/hardware/arduino/avr/variants/mega/pins_arduino.h:
+/home/simon/Dropbox/arduino-1.5.5/hardware/arduino/avr/variants/mega/pins_arduino.h:
 
-/Applications/Arduino1.5.5.app/Contents/Resources/Java/libraries/SD/src/utility/SdFat.h:
+/home/simon/Dropbox/arduino-1.5.5/libraries/SD/src/utility/SdFat.h:
 
-/Applications/Arduino1.5.5.app/Contents/Resources/Java/libraries/SD/src/utility/Sd2Card.h:
+/home/simon/Dropbox/arduino-1.5.5/libraries/SD/src/utility/Sd2Card.h:
 
-/Applications/Arduino1.5.5.app/Contents/Resources/Java/libraries/SD/src/utility/Sd2PinMap.h:
+/home/simon/Dropbox/arduino-1.5.5/libraries/SD/src/utility/Sd2PinMap.h:
 
-/Applications/Arduino1.5.5.app/Contents/Resources/Java/libraries/SD/src/utility/SdInfo.h:
+/home/simon/Dropbox/arduino-1.5.5/libraries/SD/src/utility/SdInfo.h:
 
-/Applications/Arduino1.5.5.app/Contents/Resources/Java/libraries/SD/src/utility/FatStructs.h:
+/home/simon/Dropbox/arduino-1.5.5/libraries/SD/src/utility/FatStructs.h:
 
-/Applications/Arduino1.5.5.app/Contents/Resources/Java/hardware/arduino/avr/cores/arduino/Print.h:
+/home/simon/Dropbox/arduino-1.5.5/hardware/arduino/avr/cores/arduino/Print.h:
 
-/Applications/Arduino1.5.5.app/Contents/Resources/Java/libraries/SD/src/utility/SdFatUtil.h:
+/home/simon/Dropbox/arduino-1.5.5/libraries/SD/src/utility/SdFatUtil.h:

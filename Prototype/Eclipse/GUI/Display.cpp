@@ -233,7 +233,7 @@ bool donedeflateingOrInflating = false;
 		TFTscreen.println("Arbejder...");
 
 		//Measure the blood pressure
-		//s.bloodPressure(&MAP, &SYS, &DIA);
+		//s.bloodPressure(&MAP, &SYS, &DIA, &*buttonPressed);
 
 		//Display the blood pressure
 		updateBloodPressure(SYS, DIA, MAP);
@@ -254,14 +254,14 @@ bool donedeflateingOrInflating = false;
 		if(noOfCyclesLeft%2)
 		{
 			cuffPressure =  s.occlude(0);
-			if(cuffPressure < util.mmHgToRaw(10) && donedeflateingOrInflating == false)
+			if(cuffPressure < util.mmHgToRaw(50) && donedeflateingOrInflating == false)
 			{
 				donedeflateingOrInflating = true;
 				timer.setTimestamp();
 				timer.setTimerStatus(false);
 				memory.writeToSDCard(timer.timeToString(), true, util.rawToMmHg(SYS)+25, 0, 0, 0, false);
 			}
-			else if (cuffPressure > util.mmHgToRaw(10))
+			else if (cuffPressure > util.mmHgToRaw(50))
 				donedeflateingOrInflating = false;
 		}
 		//If noOfCycles is even, meaning that it has reach occlusion

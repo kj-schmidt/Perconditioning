@@ -18,8 +18,10 @@ ExternalMemory::ExternalMemory() {
 }
 
 void ExternalMemory::initializeSD(){
-	SD.begin(4);
-	filename = checkFilesSD();
+	if(SD.begin(4))
+		filename = checkFilesSD();
+	else
+		Serial.println("Initializing failed...");
 }
 
 String ExternalMemory::generateRandomNumber(){

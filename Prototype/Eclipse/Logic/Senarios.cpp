@@ -9,6 +9,7 @@
 
 namespace Logic {
 
+long Senarios::tmpTimestamp;
 
 void Senarios::bloodPressure(unsigned short *MAP, unsigned short *SYS, unsigned short *DIA, volatile bool *btPressed) //BPAlgorithm bpa, Data::PressureControl pc, Data::PressureSampling ps, Logic::DigitalFiltering df, Utilities util)
 {
@@ -28,6 +29,7 @@ void Senarios::bloodPressure(unsigned short *MAP, unsigned short *SYS, unsigned 
 	double pressureMmHg = 0;
 	unsigned short totalNumberOfPeaks = 0;
 
+	pc.turnValveOff();
 	pc.turnMotorOn(255);
 	do{
 	rawPressure = ps.getCuffPressure();
@@ -104,6 +106,7 @@ unsigned short Senarios::occlusiontraining(volatile bool *start)
 }
 unsigned short Senarios::occlude(unsigned short pressure)
 {
+	long currentTime;
 	unsigned short cuffPressure = ps.getCuffPressure();
 
 	if(pressure > 0){
@@ -133,9 +136,14 @@ unsigned short Senarios::occlude(unsigned short pressure)
 		}
 	else
 	{
-		if(cuffPressure < util.mmHgToRaw(10))
+		currentTime = millis();
+
+		if(tmpTimestamp < currentTime-2000 && cuffPressure < util.mmHgToRaw(20))
+		{
 			pc.turnValveOff();
-		else if(cuffPressure > util.mmHgToRaw(2))
+			tmpTimestamp = currentTime;
+		}
+		else if(cuffPressure > util.mmHgToRaw(5))
 			pc.turnValveOn();
 
 
