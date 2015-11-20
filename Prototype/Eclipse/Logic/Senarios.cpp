@@ -10,7 +10,7 @@
 namespace Logic {
 
 
-void Senarios::bloodPressure(unsigned short *MAP, unsigned short *SYS, unsigned short *DIA) //BPAlgorithm bpa, Data::PressureControl pc, Data::PressureSampling ps, Logic::DigitalFiltering df, Utilities util)
+void Senarios::bloodPressure(unsigned short *MAP, unsigned short *SYS, unsigned short *DIA, volatile bool *btPressed) //BPAlgorithm bpa, Data::PressureControl pc, Data::PressureSampling ps, Logic::DigitalFiltering df, Utilities util)
 {
 	//Constant variables
 	const unsigned short ArraysizePeaks = 400;
@@ -32,11 +32,11 @@ void Senarios::bloodPressure(unsigned short *MAP, unsigned short *SYS, unsigned 
 	do{
 	rawPressure = ps.getCuffPressure();
 	pressureMmHg = util.rawToMmHg(rawPressure);
-	} while(pressureMmHg<200);
+	} while(pressureMmHg<200 && *btPressed);
 
 	pc.turnMotorOff();
 
-	ps.runningPeakDetect(peaks, cuffPressure, ArraysizePeaks, &totalNumberOfPeaks,pc,util);
+	ps.runningPeakDetect(peaks, cuffPressure, ArraysizePeaks, &totalNumberOfPeaks,pc,util, &*btPressed);
 
 Serial.print("\n");
 for (int i = 0; i < ArraysizePeaks; i++) {

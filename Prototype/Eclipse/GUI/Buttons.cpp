@@ -11,7 +11,7 @@ namespace GUI {
 
 //values handle by interrupts
 
-volatile unsigned short state = 0; //volatile enable the value to change during an interrupt
+//volatile unsigned short state = 0; //volatile enable the value to change during an interrupt
 //volatile bool startButtonPressed= false;
 //volatile bool btPressed = false;
 
@@ -51,12 +51,12 @@ unsigned short Buttons::readModeSwitch(){
 		return modeSwitch;
 }
 
-unsigned short Buttons::changer(volatile unsigned short state){
-	if(state == 0)
-		state = 1;
-	else if(state == 1)
-		state = 0;
-	else if(state == 2)
+unsigned short Buttons::changer(volatile unsigned short *state){
+	if(*state == 0)
+		*state = 1;
+	else if(*state == 1)
+		*state = 0;
+	else if(*state == 2)
 		if(memoryBT.getTimePerCycle() <= 450){
 			disp.clearAreaDisp(10, 70, 90, 40); //Erase old value
 			memoryBT.setTimePerCycle(memoryBT.getTimePerCycle()+30);
@@ -64,7 +64,7 @@ unsigned short Buttons::changer(volatile unsigned short state){
 			disp.clearAreaDisp(10, 70, 90, 40);
 			memoryBT.setTimePerCycle(180);
 		}
-	else if(state == 3){
+	else if(*state == 3){
 		if(memoryBT.getNoOfCycles() <=4){
 			disp.clearAreaDisp(170, 70, 35, 40);
 			memoryBT.setNoOfCycles(memoryBT.getNoOfCycles()+1);
@@ -74,29 +74,29 @@ unsigned short Buttons::changer(volatile unsigned short state){
 			memoryBT.setNoOfCycles(1);
 		}
 	}
-	return state;
+	return *state;
 }
 
-unsigned short Buttons::selector(volatile unsigned short state){
-	if(state == 0)
-		state = 2;
-	else if(state ==1)
-		state = 3;
-	else if(state ==2)
-		state = 0;
-	else if(state ==3)
-		state = 1;
-	return state;
+unsigned short Buttons::selector(volatile unsigned short *state){
+	if(*state == 0)
+		*state = 2;
+	else if(*state ==1)
+		*state = 3;
+	else if(*state ==2)
+		*state = 0;
+	else if(*state ==3)
+		*state = 1;
+	return *state;
 }
 
-bool Buttons::startStopOcclusion(volatile bool startButtonPressed){
-	if(!startButtonPressed){
+bool Buttons::startStopOcclusion(volatile bool *startButtonPressed){
+	if(!*startButtonPressed){
 		disp.clearAreaDisp(50, 20, 80, 30);
 		timerButtons.setTimestamp();
 
 	}
-	startButtonPressed = !startButtonPressed; //Invert the value of state
-	return startButtonPressed;
+	*startButtonPressed = !*startButtonPressed; //Invert the value of state
+	return *startButtonPressed;
 }
 
 void Buttons::startStopConditiong(volatile bool *startButtonPressed){

@@ -21,7 +21,7 @@ const short PressurePin = A2;
 const short OcyliationPin = A3;
 
 
-volatile unsigned short state;
+volatile unsigned short state = 0;
 volatile bool startStopPressed = false;
 volatile bool btPressed = false;
 
@@ -44,17 +44,17 @@ void intBT_ISR(){
 		btt.btPressed(&btPressed);
 }
 void intOcc_ISR(){
-	startStopPressed = btt.startStopOcclusion(startStopPressed);
+	startStopPressed = btt.startStopOcclusion(&startStopPressed);
 }
 void intCha_ISR(){
 	delay(100);
 	if(digitalRead(interruptPin0))
-		state = btt.changer(state);
+		state = btt.changer(&state);
 }
 void intSel_ISR(){
 	delay(100);
 	if(digitalRead(interruptPin1))
-		state = btt.selector(state);
+		state = btt.selector(&state);
 }
 
 

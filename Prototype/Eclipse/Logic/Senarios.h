@@ -33,7 +33,7 @@ class Senarios {
 	Logic::Timer timer;
 public:
 
-	void bloodPressure(unsigned short *MAP, unsigned short *SYS, unsigned short *DIA); //, Logic::BPAlgorithm bpa, Data::PressureControl pc, Data::PressureSampling ps, Logic::DigitalFiltering df,  Utilities util);
+	void bloodPressure(unsigned short *MAP, unsigned short *SYS, unsigned short *DIA, volatile bool *btPressed); //, Logic::BPAlgorithm bpa, Data::PressureControl pc, Data::PressureSampling ps, Logic::DigitalFiltering df,  Utilities util);
 	unsigned short occlusiontraining(volatile bool *start);
 	unsigned short occlude(unsigned short pressure);
 };

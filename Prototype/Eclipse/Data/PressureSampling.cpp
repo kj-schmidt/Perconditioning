@@ -24,7 +24,7 @@ unsigned short PressureSampling::getCuffPressure()
 
 
 void PressureSampling::runningPeakDetect(unsigned short peaks[], unsigned short cuffPressure[],unsigned short peakArrayLength,
-		unsigned short *totalNumberOfPeaks, PressureControl pc, Utilities util)
+		unsigned short *totalNumberOfPeaks, PressureControl pc, Utilities util, volatile bool *btPressed)
 {
 	unsigned short thresshold = 25; //The minimum amplitude of the occiliations for an accepted peak.
 	unsigned short tNOPeaks = *totalNumberOfPeaks;
@@ -50,7 +50,7 @@ void PressureSampling::runningPeakDetect(unsigned short peaks[], unsigned short 
 //Serial.println(n6);
 delay(1000);
 
-	while(currentPressure > util.mmHgToRaw(40))
+	while(currentPressure > util.mmHgToRaw(40) && *btPressed)
 	{
 //Serial.print(n6);
 //Serial.print(",");

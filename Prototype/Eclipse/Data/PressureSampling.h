@@ -18,7 +18,7 @@ class PressureSampling {
 public:
 	unsigned short getCuffPressure();
 	void runningPeakDetect(unsigned short peaks[], unsigned short cuffPressure[],unsigned short peakArrayLength,
-				unsigned short *totalNumberOfPeaks, PressureControl pc, Utilities util);
+				unsigned short *totalNumberOfPeaks, PressureControl pc, Utilities util, volatile bool *btPressed);
 
 
 };

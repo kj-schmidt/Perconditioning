@@ -59,7 +59,7 @@ unsigned short BPAlgorithm::calculateSYS(unsigned short peaks[], unsigned short 
 					loc = i;
 				}
 			}
-	int peakHightSys = peaks[loc]*0.31;
+	int peakHightSys = peaks[loc]*0.38;
 
 
 	for(i=0;i<tNOPeaks;i++)
@@ -69,7 +69,6 @@ unsigned short BPAlgorithm::calculateSYS(unsigned short peaks[], unsigned short 
 			Serial.print("\n BREAK\n");
 			break;
 		}
-
 		currentClosestPeakhight = peaks[i]-peakHightSys;
 		currentClosestPeakhight = abs(currentClosestPeakhight);
 		if (currentClosestPeakhight<tmpValue)
@@ -105,17 +104,15 @@ unsigned short BPAlgorithm::calculateDIA(unsigned short peaks[], unsigned short 
 					loc = i;
 				}
 			}
-	int peakHightDia = peaks[loc]*0.52;
+	int peakHightDia = peaks[loc]*0.48;
 
 
 	for(i=loc;i<tNOPeaks;i++)
 	{
-
 		currentClosestPeakhight = peaks[i]-peakHightDia;
 		currentClosestPeakhight = abs(currentClosestPeakhight);
 		if (currentClosestPeakhight<tmpValue)
 		{
-
 			DIA = cuffPressure[i];
 			tmpValue = currentClosestPeakhight;
 		}

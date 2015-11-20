@@ -22,9 +22,9 @@ public:
 	unsigned short readModeSwitch();
 
 	//Interrupt service routines (ISR)
-	unsigned short changer(volatile unsigned short state);
-	unsigned short selector(volatile unsigned short state);
-	bool startStopOcclusion(volatile bool startButtonPressed);
+	unsigned short changer(volatile unsigned short *state);
+	unsigned short selector(volatile unsigned short *state);
+	bool startStopOcclusion(volatile bool *startButtonPressed);
 	void startStopConditiong(volatile bool *startButtonPressed);
 	void btPressed(volatile bool *startButtonPressed);
 };

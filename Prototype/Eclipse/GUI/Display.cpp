@@ -208,9 +208,12 @@ bool donedeflateingOrInflating = false;
 		TFTscreen.setTextSize(3);
 		TFTscreen.setCursor(75, 160);
 		TFTscreen.println("Arbejder...");
-		s.bloodPressure(&MAP, &SYS, &DIA);
+		s.bloodPressure(&MAP, &SYS, &DIA, &*btPressed);
 
 		updateBloodPressure(SYS, DIA, MAP);
+
+
+		*btPressed = false;
 	}
 
 	//*** When "Start/Stop" is pressed, and blood pressure is to be measured ***
