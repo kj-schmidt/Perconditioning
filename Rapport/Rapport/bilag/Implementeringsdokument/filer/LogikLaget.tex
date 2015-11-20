@@ -56,6 +56,19 @@ Her ses at det rå signal er støjfyldt. Sort er manchet trykket, blå er de rå
 \\ \textbf{Returtype: } \textit{void}
 \\ \textbf{Beskrivelse: } Denne metode indeholder opskriften til en blodtryksmåling. Det vil sige at kaldes metoden, udføres en blodtryksmåling og alle andre klasser og metoder, som skal bruges til dette eksekveres inde i denne metode. Pointerne til de tre variabler får værdierne MAP, SYS og DIA fra blodtryksmålingen.
 
+\subsubsection{Metode: occlusiontraining()}
+\textbf{Parameter: } \textit{volatile bool *start}
+\textbf{Returtype: } \textit{unsigned }
+\textbf{Beskrivelse: } Denne metode metoder en bool værdi, som afgøre hvilke to stadie metoden skal eksekveres i. Hvis \textit{start} er true, lukkes ventil og med en if sætning pumpes manchetten op til mimimum 90 mmHg og hvis trykket overstiger 100 mmHg slukkes motoren. 
+Hvis metoden modtager en falsk værdi slukkes motoren og ventilen åbnes. 
+
+\subsubsection{Metode: occlude()}
+\textbf{Parameter: } \textit{unsigned short pressure}
+\textbf{Returtype: } \textit{unsigned short}\\
+\textbf{Beskrivelse: }Metode der bruges i konditioneringsforløbet når blodtrykket er bestemt og der skal laves en afklemning. Først indhentes det nuværende manchet tryk. Dernæst bruges den parameteren \textit{pressure}, som indeholder det systoliske blodtryk, til at bestemme hvor meget manchetten skal fyldes. Der søges for at trykket i manchetten mindst bliver 200mmHg og maks 300mmHg. Efter dette indeholder \textit{pressure}  afklemningstrykket og motoren begynder at pumpe indtil trykket i manchetten er større end \textit{pressure} + 10. Plus 10 fordi at motoren drifter en anelse og ikke stopper præcist ved det tryk der specificeres. 
+Hvis metoden modtager 0 istedet for det systoliske tryk, åbnes ventilen og manchetten tømmes indtil trykket er under 10mmHg. 
+
+
 \subsection{Klasse: Timer}
 Klassen timer gør brug af en hardware Real Time Clock(RTC) med IC’en \textit{DS1302}. For at kommunikere med denne RTC, så gør klassen brug af et biblioteket \textit{DS1302}. Derfor oprettes et objekt af klassen \textit{DS1302.h} ved navn timestamp. Et Time objektet indeholder hhv: år, måned, dag, time, minut, sekund og ugedag. 
 
@@ -184,3 +197,13 @@ String timeStamp, boolean occlusionComplete, unsigned short occlusionPressure, u
 \textbf{Parameter: } \textit{String timeStamp, boolean occlusionComplete, unsigned short occlusionPressure, unsigned short sys, unsigned short map, unsigned short dia, boolean interruptOcclusion}
 \\ \textbf{Returtype: } \textit{void}
 \\ \textbf{Beskrivelse: }  Denne metode indeholder syv parametre af typerne \textit{String}, \textit{boolean} og \textit{unsigned short}. Metoden konverterer og samler alle parametrene til en string og ved denne sendes videre til datalaget.
+
+\subsubsection{Metode: getID()}
+\textbf{Parameter: }\textit{}
+\textbf{Returtype: } \textit{String}
+\textbf{Beskrivelse: } Metode som henter filnavnet fra datalaget, og fjerner endelsen ".csv" og returner den nye String. 
+
+\subsubsection{Metode: startInitSD)}
+\textbf{Parameter: }\textit{}
+\textbf{Returtype: } \textit{void}
+\textbf{Beskrivelse: } Metode der kalder \textit{initializeSD()} fra datalaget. 

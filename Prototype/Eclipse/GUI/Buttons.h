@@ -18,7 +18,6 @@ namespace GUI {
 class Buttons {
 public:
 	Buttons();
-	virtual ~Buttons();
 
 	unsigned short readModeSwitch();
 

@@ -43,7 +43,7 @@ Denne klasse gør brug af to arduino biblioteker hhv. SD og SPI.  De to bibliote
 \subsubsection{Metode: initializeSDCard()}
 \textbf{Parameter: } 
 \\ \textbf{Returtype: } \textit{void}
-\\ \textbf{Beskrivelse: }  Simple metode der starter kommunikation med SD kortet.
+\\ \textbf{Beskrivelse: }  Simple metode der starter kommunikation med SD kortet og køre metoden\textit{ checkFilesSD()} (Se \ref{title:checkFiles})
 
 \subsubsection{Metode: generateRandomNumber()} \label{title:RandomNumber}
 \textbf{Parameter: } 
@@ -60,34 +60,54 @@ Når der er lavet et 6-cifre tilfældigt nummer, bliver dette konverteret til en
 \subsubsection{Metode: checkFilesSD()} \label{title:checkFiles}
 \textbf{Parameter: } \textit{File dir, String val}
 \\ \textbf{Returtype: } \textit{String}
-\\ \textbf{Beskrivelse: }  Metode der kontrollere alle filer på SD kortet. Hver gang der findes en fil, tjekkes der for om de sidste 4 karaktere matcher med karaktererne “.csv”. Hvis den fundne fil matcher dette, bliver hele filnavnet gemt i en variable og returneret. 
+\\ \textbf{Beskrivelse: }  Metode der kontrollere alle filer på SD kortet. Hver gang der findes en fil, tjekkes der for om de sidste 4 karakterer matcher med karaktererne “.csv”. Hvis den fundne fil matcher dette, bliver hele filnavnet gemt i en variable og returneret. Hvis der ikke findes et fil med endelsen ".csv" køres metoden \textit{generateRandomNumber} og der oprettes en ny .csv fil. 
+\begin{lstlisting}
+String tempName, tempType, finalFile;
+String valToCheck = ".csv";
+File root = SD.open("/"); //Tell the method where to look on the SD card
+while(true){
+File entry = root.openNextFile();
 
+//When a file is found, check the last four characters
+tempName = entry.name();
+tempType = tempName.substring(5,9);
+
+//If a .csv is found
+if(tempType.equalsIgnoreCase(valToCheck)){
+Serial.print("*** A file was found with name: "); Serial.println(tempName);
+finalFile = tempName;
+break;
+}
+//If no file was found, creates a file
+if(!tempType.equalsIgnoreCase(valToCheck) && !entry){
+String newFileName = generateRandomNumber();
+//Create a new file with the random HEX as filename and generate a new header
+Serial.print("*** A new file was created: "); Serial.println(tempName);
+createFileTemplate(newFileName);
+finalFile = newFileName;
+break;
+}
+entry.close();
+}
+return finalFile;
+}
+\end{lstlisting}
+For at sikre at alle filer på SD kortet kontrolleres, kører metode i et loop, som kun brydes hvis den finder en .csv fil, eller hvis alle filer er kontrolleret og der ikke blev fundet en .csv fil. 
 
 \subsubsection{Metode: createFileTemplate()} \label{title:createTemplate}
-\textbf{Parameter: } \textit{String filename}
-\\ \textbf{Returtype: } \textit{void}
+\textbf{Parameter: } \textit{}
+\\ \textbf{Returtype: } \textit{String filename}
 \\ \textbf{Beskrivelse: }  Når der skal laves en ny fil på SD-kortet, skal der skrives en header til hver kolonne i .csv filen. Denne metode modtager et filnavn, som den åbner og skriver i en header til. 
 
 \subsubsection{Metode: writeToSDCard()}
 \textbf{Parameter: } \textit{String textToSD}
 \\ \textbf{Returtype: } \textit{void}
-\\ \textbf{Beskrivelse: }  Denne metode gør brug af de tre forrige metoder; \textit{generateRandomNumber()} (\ref{title:RandomNumber}), \textit{checkFilesSD()} \ref{title:checkFiles} og \textit{createFileTemplate(}) (\ref{title:createTemplate}). Først oprettes et objekt af typen file og ved hjælp af funktion SD.open(“/”) og “.csv” vil \textit{checkFilesSD} nu tjekke alle filer på SD kortet og se om der findes en .csv fil. Hvis metoden finder en fil, konverteres det fundne filnavn til et char array og filen åbnes. Nu skrives \textit{textToSD} til SD kortet og filen lukkes igen. 
-\begin{lstlisting}
-	File file;
-	File root = SD.open("/");
-	String nameReadFromSD = checkFilesSD(root, ".csv");
-	char bufName[nameReadFromSD.length()+1]; 
-	if(!nameReadFromSD.equalsIgnoreCase("empty")){ 
-	nameReadFromSD.toCharArray(bufName,
-	nameReadFromSD.length()+1); 
-	file = SD.open(bufName, FILE_WRITE);
-	file.println(textToSD);
-	file.close();
-	} else{ //Create new file with the random ID
-	createFileTemplate(generateRandomNumber());
-	}
-\end{lstlisting}
-Hvis metoden \textit{checkFilesSD()} returnere en string med værdien “\textit{empty}” kaldes metoderne \textit{createFileTemplate()} og \textit{generateRandomNumber()} og der laves en ny .csv fil med den korrekte header. 
+\\ \textbf{Beskrivelse: }  Denne metode modtager en tekst, som den skriver til .csv filen på SD kortet.
+
+\subsubsection{Metode: getFilename()}
+\textbf{Parameter: }\textit{}
+\textbf{Returtype: } \textit{String}
+\textbf{Beskrivelse: } Simple metode der returnere en lokal variable, som indeholder navnet på den fundne .csv fil
 
 \subsection{Klasse: InternalMemory}
 Klassen gør brug af bibliotektet \textit{EEPROM}, dette bibliotek gør kommunikation muligt med EEPROMen. 

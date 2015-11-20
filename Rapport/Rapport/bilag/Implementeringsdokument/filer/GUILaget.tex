@@ -60,20 +60,45 @@ Først fortælles hvilken farve teksten skal have, dernæst tekststørrelse og p
 \\ \textbf{Beskrivelse: } Denne metode bruges til at flytte cursoren på skærmen under setup. For at slette noget på skærmen skal det farves samme farve som baggrunden. Derfor får metoden  x- og y-koordinaterne for den firkant der skal slettes, samt x- og y-koordinaterne for hvor den nye firkant skal tegnes henne. Desuden skal metode også have bredde og højde på firkanten. For at sikre at der ikke kan laves et interrupt inde i metode, gør metode brug af den indbyggede funktion \textit{noInterrupt()}. Et interrupt på det forkerte tidspunkt ville betyde at skærm ikke ville slette den forrige firkant eller ikke ville tegne det nye. 
 
 \subsubsection{Metode: updateConditioning()}
-\textbf{Parameter: } \textit{volatile bool *buttonPressed}
+\textbf{Parameter: } \textit{volatile bool *buttonPressed, volatile bool *btPressed}
 \\ \textbf{Returtype: } \textit{void}
-\\ \textbf{Beskrivelse: } Metoden modtager en pointer, som peger på værdien af \textit{buttonPressed}. Hvis værdien af denne er sand, samt at antallet af kørte cyklusser ikke er lig med 0, vil metoden køre et loop, hvor der ved hjælp af timer klassen fra logik laget bliver starten en nedtælling, så loop vil køre indtil tiden er løbet ud. Mens loopet kører, opdaterer skærmen konstant værdien fra tryksensor og fortæller trykket i manchetten.  Strukturen på metoden ser ud på følgende måde: 
+\\ \textbf{Beskrivelse: } Metoden modtager to pointers, som peger på værdien af \textit{buttonPressed} og \textit{btPressen}. Derfor kan metode i princippet være i 4 forskellige stadier (Se sandhedstabel \ref{tabel:truthtable} )
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|l|l|l|l|}
+	\hline
+	Parameter/Stadie & \textit{Stoppet} & \textit{Konditioneringsforløb} & \textit{Blodtryksmåling} & \textit{Ingenting} \\ \hline
+	buttenPressed    & Falsk   & Sand                  & Falsk & Sand            \\ \hline
+	btPressed        & Falsk   & Falsk                 & Sand     & Sand        \\ \hline
+	\end{tabular}
+	\caption{Sandhedstable over \textit{updateConditioning()}s parametre} \label{tabel:truthtable}
+\end{table}
+
+Nedenfor er et rammerne for strukturen i metoden, hvor \textit{stadie} stemmer overens med stadierne fra sandhedstabellen. 
+
 \begin{lstlisting}
-	while(*buttonPressed && getNoCycleLeft() !=0){
-	if(!timer.getTimerStatus()){
-		//Runing conditioning threatment 
-	}else
-		//Reseting the timer
-	}
-	if(!*buttonPressed)
-		//Handle if the conditioning threatment has ended, and the user want to reset
+//***Stadie: Blodtryksmaaling***
+if(*btPressed && !*buttonPressed)
+{
+	//Measure blood pressure and save value to SD card
+}
+//***Stadie: Konditioneringsforloeb***
+if(!*btPressed && *buttonPressed && getNoCycleLeft() != 0)
+{
+	//Measure blood pressure and save value to SD card
+	//Inflate the cuff to systolic pressure + 25mmHg
+	
+	//Run conditioning in while loop 
+}
+//***Stadie: Stoppet***
+if(!*btPressed && !*buttonPressed){
+	//Empty the cuff and clear the sensor value on the dispaly 
+	//Reset the number of cycle run in conditioning
+}
+
 \end{lstlisting}
-Derfor er det værdien af \textit{buttonPressed} og \textit{getNoCycleLeft()} der afgører om loopet eksekveres. Hvis værdien af \textit{buttonPressed} er falsk, så skrives den sidste værdi af timeren og sensorværdien slettes på skærmen.  \\
+
+Metoden håndtere ikke hvis både \textit{*buttonPressed} og \textit{btPressed} er trykket samtidigt
 
 \textit{buttonPressed} styres ved knaptryk og bruger kan derfor starte og stoppe konditionerings forløbet på denne måde. Hvis forløbet stopper af sig selv, altså hvis antallet af tilbageværende cyklusser er nul, så håndterer metoden at brugeren ikke skal trykke to gange på knappen for at starte et nyt forløb. 
 \begin{lstlisting}
@@ -121,7 +146,7 @@ Derfor er det værdien af \textit{buttonPressed} og \textit{getNoCycleLeft()} de
 \subsubsection{Metode: readModeSwitch()}
 \textbf{Parameter: } 
 \\ \textbf{Returtype: } \textit{unsigned short}
-\\ \textbf{Beskrivelse: } Denne metode læser tre digitale pins hhv; 22, 24, og 26. Her vil én pin være høj(5V) og de to andre lave. Metoden afgøre ud fra hvilken pin der er høj, om der skal køres hhv; konditioningsforløb, okklusionstræning eller setup. Denne metode bliver kaldt én gang når arduinoen startes op. Skal der ændres på hvilken forløb apparatet skal køre, skal arduinoen genstartes. 
+\\ \textbf{Beskrivelse: } Denne metode læser to analoge pins hhv; A8 og A9. Her læses stadiet af modeswitch knappen. Hvis A8 er lav(0V) og A9 er høj(5V) køres konditionering, hvis både A8 og A9 er lave køres okklusionstræning og til sidst hvis A8 er høj og A9 er lav køres setup. Denne metode bliver kaldt én gang når arduinoen startes op. Skal der ændres på hvilken forløb apparatet skal køre, skal arduinoen genstartes. 
 
 \subsubsection{Metode: startStopConditioning()}
 \textbf{Parameter: } \textit{volatile bool startButtonPressed}

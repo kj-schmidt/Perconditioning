@@ -16,9 +16,8 @@ volatile unsigned short state = 0; //volatile enable the value to change during 
 //volatile bool btPressed = false;
 
 //pin values for modeswitch
-unsigned short conditioningPin = 26;
-unsigned short occlusionPin = 24;
-unsigned short setupPin = 22;
+unsigned short modeswitchPin1 = A8;
+unsigned short modeswitchPin2 = A10;
 unsigned short modeSwitch = 0; //values to ensure mode only can be change after reset
 
 //Create an object of the display class
@@ -30,28 +29,26 @@ Buttons::Buttons() {
 	// TODO Auto-generated constructor stub
 }
 
-Buttons::~Buttons() {
-	// TODO Auto-generated destructor stub
-}
-
 unsigned short Buttons::readModeSwitch(){
 	//Setup pin to simulate modeswitch
-	pinMode(conditioningPin, INPUT);
-	pinMode(occlusionPin, INPUT);
-	pinMode(setupPin, INPUT);
+	pinMode(modeswitchPin1, INPUT);
+	pinMode(modeswitchPin2, INPUT);
 
-	if(digitalRead(conditioningPin)){
-		disp.initConditioning();
-		modeSwitch = 1;
-	} else if(digitalRead(occlusionPin)){
-		disp.initOcclusion();
-		modeSwitch = 2;
-	} else if(digitalRead(setupPin)){
-		disp.initSetup();
-		modeSwitch = 3;
-	} else
-		modeSwitch = 0;
-	return modeSwitch;
+	unsigned short pin1 = analogRead(modeswitchPin1);
+	unsigned short pin2 = analogRead(modeswitchPin2);
+
+	if(pin1 > 500 && pin2 < 500){ //A8 = 5V, A10 = 0V
+			disp.initConditioning();
+			modeSwitch = 1;
+		} else if(pin1 < 500 && pin2 < 500){ //A8 = 0V, A10 = 0V
+			disp.initOcclusion();
+			modeSwitch = 2;
+		} else if(pin1 < 500 && pin2 > 500){ //A8 = 0V, A10 = 5V
+			disp.initSetup();
+			modeSwitch = 3;
+		} else
+			modeSwitch = 0;
+		return modeSwitch;
 }
 
 unsigned short Buttons::changer(volatile unsigned short state){
