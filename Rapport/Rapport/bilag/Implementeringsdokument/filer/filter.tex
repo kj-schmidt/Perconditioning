@@ -64,3 +64,60 @@ Filteret midler over peak amplituderne, så den gennemsnitlige amplitude forøge
 	\caption{Graf med data fra en blodtryksmåling. Her ses at det rå signal 	er støjfyldt. Grøn er manchet trykket, blå er de rå peak amplituder, rød er filtreret en gang fra venstre mod højre, sort er filtreret fra begge sider 	}\label{fig:filterWithoutMap}
 \end{figure}
 
+\subsection{Matlab} \label{title:Matlab}
+Til udarbejdelsen af det digitale filter er der anvendt matlab på det det rå signal. Det rå signal med peak ampletuderne og manchet trykket er udprintet gennem serielporten og derefter gemt i .txt fil for at blive importeret til matlav. et udkast af en sådan fil kan ses i figur \ref{fig:dataFileExample}. Første række indeholder de rå peaks, anden række de filtrerede peaks og tredje række indeholder manchet trykket.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{billeder/dataFileExample.png}
+	\caption{Udklip af datafil som importeres til matlab}\label{fig:dataFileExample}
+\end{figure}
+
+Matlab figuren kan se på figur \ref{fig:bpMeasurement} og koden til fremstilling af denne kan læses under.
+
+\begin{lstlisting}[language=matlab]
+sysCoefficient = 0.38;              %Lokation of SYS in persentage of MAP
+diaCoefficient = 0.48;              %Lokation of DIA in persentage of MAP
+
+figure(1)                           %Figure number
+plot(newOffsetAlpha015(1,:),'b')    %First plot
+hold on;
+plot(newOffsetAlpha015(2,:),'r')    %Secund plot
+plot(newOffsetAlpha015(3,:),'black')%Third plot
+
+filtOsc = newOffsetAlpha015(2,:);   %Reads data from 2 row
+cuffPress = newOffsetAlpha015(3,:); %Reads data from 3 row
+[M,I] = max(filtOsc);               %Finds higest peak in oscilliations
+
+
+[~,ISYS] = min(abs(filtOsc(1:I)-(M*sysCoefficient)));   %Find location of SYS
+
+
+[~,IDIA] = min(abs(filtOsc(I:end)-(M*diaCoefficient))); %Find location of DIA
+IDIA = I+IDIA; %Adds the offset of MAP
+scatter([ISYS, I+4, IDIA, ISYS, I+4, IDIA],[filtOsc(ISYS), M, filtOsc(IDIA), cuffPress(ISYS), cuffPress(I+4), cuffPress(IDIA)],'or','LineWidth',5); %Plot SYS, MAP and DIA
+
+%Labels for locations
+str = '   \leftarrow SYS';
+text(ISYS,filtOsc(ISYS),str)
+str = '   \leftarrow SYS';
+text(ISYS,cuffPress(ISYS),str)
+str = '     \leftarrow MAP';
+text(I,filtOsc(I+4),str)
+str = '     \leftarrow MAP';
+text(I,cuffPress(I+4),str)
+str = '   \leftarrow DIA';
+text(IDIA,filtOsc(IDIA),str)
+str = '   \leftarrow DIA';
+text(IDIA,cuffPress(IDIA),str)
+
+%plot settings
+grid on;
+grid minor;
+xlabel('Sample Number');
+ylabel('Amplitude of pulsepeak [Raw ADC value]');
+title('Blood pressure test');
+legend on;
+legend('Unfiltered','Filtered from left and right with alpha=0.15','Cuff pressure (not peak values)','SYS, MAP and DIA');
+\end{lstlisting}
+
+
