@@ -75,11 +75,13 @@ Serial.print("\n");
 
 unsigned short Senarios::occlusiontraining(volatile bool *start)
 {
+	long currentTime;
+	unsigned short cuffPressure = ps.getCuffPressure();
 
 	if(*start){
 		pc.turnValveOff();
 
-		if(ps.getCuffPressure() < util.mmHgToRaw(90))
+		if(cuffPressure < util.mmHgToRaw(90))
 		{
 			pc.turnMotorOn(200);
 			/*
@@ -98,11 +100,21 @@ unsigned short Senarios::occlusiontraining(volatile bool *start)
 	}
 	else
 	{
-		pc.turnValveOn();
+		currentTime = millis();
+
+				if(tmpTimestamp < currentTime-2000 && cuffPressure < util.mmHgToRaw(20))
+				{
+					pc.turnValveOff();
+					tmpTimestamp = currentTime;
+				}
+				else if(cuffPressure > util.mmHgToRaw(5))
+					pc.turnValveOn();
+
+
 		pc.turnMotorOff();
 	}
 
-	return util.rawToMmHg(ps.getCuffPressure());
+	return util.rawToMmHg(cuffPressure);
 }
 unsigned short Senarios::occlude(unsigned short pressure)
 {

@@ -25,9 +25,10 @@ void ExternalMemory::initializeSD(){
 }
 
 String ExternalMemory::generateRandomNumber(){
+	String deviceID = "001";
 	randomSeed(analogRead(A5)); //Ensure that the random number is not generated in the same order
 	long randNumber = random(100000, 999999); //Generates a 6 digit random number
-	String randNumberHEX = String(String(randNumber, HEX) + ".csv"); //Convert number to HEX and adds the file type
+	String randNumberHEX = String(String(randNumber, HEX) + deviceID + ".csv"); //Convert number to HEX and adds the file type
 	//Serial.print("2. The generated id: "); Serial.println(randNumberHEX);
 	return randNumberHEX; //Pass the 5 digit random ID
 }
@@ -41,8 +42,9 @@ String ExternalMemory::checkFilesSD(){
 
 			//When a file is found, check the last four characters
 			tempName = entry.name();
-			tempType = tempName.substring(5,9);
-
+			tempType = tempName.substring(8,12);
+Serial.println(tempName);
+Serial.println(tempType);
 			//If a .csv is found
 			if(tempType.equalsIgnoreCase(valToCheck)){
 				Serial.print("*** A file was found with name: "); Serial.println(tempName);
@@ -79,17 +81,6 @@ void ExternalMemory::writeToSDCard(String textToSD){
 	Serial.print("*** Data was written to: "); Serial.println(filename);
 }
 
-//** SKAL SLETTES **
-void ExternalMemory::readFromSDCard(){
-	File file;
-	String filename = "62EA6.CSV";
-	char buf[filename.length() + 1];
-	filename.toCharArray(buf, filename.length()+1);
-	file = SD.open(buf, FILE_READ);
-	Serial.println("File contains: ");
-	Serial.println(file.readString());
-	file.close();
-}
 
 void ExternalMemory::createFileTemplate(String filename){
 	char buf[filename.length()+1];

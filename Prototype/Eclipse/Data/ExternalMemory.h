@@ -18,7 +18,6 @@ class ExternalMemory {
 public:
 	ExternalMemory();
 	void writeToSDCard(String textToSD);
-	void readFromSDCard(); //** SKAL SLETTES **
 	String generateRandomNumber();
 	String checkFilesSD();
 	void createFileTemplate(String filename);
