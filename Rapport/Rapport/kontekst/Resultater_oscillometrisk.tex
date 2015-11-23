@@ -32,12 +32,28 @@ Efter analog filtrering af det rå signal ved en endnu en blodtryksmåling med k
 
 \subsubsection{Analog filtrering}
 Den analoge filtrerings som ses på forskellen mellem figur \ref{fig:rawPulseSignal} og figur \ref{fig:filteredPulseSignal} er implementeret i implementeringsdokumentet se \fixme{ref: implementeringsdokument}. 
-Det resulterende analoge filter, bestemt ud fra test opsætninger (se \fixme{ref: implementeringsdokument}) og litteraturen \fixme{CHARACTERIZATION OF THE OSClLLOMETRlC METHOD FOR MEASURING INDIRECT BLOOD PRESSURE}, er de pulserende oscillationer isoleret til et pulserende signal, som kan ses på figur \ref*{fig:filteredPulseSignalWithFFT}.
+Det resulterende analoge filter, bestemt ud fra test opsætninger (se \fixme{ref: implementeringsdokument}) og litteraturen \fixme{CHARACTERIZATION OF THE OSClLLOMETRlC METHOD FOR MEASURING INDIRECT BLOOD PRESSURE}, er de pulserende oscillationer isoleret til et pulserende signal, som kan ses på figur \ref*{fig:filteredPulseSignalWithFFT}. Resultatet er opnået, ved at implementerer et båndpasfilter, med et pasbånd som starter før lavest mulig puls og slutter ved den tiende afledte af grundfrekvensen 60bmp (se figur \ref*{fig:BandPassFilter}).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[trim={0 0 0 1.5cm},clip, width=0.8\textwidth]{billeder/BandPass_filter.JPG}
+	\caption{Bånd pass filter med passfilter mellem $F_1$ og $F_u$. $F_1=0.22Hz$ (13 bmp under mulig puls) og $F_u=11Hz$ (660 bmp 10 afledte af 60 bpm) }\label{fig:BandPassFilter}
+\end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[trim={0 0 0 1.5cm},clip, width=1\textwidth]{billeder/filteredPulseSignalWithFFT.png}
 	\caption{Osclilloskops måling af filtreret signal fra manchetten oppustet på arm. den røde kuve er de pulserende oscillotioner og den lyserøde kurve er en Fast Fourier Transformation (FFT) af den røde kurve, hvor den udregnede grundfrekvens af oscillationerne måles til 1Hz (60 bpm).}\label{fig:filteredPulseSignalWithFFT}
+\end{figure}
+
+\subsubsection{Digital filtrering}
+For at opnå en glat parappel, som vist på  figur \ref{fig:OscillometriskMetode}, er der implementeret et digitalt filter, som har til opgave at udglatte oscillutions amplituderne fra blodtryksmålingerne. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[trim={0 0 0 0},clip, width=0.7\textwidth]{billeder/digitalFilterData.pdf}
+%	\captionsetup[width=0.7\textwidth]{figure}
+	\caption{Digital filtrering af oscillotions peaks med ekspotentiel midlingsfilter. }\label{fig:digitalFilterData}
 \end{figure}
 
 
