@@ -1,6 +1,6 @@
 \chapter{Ikke funktionelle krav}
 			\section{Microcontroller}
-				\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
+				\begin{longtable}{|p{0.09\textwidth}|p{0.23\textwidth}|p{0.23\textwidth}|p{0.23\textwidth}|p{0.07\textwidth}|}
 					\hline
 					\rowcolor{usDef}
 					Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
@@ -9,23 +9,24 @@
 				\end{longtable}
 			
 			\section{Filformat og opsætning}
-				\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
+				\begin{longtable}{|p{0.09\textwidth}|p{0.23\textwidth}|p{0.23\textwidth}|p{0.23\textwidth}|p{0.07\textwidth}|}
 					\hline
 					\rowcolor{usDef}
 					Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
-					3.2.1 & Data logged i formatet .csv og hver kolonne indeholder følgende værdier og enheder:  & \multirow{7}{\linewidth}{Logfil er kommasepareret og at enhederne stemmer overens. of filen er af type .csv }&  \multirow{7}{\linewidth}{Inspicer logfil i texteditor (Gedit, notepad, textedit osv.)}& \multirow{7}{\linewidth}{} \\ \cline{1-2}
+					3.2.1 & Data logged i formatet .csv og hver kolonne indeholder følgende værdier og enheder:  & \multirow{7}{\linewidth}{Logfil er kommasepareret og at enhederne stemmer overens. of filen er af type .csv }&  \multirow{8}{\linewidth}{Inspicer logfil i texteditor (Gedit, notepad, textedit osv.)}& \multirow{7}{\linewidth}{} \\ \cline{1-2}
 					3.2.1a& Tidsstempel [yy:mm:dd hh:mm:ss] & &  & \\ \cline{1-2}
 					3.2.1b& Afklemnings-tryk [mmHg] & &  & \\ \cline{1-2}
 					3.2.1c&  Gennemført afklemning [Boolean] & &  & \\ \cline{1-2}
 					3.2.1d&  Systoliske blodtryk [mmHg] & &  & \\ \cline{1-2}
 					3.2.1e&  Middel-blodtryk (MAP) [mmHg] & &  & \\ \cline{1-2}
-					3.2.1f&  Diastolisk blodtryk [mmHg]  & &  & \\ \hline
-					3.2.2 & Der oprettes én fil pr patient, med filnavn tilsvarende det unikke patient ID og apparatets ID i følgende format: “PatientID \_ApparatID”  & En enkel fil eksistere på SD-kortet. filnavnet består af “PatientID\_ApparatID” & Kør use case 2 flere gange og observer antallet og navngivningen af logfil(er)  & \\ \hline
+					3.2.1f&  Diastolisk blodtryk [mmHg]  & &  & \\ \cline{1-2}
+					3.2.1g&  Afklemning afbrudt[Boolean]  & &  & \\ \hline
+					3.2.2 & Der oprettes én fil pr patient, med filnavn tilsvarende det unikke patient ID og apparatets ID i følgende format: “PatientIDApparatID”  & En enkel fil eksistere på SD-kortet. filnavnet består af “PatientIDApparatID” & Kør use case 2 flere gange og observer antallet og navngivningen af logfil(er)  & \\ \hline
 					\caption{Testprotokol for filopsætning}
 				\end{longtable}
 			
 			\section{Patient ID}
-				\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
+				\begin{longtable}{|p{0.09\textwidth}|p{0.23\textwidth}|p{0.23\textwidth}|p{0.23\textwidth}|p{0.07\textwidth}|}
 					\hline
 					\rowcolor{usDef}
 					Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
@@ -37,7 +38,7 @@
 				\end{longtable}
 			
 			\section{Hukommelse}
-				\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
+				\begin{longtable}{|p{0.09\textwidth}|p{0.23\textwidth}|p{0.23\textwidth}|p{0.23\textwidth}|p{0.07\textwidth}|}
 					\hline
 					\rowcolor{usDef}
 					Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
@@ -49,7 +50,7 @@
 			
 			\newpage
 			\section{Forsyning}
-				\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
+				\begin{longtable}{|p{0.09\textwidth}|p{0.23\textwidth}|p{0.23\textwidth}|p{0.23\textwidth}|p{0.07\textwidth}|}
 					\hline
 					\rowcolor{usDef}
 					Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
@@ -60,7 +61,7 @@
 				\end{longtable}
 			
 			\section{Fysiske krav}
-				\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
+				\begin{longtable}{|p{0.09\textwidth}|p{0.23\textwidth}|p{0.23\textwidth}|p{0.23\textwidth}|p{0.07\textwidth}|}
 					\hline
 					\rowcolor{usDef}
 					Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
@@ -73,7 +74,7 @@
 				
 				\newpage
 				\section{Setup}
-				\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
+				\begin{longtable}{|p{0.09\textwidth}|p{0.23\textwidth}|p{0.23\textwidth}|p{0.23\textwidth}|p{0.07\textwidth}|}
 					\hline
 					\rowcolor{usDef}
 					Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline

@@ -17,8 +17,9 @@
 			\item Systoliske blodtryk [mmHg]
 			\item Middelblodtryk (MAP) [mmHg]
 			\item Diastolisk blodtryk [mmHg]
+			\item Afklemning afbrudt [Boolean]
 		\end{enumerate}
-		\item Der oprettet én fil pr patient, med filnavn tilsvarende det unikke patient ID
+		\item Der oprettes én fil pr patient, med filnavn tilsvarende det unikke patient ID og apparatets ID i følgende format: “PatientIDApparatID”
 	\end{enumerate}
 	
 	\section{Patient ID}
@@ -67,9 +68,9 @@
 	\section{Setup}
 	\begin{enumerate}
 		\setlength\itemsep{0cm} % Decrease line distance
-		\item Der kan ændres i tid pr cyklus og antallet af cyklusser
+		\item Der kan ændres i tiden pr cyklus og antallet af cyklusser
 		\begin{enumerate}
-			\item Tid pr cykles kan sættes mellem 3 til 8 minutter og skifter med intervaller af 30 sekunder
-			\item Antal cyklusser kan sættes mellem 1-10 og skifter med intervaller af 1
+			\item \textit{Tid pr cykles} kan sættes mellem 3 til 10 minutter og skifter med intervaller af 30 sekunder
+			\item \textit{Antal cyklusser }kan sættes mellem 1-10 og skifter med intervaller af 1
 		\end{enumerate}
 	\end{enumerate}

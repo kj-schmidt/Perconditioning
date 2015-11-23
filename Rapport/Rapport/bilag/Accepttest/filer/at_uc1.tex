@@ -1,5 +1,5 @@
 	\section{Use case 1 - Konditionering}
-			\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
+			\begin{longtable}{|p{0.09\textwidth}|p{0.23\textwidth}|p{0.23\textwidth}|p{0.23\textwidth}|p{0.07\textwidth}|}
 			\hline
 			\rowcolor{usDef}
 			Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
@@ -9,17 +9,16 @@
 			2.1.4& Patient ID’et vises på skærmen & &  &   \\ \hline
 			2.1.5& Blodtrykket måles via use case 3 & \multicolumn{3}{l|}{Se krav nr. 2.3.1 til 2.3.5} \\ \hline
 			2.1.6& Blodtrykket vises på displayet og værdien gemmes i hukommelsen & Blodtrykket bliver vist på skærmen & Observér displayey & \\ \hline
-			2.1.7& Manchetten fyldes med luft til et tryk på 25 mmHG over systolisk tryk (minimum 180 mmHg) & Manchet-trykket er 25 mmHg over det systoliske tryk & Aflæs trykket på analogt barometer. Manchettryk - systolisk tryk = 25 mmHg &  \\ \hline
+			2.1.7& Manchetten fyldes med luft til et tryk på 25 mmHG over systolisk tryk (minimum 200 mmHg) & Manchet-trykket er 25 mmHg over det systoliske tryk & Aflæs trykket på analogt barometer. Manchettryk - systolisk tryk = 25 mmHg &  \\ \hline
 			2.1.8& Tidsstempel gemmes når trykket er opnået & Tidsstemplet er gemt i loggen & Kontroller tidsstempling på SD kortet &   \\ \hline
 			2.1.9& Trykket opretholdes i 5 minutter (Okklusion) og resterende tid vises på displayet & Manchet trykket skal minimum svare til systolisk tryk + 10 mmHg i 5 min & Observere analogt barometer i 5 min &  \\ \hline
-			2.1.10& Blodtrykket måles via use case 3 fra punkt 2. & \multicolumn{3}{l|}{Se krav nr. 2.3.2 til 2.3.5}  \\ \hline
-			2.1.11& Deflaterer manchetten helt og forbliver i dette stadie i 5 min (Reperfusion). Ved deflation start gemmes tidsstempel. Tid til næste okklusion vises på displayet & Manchet trykket er \textgreater 10 mmHg i 5 min. Kontinuerlig tids nedtælling vises på display. Tidsstemplet for deflation start kan aflæses på fil.  & Observér analogt barometer 5 min. Kontroller tidsstempling på SD kortet &  \\ \hline
-			2.1.12& Gentag punkt 7-11 (en \textit{cyklus}) fire gange. Det nuværende cyklus nummer vises i displayet & Det specificerede antal cyklusser gennemføres & Observér at det totale antal cyklusser er tilsvarende antallet vist på displayet (tallet til højre for cyklus nr.) &  \\ \hline 
+			2.1.10& Deflaterer manchetten helt og forbliver i dette stadie i 5 min (Reperfusion). Ved deflation start gemmes tidsstempel. Tid til næste okklusion vises på displayet & Manchet trykket er \textgreater 10 mmHg i 5 min. Kontinuerlig tids nedtælling vises på display. Tidsstemplet for deflation start kan aflæses på fil.  & Observér analogt barometer 5 min. Kontroller tidsstempling på SD kortet &  \\ \hline
+			2.1.11& Gentag punkt 7-01 (en \textit{cyklus}) fire gange. Det nuværende cyklus nummer vises i displayet & Det specificerede antal cyklusser gennemføres & Observér at det totale antal cyklusser er tilsvarende antallet vist på displayet (tallet til højre for cyklus nr.) &  \\ \hline 
 			\caption{Accepttest forløb for use case 1}
 		\end{longtable}
 
 		\section*{Undtagelser}
-			\begin{longtable}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.1\linewidth}|}
+			\begin{longtable}{|p{0.09\textwidth}|p{0.23\textwidth}|p{0.23\textwidth}|p{0.23\textwidth}|p{0.07\textwidth}|}
 				\hline
 									\rowcolor{usDef}
 				Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline

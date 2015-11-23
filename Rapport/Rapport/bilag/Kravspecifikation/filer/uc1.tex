@@ -1,6 +1,6 @@
 \subsection{Use case 1 - Konditionering}
 \begin{center}
-		\begin{longtable}{ | p{0.3\textwidth} | p{0.7\textwidth}| } 
+		\begin{longtable}{ | p{0.24\textwidth} | p{0.7\textwidth}| } 
 			\hline
 			Mål & Gennemføre én konditioneringsbehandling  \\ 
 			\hline
@@ -23,7 +23,7 @@
 			\hline
 			Slutbetingelser & 
 			\begin{itemize}
-				\item 5 hele cyklus er gennemført og gemt på hukommelsen
+				\item \textit{Antal cyklusser} er gennemført og gemt på hukommelsen
 			\end{itemize} \\ 
 			\hline
 			Normal forløb & \begin{enumerate}
@@ -36,13 +36,11 @@
 				\item Blodtrykket måles via \textit{use case 3}
 				\subitem[Undtagelse \#2]
 				\item Blodtrykket vises på displayet og værdien gemmes i hukommelsen
-				\item Manchetten fyldes med luft til et tryk på 25 mmHG over systolisk tryk (minimum 180 mmHg)					
+				\item Manchetten fyldes med luft til et tryk på 25 mmHG over systolisk tryk (minimum 200 mmHg)					
 				\item Tidsstempel gemmes når trykket er opnået
 				\item Trykket opretholdes i 5 minutter(Okklusion) og resterende tid vises på displayet
-				\item Blodtrykket måles via \textit{use case 3}
-				fra punkt 2.
 				\item Deflaterer manchetten helt og forbliver i dette stadie i 5 min(Reperfusion) Ved deflation start gemmes tidsstempel. Tid til næste okklusion vises på displayet
-				\item Gentag punkt 7-11 (en \textit{cyklus}) fire gange. Det nuværende cyklus nummer vises i displayet
+				\item Gentag punkt 7-10 (en \textit{cyklus}) fire gange. Det nuværende cyklus nummer vises i displayet
 			\end{enumerate} \\ 
 			\hline
 			Undtagelser & [Undtagelse \#1] Et patient ID eksisterer allerede på apparatet. Der genereres ikke noget nyt patient ID.
