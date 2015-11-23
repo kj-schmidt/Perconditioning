@@ -109,7 +109,7 @@ Metoden håndtere ikke hvis både \textit{*buttonPressed} og \textit{btPressed} 
 \subsubsection{Metode: updateOcclusion()}
 \textbf{Parameter: } \textit{volatile bool *buttonPressed}
 \\ \textbf{Returtype: } \textit{void}
-\\ \textbf{Beskrivelse: } Denne metode køres når apparatet er sat på okklusions træningsforløb. Denne metode bruger også pointeren til \textit{buttonPressed}, hvis den er true eksekveres et while loop hvor der startes et stopur og trykket fra manchetten vises på skærmen. Hvis værdien er falsk slettes sensorværdien på displayet, og slut tiden vises fra stopuret.
+\\ \textbf{Beskrivelse: } Denne metode køres når apparatet er sat på okklusions træningsforløb. Denne metode bruger også pointeren til \textit{buttonPressed}, hvis den er sand eksekveres et while loop hvor der startes et stopur og trykket fra manchetten vises på skærmen. Hvis værdien er falsk slettes sensorværdien på displayet, og slut tiden vises fra stopuret.
 
 \subsubsection{Metode: updateSetup()}
 \textbf{Parameter: } \textit{volatile bool *state}
@@ -129,17 +129,29 @@ Metoden håndtere ikke hvis både \textit{*buttonPressed} og \textit{btPressed} 
 \subsubsection{Metode: updateTimeLeft()}
 \textbf{Parameter: } \textit{unsigned short value}
 \\ \textbf{Returtype: } \textit{void}
-\\ \textbf{Beskrivelse: } Denne metode er lavet til opdatere tiden under konditioneringsforløbet. Da det kræver fem kald af metoder fra biblioteket \textit{Adafruit\_ILI9340} for at skrive tekst på skærmen er dette indkapslet i én metode, som blot skal have en String value. 
+\\ \textbf{Beskrivelse: } Denne metode er lavet til opdatere tiden under konditioneringsforløbet. Da det kræver fem kald af metoder fra biblioteket \textit{Adafruit\_ILI9340} for at skrive tekst på skærmen er dette indkapslet i én metode, som blot skal have en String value. Metoden sørge også for at tiden kun opdateres når sekund tælleren på uret ændres
 
 \subsubsection{Metode: updateNoOfCycles()}
 \textbf{Parameter: } \textit{String value}
 \\ \textbf{Returtype: } \textit{void}
-\\ \textbf{Beskrivelse: } Når metoden kaldes opdateres antallet cyklusser på skærmen. 
+\\ \textbf{Beskrivelse: } Når metoden kaldes opdateres antallet cyklusser på skærmen. Da værdien som metoden modtager indeholder to gange så mange cyklusser som der skal foretages, håndtere metoder at der kun hvis det eksakte antal. Grunden til at der regnes med to gange så mange cyklusser skyldes at programmet intern skal håndtere en okklusion fase og en reperfusions fase for hver cyklus. Håndtering foregår på følgende måde: 
+
+\begin{lstlisting}
+	if(value%2)
+	valToDisplay = (valToDisplay+1)/2;
+	else
+	valToDisplay = valToDisplay/2;
+\end{lstlisting}
 
 \subsubsection{Metode: updateStopWatchTime()}
 \textbf{Parameter: } \textit{unsigned short minutes, unsigned short seconds}
 \\ \textbf{Returtype: } \textit{void}
-\\ \textbf{Beskrivelse: } Denne metode opdatere tiden fra stopuret på displayet under okklusions træningsforløbet 
+\\ \textbf{Beskrivelse: } Denne metode opdatere tiden fra stopuret på displayet under okklusions træningsforløbet. Displayet opdateres kun når antallet af sekunder på stopuret ændres. 
+
+\subsubsection{Metode: updateBloodPressure}
+\textbf{Parameter: } \textit{unsigned short sys, unsigned short dia, unsigned short map)} 
+\\ \textbf{Returtype: } \textit{void}
+\\ \textbf{Beskrivelse: } Metoden modtager tre parameter med systolisk, diastolisk og middel arterie trykket. Disse værdi konverteres til en String og skrives på skærmen i følgende format: \textit{"120/80(93)"}
 
 \subsection{Klasse: Buttons}
 
