@@ -17,7 +17,7 @@ Det pulserende signal fra tryksensoren, som blodtryksmåleren analyserer er i si
 	\caption{Osclilloskops måling af rå signal fra blodtryksmåling, med konditioneringsapparatet. De røde cirkler er pulse oscillotionernes højeste punkt}\label{fig:rawPulseSignal}
 \end{figure}
 
-Efter analog filtrering af det rå signal ved en endnu en blodtryksmåling med konditioneringsapparatet, ses at
+Efter analog filtrering af det rå signal ved en endnu en blodtryksmåling med konditioneringsapparatet, ses at amplitude oscillotionerne isoleret og uden manchet trykket. Over en hel blodtryksmåling viser kurven beskrevet i teorien (figur \ref{fig:OscillometriskMetode}) sig, med en stigende amplitudehøjde efterfulgt af en top og til sidst en faldende oscillotionshøjder med laverer hældnings koefficient. En hel blodtryksmåling med filtreret råsignal kan ses på figur \ref{fig:filteredPulseSignal}.
 
 \begin{figure}[H]
 	\centering
@@ -27,7 +27,17 @@ Efter analog filtrering af det rå signal ved en endnu en blodtryksmåling med k
 		\includegraphics[trim={0 3.3cm 0 1.5cm},clip, width=0.328\textwidth]{billeder/filteredPulseSignalPeaks2.png}}
 	\subbottom[Faldende]{%
 		\includegraphics[trim={0 3.3cm 0 1.5cm},clip, width=0.328\textwidth]{billeder/filteredPulseSignalPeaks3.png}}
-	\caption{Osclilloskops måling af filtreret signal af blodtryksmåling, med konditioneringsapparatet. (a) er første del af blodtryksmålingen, (b) er abdeb De røde cirkler er pulse oscillotionernes højeste punkt}\label{fig:filteredPulseSignal}
+	\caption{Osclilloskops måling af filtreret signal af blodtryksmåling, med konditioneringsapparatet. (a) er første del af blodtryksmålingen, (b) er de midten af signalet med, hvor MAP befinder sig og (c) er slutningen af signalet, hvor amplituderne flader ud. De røde cirkler er pulse oscillotionernes højeste punkt}\label{fig:filteredPulseSignal}
+\end{figure}
+
+\subsubsection{Analog filtrering}
+Den analoge filtrerings som ses på forskellen mellem figur \ref{fig:rawPulseSignal} og figur \ref{fig:filteredPulseSignal} er implementeret i implementeringsdokumentet se \fixme{ref: implementeringsdokument}. 
+Det resulterende analoge filter, bestemt ud fra test opsætninger (se \fixme{ref: implementeringsdokument}) og litteraturen \fixme{CHARACTERIZATION OF THE OSClLLOMETRlC METHOD FOR MEASURING INDIRECT BLOOD PRESSURE}, er de pulserende oscillationer isoleret til et pulserende signal, som kan ses på figur \ref*{fig:filteredPulseSignalWithFFT}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[trim={0 0 0 1.5cm},clip, width=1\textwidth]{billeder/filteredPulseSignalWithFFT.png}
+	\caption{Osclilloskops måling af filtreret signal fra manchetten oppustet på arm. den røde kuve er de pulserende oscillotioner og den lyserøde kurve er en Fast Fourier Transformation (FFT) af den røde kurve, hvor den udregnede grundfrekvens af oscillationerne måles til 1Hz (60 bpm).}\label{fig:filteredPulseSignalWithFFT}
 \end{figure}
 
 
