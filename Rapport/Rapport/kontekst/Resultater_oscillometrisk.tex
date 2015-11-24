@@ -7,9 +7,9 @@ Konditioneringsapparatet er opbygget af flere blokke, som kan ses på figur \ref
 \end{figure}
 
 \subsection{Oscilumetrisk blodtryks apparat}
-Den oscillometriske blodtryks måle metode, beskrevet i afsnit \ref{noninvasivBloodpressureMeasurement}, blev implementeret som beskrevet i implementeringsdokumentet\fixme{reff: implementeringsdokument} og resultaterne der af er beskrevet følgende.
+Den oscillometriske blodtryks måle metode, beskrevet i afsnit \ref{noninvasivBloodpressureMeasurement}, er implementeret i implementeringsdokumentet\fixme{reff: implementeringsdokument} og resultaterne er beskrevet i dette afsnit.
 
-Det pulserende signal fra tryksensoren, som blodtryksmåleren analyserer er i sin rå (ubehandlet) tilstand støjfyldt. Signalet beskrevet i afsnit \ref{noninvasivBloodpressureMeasurement} på figur \ref{fig:OscillometriskMetode} er meget rent og amplitude højderne danner en flot parabel kurve. På figur \ref{fig:rawPulseSignal} ser det pulserende signal indhyldet i støj. Kurven er stødt faldende, fordi trykket i manchetten langsomt lukkes ud. Ydermere observeres der også varierende amplitudehøjder, som ikke er stødt stigende/faldende, men virker  tilfældigheder.  
+Det pulserende signal fra tryksensoren, som blodtryksmåleren analyserer er i sin rå (ubehandlet) tilstand støjfyldt. Signalet beskrevet i afsnit \ref{noninvasivBloodpressureMeasurement} på figur \ref{fig:OscillometriskMetode} er meget rent og amplitudehøjderne danner en flot parabel formet kurve. På figur \ref{fig:rawPulseSignal} ses det pulserende signal direkte fra tryksensorennsom er indhyldet i støj. Kurven er stødt faldende, fordi trykket i manchetten langsomt lukkes ud. Ydermere observeres der også varierende amplitudehøjder, som ikke er stødt stigende/faldende, men virker som tilfældigheder.  
 
 \begin{figure}[H]
 	\centering
@@ -17,7 +17,7 @@ Det pulserende signal fra tryksensoren, som blodtryksmåleren analyserer er i si
 	\caption{Osclilloskops måling af rå signal fra blodtryksmåling, med konditioneringsapparatet. De røde cirkler er pulse oscillotionernes højeste punkt}\label{fig:rawPulseSignal}
 \end{figure}
 
-Efter analog filtrering af det rå signal ved en endnu en blodtryksmåling med konditioneringsapparatet, ses at amplitude oscillotionerne isoleret og uden manchet trykket. Over en hel blodtryksmåling viser kurven beskrevet i teorien (figur \ref{fig:OscillometriskMetode}) sig, med en stigende amplitudehøjde efterfulgt af en top og til sidst en faldende oscillotionshøjder med laverer hældnings koefficient. En hel blodtryksmåling med filtreret råsignal kan ses på figur \ref{fig:filteredPulseSignal}.
+Efter analog filtrering af det rå signal på endnu en blodtryksmåling med konditioneringsapparatet, ses at amplitude oscillotionerne isoleret og uden manchettrykket (offset). Over en hel blodtryksmåling skal kurven ifølge teorien (se figur \ref{fig:OscillometriskMetode}), starte med en stigende amplitudehøjde efterfulgt af en top og til sidst faldende oscillotionshøjder med laverer hældnings koefficient end starten. En hel blodtryksmåling med filtreret råsignal kan ses på figur \ref{fig:filteredPulseSignal}.
 
 \begin{figure}[H]
 	\centering
@@ -31,8 +31,8 @@ Efter analog filtrering af det rå signal ved en endnu en blodtryksmåling med k
 \end{figure}
 
 \subsubsection{Analog filtrering}
-Den analoge filtrerings som ses på forskellen mellem figur \ref{fig:rawPulseSignal} og figur \ref{fig:filteredPulseSignal} er implementeret i implementeringsdokumentet se \fixme{ref: implementeringsdokument}. 
-Det resulterende analoge filter, bestemt ud fra test opsætninger (se \fixme{ref: implementeringsdokument}) og litteraturen \fixme{CHARACTERIZATION OF THE OSClLLOMETRlC METHOD FOR MEASURING INDIRECT BLOOD PRESSURE}, er de pulserende oscillationer isoleret til et pulserende signal, som kan ses på figur \ref*{fig:filteredPulseSignalWithFFT}. Resultatet er opnået, ved at implementerer et båndpasfilter, med et pasbånd som starter før lavest mulig puls og slutter ved den tiende afledte af grundfrekvensen 60bmp (se figur \ref*{fig:BandPassFilter}).
+Den analoge filtrering, ses på forskellen mellem figur \ref{fig:rawPulseSignal} og figur \ref{fig:filteredPulseSignal}, er implementeret i implementeringsdokumentet se \fixme{ref: implementeringsdokument}. 
+Det resulterende analoge filter, er bestemt ud fra test opsætninger (se \fixme{ref: implementeringsdokument}) og litteraturen \fixme{CHARACTERIZATION OF THE OSClLLOMETRlC METHOD FOR MEASURING INDIRECT BLOOD PRESSURE}. De pulserende oscillationer isoleret fra det rå signal kan ses på figur \ref{fig:filteredPulseSignalWithFFT}. Resultatet er opnået, ved at implementerer et båndpasfilter, med et pasbånd som starter før lavest mulig puls og slutter ved den tiende afledte af grundfrekvensen 60bmp (se figur \ref*{fig:BandPassFilter}).
 
 \begin{figure}[H]
 	\centering
@@ -42,13 +42,17 @@ Det resulterende analoge filter, bestemt ud fra test opsætninger (se \fixme{ref
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[trim={0 0 0 1.5cm},clip, width=1\textwidth]{billeder/filteredPulseSignalWithFFT.png}
-	\caption{Osclilloskops måling af filtreret signal fra manchetten oppustet på arm. den røde kuve er de pulserende oscillotioner og den lyserøde kurve er en Fast Fourier Transformation (FFT) af den røde kurve, hvor den udregnede grundfrekvens af oscillationerne måles til 1Hz (60 bpm).}\label{fig:filteredPulseSignalWithFFT}
+	\includegraphics[trim={0 2.5cm 0 1.5cm},clip, width=0.8\textwidth]{billeder/filteredPulseSignalWithFFT.png}
+	\caption{Osclilloskops måling af filtreret signal fra manchetten oppustet på arm. Den grønne kurve er de pulserende oscillotioner og den lilla kurve er en Fast Fourier Transformation (FFT) af den grønne kurve, hvor den udregnede grundfrekvens af oscillationerne måles til 1Hz (60 bpm).}\label{fig:filteredPulseSignalWithFFT}
 \end{figure}
 
 \subsubsection{Digital filtrering}
-For at opnå en glat parappel, som vist på  figur \ref{fig:OscillometriskMetode}, er der implementeret et digitalt filter, som har til opgave at udglatte oscillutions amplituderne fra blodtryksmålingerne. Resultatet af implementeringen kan ses på figur \ref{fig:digitalFilterData}. Det bedste forhold mellem udglatning og reaktionshastighed af filteret blev opnået med et ekspotentielt filter $y(n)=\alpha*x(n)+(1-\alpha)*y(n-1)$ med en alfa værdi på 0.15 (se \fixme{reff: implementeringsdokument} for uddybende beskrivelse).  
+For at opnå en glat parabel, som vist på  figur \ref{fig:OscillometriskMetode}, er der implementeret et digitalt filter, som har til opgave at udglatte oscillutions amplituderne fra blodtryksmålingerne. Resultatet af implementeringen kan ses på figur \ref{fig:digitalFilterData}. Det bedste forhold mellem udglatning og reaktionshastighed af filteret er opnået ved et ekspotentielt midlingsfilter (se \ref{eq:ekspotentielmidlingsfilter}) med alfa værdi på 0.15 (se \fixme{reff: implementeringsdokument} for uddybende beskrivelse).  
 
+\begin{equation}
+y(n)=\alpha*x(n)+(1-\alpha)*y(n-1)
+\label{eq:ekspotentielmidlingsfilter}
+\end{equation}
 \begin{figure}[H]
 	\centering
 	\includegraphics[trim={0 0 0 0},clip, width=0.7\textwidth]{billeder/digitalFilterData.pdf}	
@@ -57,12 +61,12 @@ For at opnå en glat parappel, som vist på  figur \ref{fig:OscillometriskMetode
 
 
 \subsection{Fikseret-ratio} \label{Fikseret-ratio}
-Konditioneringsapparatet mest avancerede egenskab er uden tvivl estimering af blodtrykket. Apparatet anvender den oscillometriske metode hvor det systoliske og diastoliske tryk blandt andet bestemmes ud fra MAP. Uder udviklingen af konditioneringsapparatet blev det besluttet at anvende den fikserede-ratio metode for at forsimple udviklingsarbejdet.
+Konditioneringsapparatets mest avancerede egenskab er uden tvivl estimering af blodtrykket. Apparatet anvender den oscillometriske metode hvor det systoliske og diastoliske tryk blandt andet bestemmes ud fra MAP. Under udviklingen af konditioneringsapparatet blev det besluttet at anvende den fikserede-ratio metode for at forsimple udviklingsarbejdet.
 
-Fikseret-ratio metoden anvender empirisk data til at bestemme hvor store oscillotionerne i manchetten skal være i forhold til MAP oscillotionerne for at være SYS og DIA. Dette betyder at systolisk og diastolisk tryk er bestemt ved manchettrykket når amplituden af oscillotionerne er en ratio af den maksimale værdi.\fixme{ref: Theory of the Oscillometric Maximum and the Systolic and Diastolic Detection Ratios}
+Fikseret-ratio metoden anvender empirisk data til at bestemme hvor store oscillotionerne i manchettenv skal være i forhold til oscillotionerne ved MAP, for at identificerer SYS og DIA. Dette betyder at systolisk og diastolisk tryk er bestemt ved manchettrykket når amplituden af oscillotionerne er en ratio af den maksimale værdi.\fixme{ref: Theory of the Oscillometric Maximum and the Systolic and Diastolic Detection Ratios}
 
 \begin{minipage}[c]{0.5\textwidth}
-	Ratio værdierne bestemt til konditionerings apparatet kunne ikke bestemmes ud fra en større mængde empirisk data fra patienter, på grund af projektets omfang. I stedet er empirisk data blevet indsamlet fra en oscillometrisk blodtrysk simulator (se figur \ref{fig:TheFlukeBiomedicalBPPump2L}). Konditionerings apparatet opsamlede data mens monteret på simulatoren, hvilket kan ses på figur \ref{fig:digitalFilterData} og \ref*{fig:digitalFilterDataSysMapDia}. Fordi simulatoren indstilles til kendte blodtryksværdier kan de fikserede-ratiorer bestemmes ud fra oscillotions amplituden (OA) ved manchettrykket et bestemt tryk. Ved simulering af 120/80 skal oscillotion amplituden ved manchettrykket 120mmHg aflæses og forholdet mellem MAP og denne aflæste værdi er den systoliske ratio.
+	Ratio værdierne til konditionerings apparatet kunne ikke bestemmes ud fra en større mængde empirisk data fra patienter, på grund af projektets omfang. I stedet er empirisk data blevet indsamlet fra "Fluke biomedicalBP Pump 2" en oscillometrisk blodtrykssimulator (se figur \ref{fig:TheFlukeBiomedicalBPPump2L}). Konditionerings apparatet opsamlede data fra simulatoren, hvilket kan ses på figur \ref{fig:digitalFilterData} og \ref*{fig:digitalFilterDataSysMapDia}. Fordi simulatoren indstilles til kendte blodtryksværdier kan de fikserede-ratiorer bestemmes ud fra oscillotions amplituden (OA) ved et givent manchettryk. f.eks ved simulering af 120/80 skal oscillotions amplituden ved manchettrykket 120mmHg aflæses og forholdet mellem MAP og denne aflæste værdi er den systoliske ratio.
 	
 	
 \end{minipage}
@@ -70,26 +74,28 @@ Fikseret-ratio metoden anvender empirisk data til at bestemme hvor store oscillo
 	\begin{figure}[H]
 		\centering
 		\includegraphics[trim={0 0 0 0},clip, width=0.9\textwidth]{billeder/TheFlukeBiomedicalBPPump2L.png}	
-		\parbox{7cm}{\caption{Fluke Biomedical BP Pump 2L Non-invasiv blodtrykssimulator}\label{fig:TheFlukeBiomedicalBPPump2L}}
+		\parbox{7cm}{\caption{Fluke Biomedical BP Pump 2 Non-invasiv blodtrykssimulator}\label{fig:TheFlukeBiomedicalBPPump2L}}
 	\end{figure}
 \end{minipage}
 
-Resultatet af simulationerne kan ses på figur \ref{fig:digitalFilterDataSysMapDia} uden man
+Resultatet af simulationerne kan ses på figur \ref{fig:digitalFilterDataSysMapDia1} uden manchettrykket og med manchettrykket på figur \ref{fig:digitalFilterDataSysMapDia2}. Ratioen for SYS (se \ref{eq:sysratio}) blev udregnet til 0.38 og for DIA (se \ref{eq:sysratio}) til 0.48. 
 
 	\begin{equation}
 	SYS_{OA}=MAP_{OA}*0.38
+	\label{eq:sysratio}
 	\end{equation}
 	\begin{equation}
 	DIA_{OA}=MAP_{OA}*0.48
+	\label{eq:diaratio}
 	\end{equation}
-}
+
 
 \begin{figure}[H]
 	\centering
-	\subbottom[Højdepunkt]{%
+	\subbottom[Simulationsdata uden manchettryk]{\label{fig:digitalFilterDataSysMapDia1}%
 		\includegraphics[trim={0 0 0 0},clip, width=0.48\textwidth]{billeder/digitalFilterDataSysMapDia.pdf}}
-	\subbottom[Faldende]{%
+	\subbottom[Simulationsdata med manchettryk]{\label{fig:digitalFilterDataSysMapDia2}%
 		\includegraphics[trim={0 0 0 0},clip, width=0.48\textwidth]{billeder/digitalFilterDataCuffSysMapDia.pdf}}
-	\caption{Digital filtrering af oscillotions peaks fra blodtryksmåling på simulator med ekspotentiel midlingsfilter. De røde prikker er placeret ved de amplitude højder, hvor SYS, MAP og DIA befinder sig ved fikseret-ratio på 0.38(SYS) og 0.48(DIA).}\label{fig:digitalFilterDataSysMapDia}
+	\caption{Digital filtrering af oscillotions amplituderne fra blodtryksmåling på simulator med ekspotentiel midlingsfilter. De røde prikker er placeret  hvor SYS, MAP og DIA befinder sig ved fikseret-ratio på 0.38(SYS) og 0.48(DIA).}
 \end{figure}
   
