@@ -47,7 +47,7 @@ Det resulterende analoge filter, bestemt ud fra test opsætninger (se \fixme{ref
 \end{figure}
 
 \subsubsection{Digital filtrering}
-For at opnå en glat parappel, som vist på  figur \ref{fig:OscillometriskMetode}, er der implementeret et digitalt filter, som har til opgave at udglatte oscillutions amplituderne fra blodtryksmålingerne. Resultatet af implementeringen kan ses på figur \ref{fig:digitalFilterData}. Det bedste forhold mellem udglatning og reaktionshastighed af filteret blev opnået med et ekspotentielt filter $y(n)=\alpha*x(n)+(1-\alpha)*y(n-1)$
+For at opnå en glat parappel, som vist på  figur \ref{fig:OscillometriskMetode}, er der implementeret et digitalt filter, som har til opgave at udglatte oscillutions amplituderne fra blodtryksmålingerne. Resultatet af implementeringen kan ses på figur \ref{fig:digitalFilterData}. Det bedste forhold mellem udglatning og reaktionshastighed af filteret blev opnået med et ekspotentielt filter $y(n)=\alpha*x(n)+(1-\alpha)*y(n-1)$ med en alfa værdi på 0.15 (se \fixme{reff: implementeringsdokument} for uddybende beskrivelse).  
 
 \begin{figure}[H]
 	\centering
@@ -57,3 +57,11 @@ For at opnå en glat parappel, som vist på  figur \ref{fig:OscillometriskMetode
 
 
 \subsection{Fikseret-ratio} \label{Fikseret-ratio}
+Konditioneringsapparatet mest avancerede egenskab er uden tvivl estimering af blodtrykket. Apparatet anvender den oscillometriske metode hvor det systoliske og diastoliske tryk blandt andet bestemmes ud fra MAP. Uder udviklingen af konditioneringsapparatet blev seagull S-105B anvendt til vejledende SYS og DIA, men da den ikke udskriver MAP er mat bestemt visuelt, som det højeste punkt op peak kurven (se figur ).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[trim={0 0 0 0},clip, width=0.7\textwidth]{billeder/digitalFilterDataSysMapDia.pdf}	
+	\parbox{10.5cm}{\caption{Digital filtrering af oscillotions peaks fra blodtryksmåling på simulator med ekspotentiel midlingsfilter. De røde prikker er placeret ved de amplitude højder, som er bestemt ud fra $SYS_{amplitude}=MAP_{aplitude}*0.38$ og $DIA_{amplitude}=MAP_{amplitude}*0.48$ }\label{fig:digitalFilterDataSysMapDia}}
+\end{figure}
+  
