@@ -47,13 +47,12 @@ Det resulterende analoge filter, bestemt ud fra test opsætninger (se \fixme{ref
 \end{figure}
 
 \subsubsection{Digital filtrering}
-For at opnå en glat parappel, som vist på  figur \ref{fig:OscillometriskMetode}, er der implementeret et digitalt filter, som har til opgave at udglatte oscillutions amplituderne fra blodtryksmålingerne. 
+For at opnå en glat parappel, som vist på  figur \ref{fig:OscillometriskMetode}, er der implementeret et digitalt filter, som har til opgave at udglatte oscillutions amplituderne fra blodtryksmålingerne. Resultatet af implementeringen kan ses på figur \ref{fig:digitalFilterData}. Det bedste forhold mellem udglatning og reaktionshastighed af filteret blev opnået med et ekspotentielt filter $y(n)=\alpha*x(n)+(1-\alpha)*y(n-1)$
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[trim={0 0 0 0},clip, width=0.7\textwidth]{billeder/digitalFilterData.pdf}
-%	\captionsetup[width=0.7\textwidth]{figure}
-	\caption{Digital filtrering af oscillotions peaks med ekspotentiel midlingsfilter. }\label{fig:digitalFilterData}
+	\includegraphics[trim={0 0 0 0},clip, width=0.7\textwidth]{billeder/digitalFilterData.pdf}	
+	\parbox{10.5cm}{\caption{Digital filtrering af oscillotions peaks fra blodtryksmåling på simulator med ekspotentiel midlingsfilter.}\label{fig:digitalFilterData}}
 \end{figure}
 
 
