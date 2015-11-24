@@ -1,26 +1,3 @@
-<<<<<<< Updated upstream
-\contentsline {fixme}{Fatal: Reference til "Basis i sygdomsl\IeC {\ae }re, side 399-402}{3}{chapter.2}
-\contentsline {fixme}{Fatal: Reference program apopleksi, side 14}{3}{chapter.2}
-\contentsline {fixme}{Fatal: Refence til fakta om apopleksi http://www.hjernesagen.dk/om-hjerneskader/bloedning-eller-blodprop-i-hjernen/fakta-om-apopleksi }{3}{chapter.2}
-\contentsline {fixme}{Fatal: Reference til trombolyse \IeC {\o }konomi side 17}{3}{chapter.2}
-\contentsline {fixme}{Fatal: https://www.sundhed.dk/borger/sygdomme-a-aa/hjerte-og-blodkar/sygdomme/apopleksi/behandling-ved-apopleksi/}{3}{chapter.2}
-\contentsline {fixme}{Fatal: Requirements for professional office blood pressure monitors}{4}{section.2.1}
-\contentsline {fixme}{Fatal: ref: Webster side 325}{4}{figure.2.1}
-\contentsline {fixme}{Fatal: Requirements for professional office blood pressure monitors}{4}{figure.2.1}
-\contentsline {fixme}{Fatal: Webster side 328}{5}{figure.2.1}
-\contentsline {fixme}{Fatal: ref: Webster side 329}{5}{figure.2.2}
-\contentsline {fixme}{Fatal: Reference til http://www.agilemanifesto.org/iso/dk/}{13}{section.6.1}
-\contentsline {fixme}{Fatal: https://www.pivotaltracker.com/}{14}{subsection.6.1.1}
-\contentsline {fixme}{Fatal: reff: implementeringsdokument}{17}{subsection.8.1.1}
-\contentsline {fixme}{Fatal: ref: implementeringsdokument}{19}{section*.12}
-\contentsline {fixme}{Fatal: ref: implementeringsdokument}{19}{section*.12}
-\contentsline {fixme}{Fatal: CHARACTERIZATION OF THE OSClLLOMETRlC METHOD FOR MEASURING INDIRECT BLOOD PRESSURE}{19}{section*.12}
-\contentsline {fixme}{Fatal: reff: implementeringsdokument}{20}{section*.13}
-\contentsline {fixme}{Fatal: ref: Theory of the Oscillometric Maximum and the Systolic and Diastolic Detection Ratios}{20}{subsection.8.1.2}
-\contentsline {fixme}{Fatal: Theory of the Oscillometric Maximum and the Systolic and Diastolic Detection Ratios}{23}{section.9.1}
-\contentsline {fixme}{Fatal: Error Mechanisms of the Oscillometric Fixed-Ratio BloodPressure Measurement Method}{23}{section.9.1}
-\contentsline {fixme}{Fatal: billede Ref: Error Mechanisms of the Oscillometric Fixed-Ratio BloodPressure Measurement Method}{24}{figure.9.1}
-=======
 \contentsline {fixme}{Fatal: Reference til "Basis i sygdomsl\IeC {\ae }re, side 399-402}{5}{chapter.3}
 \contentsline {fixme}{Fatal: Reference program apopleksi, side 14}{5}{chapter.3}
 \contentsline {fixme}{Fatal: Refence til fakta om apopleksi http://www.hjernesagen.dk/om-hjerneskader/bloedning-eller-blodprop-i-hjernen/fakta-om-apopleksi }{5}{chapter.3}
@@ -45,13 +22,12 @@
 \contentsline {fixme}{Fatal: Reference til projektafgr\IeC {\ae }nsning}{19}{section*.8}
 \contentsline {fixme}{Fatal: Ins\IeC {\ae }t sidste opdateret tidsplan}{19}{subsection.7.1.6}
 \contentsline {fixme}{Fatal: Reference til git hjemmeside https://github.com/}{20}{section.7.2}
-\contentsline {fixme}{Fatal: reff: implementeringsdokument}{23}{subsection.9.1.1}
-\contentsline {fixme}{Fatal: ref: implementeringsdokument}{25}{section*.9}
-\contentsline {fixme}{Fatal: ref: implementeringsdokument}{25}{section*.9}
-\contentsline {fixme}{Fatal: CHARACTERIZATION OF THE OSClLLOMETRlC METHOD FOR MEASURING INDIRECT BLOOD PRESSURE}{25}{section*.9}
-\contentsline {fixme}{Fatal: reff: implementeringsdokument}{26}{section*.10}
-\contentsline {fixme}{Fatal: ref: Theory of the Oscillometric Maximum and the Systolic and Diastolic Detection Ratios}{27}{subsection.9.1.2}
-\contentsline {fixme}{Fatal: Theory of the Oscillometric Maximum and the Systolic and Diastolic Detection Ratios}{29}{section.10.1}
-\contentsline {fixme}{Fatal: Error Mechanisms of the Oscillometric Fixed-Ratio BloodPressure Measurement Method}{29}{section.10.1}
-\contentsline {fixme}{Fatal: billede Ref: Error Mechanisms of the Oscillometric Fixed-Ratio BloodPressure Measurement Method}{30}{figure.10.1}
->>>>>>> Stashed changes
+\contentsline {fixme}{Fatal: reff: implementeringsdokument}{25}{subsection.9.1.1}
+\contentsline {fixme}{Fatal: ref: implementeringsdokument}{27}{section*.9}
+\contentsline {fixme}{Fatal: ref: implementeringsdokument}{27}{section*.9}
+\contentsline {fixme}{Fatal: CHARACTERIZATION OF THE OSClLLOMETRlC METHOD FOR MEASURING INDIRECT BLOOD PRESSURE}{27}{section*.9}
+\contentsline {fixme}{Fatal: reff: implementeringsdokument}{28}{section*.10}
+\contentsline {fixme}{Fatal: ref: Theory of the Oscillometric Maximum and the Systolic and Diastolic Detection Ratios}{28}{subsection.9.1.2}
+\contentsline {fixme}{Fatal: Theory of the Oscillometric Maximum and the Systolic and Diastolic Detection Ratios}{31}{section.10.1}
+\contentsline {fixme}{Fatal: Error Mechanisms of the Oscillometric Fixed-Ratio BloodPressure Measurement Method}{31}{section.10.1}
+\contentsline {fixme}{Fatal: billede Ref: Error Mechanisms of the Oscillometric Fixed-Ratio BloodPressure Measurement Method}{32}{figure.10.1}
