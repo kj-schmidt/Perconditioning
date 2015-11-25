@@ -1,3 +1,17 @@
 \chapter{Resultater}
 
 \input{kontekst/Resultater_oscillometrisk}
+
+\section{Dataopsamling}
+I forbindelse med udviklingen af prototypen var der et ønske fra kunden side omkring dataopsamling fra \textit{Konditioneringsapparatet}. For at apparatet kan bruges til forskningsprojektet er nødvendigt at kunne dokumentere hvordan mange konditioneringscyklusser en patient har modtaget. I samarbejde med kunden blev aftale at et \textit{konditioneringsapparat} skal følge en patient i gennem hele forløbet, altså fra præhospital, til hospital og til sidst i hjemmet. Derfor blev det besluttet at data blev gemt på et SD kort, som hver gang et apparat returneres fra en patient bliver tømt for data og formateret. 
+
+\begin{figure}[H]
+	\includegraphics[width = \textwidth]{billeder/fileksempel-crop.pdf}
+	\caption{Et eksempel på fil udtræk fra SD kortet}\label{fig:fileksempel}
+\end{figure}
+
+På figur \ref{fig:fileksempel} oversigt over fil udtræk. Her er udført et konditioneringsbehandling, hvor blodtrykket først er blevet målt til 174/100(124) mmHg. Der gemmes et værdier ved blodtryksmålinger, hver gang trykket i manchetten når afklemningstrykket og når en okklusionsfase er færdig. Endvidere skrives det til SD kortet hvis konditioneringsbehandlingen afbrydes. Hver gang der skrives til SD kortet gemmes et tidsstempel, om afklemningen er gennemført, afklemningstrykket, blodtrykket og information omkring konditioneringsbehandling blev færdig gjort. 
+
+I den måling der er vist på figur \ref{fig:fileksempel} er der foretaget en blodtrykmåling, 2 fulde cyklusser og en afbrudt cyklus. En okklusion cyklus var sat til 10 sekunder og antallet af cyklusser var 3. Grundet til tidsstemplerne ikke er med 10 sekunder forskel er at der først skrives til SD kortet når afklemningstrykket er opnået. Det tager lidt tid for motoren at pumpe manchetten op til det bestemte tryk. 
+
+For at sikre at informationen på SD kan kobles til en patient, genereres der et tilfældigt ID på 5 hexidecimaler, som sammen med apparat ID'et på 3 cifre, bliver til navnet på filen. Filen der er vist på figur \ref{fig:fileksempel} har derfor navnet \textit{93C09001.csv}. \textit{93C090} er det tilfældig patient ID og \textit{001} er apparat ID. Når den første måling fortages på et apparat med formateret SD kort bliver der generet en .csv fil med det 8 cifrede navn. Patient ID bliver vist på skærmen af \textit{Konditioneringsapparatet} og det ID skal noteres at ambulance personale, som derefter skal kobles med patienten CPR nummer. Det gøres for at apparatet ikke skal håndtere patient følsomme oplysninger.
