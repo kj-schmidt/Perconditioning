@@ -70,7 +70,9 @@ for (int i = 0; i < ArraysizePeaks; i++) {
 	  Serial.print(",");
 	}
 Serial.print("\n");
-	mem.writeToSDCard(timer.timeToString(), false, 0, util.rawToMmHg(*SYS), util.rawToMmHg(*MAP), util.rawToMmHg(*DIA), false); // Save the blood pressure onto the SD card
+	if(*btPressed){
+		mem.writeToSDCard(timer.timeToString(), false, 0, util.rawToMmHg(*SYS), util.rawToMmHg(*MAP), util.rawToMmHg(*DIA), false); // Save the blood pressure onto the SD card
+	}
 }
 
 unsigned short Senarios::occlusiontraining(volatile bool *start)

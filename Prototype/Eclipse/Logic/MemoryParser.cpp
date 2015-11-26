@@ -63,8 +63,8 @@ String MemoryParser::getID(){
 	return filename.substring(0,5);
 }
 
-void MemoryParser::startInitSD(){
-	extMem.initializeSD();
+bool MemoryParser::startInitSD(){
+	return extMem.initializeSD();
 }
 
 

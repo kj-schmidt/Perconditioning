@@ -21,7 +21,7 @@ public:
 	String generateRandomNumber();
 	String checkFilesSD();
 	void createFileTemplate(String filename);
-	void initializeSD();
+	bool initializeSD();
 	String getFilename();
 };
 

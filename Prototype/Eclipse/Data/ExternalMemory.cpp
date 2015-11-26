@@ -17,11 +17,17 @@ ExternalMemory::ExternalMemory() {
 
 }
 
-void ExternalMemory::initializeSD(){
-	if(SD.begin(4))
+bool ExternalMemory::initializeSD(){
+	bool statusSD;
+	if(SD.begin(4)){
 		filename = checkFilesSD();
-	else
+		statusSD = true;
+	}
+	else{
 		Serial.println("Initializing failed...");
+		statusSD = false;
+	}
+	return statusSD;
 }
 
 String ExternalMemory::generateRandomNumber(){
@@ -43,12 +49,12 @@ String ExternalMemory::checkFilesSD(){
 			//When a file is found, check the last four characters
 			tempName = entry.name();
 			tempType = tempName.substring(8,12);
-Serial.println(tempName);
-Serial.println(tempType);
+
 			//If a .csv is found
 			if(tempType.equalsIgnoreCase(valToCheck)){
 				Serial.print("*** A file was found with name: "); Serial.println(tempName);
 				finalFile = tempName;
+				entry.close();
 				break;
 			}
 			//If no file was found, creates a file
@@ -58,6 +64,7 @@ Serial.println(tempType);
 				Serial.print("*** A new file was created: "); Serial.println(tempName);
 				createFileTemplate(newFileName);
 				finalFile = newFileName;
+				entry.close();
 				break;
 			}
 			entry.close();
@@ -66,6 +73,7 @@ Serial.println(tempType);
 }
 
 void ExternalMemory::writeToSDCard(String textToSD){
+
 	//Create new instance of File and get the filename
 	File file;
 	String nameReadFromSD = filename;

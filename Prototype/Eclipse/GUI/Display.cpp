@@ -121,8 +121,7 @@ void Display::clearAreaDisp(unsigned short pointX, unsigned short pointY, unsign
 
 void Display::initConditioning(){
 	//Begin communication with SD card
-	memory.startInitSD();
-	Serial.println("** THIS METHOD IS RUN **");
+	if(memory.startInitSD()){
 
 	//Writes statics parameters onto the screen
 	unsigned short noOfCyclesVal = memory.getNoOfCycles();
@@ -151,6 +150,12 @@ void Display::initConditioning(){
 	TFTscreen.setTextSize(2);
 	TFTscreen.setCursor(0, 220);
 	TFTscreen.println("Resterende tid: ");
+	} else{
+		//If SD card can't be initialized
+		TFTscreen.setTextColor(ILI9340_WHITE);  TFTscreen.setTextSize(2);
+		TFTscreen.setCursor(0, 0);
+		TFTscreen.println("Fejl: Forbind SD kortet igen, og genstart. ");
+	}
 }
 void Display::initOcclusion(){
 	//Writes statics parameters onto the screen
@@ -187,7 +192,13 @@ void Display::initSetup(){
 void Display::moveSqaure(unsigned short startX, unsigned short startY, unsigned short endX, unsigned short endY, unsigned short width, unsigned short height){
 	noInterrupts();
 	TFTscreen.drawRect(startX,startY, width, height, ILI9340_BLACK); //Erase square
-	TFTscreen.drawRect(endX,endY, width, height, ILI9340_WHITE); //Draw square
+
+	if(millis()-lastDisplayUpdateTimestamp > 100){
+		lastDisplayUpdateTimestamp = millis();
+	} else if(millis()-lastDisplayUpdateTimestamp > 50)
+		TFTscreen.drawRect(endX,endY, width, height, ILI9340_WHITE); //Draw square
+	else
+		TFTscreen.drawRect(endX,endY, width, height, ILI9340_BLACK);
 	interrupts();
 }
 
@@ -202,6 +213,11 @@ bool donedeflateingOrInflating = false;
 	//*** When "Mål blodtryk" is pressed ***
 	if(*btPressed && !*buttonPressed)
 	{
+		//Print the ID on the display
+		TFTscreen.setTextColor(ILI9340_WHITE);  TFTscreen.setTextSize(2);
+		TFTscreen.setCursor(40, 0);
+		TFTscreen.println(memory.getID());
+
 		//Clear previous BP
 		clearAreaDisp(75,160, 220, 30);
 		TFTscreen.setTextColor(ILI9340_WHITE);
@@ -245,7 +261,6 @@ bool donedeflateingOrInflating = false;
 			SYS = util.mmHgToRaw(175);
 		else if(util.rawToMmHg(SYS)>275)
 			SYS = util.mmHgToRaw(275);
-		memory.writeToSDCard(timer.timeToString(), false, 0, util.rawToMmHg(SYS), util.rawToMmHg(MAP), util.rawToMmHg(DIA), false); //Temp save
 	}
 
 	//*** Running the conditioning ***
@@ -280,22 +295,25 @@ bool donedeflateingOrInflating = false;
 		}
 		if(!timer.getTimerStatus()){ //If timer is running
 			if(donedeflateingOrInflating)
-				timer.countdown(10);//memory.getTimePerCycle());
+				timer.countdown(memory.getTimePerCycle());
 			String countDownTime = timer.displayTimer();
 
 			updateSensorVal(util.rawToMmHg(cuffPressure)); //Update the sensor value
-			updateNoOfCycles(getNoCycleLeft()); //** IS TO READ OF FROM THE SD CARD **
+			updateNoOfCycles(getNoCycleLeft());
 			updateTimeLeft(countDownTime); //Update the timer
 
 		} else{ //If the timer has ended
 			clearAreaDisp(280, 0, 10, 20);
-			if(getNoCycleLeft() == 0){ //If all cycles have been run
+			setNoCycleLeft(getNoCycleLeft() - 1);
+
+			if(getNoCycleLeft() == 1){ //If all cycles have been run
 				timer.setTimerStatus(true);
+				clearAreaDisp(70, 55,220, 100); //Clear the sensor value
+
 			}
 			else{ //If more cycles are left
 				timer.setTimestamp();
 				timer.setTimerStatus(false); //Reset the timer
-				setNoCycleLeft(getNoCycleLeft() - 1); //** IS TO READ OF FROM THE SD CARD **
 			}
 		}
 	}
@@ -340,6 +358,7 @@ void Display::updateSetup(volatile unsigned short *state){
 			break;
 		case 2: //Change time per cycle
 			noInterrupts();
+			TFTscreen.drawRect(5,55,140,60, ILI9340_WHITE);
 			TFTscreen.setTextSize(5); TFTscreen.setTextColor(ILI9340_WHITE);
 			TFTscreen.setCursor(10,70);
 			TFTscreen.println(memory.getTimePerCycle());
@@ -347,6 +366,7 @@ void Display::updateSetup(volatile unsigned short *state){
 			break;
 		case 3: // Change number of cycles
 			noInterrupts();
+			TFTscreen.drawRect(165,55,140,60, ILI9340_WHITE);
 			TFTscreen.setTextSize(5); TFTscreen.setTextColor(ILI9340_WHITE);
 			TFTscreen.setCursor(170,70);
 			TFTscreen.println(memory.getNoOfCycles());

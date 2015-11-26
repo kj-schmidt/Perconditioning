@@ -65,7 +65,7 @@ unsigned short Buttons::changer(volatile unsigned short *state){
 			memoryBT.setTimePerCycle(180);
 		}
 	else if(*state == 3){
-		if(memoryBT.getNoOfCycles() <=4){
+		if(memoryBT.getNoOfCycles() <=8){
 			disp.clearAreaDisp(170, 70, 35, 40);
 			memoryBT.setNoOfCycles(memoryBT.getNoOfCycles()+1);
 
