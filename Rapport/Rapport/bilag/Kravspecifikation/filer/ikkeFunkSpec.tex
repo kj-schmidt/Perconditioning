@@ -3,7 +3,7 @@
 	\section{Microcontroller}
 	\begin{enumerate}
 		\setlength\itemsep{0cm}
-		\item Atmega32
+		\item Atmega2560
 		\end{enumerate}
 	
 	\section{Filformat og opsætning}
@@ -11,9 +11,9 @@
 		\setlength\itemsep{0cm} % Decrease line distance
 		\item Data logged i formatet .csv og hver kolonne indeholder følgende værdier og enheder: 
 		\begin{enumerate}
-			\item Tidsstempel [yy:mm:dd hh:mm:ss]
-			\item Afklemningstryk [mmHg]
+			\item Tidsstempel [hh:mm:ss dd-mm-yyyy]
 			\item Gennemført afklemning [Boolean]
+			\item Afklemningstryk [mmHg]
 			\item Systoliske blodtryk [mmHg]
 			\item Middelblodtryk (MAP) [mmHg]
 			\item Diastolisk blodtryk [mmHg]
@@ -25,9 +25,9 @@
 	\section{Patient ID}
 	\begin{enumerate}
 		\setlength\itemsep{0cm} % Decrease line distance
-		\item Består af karaktererne A-Z og tallene 0-9
+		\item Består af karaktererne A-F og tallene 0-9
 		\begin{enumerate}
-			\item ID’et er fem karakterer lang: ***** svarende til 60 millioner kombinationer
+			\item ID’et er fem karakterer lang: ***** svarende til 1 millioner kombinationer
 			\item ID’et er ikke case sensitiv
 		\end{enumerate}
 	\end{enumerate}
@@ -36,7 +36,7 @@
 	\section{Hukommelse}
 	\begin{enumerate}
 		\setlength\itemsep{0cm} % Decrease line distance
-		\item Information lagres på micro SDSC af typen:
+		\item Information lagres på micro SDHC af typen:
 		\begin{enumerate}
 			\item Class 4
 			\item Fil system [fat32] og minimum 128mb
@@ -46,9 +46,9 @@
 	\section{Forsyning}
 	\begin{enumerate}
 		\setlength\itemsep{0cm} % Decrease line distance
-		\item Konditionerings apparatet skal forsynes med 12V, min 2A
+		\item Konditionerings apparatet skal forsynes med 12V, min 1A
 		\begin{enumerate}
-			\item DC-connector (angiv diameter) 
+			\item DC-connector, ydre Ø=5,5mm, indre Ø = 2,1mm
 			\item 8 stk AAA batterier (1,5V)
 		\end{enumerate}
 	\end{enumerate}
@@ -70,7 +70,7 @@
 		\setlength\itemsep{0cm} % Decrease line distance
 		\item Der kan ændres i tiden pr cyklus og antallet af cyklusser
 		\begin{enumerate}
-			\item \textit{Tid pr cykles} kan sættes mellem 3 til 10 minutter og skifter med intervaller af 30 sekunder
-			\item \textit{Antal cyklusser }kan sættes mellem 1-10 og skifter med intervaller af 1
+			\item \textit{Tid pr cykles} kan sættes mellem 3 til 8 minutter og skifter med intervaller af 30 sekunder
+			\item \textit{Antal cyklusser }kan sættes mellem 1-9 og skifter med intervaller af 1
 		\end{enumerate}
 	\end{enumerate}

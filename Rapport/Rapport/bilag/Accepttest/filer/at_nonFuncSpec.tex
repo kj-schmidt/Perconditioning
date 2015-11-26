@@ -4,7 +4,7 @@
 					\hline
 					\rowcolor{usDef}
 					Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
-					 3.1.1 & Type: Atmega32 & Atmega32 & Kontroller type nr. på microcontroller & \\ \hline
+					 3.1.1 & Type: Atmega2560 & Atmega2560 & Kontroller type nr. på microcontroller & \\ \hline
 					 \caption{Testprotokol for microcontroller}
 				\end{longtable}
 			
@@ -14,9 +14,9 @@
 					\rowcolor{usDef}
 					Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
 					3.2.1 & Data logged i formatet .csv og hver kolonne indeholder følgende værdier og enheder:  & \multirow{7}{\linewidth}{Logfil er kommasepareret og at enhederne stemmer overens. of filen er af type .csv }&  \multirow{8}{\linewidth}{Inspicer logfil i texteditor (Gedit, notepad, textedit osv.)}& \multirow{7}{\linewidth}{} \\ \cline{1-2}
-					3.2.1a& Tidsstempel [yy:mm:dd hh:mm:ss] & &  & \\ \cline{1-2}
-					3.2.1b& Afklemnings-tryk [mmHg] & &  & \\ \cline{1-2}
-					3.2.1c&  Gennemført afklemning [Boolean] & &  & \\ \cline{1-2}
+					3.2.1a& Tidsstempel [hh:mm:ss dd-mm-yyyy] & &  & \\ \cline{1-2}
+					3.2.1b&  Gennemført afklemning [Boolean] & &  & \\ \cline{1-2}
+					3.2.1c& Afklemnings-tryk [mmHg] & &  & \\ \cline{1-2}
 					3.2.1d&  Systoliske blodtryk [mmHg] & &  & \\ \cline{1-2}
 					3.2.1e&  Middel-blodtryk (MAP) [mmHg] & &  & \\ \cline{1-2}
 					3.2.1f&  Diastolisk blodtryk [mmHg]  & &  & \\ \cline{1-2}
@@ -31,8 +31,8 @@
 					\rowcolor{usDef}
 					Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
 					3.3.1 & 
-					Består af karaktererne A-Z og tallene 0-9 & PatientID består af karaktererne  & Kør use case 2  og observer navngivningen af logfil & \\ \hline
-					3.3.1a& ID’et er fem karakterer langt: ***** svarende til 60 millioner kombinationer & \multirow{2}{0.2\textwidth}{A-Z og tallene 0-9} & \multirow{2}{0.2\textwidth}{Visuel inspektion af logfilen}  & \multirow{2}{0.2\textwidth}{} \\ \cline{1-2}
+					Består af karaktererne A-F og tallene 0-9 & PatientID består af karaktererne  & Kør use case 2  og observer navngivningen af logfil & \\ \hline
+					3.3.1a& ID’et er fem karakterer langt: ***** svarende til 1 millioner kombinationer & \multirow{2}{0.2\textwidth}{A-Z og tallene 0-9} & \multirow{2}{0.2\textwidth}{Visuel inspektion af logfilen}  & \multirow{2}{0.2\textwidth}{} \\ \cline{1-2}
 					3.3.1b& ID’et er ikke case sensitiv  & &  & \\ \hline
 					\caption{Testprotokol for patient ID}
 				\end{longtable}
@@ -42,7 +42,7 @@
 					\hline
 					\rowcolor{usDef}
 					Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
-					3.4.1& Information lagres på micro SDSC af typen: & \multirow{3}{\linewidth}{SD kortet er af typen micro SDSC, class 4, fat32 og minimum 128mb} & \multirow{3}{\linewidth}{Tag SD kortet ud og se specifikationer}  & \multirow{3}{\linewidth}{}  \\ \cline{1-2}
+					3.4.1& Information lagres på micro SDHC af typen: & \multirow{3}{\linewidth}{SD kortet er af typen micro SDHC, class 4, fat32 og minimum 128mb} & \multirow{3}{\linewidth}{Tag SD kortet ud og se specifikationer}  & \multirow{3}{\linewidth}{}  \\ \cline{1-2}
 					3.4.1a& Class 4 & &  & \\ \cline{1-2}
 					3.4.1b& Fil system [fat32] og minimum 128mb  & &  & \\ \hline
 					\caption{Testprotokol for hukommelse}
@@ -54,7 +54,7 @@
 					\hline
 					\rowcolor{usDef}
 					Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
-					3.5.1& Konditione-ringsap-paratet skal forsynes med 12V, min 2A & &  & \\ \hline
+					3.5.1& Konditioneringsap-paratet skal forsynes med 12V, min 21 & Systemet forsynes med 12 volt og minimum 1A& Aflæs værdierne på adapteren & \\ \hline
 					3.5.1a& DC-connector, ydre Ø=5,5mm, indre Ø = 2,1  & Connectoren har målene: ydre Ø=5,5mm, indre Ø = 2,1 mm & Mål med skydelære  & \\ \hline
 					3.5.1b& 8 stk AAA batterier (1,5V)  & 8 stk AAA batterier & Visuel inspektion  & \\ \hline
 					\caption{Testprotokol for forsyning}
@@ -80,6 +80,9 @@
 					Krav nr.: & Handling & Forventet resultat & Testmetode & Resul-tat  \\\hline
 					3.7.1& Der kan ændres i tid pr cyklus og antallet af cyklusser & \multirow{3}{\linewidth}{\textit{Tid pr cyklus} og \textit{antal cyklusser} kan ændres i det specificerede intervaller }  & \multirow{3}{\linewidth}{Kør use case 8 og observer hvor meget værdierne ændres og hvilke værdier der kan vælges}  & \multirow{3}{\linewidth}{}  \\ \cline{1-2}
 					3.7.1a& Tid pr cykles kan sættes mellem 3 til 8 minutter og skifter med intervaller af 30 sekunder & &  & \\ \cline{1-2}
-					3.7.1b& Antal cyklusser kan sættes mellem 1-10 og skifter med intervaller af 1& &  & \\ \hline
+					3.7.1b& Antal cyklusser kan sættes mellem 1-9 og skifter med intervaller af 1& &  & \\ \hline
 					\caption{Testprotokol for setup}
 				\end{longtable}
+				
+			% HAS TO BE ON LAST PAGE!!
+			\label{LastPage}

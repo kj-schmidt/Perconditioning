@@ -31,16 +31,17 @@
 				Normal forløb & \begin{enumerate}
 					\setlength\itemsep{0cm} % Decrease line distance
 					\item Brugeren trykker på [Mål blodtryk]
+					\subitem [Undtagelse \#1]
 					\item Et nyt patient ID genereres
-					\subitem [Undtagelse \#1] 
+					\subitem [Undtagelse \#2] 
 					\item Patient ID’et vises på skærmen
 					\item Blodtrykket måles via \textit{use case 3}
-					\subitem [Undtagelse \#2]
+					
 				\end{enumerate} \\ 
 				\hline
-				Undtagelser &  [Undtagelse \#1] Et patient ID eksisterer allerede på apparatet. Der genereres ikke noget nyt patient ID.
+				Undtagelser & [Undtagelse \#1] SD kortet er ikke monteret korrekt
 				
-				[Undtagelse \#2] Blodtrykket kunne ikke måles. Gentag use case 3 hvis undtagelse 2 ikke er blevet eksekveret inden for 2 minutter. Ellers skrives i display “FEJL kunne ikke måle blodtryk” og use casen stopper\\ 
+				[Undtagelse \#2] Et patient ID eksisterer allerede på apparatet. Der genereres ikke noget nyt patient ID. \\r\\ 
 				\hline
 				
 			\end{tabular}
