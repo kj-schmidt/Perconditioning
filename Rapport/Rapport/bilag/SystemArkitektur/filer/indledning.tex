@@ -1,8 +1,8 @@
 	\chapter{Indledning}
-	Arkitektur beskrivelsen giver en formel præsentation og forklaring af systemet. Her beskrives hvordan systemet er organiseret, hvilke strukturelle elementer der indgår og hvordan elementerne interagerer med hinanden. Der lægges både vægt på software og hardware, samt deres grænseflade. System arkitekturen beskriver hvordan \textit{Konditioneringsapparatet} er opbygget både hardware og software mæssigt.
+	Designet beskrivelsen giver en formel præsentation og forklaring af systemet. Her beskrives hvordan systemet er organiseret, hvilke strukturelle elementer der indgår og hvordan elementerne interagerer med hinanden. Der lægges både vægt på software og hardware, samt deres grænseflade. System designet beskriver hvordan \textit{Konditioneringsapparatet} er opbygget både hardware og software mæssigt.
 	
 	\section{Formål}
-	System arkitekturen har til formål at beskrive og give forståelse for systemet. Dokumentet fastlægger overordnede softwarekomponentet og hardwarekomponentet, samt strukturen og grænsefladerne mellem disse. Dokumentet udgør en plan for, hvordan systemet skal udvikles og hvilke undersystemer det skal bestå af. 
+	System designdokumentet har til formål at beskrive og give forståelse for systemet. Dokumentet fastlægger overordnede softwarekomponentet og hardwarekomponentet, samt strukturen og grænsefladerne mellem disse. Dokumentet udgør en plan for, hvordan systemet skal udvikles og hvilke undersystemer det skal bestå af. 
 	
 	\section{Projektreferencer}
 	\begin{itemize}
@@ -12,6 +12,24 @@
 	
 	\section{Læsevejledning og dokumentstruktur}
 	Dokumentet ligger sig tæt op af kravspecifikation, da disse krav ligger til grunde for hvad systemet skal kunne. For at give en struktureret gennemgang af system arkitekturen gøres der brug af modellen “\textit{4+1 view arhitecture}”, der beskriver systemet fra flere forskellige vinkler. Forklaring af modellen kan læses i kapitel \ref{title:viewArc}. Der gøres som udgangspunkt brug af SysML til at beskrive systemet. Alt SysML udvikles og skrives på engelsk. 
+
+	\section{Versionshistorik}
+	\begin{longtable}{ |p{0.24\textwidth} |p{0.42\textwidth}| p{0.25\textwidth}|  } 
+		\hline
+		\rowcolor{usDef}
+		\textbf{Versions nummer} &  \textbf{Ændring} & \textbf{Dato og initialer} \\
+		\hline
+		0.1 &  Oprettelse af system arkitekturen og skabelon & 01.10.15 KJS \\
+		\hline
+		0.2 & Tilføjet beskrivelse af \textit{Logical view} & 08.10.15 KJS \\
+		\hline
+		0.3 & Rettelse efter fælles gennemgang & 19.10.15 SVG \\
+		\hline
+		0.4 & Rettelser efter review & 23.10.15 KJS \\
+		\hline
+		0.5 & Opdatering af sysML diagrammer  & 26.11.15 SVG \\
+		\hline
+	\end{longtable}
 
 	\section{Definitioner og forkortelser}
 	\begin{longtable}{ |p{0.5\textwidth} |p{0.5\textwidth}| } 
