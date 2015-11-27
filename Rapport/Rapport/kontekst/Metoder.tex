@@ -109,10 +109,18 @@ Den struktureret agile metode (SAM) indeholder samme faser som V modellen, men b
 \subsection{Review}
 Review gruppen er beskrevet under afsnittet \ref{title:samarbejdspartnere}. Men review har også været en metode i udviklingsprocessen, i sammenfald med tidsplanen har reviewmøderne fungerede som deadline til hvornår bestemt mål skulle nåes i udviklingsprocessen. 
 
-\subsection{3-lag modellen}
-Denne metode bruges til at skabe struktur i \textit{Konditioneringsapparatets} software. 3-lags modellen sikre at der høj samhørighed og lav kobling mellem de tre lag. Det tre lag er som følger: \\
-\textit{GUI / Præsentations laget:} Dette lag håndterer præsentationen til bruger. Metoder, der tilhører dette lag, har til formål at skabe brugerfeedback. \\
-\textit{Logik laget: } Her håndteres udregninger, data processering og evalueringen. Dette lag fungere ydermere som kommunikationen lag mellem data og præsentationslag. 
-\textit{Data laget: } Dette lag beskæftiger sig med data håndtering. Her håndteres kommunikation med databaser eller andre hukommelses forme. 
+\newpage
 
-3-lags modellen sikre yderligere at software er logisk struktureret og vedligeholdelse af systemet bliver nemmere. 
+\subsection{3-lag modellen}
+Denne metode bruges til at skabe struktur i \textit{Konditioneringsapparatets} software. 3-lags modellen sikre at der høj samhørighed og lav kobling mellem de tre lag. Inddelingen af konditioneringsapparatets software i de tre lag, kan se system designet \fixme{Ref til system design} for mere information. 
+\begin{figure}[H]
+	\centering
+\includegraphics[width = 0.7\textwidth]{billeder/trelagsmodel.png}
+\caption{Illustration af trelags-modellen med eksempel af typisk anvendse}\label{fig:3lagsmodel}
+\end{figure}
+Det tre lag (Se figur \ref{fig:3lagsmodel}) er som følger: \\
+\textit{GUI / Præsentations laget:} Dette lag håndterer præsentationen til bruger. Metoder, der tilhører dette lag, har til formål at skabe brugerfeedback. \\
+\textit{Logik laget: } Her håndteres udregninger, data processering og evalueringen. Dette lag fungere ydermere som kommunikationens lag mellem data og præsentationslag. 
+\\ \textit{Data laget: } Dette lag beskæftiger sig med data håndtering. Her håndteres kommunikation med hukommelse, eksterne databaser og andet udefrakommende data.
+
+3-lags modellen sikre yderligere at software er logisk struktureret, har høj fleksibilitet og er nem at implementerer. \cite{RefWorks:31}
