@@ -115,14 +115,6 @@ OMG Systems Modeling Language  (OMG SysMLTM)   }
 	language={English}
 }
 
-@article{RefWorks:25,
-	author={JS Forelæsning Christiansen and P. Christiansen},
-	title={Diabetes mellitus. I: Schulze S, Schroeder TV, redaktører},
-	journal={Basisbog i sygdomslære},
-	volume={1},
-	pages={308-313}
-}
-
 @article{RefWorks:8,
 	author={LA Geddes and M. Voelz and C. Combs and D. Reiner and CF Babbs},
 	year={1982},
@@ -186,6 +178,13 @@ OMG Systems Modeling Language  (OMG SysMLTM)   }
 	publisher={Gads Forlag},
 	edition={2},
 	isbn={9788712042983}
+}
+
+@book{RefWorks:32,
+	author={Svend Schulze and Torben V. Schroeder},
+	year={2010},
+	title={Basisbog i sygdomslære},
+	publisher={Munksgaard Danmark}
 }
 
 @article{RefWorks:24,
