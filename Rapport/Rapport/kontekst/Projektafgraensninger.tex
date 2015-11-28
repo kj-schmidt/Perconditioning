@@ -33,3 +33,38 @@ I begyndelse af projektet blev der igennem kunden etableret et sammen arbejdet m
 Men efter flere forgæves forsøg for at kommunikere og få information ud af den kinesisk virksomhed blevet det opgivet at produktet skulle ligge sig op af deres apparater. Det forgæves samarbejde betød også at alt arbejdet med \textit{konditioneringsapparatet}, og især udviklingen af en blodtryksalgoritme måtte foretages på egen hånd af projektgruppen selv og uden nogen form for sparring. 
 
 \section{Prototypen}
+I dette afsnit beskrives hvilke beslutninger, som der er blevet truffet med begrænsende effekt på prototypen.
+
+\subsection{Ardunio}
+\begin{minipage}[t]{0.6\textwidth}
+På grund af projektets fokus på udvikling af en prototype, blev der truffet nogle valg i den indledende projektface, med henblik på at øge udviklingshastigheden og sikre en høj fleksibilitet under udviklingen. Det blev derfor besluttet at anvende "evaluation boards" i form af arduino (se figur \ref{fig:arduinoMega2560}) til dette projekt, som netop er let tilgængelig og brugt i hvid udstrækning til udviklingsprojekter. Arduino'en er støttet op omkring af et stort fællesskab, som giver gode suport muligheder, samt biblioteker til et stort udvalg af shields. Alt dette giver anledning til en god start på projektet.\\
+
+Arduino'en er et opensorce projekt, og alle komponenter og schematics er derfor tilgængelige, hvilket giver mulighed for at designe et endeligt fabrikationsklart produkt ud fra konditioneringsapparatets prototype.\\
+
+Desværre medfølger der også flere ulemper ved brug arduinoen. Arduino'ens mangler som særligt har begrænset dette projekt, er som følger:\\
+
+\begin{itemize}
+	\item Lav mængde RAM (Kun 8 KB) 
+	\item 10bit ADC
+	\item Microcontrolleren (ATmega2560)
+\end{itemize}
+Kilde: \cite{RefWorks:40}
+
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width = 0.9\textwidth]{billeder/arduinoMega2560.png}
+		\caption{Arduino Mega 2560}\label{fig:arduinoMega2560}
+	\end{figure}
+\end{minipage}\\
+
+Den lave mængde af Ramdom Acces Memmory (RAM), umuliggør at sample hele signalet fra tryksensoren til hukommelsen, som det ses på figur \ref{fig:OscillometriskMetode}. Dette umuliggør signalbehandling af hele signalet. Prototypen sampler derfor kun ocillotionstoppende til hukommelsen og databehandler derefter på disse samples. Den lave mængde af samples udelukker en mere avanceret og tung digital signal behandling.
+
+Analog Digital Converter'en (ADC) på 10 bit kræver på grund af sin lave opløsning et analogt støttekredsløb, for at kunne måle de små ændringer i trykket det pulserende signal er. Det analoge kredsløb sænker fleksibiliteten af prototype udviklingen, på grund af den ekstra arbejdsbyrde det kræver at tilføre ændringer til et sådan kredsløb.
+
+8-Bit Microcontrolleren tager mange cykluser om at regne med float tal, og har derfor begrænset udviklingsprocessen fordi der hele tiden skal optimeres i koden, for at udregninger ikke skal tage for lang tid at udfører.
+
+
+\subsection{Udseende}
+Designet af kassen, som skal indeholde alle delelementerne af prototypen beskrevet i KS (se \fixme{ref: kravspec ikke-funktionelle krav}), er ikke blevet implementeret på grund af tidspræs. Afgrænsningen fra et godt udsende til fordel for funktionalitet og brugervenlighed blev besluttet med baggrund i at konditioneringsapparatet er en prototype, som ikke skal sælges, men mere er et proof of concept produkt. 
