@@ -85,7 +85,7 @@ unsigned short Senarios::occlusiontraining(volatile bool *start)
 
 		if(cuffPressure < util.mmHgToRaw(90))
 		{
-			pc.turnMotorOn(200);
+			pc.turnMotorOn(255);
 			/*
 			while(ps.getCuffPressure() < util.mmHgToRaw(100))
 			{
@@ -133,7 +133,7 @@ unsigned short Senarios::occlude(unsigned short pressure)
 
 		if(cuffPressure < util.mmHgToRaw(pressure-10))
 		{
-			pc.turnMotorOn(200);
+			pc.turnMotorOn(255); //change from 200 to 255
 			/*
 			while(ps.getCuffPressure() < util.mmHgToRaw(100))
 			{
