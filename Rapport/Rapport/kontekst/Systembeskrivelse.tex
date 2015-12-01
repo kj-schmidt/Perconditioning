@@ -1,7 +1,7 @@
 \chapter{Systembeskrivelse}
-Det giver kapitel indeholder en gennemgang af den udviklede prototype, kaldet \textit{Konditioneringsapparatet}. Kapitlet har til formål at give læseren en forståelse af \textit{Konditioneringsapparatet} og for at sikre forståelsen af kommende kapitler. Det afsnit skal derfor ikke ses som værende en opsummering af projektets resultater, her henvises til kapitel \ref{title:resultater}.
+Det givende kapitel indeholder en gennemgang af den udviklede prototype, kaldet \textit{Konditioneringsapparatet}. Kapitlet har til formål at give læseren en forståelse af \textit{Konditioneringsapparatet} og for at sikre forståelsen af kommende kapitler. Dette afsnit skal derfor ikke ses som værende en opsummering af projektets resultater, her henvises til kapitel \ref{title:resultater}.
 
-\textit{Konditioneringsapparatet} er en prototype og et \textit{proof of concept} apparat der kan udføre konditioneringsbehandling og okklusionstræning. På figur \ref{fig:systemTegning} ses en oversigt over systemet. Overordnet set består prototypen af én strømforsyning, ét pneumatisk system, én styringsenhed, én timer og ét display. Det pneumatiske system kan yderlige opdeles i 4 dele; ventil, motor, blodtryksmanchet og tryksensor. Styringsenheden består af en microkontroller og et motorshield. 
+\textit{Konditioneringsapparatet} er en prototype og et \textit{proof of concept} apparat der kan udføre blodtryksmåling, konditioneringsbehandling og okklusionstræning. På figur \ref{fig:systemTegning} ses en oversigt over systemet. Overordnet set består prototypen af én strømforsyning, ét pneumatisk system, én styringsenhed, én timer og ét display. Det pneumatiske system kan yderlige opdeles i 4 dele; ventil, motor, blodtryksmanchet og tryksensor. Styringsenheden består af en microkontroller og et motorshield. 
 
 \begin{figure}[H]
 	\centering
@@ -9,13 +9,13 @@ Det giver kapitel indeholder en gennemgang af den udviklede prototype, kaldet \t
 	\caption{Oversigt over \textit{Konditioneringsapparatet}} \label{fig:systemTegning}
 \end{figure}
 
-Prototypen kan som beskrevet udføre konditioneringsbehandling og okklusionstræning. Begge funktioner kræver at manchetten monteres på enten armen eller benet. Ved konditioneringsbehandling måles blodtrykket og der afklemmes ved et tryk svarende til 25mmHg højere end det målte systoliske tryk. Dernæst udføres konditioneringsbehandling. Systemet logger information omkring konditioneringsbehandling. Okklusionstræning udføres ved at pumpe manchettrykket op til 100 mmHg og holde det tryk indtil brugeren stopper forløbet. 
+Prototypen kan som beskrevet udføre blodtryksmåling, konditioneringsbehandling og okklusionstræning. Aller funktioner kræver at manchetten monteres på enten armen eller benet. Ved konditioneringsbehandling måles blodtrykket og der afklemmes ved et tryk svarende til 25mmHg højere end det målte systoliske tryk. Dernæst udføres konditioneringsbehandling. Systemet logger information omkring konditioneringsbehandling. Okklusionstræning udføres ved at pumpe manchettrykken op til 100 mmHg og holde det trykket indtil brugeren stopper forløbet. 
 
-Endvidere kan \textit{konditioneringsapparatet} konfigureres så der kan køres varierende antal cyklusser og tid pr cyklus.
+Endvidere kan \textit{konditioneringsapparatet} konfigureres gennem ændring af variablerne antal cyklusser og tid pr cyklus.
 
 
 \section{Brugergrænseflade}
-\textit{Konditioneringsapparatets} brugergrænseflade består af 2 knapper og en skærm. Desuden findes en \textit{modeswitch} på prototypen, en \textit{modeswitch} er en knap med 3 stadier, som styre hvilket program prototypen skal udføre.  
+\textit{Konditioneringsapparatets} brugergrænseflade består af 2 knapper og en skærm. Desuden findes en \textit{modeswitch} på prototypen, en knap med 3 stadier, som styre om apparatet skal konditionerer, okklusionstræne eller konfigureres.  
 
 \section{Data logging}
-Systemet kan gemme information omkring konditioneringsbehandling. Disse gemmes på et SD kort og det gøres for at sikre at dokumentation af de udførte behandlinger.
+Systemet gemmer information omkring konditioneringsbehandling. Disse gemmes på et SD kort, for at sikre dokumentation af konditioneringsbehandling.
