@@ -20,3 +20,17 @@ For at sikre at informationen på SD kan kobles til en patient, genereres der et
 Som beskrevet i projektafgrænsninger (se afsnit \ref{title:sikkerhedskontrol}) blev projektet afgrænset fra at have sikkerhedskontrol med pulsoximeteri. For at bekræfte pulsoximeteri var et brugbart til sikkerhedskontrol, har projektgruppen foretaget test med pulsoximeter. Formålet med testen var at se om puls og saturation gav nogle brugbare udsving efter en endt okklusionsfase. I testen blev der lavet to fulde cyklusser, hver især bestod af en 5 minutters okklusionsfase efterfulgt af en 5 minutters reperfusionsfasen. Saturation og puls var de målbare parametre i denne test. Parametrene blev noteret lige før okklusionsfasen blev påbegyndt, hvert 30. sekunder under okklusionen og hhv. 10, 20 og 30 sekunder inde i reperfusionsfasen. Pulsoximeteret der blev brugt til målingerne var fra EDAN, model H100B (Se datablad \cite{RefWorks:30}). Blodtrykket på testpersonen var målt til 120/63 mmHg og afklemningstrykket blev valgt til 220mmHg. Trykket i manchetten lå med en tolerance på +/-20 mmHg under okklusionsfasen. 
 
 Testen viste ingen indikation af udsving i saturationen når armen var afklemt. Når trykket i manchetten faldt, fandt pulsoximeter med det samme puls og saturation. Pulsen der blev fundet, lå på samme niveau før og efter okklusionsfasen. Saturation var i begge tilfælde cirka 20 sekunder om at nå tilbage til samme værdi, som før okklusionsfasen. \fixme{Reference til test resultatet}
+
+\newpage
+\section{Accepttest}
+Accepttesten blev udført i samarbejde med kunden Rolf Blauenfeldt den 30-11-2015. Accepttesten kan læses i \fixme{ref: accepttest}. Testen forløb uden vejleder Peter Johansen, som ikke kunne være tilstede.
+
+Resultatet ef selve accepttesten er en delvis godkendelse. Alle use cases blev godkendt med undtagelse af UC 7 (Afbryd) og UC 5 (Sikkerhedskontrold med pulsoximeter). UC 7 opfyldte ikke krav 2.7.3 tilfredsstillende, idet at konditioneringsapparatet ikke med 100\% træfsikkerhed afbrød konditioneringsbehandlingen ved tryk på [Start/Stop]. UC 5 blev aldring implementeret i konditioneringsapparatet (se afsnit \ref{title:sikkerhedskontrol}) og derfor kunne krav 2.5 ikke testes.
+
+De fuldt godkendte use cases var UC 1 (se figur \ref{fig:udsnitAfAccepttest}),2, 3, 4, 6, 8 også kendt som krav 2.1, 2.2, 2.3, 2.4, 2.6, 2.8. Alle ikke funktionelle krav blev godkendt. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{billeder/udsnitAfAccepttest.pdf}
+	\caption{Udsnit af acceptesten foretaget den 30-11-2015. Her ses krav 2.1.1-2.1.8 godkendt. Figuren er scannet af originalen.}\label{fig:udsnitAfAccepttest}
+\end{figure}
