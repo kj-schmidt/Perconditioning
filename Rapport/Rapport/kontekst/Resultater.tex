@@ -1,8 +1,9 @@
 \chapter{Resultater} \label{title:resultater}
 
+
 \input{kontekst/Resultater_oscillometrisk}
 
-\section{Dataopsamling}
+\subsection{Dataopsamling}
 I forbindelse med udviklingen af prototypen var der et ønske fra kunden side omkring dataopsamling fra \textit{Konditioneringsapparatet}. For at apparatet kan bruges til forskningsprojektet er nødvendigt, at kunne dokumentere hvor mange konditioneringscyklusser en patient har modtaget. I samarbejde med kunden blev aftalt at et \textit{konditioneringsapparat} skal følge en patient i gennem hele forløbet, altså fra præhospital, til hospital og til sidst i hjemmet. Derfor blev det besluttet at data blev gemt på et SD kort, som hver gang et apparat returneres fra en patient bliver tømt for data og formateret. 
 
 \begin{figure}[H]
@@ -16,12 +17,30 @@ I den måling der er vist på figur \ref{fig:fileksempel} er der foretaget en bl
 
 For at sikre at informationen på SD kan kobles til en patient, genereres der et unikt ID på 5 hexidecimaler, som sammen med apparat ID'et på 3 cifre, bliver til navnet på filen. Filen der er vist på figur \ref{fig:fileksempel} har derfor navnet \textit{93C09001.csv}. \textit{93C090} er det tilfældig patient ID og \textit{001} er apparat ID. Når den første måling fortages på et apparat med formateret SD kort bliver der generet en .csv fil med det 8 cifrede navn. Patient ID bliver vist på skærmen af \textit{Konditioneringsapparatet}. Patient ID'et skal noteres at ambulance personalet, Patient ID'et parres med CPR nummeret, så dette er utilgængeligt for alle involveret i forskningsprojektet. Dette gøres for at apparatet ikke skal håndtere patient følsomme oplysninger.
 
-\section{Pulsoximetri} \label{title:pulsOxi}
+\subsection{Pulsoximetri} \label{title:pulsOxi}
 Som beskrevet i projektafgrænsninger (se afsnit \ref{title:sikkerhedskontrol}) blev projektet afgrænset fra at have sikkerhedskontrol med pulsoximeteri. For at bekræfte pulsoximeteri var et brugbart til sikkerhedskontrol, har projektgruppen foretaget test med pulsoximeter. Formålet med testen var at se om puls og saturation gav nogle brugbare udsving efter en endt okklusionsfase. I testen blev der lavet to fulde cyklusser, hver især bestod af en 5 minutters okklusionsfase efterfulgt af en 5 minutters reperfusionsfasen. Saturation og puls var de målbare parametre i denne test. Parametrene blev noteret lige før okklusionsfasen blev påbegyndt, hvert 30. sekunder under okklusionen og hhv. 10, 20 og 30 sekunder inde i reperfusionsfasen. Pulsoximeteret der blev brugt til målingerne var fra EDAN, model H100B (Se datablad \cite{RefWorks:30}). Blodtrykket på testpersonen var målt til 120/63 mmHg og afklemningstrykket blev valgt til 220mmHg. Trykket i manchetten lå med en tolerance på +/-20 mmHg under okklusionsfasen. 
 
 Testen viste ingen indikation af udsving i saturationen når armen var afklemt. Når trykket i manchetten faldt, fandt pulsoximeter med det samme puls og saturation. Pulsen der blev fundet, lå på samme niveau før og efter okklusionsfasen. Saturation var i begge tilfælde cirka 20 sekunder om at nå tilbage til samme værdi, som før okklusionsfasen. \fixme{Reference til test resultatet}
 
-\newpage
+\subsection{Okklusionstræning}
+Okklusionstræningen og kravet omkring et konstant tryk på 100mmHg blev opnået ved hjælp af pumpen og ventilen. Trykket i manchetten fyldes til 100mmHg og falder trykket til under 90mmHg opreguleres trykket ved hjælp af pumpen. 
+
+\subsection{Grafisk interface}
+Det blev specificeret i kravspecifikationen af \textit{Konditioneringsapparatet} skulle levere feedback til bruger ved hjælp af et display. (Se kravspecifikationen\fixme{Reference til kravspecifikation}) Resultatet af dette krav, blev implementering af et 2.2" farve display. Af de forskellige brugerfeedbacks displayet leverer, er det værd at fremhæve manchettrykket, patient ID, antal cyklusser og tidsforløbet. Visningen manchettrykket er vigtigt, for at brugeren eller medicinsk personale kan observere at trykket holdet tilstrækkelig højt. Tidsinformation omkring konditioneringsbehandling er vigtigt for at sikre at patients behandling bliver færdiggjort. I tilfælde hvor patienten skal modtage anden behandling eller kontrol hvor \textit{Konditioneringsapparatet} ikke kan være monteret, kan tidsinformation hjælpe med hvordan apparatet skal afmonteres. 
+
+\begin{figure}[H]
+\centering
+\subbottom[Konditioneringsforløb]{%
+	\includegraphics[trim={0 3.3cm 0 1.5cm},clip, width=0.328\textwidth]{billeder/display/konditionering.png}}
+\subbottom[Okklusionstræning]{%
+	\includegraphics[trim={0 3.3cm 0 1.5cm},clip, width=0.328\textwidth]{billeder/display/okklusion.png}}
+\subbottom[Setup]{%
+	\includegraphics[trim={0 3.3cm 0 1.5cm},clip, width=0.328\textwidth]{billeder/display/setup.png}}
+\caption{Billeder over det 3 forskellige programmer \textit{Konditioneringsapparatet} kan udføre. (a) viser en igangværende konditioneringsbehandling, hvor trykket i manchetten ses i midten af billede, blodtrykket lige under. Der ses også patient ID, antal cyklusser og den resterende tid. (b) her vises displayet under okklusionstræning. Manchettrykkets viser på skærmen sammen med en timer. (c) Her vises setup programmet, hvor det er muligt at ændre \textit{tid pr cyklus} og \textit{antal cyklusser}}\label{fig:interface}
+\end{figure}
+
+\textit{Konditioneringsapparatet} kan som sagt udføres to andre programmer; hhv. okklusionstræning og setup. Eksemple på brugerfeedback ved de tre forskellige programmer kan ses på figur \ref{fig:interface}. Ved okklusionstræning er kravene til brugerfeedback meget simple, her bliver bruger informere om det aktuelle tryk i manchetten, for at sikre at armen er afklemt tilstrækkeligt under træningssættet. Desuden vises der en tid på skærmen for hvor længe armen har været afklemt. Ved setup programmet består brugerfeedbacken i cursoren blinker når der skal vælges i mellem \textit{tid pr cyklus} og \textit{antal cyklusser}. Når et af emnerne er valgt, stopper cursoren med at blinke og display viser i stedet hvilken værdi emnet skal sættes til. 
+
 \section{Accepttest}
 Accepttesten blev udført i samarbejde med kunden Rolf Blauenfeldt den 30-11-2015. Accepttesten kan læses i \fixme{ref: accepttest}. Testen forløb uden vejleder Peter Johansen, som ikke kunne være tilstede.
 
