@@ -249,7 +249,7 @@ bool donedeflateingOrInflating = false;
 		TFTscreen.println("Arbejder...");
 
 		//Measure the blood pressure
-		//s.bloodPressure(&MAP, &SYS, &DIA, &*buttonPressed);
+		s.bloodPressure(&MAP, &SYS, &DIA, &*buttonPressed);
 
 		//Display the blood pressure
 		updateBloodPressure(SYS, DIA, MAP);
