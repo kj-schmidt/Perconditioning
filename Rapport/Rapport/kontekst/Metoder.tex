@@ -9,9 +9,9 @@ Især i arbejde med forprojektet og opstartsfasen på projektet blev der afholdt
 Til arbejdsfordeling og planlægning af arbejdsopgaver er projektet udarbejdet ved hjælp af scrum. Der er ikke brugt scrum i direkte forstand. Men hver uge er blevet set som et sprint, hvor der hver mandag er udarbejdet en sprint backlog som skulle udføres i ugens løb. Emnerne til sprint backlogen er bla. taget fra tidsplanen som kan ses som en overordnet projekt backlog. Sidst på ugen er der afholdt møde, hvor der opsamles på ugens arbejdet og hvilke opgaver i sprint backloggen der er blevet løst. Opgaver, der ikke blev løst, er automatisk blevet videreført til næste uges backlog. Hver mandag når der oprettes et sprint backlog er disse opgaver blevet oprettet i projektstyringsværktøjet \textit{pivotaltracker}. ( se hjemmeside \fixme{https://www.pivotaltracker.com/}). 
 
 \subsection{Samarbejdsaftale}
-For at sikre interne forventninger til projektarbejde i gruppen, har gruppens medlemmer lavet og underskrevet en samarbejdsaftale i begyndelse af projektet. \fixme{reference til samarbejdsaftale}
+For at sikre interne forventninger til projektarbejde i gruppen, har gruppens medlemmer lavet og underskrevet en samarbejdsaftale i begyndelse af projektet. Aftalen kan læses i \ref{title:samarbejdsaftaleIntern}.
 
-I forbindelse med samarbejdet med reviewgruppen er der også blevet udarbejdet og underskrevet en samarbejdsaftale, for at sikre ens forventning til reviewmøderne. \fixme{reference til samarbejdsaftale med review gruppen}
+I forbindelse med samarbejdet med reviewgruppen, er der også blevet udarbejdet og underskrevet en samarbejdsaftale, for at sikre ens forventning til reviewmøderne. Aftalen kan læses i \ref{title:samarbejdsaftaleReview}.
 
 \subsection{Samarbejdspartnere} \label{title:samarbejdspartnere}
 Dette afsnit beskriver projektgruppens samarbejdspartnere igennem projektet. 
@@ -30,7 +30,7 @@ Dette afsnit beskriver projektgruppens samarbejdspartnere igennem projektet.
 Til udvikling og kalibrering af \textit{Konditioneringsapparatet} har projektgruppen samarbejdet med medikotekniske ingeniører  Sara Rose Newell og Steven Brantlov fra Region Midtjylland. Disse har kunne bistå med en blodtrykssimulator, samt teknisk forståelse af blodtryksmåling. Samarbejdet har bestået i mail korrespondance, samt to møder på medikoteknisk afsnit på AUH, hvor projektgruppen har testet og kalibreret \textit{Konditioneringsapparatet} på blodtrykssimulatoren. 
 
 \subsubsection{Lungemedicinsk afsnit og Troels Johansen}
-I forbindelse med udvikling af sikkerhedskontrol til konditioneringsapparatet(Se afsnit \fixme{Reference til projektafgrænsning} omkring projektafgrænsninger) har projektgruppen samarbejdet med Troels Johansen, PhD studerende ved lungemedicinsk afdelingen på AUH. Samarbejdet opstod pga. gruppen manglede ekspertviden omkring pulsoximeteri og afklemning.
+I forbindelse med udvikling af sikkerhedskontrol til konditioneringsapparatet(Se afsnit \ref{title:sikkerhedskontrol} omkring projektafgrænsninger) har projektgruppen samarbejdet med Troels Johansen, PhD studerende ved lungemedicinsk afdelingen på AUH. Samarbejdet opstod pga. gruppen manglede ekspertviden omkring pulsoximeteri og afklemning.
 
 \subsubsection{Institut for idræt og Kristian Vissing} 
 Efter okklusionstræning blev en del prototypens funktionalitet, havde projektgruppen behov for mere indsigt omkring træningsformen. Her blev etableret et samarbejde med Kristian Vissing, lektor og forsker ved Institut for Idræt, Aarhus Universitet.  
@@ -42,7 +42,7 @@ Som del af projektstyring, udviklingsproces, samt dagbog, er der på ugentlig ba
 Fra projektets opstart blev der aftalt et vejledermøde i alle ulige uger under projektforløbet. Disse møder er blevet brugt til at sikre at projektarbejdet hele tiden var på rette spor, samt faglig vejledning til projektarbejdet. Desuden er vejledermøderne brugt til at få konstruktiv feedback på færdige dokumenter undervejs i forløbet. 
 
 \subsection{Tidsplan}
-I forbindelse med forprojektet blev der udarbejdet en tidsplan i gantt chart format. Et gantt chart illutreret start og slut dato for hvert af projektet delelementer. Hver række i tidsplanen udgør et delelement, fx. kravspecifikation og accepttesten og hver kolonne udgør én uge. Tidsplanen er løbende blevet opdateret efterhånden som projekt har nået delelementerne.  \fixme{Insæt sidste opdateret tidsplan}
+I forbindelse med forprojektet blev der udarbejdet en tidsplan i gantt chart format (se afsnit \ref{title:tidsplan}). Et gantt chart illutreret start og slut dato for hvert af projektet delelementer. Hver række i tidsplanen udgør et delelement, fx. kravspecifikation og accepttesten og hver kolonne udgør én uge. Tidsplanen er løbende blevet opdateret efterhånden som projekt har nået delelementerne. 
 
 \subsection{Tavshedspligt} \label{title:tavshedspligt}
 Pga. af patentundersøgelse har hele projekt været underlagt tavshedspligt og underskrevet tavshedserklæringer med både universitet og neurologisk afsnit. Tavshedspligten har bla. forsinket nogle processer da alle parter skulle have underskrevet en tavshedserklæring inden. I andre tilfælde hvor et samarbejde har været kortvarig eller der ikke har været tid til at underskrive tavshedserklæring, har projektgruppen måtte undlade detaljer ved kommunikation med disse samarbejdspartnere. Dette har i nogle tilfælde betydet at hjælpen fra evt. eksperter har været begrænset af manglende forståelse for projektet.  Derfor har den igangværende patentundersøgelse været et begrænsning for projektarbejdet i flere omfang. \fixme{Reference til tavshedserklæring}
@@ -88,8 +88,16 @@ Efter den struktureret agil metodes(SAM) fire faser: krav, design, implementerin
 	
 	\subsection{System design} \label{title:systemdesign}
 	Dette trin i udviklingsprocessen vedrører designet af \textit{Konditioneringsapparatet}. For at sikre overensstemmelse inden udviklingsprocessen blev igangsat, blev systemets design og arkitektur beskrevet. System designet indeholder først en beskrivelse af alle systemets underdele. Her beskrivelses hvilke dele der skal indgå i systemet for at det lever op til designet.
-	For at sikre at alle områder i systemet designet blev belyst er der her gjort brug af metoden \textit{4 plus 1 modellen}. Modellen er oprindelig kun beregnet til software men bruges på systemet som helhed. Modellen ser produktet fra fire forskellige synsvinkler og sikre at alle partners interesser er belyst. De fire synsvinker er som følger: \fixme{Indsæt customized 4+1 model med egne diagrammer}
-	\\ \textit{Logical view}: Denne synsvinkel beskriver systemets funktionalitet via centrale elementer, mekanismer og stadier. Synsvinklen er generelt mere abstrakt end de andre 3. \\
+	For at sikre at alle områder i systemet designet blev belyst er der her gjort brug af metoden \textit{4 plus 1 modellen} på figur \ref{fig:4plus1model}. Modellen er oprindelig kun beregnet til software men i dette projekt er den tilpasset og bruges på systemet som helhed. 
+	
+	\begin{figure}[H]
+		\includegraphics[width = \textwidth]{billeder/4plus1model.png}
+		\caption{Tilpasset 4 + 1 model. Den røde tekst er de diagramtyper fra UML, som hører til de 5 inddelinger og er anvendt i dette projekt.}\label{4plus1model}
+	\end{figure}
+	
+	4+1 modellen ser produktet fra fire forskellige synsvinkler og sikre at alle partners interesser er belyst. De fire synsvinker er som følger: 
+	\\ \textit{Use case view}: Beskriver systemmet med aktører og de forskellige senarier de interagerer i. Dette er beskrevet i kravspecifikationen se (\fixme{ref: kravspec}).\\
+	\textit{Logical view}: Denne synsvinkel beskriver systemets funktionalitet via centrale elementer, mekanismer og stadier. Synsvinklen er generelt mere abstrakt end de andre 3. \\
 	\textit{Process view}: Beskæftiger sig med de dynamiske aspekter af systemet, forklaring system processer, hvordan de kommunikerer og fokuserer på systemets opførsel i drift. \\
 	\textit{Implementation view}: Denne vinkel involverer udviklerens perspektiv og beskæftiger sig med hvordan software implementeres. \\
 	\textit{Deployment view:} Beskriver systemet fra en fysisk synsvinkel, blandt andet hvordan eksekveringen af softwares skal foregå på apparatet og hvordan systemets fysisk setup skal ser ud. \\
@@ -103,14 +111,12 @@ Efter den struktureret agil metodes(SAM) fire faser: krav, design, implementerin
 \subsection{V-model}
 Den struktureret agile metode (SAM) indeholder samme faser som V modellen, men beskriver ikke på samme den iterative del af processen. V-modellen beskriver den iterative proces (Se figur \ref{fig:vmodel}). Modellen foreskriver at man starter med kravspecifikation og bevæger sig ned mod implementering hvorefter man i projektet arbejder op i mod accepttesten. Pilene i mellem beskriver at arbejdsprocessen er iterativ og fx de nederste 3 kasser; detaljeret design, implementering og unit test er den iterative proces meget brugbar. Når der opdages en fejl i implementering ændres designet og der gennemføres en ny enhedstest.  
 \begin{figure}[H]
-	\includegraphics[width = \textwidth]{billeder/vmodel.png}
+	\includegraphics[width = \textwidth]{billeder/Vmodel.png}
 	\caption{V-modellen}\label{fig:vmodel}
 \end{figure}
 
 \subsection{Review}
 Review gruppen er beskrevet under afsnittet \ref{title:samarbejdspartnere}. Men review har også været en metode i udviklingsprocessen, i sammenfald med tidsplanen har reviewmøderne fungerede som deadline til hvornår bestemt mål skulle nåes i udviklingsprocessen. 
-
-\newpage
 
 \subsection{3-lag modellen}
 Denne metode bruges til at skabe struktur i \textit{Konditioneringsapparatets} software. 3-lags modellen sikre at der høj samhørighed og lav kobling mellem de tre lag. Inddelingen af konditioneringsapparatets software kan se system designet \fixme{Ref til system design} for mere information. 
@@ -119,7 +125,8 @@ Denne metode bruges til at skabe struktur i \textit{Konditioneringsapparatets} s
 \includegraphics[width = 0.7\textwidth]{billeder/trelagsmodel.png}
 \caption{Illustration af trelags-modellen med eksempel af typisk anvendse}\label{fig:3lagsmodel}
 \end{figure}
-Det tre lag (Se figur \ref{fig:3lagsmodel}) er som følger: \\
+\fixme{ref: til https://en.wikipedia.org/wiki/Multitier\_architecture}\\
+De tre lag (Se figur \ref{fig:3lagsmodel}) er som følger: \\
 \textit{GUI / Præsentations laget:} Dette lag håndterer præsentationen til bruger. Metoder, der tilhører dette lag, har til formål at skabe brugerfeedback. \\
 \textit{Logik laget: } Her håndteres udregninger, data processering og evalueringen. Dette lag fungere ydermere som kommunikationens lag mellem data og præsentationslag. 
 \\ \textit{Data laget: } Dette lag beskæftiger sig med data håndtering. Her håndteres kommunikation med hukommelse, eksterne databaser og andet udefrakommende data.
