@@ -1,0 +1,123 @@
+\newpage
+\chapter{Filter design} \label{title:filters}
+
+\section{Analoge filtre}
+
+Det analoge filter design har blandt andet funktionen at isolerer og forstærke DC niveauet fra tryksensoren, som er koblet til manchetten. Tryksensoren (MPX5100) er lineær og kan derfor ud fra en enkel koefficient kalibreres.1 DC niveauet skal forstærkes for at øge ADC opløsningen i forhold til mmHg per bit. Arduino MEGA 2560 har en ADC opløsning på 10bit. I volt er dette en opløsning på 5/1023=4.9mV. Sensoren har en sensitivitet på 45mV/kPA, svarende til 6mV/mmHg. Uden DC forstærkning er opløsningen altså 4.9/6=0.817mmHg. Ved at anvende gain X2 øges opløsningen til 0.817/2=0.408mmHg. Ren DC opnås ved at lavpas filteret fjerner alt AC over knækfrekvensen.
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{Implementeringsdokument/billeder/AnalogFilter.png}
+	\caption{Filter model med inputsignal til venstre og de to output signaler	til højre}\label{pic:analogfilter}
+\end{figure}
+CuffPressure er forstærket DC og Oscillations er forstærket AC mellem 0.22Hz og 11Hz
+
+Oscillationerne i manchetten isoleres med 11Hz anden ordens butterworth for at opnå god dæmpning på 50Hz brummen. L.A. Geddes\fixme{REFERENCE} et al. Sætter knæk frekvensen til 30Hz, men efter som at puls signalet befinder sig på ca 1Hz og at Geddes med høj sandsynlighed har anvendt kaskade filtre sættes butterworth filterets knæk til 11Hz, svarende til elve afledte af puls grund frekvensen. Højpasfilteret fjerner DC ved at knække ved 0.22Hz. For at forstærke oscillationerne op i en størrelse, som arduinoen kan sample forstærkes det pulserende signal med gain X101.
+
+\section{Komponent udregninger}
+\input{Implementeringsdokument/filer/filterCalculations}
+
+\section{Praksis}
+Signal generator med frekvens 0.8Hz svarende til en sund puls. Simuleringen er vist på billederne under. Den lilla kurve er inputsignalet, rød er det oscillerende udgangssignal efter filteret og den grønne kurve er udgangssignalet efter det ikke oscillerende filter.
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{Implementeringsdokument/billeder/scope_9.png}
+	\caption{Lilla er input sinus 0.8Hz. Grøn er ren DC. Rød er det filtrerede signal med oscillationerne. Den lyserøde kurve er FFT af det lilla signal, hvor det ses at det består af 0.8Hz grundtone.}\label{fig:filterone}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{Implementeringsdokument/billeder/scope_8.png}
+	\caption{Lilla er input sinus 80Hz. Grøn er ren DC. Rød er det 	filtrerede signal med oscillationerne. Den lyserøde kurve er FFT af det lella signal, hvor det ses at det består af 80Hz grundtone.}\label{fig:filtertwo}
+\end{figure}
+\newpage
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{Implementeringsdokument/billeder/scope_10.png}
+	\caption{Oscilloskop billedet viser udgangssignalet efter den oscillerende 	filtrering (Rød) og en FFT af signalet (lyserød). Her ses det tydeligt at grundtonen er ca 1Hz og har mindst 4 afledte der af 	(2,3,4,5 Hz), som giver den spidse smalle form.}\label{fig:filterthree}
+\end{figure}
+
+Hvis manchet signalet ikke simuleres, men i stedet måles på et rigtigt menneske ligner signalet ikke perfekte sinuser, men i stedet korte udsving, med en grundfrekvens og en masse overtoner. På nedenstående billede ses forskellige typiske udgangssignaler under en normal blodtryksmåling.
+\newpage
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{Implementeringsdokument/billeder/scope_2.png}
+	\caption{Når manchet trykket nærmer sig det systolliske tryk obesrveres der et signal som ser lidt anderledes ud}\label{fig:filterfour}
+\end{figure}
+
+Det ses meget tydeligt på billede (se figur \ref{fig:filterthree} og \ref{fig:filterfour}) at det pulserende signal svinger meget med hensyn til peak amplituden over tid. Fænomenet som ses kan skyldes mange ting, her iblandt respirationen og andre mekaniske bevægelse. Den analoge filtrering når sin begrænsning, da den ikke kan filtrere peak amplituden til at passe en optimal blodtryksmåling, som kan ses på figur \ref{fig:goodMeasurement}, hvor amplituderne er konstant stigende ind til MAP og så aftagende efterfølgende. Til at håndterer dette problem anvendes der digital filtrering.
+\newpage
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{Implementeringsdokument/billeder/OptimalBlodtryksmaling.png}
+	\caption{Signal fra oscillometrisk blodtryksmåling }\label{fig:goodMeasurement}
+\end{figure}
+Reference \fixme{Billedet er taget fra CHARACTERIZATION 	 OF THE OSClLLOMETRlC METHOD FOR MEASURING INDIRECT BLOOD 	PRESSURE}
+
+\section{Digital filtrering} \label{title:digitalFilter}
+Til digital filtrering er der anvendt et ekspotentiel midlingsfilter med zero group delay.
+\begin{equation}
+	y(n) = \alpha x(n)+(1-\alpha )y(n-1)
+\end{equation}
+Filteret midler over peak amplituderne, så den gennemsnitlige amplitude forøgelse/dæmpning kommer til udtryk. Blodtryks filteret anvender en alfaværdi på $\alpha = 0.11$. Ydermere filtreres data fra begge sider, altså først fra venstre mod højre og så bag efter fra højre mod venstre. Denne teknik sikre ingen group delay, som er vigtigt for at kunne bestemme MAP, som det tryk der er i manchetten på samme tidspunkt som den maksimal målte peak ampletyde. Dette er bedst illustreret på figur \ref{fig:filterWithoutMap}, hvor manchettrykket er faldende over tid og peak amplituderne er stigende og efter MAP så faldende. Når det rå signal midles fra venstre mod højre opstår et group delay på peak amplituderne, som ikke er på manchet tryk data'en. Af denne grund må der ikke være group delay på signalet.
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{Implementeringsdokument/billeder/4_11_2016_udenMap.png}
+	\caption{Graf med data fra en blodtryksmåling. Her ses at det rå signal 	er støjfyldt. Grøn er manchet trykket, blå er de rå peak amplituder, rød er filtreret en gang fra venstre mod højre, sort er filtreret fra begge sider 	}\label{fig:filterWithoutMap}
+\end{figure}
+
+\subsection{Matlab} \label{title:Matlab}
+Til udarbejdelsen af det digitale filter er der anvendt matlab på det det rå signal. Det rå signal med peak ampletuderne og manchet trykket er udprintet gennem serielporten og derefter gemt i .txt fil for at blive importeret til matlav. et udkast af en sådan fil kan ses i figur \ref{fig:dataFileExample}. Første række indeholder de rå peaks, anden række de filtrerede peaks og tredje række indeholder manchet trykket.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Implementeringsdokument/billeder/dataFileExample.png}
+	\caption{Udklip af datafil som importeres til matlab}\label{fig:dataFileExample}
+\end{figure}
+
+Matlab figuren kan se på figur \ref{fig:bpMeasurement} og koden til fremstilling af denne kan læses under.
+
+\begin{lstlisting}[language=matlab]
+sysCoefficient = 0.38;              %Lokation of SYS in persentage of MAP
+diaCoefficient = 0.48;              %Lokation of DIA in persentage of MAP
+
+figure(1)                           %Figure number
+plot(newOffsetAlpha015(1,:),'b')    %First plot
+hold on;
+plot(newOffsetAlpha015(2,:),'r')    %Secund plot
+plot(newOffsetAlpha015(3,:),'black')%Third plot
+
+filtOsc = newOffsetAlpha015(2,:);   %Reads data from 2 row
+cuffPress = newOffsetAlpha015(3,:); %Reads data from 3 row
+[M,I] = max(filtOsc);               %Finds higest peak in oscilliations
+
+
+[~,ISYS] = min(abs(filtOsc(1:I)-(M*sysCoefficient)));   %Find location of SYS
+
+
+[~,IDIA] = min(abs(filtOsc(I:end)-(M*diaCoefficient))); %Find location of DIA
+IDIA = I+IDIA; %Adds the offset of MAP
+scatter([ISYS, I+4, IDIA, ISYS, I+4, IDIA],[filtOsc(ISYS), M, filtOsc(IDIA), cuffPress(ISYS), cuffPress(I+4), cuffPress(IDIA)],'or','LineWidth',5); %Plot SYS, MAP and DIA
+
+%Labels for locations
+str = '   \leftarrow SYS';
+text(ISYS,filtOsc(ISYS),str)
+str = '   \leftarrow SYS';
+text(ISYS,cuffPress(ISYS),str)
+str = '     \leftarrow MAP';
+text(I,filtOsc(I+4),str)
+str = '     \leftarrow MAP';
+text(I,cuffPress(I+4),str)
+str = '   \leftarrow DIA';
+text(IDIA,filtOsc(IDIA),str)
+str = '   \leftarrow DIA';
+text(IDIA,cuffPress(IDIA),str)
+
+%plot settings
+grid on;
+grid minor;
+xlabel('Sample Number');
+ylabel('Amplitude of pulsepeak [Raw ADC value]');
+title('Blood pressure test');
+legend on;
+legend('Unfiltered','Filtered from left and right with alpha=0.15','Cuff pressure (not peak values)','SYS, MAP and DIA');
+\end{lstlisting}
+
+

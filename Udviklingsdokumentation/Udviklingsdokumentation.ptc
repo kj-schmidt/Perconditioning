@@ -1,0 +1,233 @@
+\changetocdepth {2}
+\select@language {danish}
+\ttl@starttoc {overall@1}
+\contentsline {part}{\partnumberline {I}Kravspecifikation}{5}{part.1}
+\ttl@stoptoc {overall@1}
+\ttl@starttoc {ks@1}
+\contentsline {chapter}{\chapternumberline {1}Indledning}{9}{chapter.1}
+\contentsline {section}{\numberline {1.1}Form\IeC {\r a}l}{9}{section.1.1}
+\contentsline {section}{\numberline {1.2}L\IeC {\ae }sevejledning og dokumentstruktur}{9}{section.1.2}
+\contentsline {section}{\numberline {1.3}Versionshistorik}{10}{section.1.3}
+\contentsline {section}{\numberline {1.4}Definitioner og forkortelser}{10}{section.1.4}
+\contentsline {section}{\numberline {1.5}Baggrund}{10}{section.1.5}
+\contentsline {section}{\numberline {1.6}Samarbejdspartner}{11}{section.1.6}
+\contentsline {chapter}{\chapternumberline {2}System beskrivelse}{13}{chapter.2}
+\contentsline {section}{\numberline {2.1}Systemoversigt}{13}{section.2.1}
+\contentsline {chapter}{\chapternumberline {3}Funktionelle krav}{15}{chapter.3}
+\contentsline {section}{\numberline {3.1}Use case diagram}{15}{section.3.1}
+\contentsline {section}{\numberline {3.2}Akt\IeC {\o }r beskrivelse}{15}{section.3.2}
+\contentsline {section}{\numberline {3.3}Use cases}{17}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Use case 1 - Konditionering}{17}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Use case 2 - Initialiser blodtryksm\IeC {\r a}ling }{18}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Use case 3 - M\IeC {\r a}l blodtryk}{19}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {3.3.4}Use case 4 - Overf\IeC {\o }r data}{20}{subsection.3.3.4}
+\contentsline {subsection}{\numberline {3.3.5}Use case 5 - Sikkerhedskontrol med pulsoximeter}{21}{subsection.3.3.5}
+\contentsline {subsection}{\numberline {3.3.6}Use case 6 - Okklusionstr\IeC {\ae }ning}{22}{subsection.3.3.6}
+\contentsline {subsection}{\numberline {3.3.7}Use case 7 - Afbryd}{23}{subsection.3.3.7}
+\contentsline {subsection}{\numberline {3.3.8}Use case 8 - Setup}{24}{subsection.3.3.8}
+\contentsline {chapter}{\chapternumberline {4}Ikke-funktionelle krav }{25}{chapter.4}
+\contentsline {section}{\numberline {4.1}Microcontroller}{25}{section.4.1}
+\contentsline {section}{\numberline {4.2}Filformat og ops\IeC {\ae }tning}{25}{section.4.2}
+\contentsline {section}{\numberline {4.3}Patient ID}{25}{section.4.3}
+\contentsline {section}{\numberline {4.4}Hukommelse}{25}{section.4.4}
+\contentsline {section}{\numberline {4.5}Forsyning}{25}{section.4.5}
+\contentsline {section}{\numberline {4.6}Fysiske krav}{26}{section.4.6}
+\contentsline {section}{\numberline {4.7}Setup}{26}{section.4.7}
+\contentsline {chapter}{\chapternumberline {5}User interface}{27}{chapter.5}
+\contentsline {section}{\numberline {5.1}Konditionering}{28}{section.5.1}
+\contentsline {section}{\numberline {5.2}Okklusion}{29}{section.5.2}
+\contentsline {section}{\numberline {5.3}Setup}{30}{section.5.3}
+\contentsline {section}{\numberline {5.4}Bagside}{31}{section.5.4}
+\ttl@stoptoc {ks@1}
+\ttl@starttoc {overall@1}
+\contentsline {part}{\partnumberline {II}Accepttest}{33}{part.2}
+\ttl@stoptoc {overall@1}
+\ttl@starttoc {at@1}
+\contentsline {chapter}{\chapternumberline {6}Indledning}{37}{chapter.6}
+\contentsline {section}{\numberline {6.1}Form\IeC {\r a}l}{37}{section.6.1}
+\contentsline {section}{\numberline {6.2}L\IeC {\ae }sevejledning og dokumentstruktur}{37}{section.6.2}
+\contentsline {section}{\numberline {6.3}Versionshistorik}{37}{section.6.3}
+\contentsline {section}{\numberline {6.4}Definitioner og forkortelser}{38}{section.6.4}
+\contentsline {chapter}{\chapternumberline {7}Funktionelle krav}{39}{chapter.7}
+\contentsline {section}{\numberline {7.1}Use case 1 - Konditionering}{39}{section.7.1}
+\contentsline {section}{\numberline {7.2}Use case 2 - Initialiser blodtryksm\IeC {\r a}ling}{41}{section.7.2}
+\contentsline {section}{\numberline {7.3}Use case 3 - M\IeC {\r a}l blodtryk}{42}{section.7.3}
+\contentsline {section}{\numberline {7.4}Use case 4 - Overf\IeC {\o }r data}{43}{section.7.4}
+\contentsline {section}{\numberline {7.5}Use case 5 - Sikkerhedskontrol med pulsoximeter}{43}{section.7.5}
+\contentsline {section}{\numberline {7.6}Use case 6 - Okklusionstr\IeC {\ae }ning}{44}{section.7.6}
+\contentsline {section}{\numberline {7.7}Use case 7 - Afbryd}{45}{section.7.7}
+\contentsline {section}{\numberline {7.8}Use case 8 - Setup}{46}{section.7.8}
+\contentsline {chapter}{\chapternumberline {8}Ikke funktionelle krav}{47}{chapter.8}
+\contentsline {section}{\numberline {8.1}Microcontroller}{47}{section.8.1}
+\contentsline {section}{\numberline {8.2}Filformat og ops\IeC {\ae }tning}{47}{section.8.2}
+\contentsline {section}{\numberline {8.3}Patient ID}{48}{section.8.3}
+\contentsline {section}{\numberline {8.4}Hukommelse}{48}{section.8.4}
+\contentsline {section}{\numberline {8.5}Forsyning}{49}{section.8.5}
+\contentsline {section}{\numberline {8.6}Fysiske krav}{49}{section.8.6}
+\contentsline {section}{\numberline {8.7}Setup}{50}{section.8.7}
+\ttl@stoptoc {at@1}
+\ttl@starttoc {overall@1}
+\contentsline {part}{\partnumberline {III} System design}{51}{part.3}
+\ttl@stoptoc {overall@1}
+\ttl@starttoc {sd@1}
+\contentsline {chapter}{\chapternumberline {9}Indledning}{55}{chapter.9}
+\contentsline {section}{\numberline {9.1}Form\IeC {\r a}l}{55}{section.9.1}
+\contentsline {section}{\numberline {9.2}Projektreferencer}{55}{section.9.2}
+\contentsline {section}{\numberline {9.3}L\IeC {\ae }sevejledning og dokumentstruktur}{55}{section.9.3}
+\contentsline {section}{\numberline {9.4}Versionshistorik}{55}{section.9.4}
+\contentsline {section}{\numberline {9.5}Definitioner og forkortelser}{56}{section.9.5}
+\contentsline {chapter}{\chapternumberline {10}Systemets dele}{57}{chapter.10}
+\contentsline {section}{\numberline {10.1}Microcontroller}{57}{section.10.1}
+\contentsline {section}{\numberline {10.2}Manchetten}{57}{section.10.2}
+\contentsline {section}{\numberline {10.3}User interface, knapper og displays}{57}{section.10.3}
+\contentsline {section}{\numberline {10.4}Power system}{57}{section.10.4}
+\contentsline {section}{\numberline {10.5}Pumpe}{58}{section.10.5}
+\contentsline {section}{\numberline {10.6}Ventil}{58}{section.10.6}
+\contentsline {section}{\numberline {10.7}Tryksensor}{58}{section.10.7}
+\contentsline {section}{\numberline {10.8}SD kort}{58}{section.10.8}
+\contentsline {section}{\numberline {10.9}Pulsoximeter}{58}{section.10.9}
+\contentsline {chapter}{\chapternumberline {11}Arkitektur}{59}{chapter.11}
+\contentsline {section}{\numberline {11.1}4+1 view architecture}{59}{section.11.1}
+\contentsline {section}{\numberline {11.2}Logic}{61}{section.11.2}
+\contentsline {subsection}{\numberline {11.2.1}Block definition diagram}{61}{subsection.11.2.1}
+\contentsline {subsection}{\numberline {11.2.2}Dom\IeC {\ae }nemodel}{62}{subsection.11.2.2}
+\contentsline {subsection}{\numberline {11.2.3}State machine diagram}{63}{subsection.11.2.3}
+\contentsline {subsubsection}{Boot}{63}{section*.13}
+\contentsline {subsubsection}{Konditionering}{64}{section*.14}
+\contentsline {subsubsection}{Okklusion}{65}{section*.15}
+\contentsline {subsubsection}{Setup}{66}{section*.16}
+\contentsline {section}{\numberline {11.3}Process}{67}{section.11.3}
+\contentsline {subsection}{\numberline {11.3.1}Sekvensdiagrammer}{67}{subsection.11.3.1}
+\contentsline {subsection}{\numberline {11.3.2}Konditionering - UC1}{67}{subsection.11.3.2}
+\contentsline {subsection}{\numberline {11.3.3}Initialiser blodtryksm\IeC {\r a}ling - UC2}{68}{subsection.11.3.3}
+\contentsline {subsection}{\numberline {11.3.4}M\IeC {\r a}l blodtryk - UC3}{69}{subsection.11.3.4}
+\contentsline {subsection}{\numberline {11.3.5}Overf\IeC {\o }r data - UC4}{70}{subsection.11.3.5}
+\contentsline {subsection}{\numberline {11.3.6}Sikkerhedskontrol med pulsoximeter - UC5}{71}{subsection.11.3.6}
+\contentsline {subsection}{\numberline {11.3.7}Okklusionstr\IeC {\ae }ning - UC6}{71}{subsection.11.3.7}
+\contentsline {subsection}{\numberline {11.3.8}Afbryd - UC7}{72}{subsection.11.3.8}
+\contentsline {subsection}{\numberline {11.3.9}Setup - UC8}{73}{subsection.11.3.9}
+\contentsline {section}{\numberline {11.4}Implementation}{74}{section.11.4}
+\contentsline {subsection}{\numberline {11.4.1}Hardware}{74}{subsection.11.4.1}
+\contentsline {subsubsection}{Beskrivelse af hardware}{74}{section*.17}
+\contentsline {subsubsection}{Arduino Mega 2560 og Motor Shield}{74}{section*.18}
+\contentsline {subsection}{\numberline {11.4.2}Software}{75}{subsection.11.4.2}
+\contentsline {subsubsection}{Klasse diagram}{75}{section*.19}
+\contentsline {subsubsection}{Sprog}{76}{section*.20}
+\contentsline {subsubsection}{3-lags modellen}{76}{section*.21}
+\contentsline {subsubsection}{Udviklingsv\IeC {\ae }rkt\IeC {\o }jer}{76}{section*.22}
+\contentsline {section}{\numberline {11.5}Deployment}{76}{section.11.5}
+\ttl@stoptoc {sd@1}
+\ttl@starttoc {overall@1}
+\contentsline {part}{\partnumberline {IV} Implementeringsdokument}{77}{part.4}
+\ttl@stoptoc {overall@1}
+\ttl@starttoc {id@1}
+\contentsline {chapter}{\chapternumberline {12}Indledning}{81}{chapter.12}
+\contentsline {section}{\numberline {12.1}Form\IeC {\r a}l}{81}{section.12.1}
+\contentsline {section}{\numberline {12.2}Projektreferencer}{81}{section.12.2}
+\contentsline {section}{\numberline {12.3}L\IeC {\ae }sevejledning og dokumentstruktur}{81}{section.12.3}
+\contentsline {section}{\numberline {12.4}Versionshistorik}{82}{section.12.4}
+\contentsline {section}{\numberline {12.5}Definitioner og forkortelser}{82}{section.12.5}
+\contentsline {chapter}{\chapternumberline {13}Software}{83}{chapter.13}
+\contentsline {section}{\numberline {13.1}Klasse diagram}{83}{section.13.1}
+\contentsline {section}{\numberline {13.2}Namespace: GUI Laget}{84}{section.13.2}
+\contentsline {subsection}{\numberline {13.2.1}Klasse: Display}{84}{subsection.13.2.1}
+\contentsline {subsubsection}{Metode: initDisplay()}{84}{section*.25}
+\contentsline {subsubsection}{Metode: clearAreaDisp()}{84}{section*.26}
+\contentsline {subsubsection}{Metode: initConditioning()}{84}{section*.27}
+\contentsline {subsubsection}{Metode: initOcclusion()}{85}{section*.28}
+\contentsline {subsubsection}{Metode: initSetup()}{86}{section*.29}
+\contentsline {subsubsection}{Metode: moveSquare()}{87}{section*.30}
+\contentsline {subsubsection}{Metode: updateConditioning()}{87}{section*.31}
+\contentsline {subsubsection}{Metode: updateOcclusion()}{88}{section*.32}
+\contentsline {subsubsection}{Metode: updateSetup()}{88}{section*.33}
+\contentsline {subsubsection}{Metode: getNoCycles()}{88}{section*.34}
+\contentsline {subsubsection}{Metode: setNoCycles()}{89}{section*.35}
+\contentsline {subsubsection}{Metode: updateTimeLeft()}{89}{section*.36}
+\contentsline {subsubsection}{Metode: updateNoOfCycles()}{89}{section*.37}
+\contentsline {subsubsection}{Metode: updateStopWatchTime()}{89}{section*.38}
+\contentsline {subsubsection}{Metode: updateBloodPressure}{89}{section*.39}
+\contentsline {subsection}{\numberline {13.2.2}Klasse: Buttons}{90}{subsection.13.2.2}
+\contentsline {subsubsection}{Metode: readModeSwitch()}{90}{section*.40}
+\contentsline {subsubsection}{Metode: startStopConditioning()}{90}{section*.41}
+\contentsline {subsubsection}{Metode: btPressure()}{90}{section*.42}
+\contentsline {subsubsection}{Metode: startStopOcclusion()}{90}{section*.43}
+\contentsline {subsubsection}{Metode: changer()}{90}{section*.44}
+\contentsline {subsubsection}{Metode: selector()}{91}{section*.45}
+\contentsline {section}{\numberline {13.3}Namespace: Logik laget}{91}{section.13.3}
+\contentsline {subsection}{\numberline {13.3.1}Klasse: BPalgorithm}{91}{subsection.13.3.1}
+\contentsline {subsubsection}{Metode: calculateMap()}{91}{section*.46}
+\contentsline {subsubsection}{Metode: calculateSYS()}{92}{section*.47}
+\contentsline {subsubsection}{Metode: calculateDIA()}{92}{section*.48}
+\contentsline {subsection}{\numberline {13.3.2}Klasse: DigitalFiltering}{92}{subsection.13.3.2}
+\contentsline {subsubsection}{Metode: averagingZeroGroupDelay()}{92}{section*.49}
+\contentsline {subsection}{\numberline {13.3.3}Klasse: Scenarios}{93}{subsection.13.3.3}
+\contentsline {subsubsection}{Metode: bloodPressure()}{93}{section*.50}
+\contentsline {subsubsection}{Metode: occlusiontraining()}{93}{section*.51}
+\contentsline {subsubsection}{Metode: occlude()}{93}{section*.52}
+\contentsline {subsection}{\numberline {13.3.4}Klasse: Timer}{94}{subsection.13.3.4}
+\contentsline {subsubsection}{Metode: setTimeStamp()}{94}{section*.53}
+\contentsline {subsubsection}{Metode: getTimeStamp()}{94}{section*.54}
+\contentsline {subsubsection}{Metode: countdown()}{94}{section*.55}
+\contentsline {subsubsection}{Metode: stopWatch()}{95}{section*.56}
+\contentsline {subsubsection}{Metode: displayTimer()}{95}{section*.57}
+\contentsline {subsubsection}{Metode: getTimerStatus()}{95}{section*.58}
+\contentsline {subsubsection}{Metode: setTimerStatus()}{95}{section*.59}
+\contentsline {subsubsection}{Metode: timeToString()}{95}{section*.60}
+\contentsline {subsection}{\numberline {13.3.5}Klasse: MemoryParser}{96}{subsection.13.3.5}
+\contentsline {subsubsection}{Metode: getNoOfCycles()}{96}{section*.61}
+\contentsline {subsubsection}{Metode: setNoOfCycles()}{96}{section*.62}
+\contentsline {subsubsection}{Metode: getTimePerCycle()}{96}{section*.63}
+\contentsline {subsubsection}{Metode: setTimePerCycle()}{96}{section*.64}
+\contentsline {subsubsection}{Metode: writeToSDCard()}{97}{section*.65}
+\contentsline {subsubsection}{Metode: getID()}{97}{section*.66}
+\contentsline {subsubsection}{Metode: startInitSD)}{97}{section*.67}
+\contentsline {section}{\numberline {13.4}Namespace: Data laget}{97}{section.13.4}
+\contentsline {subsection}{\numberline {13.4.1}Klasse: PressureControl}{98}{subsection.13.4.1}
+\contentsline {subsubsection}{Metode: runMotor()}{98}{section*.68}
+\contentsline {subsubsection}{Metode: runValve()}{98}{section*.69}
+\contentsline {subsubsection}{Metode: turnMotorOn()}{98}{section*.70}
+\contentsline {subsubsection}{Metode: turnMotorOff()}{98}{section*.71}
+\contentsline {subsubsection}{Metode: turnValveOn()}{98}{section*.72}
+\contentsline {subsubsection}{Metode: turnValveOff()}{98}{section*.73}
+\contentsline {subsection}{\numberline {13.4.2}Klasse: ExternalMemory}{98}{subsection.13.4.2}
+\contentsline {subsubsection}{Metode: initializeSDCard()}{98}{section*.74}
+\contentsline {subsubsection}{Metode: generateRandomNumber()}{99}{section*.75}
+\contentsline {subsubsection}{Metode: checkFilesSD()}{99}{section*.76}
+\contentsline {subsubsection}{Metode: createFileTemplate()}{100}{section*.77}
+\contentsline {subsubsection}{Metode: writeToSDCard()}{100}{section*.78}
+\contentsline {subsubsection}{Metode: getFilename()}{100}{section*.79}
+\contentsline {subsection}{\numberline {13.4.3}Klasse: InternalMemory}{100}{subsection.13.4.3}
+\contentsline {subsubsection}{Metode: writeToEEPROM()}{100}{section*.80}
+\contentsline {subsubsection}{Metode: readFromEEPROM()}{100}{section*.81}
+\contentsline {subsection}{\numberline {13.4.4}Klasse: PressureSampling}{100}{subsection.13.4.4}
+\contentsline {subsubsection}{Metode: getCuffPressure()}{100}{section*.82}
+\contentsline {subsubsection}{Metode: runningPeakDetect())}{101}{section*.83}
+\contentsline {section}{\numberline {13.5}Namespace: Global}{101}{section.13.5}
+\contentsline {subsection}{\numberline {13.5.1}Klasse: Utilities}{102}{subsection.13.5.1}
+\contentsline {subsubsection}{Metode: rawToMmHG()}{102}{section*.84}
+\contentsline {subsubsection}{Metode: mmHgToRaw()}{102}{section*.85}
+\contentsline {subsection}{\numberline {13.5.2}Klasse: Konditioneringsapparat.pde (Main fil)}{102}{subsection.13.5.2}
+\contentsline {subsubsection}{Metoder: intCon\_ISR(), intBT\_ISR(), intOcc\_ISR(), intCha\_ISR() og intSel\_ISR()}{102}{section*.86}
+\contentsline {subsubsection}{Metode: setup()}{102}{section*.87}
+\contentsline {subsubsection}{Metode: loop()}{103}{section*.88}
+\contentsline {chapter}{\chapternumberline {14}Filter design}{105}{chapter.14}
+\contentsline {section}{\numberline {14.1}Analoge filtre}{105}{section.14.1}
+\contentsline {section}{\numberline {14.2}Komponent udregninger}{106}{section.14.2}
+\contentsline {subsection}{\numberline {14.2.1}Anden ordens butterworth filter}{106}{subsection.14.2.1}
+\contentsline {subsection}{\numberline {14.2.2}H\IeC {\o }j pas filter}{107}{subsection.14.2.2}
+\contentsline {subsection}{\numberline {14.2.3}Lav pas filter}{107}{subsection.14.2.3}
+\contentsline {subsection}{\numberline {14.2.4}Gain p\IeC {\r a} manchet oscillationer }{109}{subsection.14.2.4}
+\contentsline {subsection}{\numberline {14.2.5}Gain p\IeC {\r a} manchettryk signal }{109}{subsection.14.2.5}
+\contentsline {section}{\numberline {14.3}Praksis}{110}{section.14.3}
+\contentsline {section}{\numberline {14.4}Digital filtrering}{114}{section.14.4}
+\contentsline {subsection}{\numberline {14.4.1}Matlab}{115}{subsection.14.4.1}
+\contentsline {chapter}{\chapternumberline {15}Hardware}{117}{chapter.15}
+\contentsline {section}{\numberline {15.1}Schmetic}{117}{section.15.1}
+\contentsline {section}{\numberline {15.2}Knapper}{118}{section.15.2}
+\contentsline {section}{\numberline {15.3}Filter}{118}{section.15.3}
+\contentsline {section}{\numberline {15.4}Timer}{119}{section.15.4}
+\contentsline {section}{\numberline {15.5}Display}{120}{section.15.5}
+\contentsline {section}{\numberline {15.6}Motor shield}{121}{section.15.6}
+\ttl@stoptoc {id@1}
+\ttl@starttoc {overall@1}
+\contentsfinish 

@@ -1,0 +1,43 @@
+	\subsection{Use case 3 - Mål blodtryk}
+	\begin{table}[H]
+		\begin{center}
+			\begin{tabular}{ | p{0.24\textwidth} | p{0.7\textwidth}| } 
+				\hline
+				Mål & Mål et systolisk, diastolisk og middel(MAP) tryk\\ 
+				\hline
+				Initiering &  Konditionering (UC1) eller Initialiser blodtryksmåling (UC2)\\
+				\hline
+				Aktører og interessenter & - \\
+				\hline
+				Referencer & - \\ 
+				\hline
+				Antal samtlige forekomster & En til mange\\ 
+				\hline	
+				Startbetingelser & 
+				\begin{itemize}
+					\item Patient ID er oprettet
+					\item Manchetten er placeret på armen
+					\item Mode switch er sat til “\textit{Konditionering}”
+				\end{itemize} \\ 
+				\hline
+				Slutbetingelser & 
+				\begin{itemize}
+					\item Blodtrykket er mål
+				\end{itemize} \\ 
+				\hline
+				Normal forløb & \begin{enumerate}
+					\setlength\itemsep{0cm} % Decrease line distance
+					\item Manchetten fyldes til tryk over systolisk niveau 
+					\item Luften lukkes gradvist ud og det systoliske tryk registreres 
+					\item Middel trykket (MAP) måles 
+					\item Det diastoliske tryk udregnes ud fra systole og MAP 
+					\item Blodtrykket vises på skærmen og værdien gemmes i hukommelsen med et tidsstempel 
+				\end{enumerate} \\ 
+				\hline
+				Undtagelser & -\\ 
+				\hline
+			\end{tabular}
+		\end{center}
+			\caption{\textit{Fully dressed} use case diagram over use case 3}
+			\end{table}
+			\newpage

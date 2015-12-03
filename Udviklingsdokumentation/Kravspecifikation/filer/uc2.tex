@@ -1,0 +1,51 @@
+	\subsection{Use case 2 - Initialiser blodtryksmåling }
+	\begin{table}[H]
+		\begin{center}
+			\begin{tabular}{ | p{0.24\textwidth} | p{0.7\textwidth}| } 
+				\hline
+				Mål& Mål et blodtryk\\ 
+				\hline
+				Initiering &  Medicinsk personale\\
+				\hline
+				Aktører og interessenter & 
+				\begin{itemize}
+					\item Medicinsk personale(primær)
+					\item Patient (sekundær)
+				\end{itemize} \\ 
+				\hline
+				Referencer & Mål blodtryk(UC3) \\ 
+				\hline
+				Antal samtlige forekomster & En til mange\\ 
+				\hline	
+				Startbetingelser & 
+				\begin{itemize}
+					\item Manchetten er placeret på armen
+					\item Mode switch er sat til “\textit{Konditionering}”
+				\end{itemize} \\ 
+				\hline
+				Slutbetingelser & 
+				\begin{itemize}
+					\item Patientens blodtryk er målt
+				\end{itemize} \\ 
+				\hline
+				Normal forløb & \begin{enumerate}
+					\setlength\itemsep{0cm} % Decrease line distance
+					\item Brugeren trykker på [Mål blodtryk]
+					\subitem [Undtagelse \#1]
+					\item Et nyt patient ID genereres
+					\subitem [Undtagelse \#2] 
+					\item Patient ID’et vises på skærmen
+					\item Blodtrykket måles via \textit{use case 3}
+					
+				\end{enumerate} \\ 
+				\hline
+				Undtagelser & [Undtagelse \#1] SD kortet er ikke monteret korrekt
+				
+				[Undtagelse \#2] Et patient ID eksisterer allerede på apparatet. Der genereres ikke noget nyt patient ID. \\r\\ 
+				\hline
+				
+			\end{tabular}
+		\end{center}
+		\caption{\textit{Fully dressed} use case diagram over use case 2}
+			\end{table}
+		\newpage

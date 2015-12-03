@@ -1,0 +1,33 @@
+\chapter{Systemets dele} \label{title:systemPart}
+Dette afsnit beskriver systemet, \textit{Konditioneringsapparats}, fysiske dele og deres funktionalitet.
+
+\section{Microcontroller}
+Styring af alle systemets dele. Her processeres brugerens interagering med \textit{Kondtioneringsapparat} og handlingerne eksekveres. Microcontrolleren er en AtMega32 og styringen af chippen skrives i C++.
+
+\section{Manchetten}
+Trykmanchet til at skabe okklusion af armen. Manchetten skal kunne holde trykket, som skabes af pumpen. Manchetten kobles til apparatet via en lufttæt slange. 
+
+\section{User interface, knapper og displays}
+Brugerfladen består af et display hvor blodtryk, antal okklusioner, resterende tid og mm. vises. Displayet skal bruges til at give brugeren feedback og fx. informere det medicinske personale hvor lang tid der er indtil konditioneringen er færdig. 
+
+På \textit{Konditioneringsapparatet} er der to knapper [Start/Stop] og [Mål blodtryk]. Disse knapper bruges til at initierer konditioneringsbehandling, blodtryksmålinger og okklusionstræning. På bagsiden af apparatet sidder desuden en Modeswitch, hvor brugeren kan skifte mellem \textit{Okklusionstræning}, \textit{Konditionering}, eller \textit{Setup}. 
+
+\section{Power system}
+Forsyning af systemet foregår med 8 batterier af typen AAA for at opnå en spænding på 12V. Systemet forsynes med en batteriløsning, for at gøre det mere mobilt.  
+
+Foruden at forsyne apparatet, er power system også bestående af et motorshield. Når microcontroller fx ønsker at starte pumpen, sørger motorshieldet for at levere det korrekte spænding. 
+
+\section{Pumpe}
+Består af en motor og et luftindtag. Pumpe kan både bruges til at skabe tryk og vakuum. Pumpen skal bruges til at inflatere manchetten til måling af blodtryk og til okklusion af armen, både under konditionering og under træning. Pumpen skal forsynes med 12 V og hastigheden kan styres med PWM. 
+
+\section{Ventil}
+Ventilen indgår i systemet til at nedregulere trykket i manchetten. Ventilen er “Normally closed”. Funktionen af ventilen under en blodtryksmåling er gradvis at lukke trykket ud, så det er muligt at registrere oscillationerne og det aktuelle tryk. Under okklusion har ventilen en anden funktion, her indgår ventilen i reguleringen.
+
+\section{Tryksensor}
+En 5 V tryksensor, der bruges til registrering af trykket i manchetten og til efter regulering. Tryksensoren skal også registrere oscillationerne, der skabes i manchetten når trykket er omkring systolisk niveau og ved middeltrykket. Ved okklusionstræning skal tryksensoren bruges til at holde trykket konstant omkring 100 mmHg.
+
+\section{SD kort}
+Apparatet udstyres med ekstern hukommelse, for at det er muligt for \textit{Konditioneringsapparatet} at gemme information omkring behandlingsforløbet. Der er valgt et SD kort, fordi når behandlingen er færdig, er det muligt at skifte SD kortet ud, og på den måde have backup af information og det er nemmere at overføre informationen. 
+
+\section{Pulsoximeter}
+Som undersystemet i \textit{Konditioneringsapparatet} indgår et pulsoximeter, der skal bruges til overvågning af patientens tilstand under konditioningsbehandling. Pulsoximeteret levere en saturation efter hver endt okklusion og den saturation er med til at bestemme om patientens kredsløb kan tåle behandlingen.

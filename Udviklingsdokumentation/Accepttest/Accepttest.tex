@@ -1,0 +1,17 @@
+	%Front page
+	%\input{Accepttest/filer/forside}
+
+	%Title page
+	%\input{Accepttest/filer/titelblad}
+	\newpage
+	\printcontents[at]{ }{0}{\chapter*{Indholdsfortegnelse}}
+	\newpage
+
+	%Accepttest - indledning
+	\input{Accepttest/filer/indledning.tex}
+
+	%Accepttest - funktionelle krav
+	\input{Accepttest/filer/at_funkSpec.tex}
+		
+	%Accepttest - non funktionelle krav
+	\input{Accepttest/filer/at_nonFuncSpec.tex}

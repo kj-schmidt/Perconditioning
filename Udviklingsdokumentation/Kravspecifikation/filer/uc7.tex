@@ -1,0 +1,46 @@
+	\subsection{Use case 7 - Afbryd}
+	\begin{table}[H]
+			\begin{center}
+			\begin{tabular}{ | p{0.24\textwidth} | p{0.7\textwidth}| } 
+				\hline
+				Mål & Tømme manchetten for luft og afbryde nuværende procedure \\ 
+				\hline
+				Initiering &  Medicinsk personale, Patient\\
+				\hline
+				Aktører og interessenter & 
+				\begin{itemize}
+					\item Medicinsk personale 
+					\item Bruger 
+				\end{itemize} \\ 
+				\hline
+				Referencer & Konditionering (UC1) og Mål blodtryk (UC3) \\ 
+				\hline
+				Antal samtlige forekomster & En til mange \\ 
+				\hline	
+				Startbetingelser & 
+				\begin{itemize}
+					\item Konditionering (UC1) og Mål blodtryk (UC3) er igangværende 
+ 				\end{itemize} \\ 
+				\hline
+				Slutbetingelser & 
+				\begin{itemize}
+					\item Behandlingen er afbrudt og manchetten er tom for luft
+				\end{itemize} \\ 
+				\hline
+				Normal forløb & \begin{enumerate}
+					\setlength\itemsep{0cm} % Decrease line distance
+					\item Brugeren trykker på knappen [Start/Stop konditionering]
+					\item Den igangværende use case afbrydes
+					\item Manchetten tømmes for luft og tidsstempel med “\textit{Afklemning afbrudt} = false(0)” gemmes i hukommelsen
+					\subitem[Undtagelse \#1]
+				\end{enumerate} \\ 
+				\hline
+				Undtagelser & [Undtagelse \#1] Use case 6 er aktiv: ingen data gemmes i hukommelsen. \\ 
+				\hline
+			\end{tabular}
+		\end{center}
+			\caption{\textit{Fully dressed} use case diagram over use case 7}
+		\end{table}
+	\newpage
+
+		

@@ -1,0 +1,47 @@
+	\subsection{Use case 5 - Sikkerhedskontrol med pulsoximeter}
+	\begin{table}[H]
+		\begin{center}
+			\begin{tabular}{ | p{0.24\textwidth} | p{0.7\textwidth}| } 
+				\hline
+				Mål & Sikre at patientens kredsløb tåler konditionering \\ 
+				\hline
+				Initiering &  Konditionering (UC1)\\
+				\hline
+				Aktører og interessenter & 
+				\begin{itemize}
+					\item Patient (sekundær)
+				\end{itemize} \\ 
+				\hline
+				Referencer & - \\ 
+				\hline
+				Antal samtlige forekomster & En til mange \\ 
+				\hline	
+				Startbetingelser & 
+				\begin{itemize}
+					\item Konditionering (UC1) igangværende
+					\item Pulsoximeteret er monteret på patients finger
+					\item Patient har gennemført én afklemnings cyklus
+ 				\end{itemize} \\ 
+				\hline
+				Slutbetingelser & 
+				\begin{itemize}
+					\item Patients tilstand er bestemt 
+				\end{itemize} \\ 
+				\hline
+				Normal forløb & \begin{enumerate}
+					\setlength\itemsep{0cm} % Decrease line distance
+					\item Saturation detekteres
+					\item Saturation gemmes på SD-kort
+					\item Saturation er tilfredsstillende
+					\subitem [Undtagelse \#1.1][Undtagelse \#1.2]
+					\item Behandlingen kan fortsætte
+				\end{enumerate} \\ 
+				\hline
+				Undtagelser &  [Undtagelse \#1.1] Tegn på dårlig kredsløb: Blodtryksapparatet stopper konditionerings forløbet 
+				[Undtagelse \#1.2] Kør use case 7\\ 
+				\hline
+			\end{tabular}
+		\end{center}
+		\caption{\textit{Fully dressed} use case diagram over use case 5}
+	\end{table}
+			\newpage

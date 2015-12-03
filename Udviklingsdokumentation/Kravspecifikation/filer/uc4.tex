@@ -1,0 +1,46 @@
+	\subsection{Use case 4 - Overfør data}
+	\begin{table}[H]
+		\begin{center}
+			\begin{tabular}{ | p{0.24\textwidth} | p{0.7\textwidth}| } 
+				\hline
+				Mål & Eksportér data fra blodtryksapparat til databasen\\ 
+				\hline
+				Initiering &  Medicinsk personale\\
+				\hline
+				Aktører og interessenter & 
+				\begin{itemize}
+					\item Medicinsk personale(primær)
+					\item Patient (sekundær)
+				\end{itemize} \\ 
+				\hline
+				Referencer & - \\ 
+				\hline
+				Antal samtlige forekomster & Én pr behandlingsforløb \\ 
+				\hline	
+				Startbetingelser & 
+				\begin{itemize}
+					\item Der eksisterer en logfil på hukommelsen
+				\end{itemize} \\ 
+				\hline
+				Slutbetingelser & 
+				\begin{itemize}
+					\item Logfilen er overført til database
+					\item Blodtryksapparat udstyres med formateret hukommelse og klar til næste patient
+				\end{itemize} \\ 
+				\hline
+				Normal forløb & \begin{enumerate}
+					\setlength\itemsep{0cm} % Decrease line distance
+					\item Tag SD kortet ud af blodtryksapparatet 
+					\item Sæt SD kortet i computeren og overfør filen 
+					\item Formatér SD kortet
+					\item Sæt SD kortet tilbage i konditioneringsapparatet 
+				\end{enumerate} \\ 
+				\hline
+				Undtagelser & -\\ 
+				\hline
+			\end{tabular}
+		\end{center}
+		
+			\caption{\textit{Fully dressed} use case diagram over use case 4}
+		\end{table}
+			\newpage

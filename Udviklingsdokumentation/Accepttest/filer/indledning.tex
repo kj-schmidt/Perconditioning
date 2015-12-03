@@ -1,0 +1,58 @@
+	\chapter{Indledning}
+	Dokumentet beskriver hvordan de specificerede krav skal testes. Accepttesten beskriver alle krav, både funktionelle og ikke funktionelle. For hvert krav er beskrevet indholdet, hvordan man tester det aktuelle krav, og hvad resultatet forventes til at være. Hver test skal godkendes at kunden. 
+	I nogle tilfælde er flere krav slået sammen til én test. Dette gøres da nogle kravs forløb er afhængig af hinanden og de ikke kan testes individuelt 
+	
+	\section{Formål}
+	Formålet med accepttest er, i fællesskab med kunden, at gennemgå kravene og udføre det beskrevne test. På den måde sikre bachelorgruppen af produktet kan de krav som der er stillet til produktet. 
+	
+	\section{Læsevejledning og dokumentstruktur}
+	Dokumentet er struktureret lige som kravspecifikationen, de funktionelle krav er i scenarier svarende til use cases. De ikke funktionelle krav er opdelt under samme overskift som kravspecifikation, for at lette forståelsen. 
+	Accepttesten skal ses som en slags tjekliste, hvor man løber kravene igennem punkt for punkt, og så ledes sørger for at produktet lever op til kravene. 
+	
+	\section{Versionshistorik}
+		\begin{longtable}{ |p{0.24\textwidth} |p{0.45\textwidth}| p{0.25\textwidth}|  } 
+			\hline
+			\rowcolor{usDef}
+			\textbf{Versions nummer} &  \textbf{Ændring} & \textbf{Dato og initialer} \\
+			\hline
+			0.1 & Oprettelse af dokumentet, opbygning af tabelstruktur  & 15.09.15 KJS \\
+			\hline
+			0.2 & Overføring af main scenarios fra kravspecifikation til accepttest  & 23.09.15 KJS \\
+			\hline
+			0.3 & Rettelser efter review & 28.09.15 KJS \\
+			\hline
+			0.4 & Layout rettelser & 15.10.15 KJS \\
+			\hline
+			0.5 & Tilføjet rettelser af minimumstryk og antal cyklusser efter møde med Rolf & 20.11.15 KJS, SVG \\
+			\hline
+			0.6 & Tilføjet rettelser system test & 26.11.15 KJS, SVG \\
+			\hline
+			
+		\end{longtable}
+	
+	\newpage
+	\section{Definitioner og forkortelser}
+	\begin{longtable}{ |p{0.34\textwidth} |p{0.6\textwidth}| } 
+		\hline
+		\rowcolor{usDef}
+		\textbf{Udtryk / Forkortelse} &  \textbf{Forklaring} \\
+		\hline
+		RIPC & Remote ischemic pre/per/post conditioning. Længerevarende okklusion af ydre ekstremitet, efterfulgt af en deflations fase\\
+		\hline
+		AIS / apopleksi & Acute ischemic stroke, en pludseligt opstået neurologisk skade eller udfald på baggrund af iskæmi (nedsat blodforsyning) i hjernen \\
+		\hline
+		AUH & Aarhus Universitetshospital \\
+		\hline
+		\textit{Konditioneringsapparatet} & Navnet på prototype som udvikles til at udføre RIPC \\
+		\hline
+		\textit{Okklusionsfase} & Periode hvor på manchetten skaber arteriel okklusion \\
+		\hline
+		\textit{Deflationsfase} & Periode der er altid er efterfulgt en okklusionsfase, hvor manchetten er deflateret i under 50mmHg\\
+		\hline
+		S-105B & Blodtryksapparat der bruges som reference \\
+		\hline
+		\textit{Tid pr cyklus} & Værdi, der angiver hvor mange sekunder en cyklus skal være. For at simplificere use cases er denne værdi fastsat til 5 minutter, men det kan ændres \\
+		\hline
+		\textit{Antal cyklusser} & Værdi, der angiver hvor mange cyklusser konditioneringen skal vare. For at simplificere use cases er denne værdi fastsat til 4 cyklusser \\
+		\hline
+	\end{longtable}
