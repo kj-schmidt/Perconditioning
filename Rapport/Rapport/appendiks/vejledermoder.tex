@@ -1,0 +1,469 @@
+\section{Mødereferater}
+	\subsection{Vejledermøde uge - 37}
+	\begin{longtable}{|p{0.24\linewidth}|p{0.7\linewidth}|}
+		\hline
+		Dato: & 7/9-2015\\ \hline
+		Tilstede: & SVG, KJS og PJ \\ \hline
+		Dagsorden: &
+		\begin{enumerate}
+			\item Pulse oximetri som indikator for dårlig kredsløb efter okklusion
+			\item Måling af systolisk og diastolisk blodtryk 
+			\item Versionsstyring og LaTex
+			\item Status af projekt
+			\item Evt.
+		\end{enumerate}
+		\\ \hline
+		Referat: & 
+		\begin{enumerate}
+			\item PJ:  Lav eksperiment med blodtryksmåler og pulseoximetry - se hvordan der iltes 
+			Snak med Rolf præcis hvad pulse oximetri skal vise
+			PJ: måske kun behov for at se om der kommer en puls
+			\item Webster referere til basis algoritme til udregning af diastoliske tryk
+			Verificere systolisk tryk ved at “lytte” eller måle puls med stetoskop 
+			\item Medicinsk godkendelse og versionsstyring (Spørg Finn Overgaard)
+			\item Følg op på NDA til review gruppe 
+			Til kravspec: sørg for at krav
+			Peter snakker idrætsmand omkring okklusions apparat
+			\item -
+		\end{enumerate}
+		\\ \hline
+	\end{longtable}
+	
+	\subsection{Møde med Rolf - uge 37}
+	\begin{longtable}{|p{0.24\linewidth}|p{0.7\linewidth}|}
+		\hline
+		Dato: & 10/9-2015\\ \hline
+		Tilstede: & Rolf, Nema, Søren og Simon\\ \hline
+		Dagsorden: & -
+		\\ \hline
+		Referat: & 
+		\begin{enumerate}
+			\item Pumpe op til 200mmHg minimum og maximum 300mmHg, Systolisk er vigtigt, men også gerne diastolisk og MAP.
+			\item Mulighed for at kunne ændre på antallet af cyklusser og varigheden af cyklusser.
+			\item Apparater til studier (forskning) behøver CE. Der er meget overvågning under forsøg og høj bemanding så apparaterne behøver ikke så højt godkendelse. Rolf anvender ISO 14155.
+			\item Rolf (dem som er involveret i forskningen) må først kende til CPR numrene når han har gennemført behandlingen.
+			\item Det er VIGTIGT at datafilen også indeholder information omkring hvilket apparat som er blevet anvendt i tilfælde af at et apparat ter sig anderledes end andre.
+			\item Time remaining af en afklemning skal stå på displayet.
+			\item Pulse oximetry: saturation under 90 skal måske ikke med i forsøget. Skriv mail til Rolf med problemstillinger omkring det pulserende signal.
+			\item Måske nogle lyde som feedback til brugeren, så lufte lukker ud. Den behøver ikke at give feedback, men er rart at have. Det vigtige er at den klare sig selv.
+			\item Lufttab i cuffen må ikke komme til under 10mmHg over systolisk tryk
+		\end{enumerate}
+		\\ \hline
+	\end{longtable}
+	
+	\subsection{Vejledermøde - uge 39}
+	\begin{longtable}{|p{0.24\linewidth}|p{0.7\linewidth}|}
+		\hline
+		Dato: & \\ \hline
+		Tilstede: & \\ \hline
+		Dagsorden: &
+		\begin{enumerate}
+			\item Projektstatus
+			\begin{enumerate}
+				\item Kravspecifikation og accepttest sendt til review
+				\item Pulsoximetri sat på pause - Rolf følger op
+				\item Versionsstyring
+				\item Begyndt at bygge på prototypen 
+			\end{enumerate}
+			\item “Jointupes” til at samle slangerne
+			\item Kravspecifikation og accepttest godkendelse?
+			\item Tissue saturation index (TSI) apparat
+			\item Evt. 
+		\end{enumerate}
+		\\ \hline
+		Referat: & 
+		\begin{enumerate}
+			\item Ang. pulsoximetri - snak med Troels fra KVI troels.johansen@clin.au.dk
+			\item Måske er der nogle slanger i CAVE lab - snak med Preben, spørg på værkstederne
+			\item Kravspec og accepttest: Vigtigst er at Rolf er inde over. 
+			\begin{enumerate}
+				\item Beskrive situationen for Rolf. 
+			\end{enumerate}
+			\item TSI apparat: Peter: pas på med ikke at sætte sig for mange mål.
+			\begin{enumerate}
+				\item Kan være et “future perspective” til projektet - et mock-up(HVIS DER ER TID) 
+				\begin{enumerate}
+					\item Fokus på den primære opgave 
+				\end{enumerate}
+				\item Per Thorsen har tidligere udviklet et pulsoximeter
+			\end{enumerate}
+			\item EVT:
+			\begin{enumerate}
+				\item Undgå “redondans”: undgå skabeloner
+				\item Kompleksitet: beskriv udfordringer i detajler
+			\end{enumerate}
+		\end{enumerate}
+		\\ \hline
+	\end{longtable}
+	
+	\subsection{Møde med Troels - uge 37}
+	\begin{longtable}{|p{0.24\linewidth}|p{0.7\linewidth}|}
+		\hline
+		Dato: & 30/9-2015\\ \hline
+		Tilstede: & KJS, SVG, Troels Johansen (TJ) \\ \hline
+		Dagsorden: &
+		\begin{enumerate}
+			\item Forklar situationen med RIPC på hjerte patienter
+			\item Væsen problemstillinger vedr. pulsoximteri
+			\begin{enumerate}
+				\item Fortæller ikke noget om vævs tilstanden
+				\item Et udtryk for respiration 
+			\end{enumerate}
+		\end{enumerate}
+		\\ \hline
+		Referat: & 
+		\begin{enumerate}
+			\item TJ: Pulsoximeter som indikator for afklemning
+			\item Scenariet vil sjældent være “ingen puls” 
+			\item TJ: Nemmer med NIRS end med pulsoximeteri 
+			\begin{enumerate}
+				\item Nogle som har adgang til NIRS på muskler
+				\item Snak med Preben
+				\item Sammenlign det rå signal med saturation før og efter
+				\begin{enumerate}
+					\item Kigge på hvornår hver kurve er normaliseret 
+				\end{enumerate}
+			\end{enumerate}
+			\item Kendskab til det rå signals udsving
+			\item Hvad er ilt reserverne, sæt et forsøgsprotokol op
+			\item Er det selve afklemningen der er farlig eller det antallet af afklemninger 
+			\item Snak med medicoteknisk afdeling omkring NIRS 
+			\item EmBase ( søger også og plakater ), søg på NIRS 
+			\item Christian storgaard fra idræt
+		\end{enumerate}
+		KJ: Hvordan skal den her process beskrives? Snak med Peter 
+		\\ \hline
+	\end{longtable}
+	
+	\subsection{Vejledermøde - uge 43}
+	\begin{longtable}{|p{0.24\linewidth}|p{0.7\linewidth}|}
+		\hline
+		Dato: & 19/10-2015\\ \hline
+		Tilstede: & KJS, SVG, PJO\\ \hline
+		Dagsorden: &
+		\begin{enumerate}
+			\item Status af projekt
+			\item Kravspecifikation
+			\item Accepttest
+			\item Systemarkitektur
+			\item Hvad er næste skridt? 
+			\item Evt. 
+		\end{enumerate}
+		\\ \hline
+		Referat: & 
+		\begin{enumerate}
+			\item Kravspecifikation 
+			\begin{enumerate}
+				\item Tekst til use cases 
+				\item Læsevejledning
+				\begin{enumerate}
+					\item Metodik: Beskrivelse af krav via use cases
+				\end{enumerate}
+				\item Indledningende tekst til overskrifter(fx ikke-funktionelle krav) 
+			\end{enumerate}
+			\item System arkitektur
+			\begin{enumerate}
+				\item Beskrivelse af hver diagram: “Hvad kan det” (Læg som bilag, hvis det fylder for meget) 
+				\item Diagram på sider(så det kan læses) 
+				\item Tekst til alle diagrammer 
+				\item Referér til CD ved store diagrammer. 
+			\end{enumerate}
+			\item Accepttest
+			\begin{enumerate}
+				\item Ret afstand indledning
+				\item Tekst til tabellerne
+				\item Læsevejledning: forklar mere grundigt. 
+				\item Diskussionsafsnit
+				\item BAROMETER kaldes Nanometer 
+			\end{enumerate}
+			\item Generelt: “Forhold os meget kritisk til eget projekt”
+			\item Sara Rose Newell, ift. testsetup: \url{https://dk.linkedin.com/pub/sara-rose-newell/26/47/b19}
+			\item Peter tager fat i idrætsmand med okklusionstræning
+		\end{enumerate}
+		\\ \hline
+	\end{longtable}
+	
+	\subsection{Vejledermøde - uge 45}
+	\begin{longtable}{|p{0.24\linewidth}|p{0.7\linewidth}|}
+		\hline
+		Dato: & 2/11-15\\ \hline
+		Tilstede: & PJO, KJS, SVG\\ \hline
+		Dagsorden: &
+		\begin{enumerate}
+			\item Projektstatus
+			\begin{enumerate}
+				\item Test på fantom arm d. 5/11 
+				\item Brugerinterface er næsten færdigt
+			\end{enumerate}
+			\item Rapport - hvad skal den indeholde? 
+			\begin{enumerate}
+				\item Indledning
+				\item Metode afsnit
+				\item Kravspec og accepttest
+				\item Systemarkitektur
+				\item Design og implementering
+				\item Resultater 
+				\item Diskussion
+			\end{enumerate}
+			\item Design dokumenation/Implementering
+			\begin{enumerate}
+				\item Filter design og PCB tegning 
+				\item Hvor hører dette til henne? 
+			\end{enumerate}
+			\item Evt
+		\end{enumerate}
+		\\ \hline
+		Referat: & 
+		\begin{enumerate}
+			\item Gennemgang af systemet
+			\begin{enumerate}
+				\item Beskrive af signalbehandling fra manchet trykket og fra oscillationerne. 
+				\item PJO: ændre cut off på HP filter: prøv evt højere værdi. 
+				\begin{enumerate}
+					\item Kigge over større tids interval
+					\item Tag evt. det negative signal med. 
+					\item OP27 - operationsforstærker
+				\end{enumerate}
+			\end{enumerate}
+			\item Rapport - hvad skal den indeholde?
+			\begin{enumerate} 
+				\item Indledning
+				\item Metode afsnit
+				\item Kravspec og accepttest
+				\item Systemarkitektur
+				\item Design og implementering
+				\item Resultater 
+				\item Diskussion
+			\end{enumerate}
+			\item PJO: tjek projekt skabelon fra Bente 
+			\begin{enumerate}
+				\item Rapport vs dokumentation - lav mange reference fra rapport til projektdokumenation 
+				\item Opgave analyse (hører til i rapport) 
+				\begin{enumerate}
+					\item Forundersøgelser
+					\begin{enumerate}
+						\item puls oximeter
+						\item microcontroller
+					\end{enumerate}
+				\end{enumerate}
+			\item Design dokumenation/Implementering
+			\begin{enumerate}
+				\item Filter design og PCB tegning 
+				\item Hvor hører dette til henne? 
+			\end{enumerate}
+		\end{enumerate}
+	\end{enumerate}
+		\\ \hline
+	\end{longtable}
+	
+	\subsection{Møde med Rolf - uge 46}
+	\begin{longtable}{|p{0.24\linewidth}|p{0.7\linewidth}|}
+		\hline
+		Dato: & 10/11-2015\\ \hline
+		Tilstede: & KJS, SVG, ROLF\\ \hline
+		Dagsorden: &
+		\begin{enumerate}
+			\item Produktfremvisning og projektstatus
+			\item Kravspec
+			\item Accepttest 
+			\item Puls oximeteri
+			\item Evt.
+		\end{enumerate}
+		\\ \hline
+		Referat: & 
+		\begin{enumerate}
+			\item Produktfremvisning og projektstatus
+			\begin{enumerate}
+				\item Antal cyklusser optil 10. 
+			\end{enumerate}
+			\item Kravspec
+			\begin{enumerate}
+				\item Ret minimumstryk fra 180 til 200 mmHg
+				\item Tryk efter hver afklemningsfasen: Trykket kan være kunstigt høj pga evt. smerte.
+				\item Brug evt MAP som udgangspunkt for konditionering
+				\item Rolf: apparat til konditionering af hjertepatienter pumper kun op til 200mmHg og måler ikke tryk. 
+			\end{enumerate}
+			\item Puls oximeteri
+			\begin{enumerate}
+				\item Vi forklarede Rolf omkring puls oximeteri og problemstillingerne, samt vores snak med Troels. Troels afviste også muligheden for at bruge pulsoximeteri som sikkerhedskontrol og Rolf virker forståelse overfor vi har valgt at udelukke det. 
+			\end{enumerate}
+			\item Evt.
+			\begin{enumerate}
+				\item Sham mode: pumper op til 20mmHg til placebo 
+				\item TIl klinisk forskning - lave et placebo mode. 
+				\item kaatsu: occlusion apparat
+			\end{enumerate}
+		\end{enumerate}
+		\\ \hline
+	\end{longtable}
+	
+	\subsection{Møde med Kristian - uge 46}
+	\begin{longtable}{|p{0.24\linewidth}|p{0.7\linewidth}|}
+		\hline
+		Dato: & 11/11-2015\\ \hline
+		Tilstede: & KJS, SVG, PJO, Kristian Vissing\\ \hline
+		Dagsorden: &
+		\begin{enumerate}
+			\item Introduktion af os
+			\item Introduktion af prototype
+			\item Hvad er krav til trykket, hvor konstant skal trykket være?
+			\item Hvilke krav er der til apparatet udover at holde et tryk på 100mmHg? Størrelse, brugerfeedback? 
+			\item Hvilke anvendelses muligheder ser du? Udover til træning. 
+			\item Patologisk
+			\item Evt.
+		\end{enumerate}
+		\\ \hline
+		Referat: & 
+		\begin{enumerate}
+			\item Introduktion af prototype
+			\item Hvad er krav til trykket, hvor konstant skal trykket være?
+			\begin{enumerate}
+				\item Drift: et rimelig drift, gør ikke noget at man kan lave en eller to gentagelser mere. 
+			\end{enumerate}
+			\item Hvilke krav er der til apparatet udover at holde et tryk på 100mmHg? Størrelse, brugerfeedback? 
+			\begin{enumerate}
+				\item Pris, telemetri
+				\item Kunne påmonteres direkte på armen
+				\item Bredden af cuff har vist sig at være betydende
+				\item Bi lateral 
+			\end{enumerate}
+			\item Hvilke anvendelses muligheder ser du? Udover til træning. 
+			\begin{enumerate}
+				\item Patologisk
+				\begin{enumerate}
+					\item Man staser blod op, trykforøgelse i muskelcellen giver øget stimuli 
+					\item Ingen bevis for at risiko ved brug af okklusionstræning 
+					\item Vigtigt at man køre til fuldstændig udtrætning
+				\end{enumerate}
+				\item Idræt: Det søger hurtig muskeltilvækst til fx. patient der har haft stroke. 
+				\begin{enumerate}
+					\item Finder der studie der samlinger venøs afklemning med arteriel afklemning
+					\item Kan godt kombineres med hjerte patienter, altså perconditionering + okklusionstræning 
+				\end{enumerate}
+				\item Behov
+				\begin{enumerate}
+					\item Ikke motiveret
+					\item Kræver ikke meget tid
+					\item Et tryk på 100mmHg er tilstrækkeligt
+					\begin{enumerate}
+						\item Et højere tryk har ikke vist nogen effekt. 
+					\end{enumerate}
+				\end{enumerate}
+			\item Sikkerhed
+			\begin{enumerate}
+				\item Kristian: det er virke usandsynligt at 5 min reperfusions tid er nok til at armen er re-iltet igen.
+			\end{enumerate}
+			\item Kristians krav:
+			\begin{enumerate}
+				\item kan virke på en stor population
+				\begin{enumerate}
+					\item pris
+					\item driftsikkerhed
+					\item nemt at styre
+				\end{enumerate}
+			\end{enumerate}
+			\item Evt.
+		\end{enumerate}
+	\end{enumerate}
+		\\ \hline
+	\end{longtable}
+	
+	\subsection{Vejledermøde - uge 47}
+	\begin{longtable}{|p{0.24\linewidth}|p{0.7\linewidth}|}
+		\hline
+		Dato: & 16/7-2015\\ \hline
+		Tilstede: & KJS, SVG, PJO\\ \hline
+		Dagsorden: &
+		\begin{enumerate}
+			\item Opsamling på møde med Kristian Vissing
+			\item Opsamling af møde med Rolf
+			\item Fremvisning af prototype
+			\begin{enumerate}
+				\item Test på medicoteknisk afd.
+			\end{enumerate} 
+			\item Status på projekt
+			\item Implementeringsdokument
+			\item Evt. 
+		\end{enumerate}
+		\\ \hline
+		Referat: & 
+		\begin{enumerate}
+			\item Opsamling på møde med Kristian Vissing
+			\begin{enumerate}
+				\item Ny tanke med at kombinere okklusionstræning og prekonditionering 
+				\item Skriv ang. manchet
+			\end{enumerate}
+			\item Opsamling af møde med Rolf
+			\begin{enumerate}
+				\item Man kan godt bruge MAP som udgangspunkt i stedet for systole
+			\end{enumerate}
+			\item Fremvisning af prototype
+			\begin{enumerate}
+				\item Test på medicoteknisk afd. 
+				\begin{enumerate}
+					\item Forklaring omkring alle tests og problemet med støj
+				\end{enumerate}
+				\item Problemstilling omkring Simons blodtryk vs Karl-Johan 
+				\item Præsentation af signalet i matlab
+				\item Centralized moving average 
+				\begin{enumerate}
+					\item  $y(n) = 0.1X(n-1) + 0.8X(n) + 0.1X(n-1) $
+				\end{enumerate}
+			\end{enumerate}
+			\item Status på projekt
+			\begin{enumerate}
+				\item Færdig med implementeringsdokument
+				\item Start på rapporten 
+			\end{enumerate}
+			\item Implementeringsdokument
+			\begin{enumerate}
+				\item Filterering skal være under hardware 
+			\end{enumerate}
+			\item Evt. 
+			\begin{enumerate}
+				\item Til rapport - Signal behandling
+				\begin{enumerate}
+					\item Medtage filter beskrivelse - især før og efter billede af signalet 
+					\item Illustrerer hvor meget signalet afviger fra “bogen”
+				\end{enumerate}
+				\item Til design 
+				\item Tegning af filter karakteristik
+			\end{enumerate}
+		\end{enumerate}
+		\\ \hline
+	\end{longtable}
+	
+	\subsection{Vejledermøde - uge 49}
+	\begin{longtable}{|p{0.24\linewidth}|p{0.7\linewidth}|}
+		\hline
+		Dato: & 3/12-2015\\ \hline
+		Tilstede: & PJO, SVG, KJS, Nema og Søren\\ \hline
+		Dagsorden: & - \\ \hline
+		Referat: & 
+		\begin{enumerate}
+			\item Reference til webster 
+			\begin{enumerate}
+				\item Hvis vi refererer ordentligt, så går vi ikke galt i byen 
+				\item Webster skal skrive at man ikke må citerer
+			\end{enumerate}
+			\item Aflevering af prototype
+			\begin{enumerate}
+				\item Den skal ikke afleveres, den skal bare med til eksamen
+			\end{enumerate}
+			\item Aflevering af rapport
+			\begin{enumerate}
+				\item PJO vil gerne have et skriftlig eksempel af det hele, resten afleveres digital
+			\end{enumerate}
+			\item Etisk problemstillering
+			\begin{enumerate}
+				\item Datahåndtering, skal kun skrives hvis det er relavant
+			\end{enumerate}
+			\item Tilføj kalibreringstest til bilag
+			\item Header: Ingeniørhøjskolen, Aarhus Universitet
+			\item Eksempler: Når der forklares hvilke SysML diagrammer der bruges, så er det godt med et eksempel. 
+			\item Forklarer liste over andre dokumenter udover rapport. Det skal skrives i indledning/læsevejledning
+		\end{enumerate}
+		\\ \hline
+	\end{longtable}
+	
+	

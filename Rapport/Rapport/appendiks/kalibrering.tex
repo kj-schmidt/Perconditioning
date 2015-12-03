@@ -1,0 +1,43 @@
+\section{Kalibrering af blodtrykmåler}
+Test på medicoteknisk værksted d. 13/11
+Tilstede: KJS og SVG
+Den 13/11 var vi på medicoteknisk værksted for at teste prototypen på et blodtryksimulator. Undervej opstod der en række problemer
+
+Prototype systemet er udstyret med en ventil, som hver gang der detekteres en puls åbner og lukker luft ud. Det viste sig at ventilen forstyrede signal og gjorde det umuligt at detektere nogle peaks fra blodtryksimulatoren. Det lykkes at lave blodtrykmåling ved at lave en lille utæthed i system og på den måde sikre at luften slipper ud. 
+
+Simulator: 
+Fluke biomedical BP pump2
+\url{http://www.maquet-dynamed.com/inside_sales/literature/fluke/bp_\%20pump_2_datasheet.pdf}
+
+Dog var peak’ene stadig mindre end når vi målte på os selv. 
+
+\begin{enumerate}
+	\item Første måling med udtæthed: 
+	115 sys, 111 map ud fra simulation på 120/80 (93)
+	142 sys, 138 map ud fra simulation på 150/100 (116)
+	
+	\item Vi ændrede på offsetet fra sensoren fra 79 til 88 så nu hedder formlen fra rå værdi til tryk: 
+	tryk = (råværdi - 88 ) * 0.408
+	
+	\item Efter ændring af omregning fra råværdi til mmhg 
+	128 sys, 124 map ud fra simulation på 150/100 (116), filnavn “newOffset1.txt” 
+	
+	\item Ændret alpha til = 0.13 og systole peak at 0.6
+	132 sys, 118 map ud fra simulation på 150/100 (116), filnavn “newOffset2.txt” 
+	
+	\item Jo større utæt vi “laver” i systemet, jo senere kommer amplituderne og jo sværere bliver det at detektere systolisk tryk
+	
+	\item Ændret threshold = 25
+	110 sys, 95 map ud fra simulation på 120/80 (93), filnavn “newOffset3.txt” 
+	Denne måling gav et forhold mellem sys og map på 0,31. 
+	
+	\item SYS/MAP = 0.31, DIA/MAP = 0.51 
+	\begin{enumerate}
+		\item 120 sys, 95 map, 80 dia ud fra simulation på 120/80 (93), filnavn “newOffset4.txt” 
+		\item 149 sys, 119 map, 100 dia ud fra simulation på 150/100 (116), filnavn “newOffset5.txt” 
+		\item 129 sys 83 map, 52 dia ud fra omrom apparat på 128/61(84), filnavn “KJ1.txt”, tid for måling 3:02. 
+		\item 141 sys, 86 map, 53 dia ud fra omrom apparat på 119/62(81), filnavn “SVG2.txt”, tid for måling 1:36
+		\item 140 sys, 85 map, 50 dia ud fra omrom apparat på 119/62(81), filnavn “SVG3.txt”, tid for måling 1:36
+		\item 122 sys, 95 map, 81 dia ud fra simulation på 120/80(93), filnavn; “newOffsetAlpha015.txt”
+	\end{enumerate}
+\end{enumerate}
