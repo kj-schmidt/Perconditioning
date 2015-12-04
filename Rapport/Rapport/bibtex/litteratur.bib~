@@ -21,15 +21,12 @@
 
 
 
-@misc{RefWorks:40,
-	author={{Arduino}},
-	title={Arduino MEGA 2560 & Genuino MEGA 2560}
-}
+
 
 @techreport{RefWorks:21,
 	author={{Dansk Selskab for Apopleksi}},
 	year={2013},
-	month={17 July},
+	month={July},
 	title={Referenceprogram for behandling af patienter med apopleksi og TCI},
 	institution={Dansk Selskab for Apopleksi}
 }
@@ -38,9 +35,18 @@
   author = 	 {{EDABUSA}},
   year = 	 {2010},
   month = 	 {December},
-  title = 	 {Manual
+  title = 	 {Maunual
 H100B
 Pulse Oximeter}
+institution={Dansk Selskab for Apopleksi}
+}
+
+@techreport{RefWorks:42,
+	author={{EUROPEAN COMMISSION DG HEALTH AND CONSUMER}},
+	year={2010},
+	month={June},
+	title={MEDICAL DEVICES : Guidance document  -  Classification of medical devices},
+	institution={http://ec.europa.eu/}
 }
 
 @misc{RefWorks:10,
@@ -112,6 +118,25 @@ L298
 DUAL FULL-BRIDGE DRIVER}
 }
 
+@misc{RefWorks:43,
+	author={{Sundhedsstyrelsen}},
+	year={2015},
+	month={26 August},
+	title={CE-mærkning}
+}
+
+@misc{RefWorks:41,
+	author={{Sundhedsstyrelsen}},
+	year={2013},
+	month={14 March},
+	title={Introduktion til klinisk afprøvning af medicinsk udstyr}
+}
+
+@misc{RefWorks:40,
+	author={{www.Arduino.cc}},
+	title={Arduino MEGA 2560 & Genuino MEGA 2560}
+}
+
 @misc{RefWorks:15,
   author = 	 {Rick Steiner Alan Moore},
   year = 	 {2009},
@@ -136,7 +161,7 @@ OMG Systems Modeling Language  (OMG SysMLTM)   }
 	author={Braude, Eric J., Bernstein,Michael E.,},
 	year={2011},
 	title={Software engineering : modern approaches},
-	publisher={J. Wiley & Sons},
+	publisher={J. Wiley \& Sons},
 	address={Hoboken, NJ},
 	note={ID: 166380554},
 	abstract={This volume communicates the complexity of software engineering, a field that is on the rise. It extensively uses design patterns giving readers sophisticated, eminently practical tools and adds a technical edge to software engineering.},
@@ -187,7 +212,7 @@ OMG Systems Modeling Language  (OMG SysMLTM)   }
 	author={John G. Webster},
 	year={2009},
 	title={Medical instrumentation : application and design},
-	publisher={John Wiley & Sons},
+	publisher={John Wiley \& Sons},
 	address={Hoboken, N. J. : Wiley, 2009},
 	edition={4},
 	isbn={9780471676003}
@@ -261,5 +286,7 @@ OMG Systems Modeling Language  (OMG SysMLTM)   }
 	year={2011},
 	title={The analysis and design of linear circuits},
 	publisher={Wiley Publishing}
+}
+
 }
 
