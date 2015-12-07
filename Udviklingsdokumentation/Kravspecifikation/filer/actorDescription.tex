@@ -1,7 +1,9 @@
+	\newpage
 	\section{Aktør beskrivelse}
-	Systemet har tre aktør og disse er beskrevet nedenfor. Aktørerne skal ses som brugere eller spillere der skal interagere med scenarierne for at de lykkes. 
+	Systemet har tre aktør og disse er beskrevet nedenfor (Se tabel \ref{tab:medi}, \ref{tab:patient}, \ref{tab:data} og \ref{tab:bruger}). Aktørerne skal ses som brugere eller spillere der skal interagere med scenarierne for at de lykkes. 
 	
-	\begin{center}
+	\begin{table}[H]
+		\centering
 		\begin{tabular}{ | p{0.34\textwidth} | p{0.6\textwidth}| } 
 			\hline
 			Aktørnavn& Medicinsk personale  \\ 
@@ -11,9 +13,11 @@
 			Beskrivelse af aktør & Aktør som påmontere manchetten og styre konditionering eller person som observere de gemte data fra behandlingsforløb\\ 
 			\hline
 		\end{tabular}
-	\end{center}
+		\caption{Aktør beskrivelse af medicinsk personale} \label{tab:medi}
+	\end{table}
 	
-	\begin{center}
+	\begin{table}[H]
+		\centering
 		\begin{tabular}{ | p{0.34\textwidth} | p{0.6\textwidth}| } 
 			\hline
 			Aktørnavn& Patient \\ 
@@ -23,9 +27,11 @@
 			Beskrivelse af aktør & En person med AIS som skal konditioneres\\ 
 			\hline
 		\end{tabular}
-	\end{center}
+		\caption{Aktør beskrivelse af patient} \label{tab:patient}
+	\end{table}
 	
-	\begin{center}
+	\begin{table}[H]
+		\centering
 		\begin{tabular}{ | p{0.34\textwidth} | p{0.6\textwidth}| } 
 			\hline
 			Aktørnavn& Database \\ 
@@ -35,9 +41,11 @@
 			Beskrivelse af aktør & Gemmer data og logfiler omkring konditionerings forløb\\ 
 			\hline
 		\end{tabular}
-	\end{center}
+		\caption{Aktør beskrivelse af database} \label{tab:data}
+	\end{table}
 	
-	\begin{center}
+	\begin{table}[H]
+		\centering
 		\begin{tabular}{ | p{0.34\textwidth} | p{0.6\textwidth}| } 
 			\hline
 			Aktørnavn& Bruger \\ 
@@ -47,4 +55,5 @@
 			Beskrivelse af aktør & Person der gør brug af konditioneringsapparatet til okklusionstræning, denne person behøver ikke besidde særlig faglig viden \\ 
 			\hline
 		\end{tabular}
-	\end{center}
+		\caption{Aktør beskrivelse af bruger} \label{tab:bruger}
+	\end{table}

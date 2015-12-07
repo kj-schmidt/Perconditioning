@@ -1,4 +1,5 @@
 \subsection{Use case 1 - Konditionering}
+Tabel \ref{tab:uc1} beskriver use casen for konditioneringsbehandlingen. 
 \begin{center}
 		\begin{longtable}{ | p{0.24\textwidth} | p{0.7\textwidth}| } 
 			\hline
@@ -18,11 +19,13 @@
 			\hline	
 			Startbetingelser & 
 			\begin{itemize}
+				\setlength\itemsep{0cm} % Decrease line distance
 				\item Mode switch er sat til “\textit{Konditionering}”
 			\end{itemize} \\ 
 			\hline
 			Slutbetingelser & 
 			\begin{itemize}
+				\setlength\itemsep{0cm} % Decrease line distance
 				\item \textit{Antal cyklusser} er gennemført og gemt på hukommelsen
 			\end{itemize} \\ 
 			\hline
@@ -36,9 +39,15 @@
 				\item Patient ID’et vises på skærmen
 				\item Blodtrykket måles via \textit{use case 3}
 				\item Blodtrykket vises på displayet og værdien gemmes i hukommelsen
-				\item Manchetten fyldes med luft til et tryk på 25 mmHG over systolisk tryk (minimum 200 mmHg)					
+				\item Manchetten fyldes med luft til et tryk på 25 mmHG over systolisk tryk (minimum 200 mmHg)				
 				\item Tidsstempel gemmes når systoliske tryk er opnået
 				\item Trykket opretholdes i 5 minutter(Okklusion) og resterende tid vises på displayet
+				
+				\textit{(Normal forløbet fortsætter på næste side)}
+			\end{enumerate} \\ 
+			\hline
+			Normal forløb & \begin{enumerate}
+				\setcounter{enumi}{9}		
 				\item Deflaterer manchetten helt og forbliver i dette stadie i 5 min(Reperfusion) Ved deflation start gemmes tidsstempel. Tid til næste okklusion vises på displayet
 				\item Gentag punkt 7-10 (en \textit{cyklus}) fire gange. Det nuværende cyklus nummer vises i displayet
 			\end{enumerate} \\ 
@@ -47,7 +56,7 @@
 			
 			[Undtagelse \#2] Et patient ID eksisterer allerede på apparatet. Der genereres ikke noget nyt patient ID. \\
 			\hline
-			\caption{\textit{Fully dressed} use case diagram over use case 1}
+			\caption{\textit{Fully dressed} use case diagram over use case 1} \label{tab:uc1}
 		\end{longtable}
 		
 	\end{center}
