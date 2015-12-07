@@ -18,8 +18,8 @@ public:
 	InternalMemory();
 	virtual ~InternalMemory();
 
-	void writeToEEPROM(int adr, unsigned short value);
-	unsigned short readFromEEPROM(int adr);
+	void writeToEEPROM(int adr, unsigned short value); // writes value to EEPROM on the specified adress
+	unsigned short readFromEEPROM(int adr); // Read value from specified adress
 };
 
 } /* namespace Data */

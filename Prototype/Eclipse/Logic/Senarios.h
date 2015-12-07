@@ -27,6 +27,7 @@ class Senarios {
 private:
 static long tmpTimestamp;
 
+//create instances of used classes
 	Utilities util;
 	Logic::BPAlgorithm bpa;
 	Logic::DigitalFiltering df;
@@ -36,9 +37,9 @@ static long tmpTimestamp;
 	Logic::Timer timer;
 public:
 
-	void bloodPressure(unsigned short *MAP, unsigned short *SYS, unsigned short *DIA, volatile bool *btPressed); //, Logic::BPAlgorithm bpa, Data::PressureControl pc, Data::PressureSampling ps, Logic::DigitalFiltering df,  Utilities util);
-	unsigned short occlusiontraining(volatile bool *start);
-	unsigned short occlude(unsigned short pressure);
+	void bloodPressure(unsigned short *MAP, unsigned short *SYS, unsigned short *DIA, volatile bool *btPressed); //contains senario that runs a bloodpressure senario.
+	unsigned short occlusiontraining(volatile bool *start); //contains senario that runs a occlutiontraining senario.
+	unsigned short occlude(unsigned short pressure); //contains senario that runs a occlude senario.
 };
 
 } /* namespace Logic */

@@ -11,11 +11,11 @@ namespace Logic {
 
 long Senarios::tmpTimestamp;
 
-void Senarios::bloodPressure(unsigned short *MAP, unsigned short *SYS, unsigned short *DIA, volatile bool *btPressed) //BPAlgorithm bpa, Data::PressureControl pc, Data::PressureSampling ps, Logic::DigitalFiltering df, Utilities util)
+void Senarios::bloodPressure(unsigned short *MAP, unsigned short *SYS, unsigned short *DIA, volatile bool *btPressed)
 {
 	//Constant variables
-	const unsigned short ArraysizePeaks = 400;
-	const double alpha = 0.15;
+	const unsigned short ArraysizePeaks = 400; //arraysize of peaks and cuffpressure
+	const double alpha = 0.15; //filter value
 
 
 	//Variables
@@ -31,45 +31,30 @@ void Senarios::bloodPressure(unsigned short *MAP, unsigned short *SYS, unsigned 
 
 	pc.turnValveOff();
 	pc.turnMotorOn(255);
-	do{
+	do{ //pump cuff to 200mmHg
 	rawPressure = ps.getCuffPressure();
 	pressureMmHg = util.rawToMmHg(rawPressure);
 	} while(pressureMmHg<200 && *btPressed);
 
 	pc.turnMotorOff();
 
-	ps.runningPeakDetect(peaks, cuffPressure, ArraysizePeaks, &totalNumberOfPeaks,pc,util, &*btPressed);
+	ps.runningPeakDetect(peaks, cuffPressure, ArraysizePeaks, &totalNumberOfPeaks,pc,util, &*btPressed); //detect occiliations
 
-Serial.print("\n");
-for (int i = 0; i < ArraysizePeaks; i++) {
-	  Serial.print(peaks[i]);
-	  Serial.print(",");
-	}
-Serial.print("\n");
 
-	df.averagingZeroGroupDelay(peaks, ArraysizePeaks, &totalNumberOfPeaks, alpha);
 
-	tmpMAP = bpa.calculateMAP(peaks,cuffPressure,ArraysizePeaks,&totalNumberOfPeaks);
+	df.averagingZeroGroupDelay(peaks, ArraysizePeaks, &totalNumberOfPeaks, alpha); //filter the data
 
-	tmpSYS = bpa.calculateSYS(peaks, cuffPressure, ArraysizePeaks, &totalNumberOfPeaks, tmpMAP);
+	tmpMAP = bpa.calculateMAP(peaks,cuffPressure,ArraysizePeaks,&totalNumberOfPeaks); //calculate MAP
 
-	tmpDIA = bpa.calculateDIA(peaks, cuffPressure, ArraysizePeaks, &totalNumberOfPeaks, tmpMAP);;
+	tmpSYS = bpa.calculateSYS(peaks, cuffPressure, ArraysizePeaks, &totalNumberOfPeaks, tmpMAP); //Calculate SYS
 
+	tmpDIA = bpa.calculateDIA(peaks, cuffPressure, ArraysizePeaks, &totalNumberOfPeaks, tmpMAP); //Calculate DIA
+
+	//save bloddpressure to RAM
 	*MAP = tmpMAP;
 	*SYS = tmpSYS;
 	*DIA = tmpDIA;
 
-Serial.print("\n");
-for (int i = 0; i < ArraysizePeaks; i++) {
-	  Serial.print(peaks[i]);
-	  Serial.print(",");
-	}
-Serial.print("\n");
-for (int i = 0; i < ArraysizePeaks; i++) {
-	  Serial.print(cuffPressure[i]);
-	  Serial.print(",");
-	}
-Serial.print("\n");
 	if(*btPressed){
 		mem.writeToSDCard(timer.timeToString(), false, 0, util.rawToMmHg(*SYS), util.rawToMmHg(*MAP), util.rawToMmHg(*DIA), false); // Save the blood pressure onto the SD card
 	}
@@ -78,33 +63,25 @@ Serial.print("\n");
 unsigned short Senarios::occlusiontraining(volatile bool *start)
 {
 	long currentTime;
-	unsigned short cuffPressure = ps.getCuffPressure();
+	unsigned short cuffPressure = ps.getCuffPressure(); //get cuffpressure
 
-	if(*start){
+	if(*start){ //if startbutten pressed
 		pc.turnValveOff();
 
-		if(cuffPressure < util.mmHgToRaw(90))
+		if(cuffPressure < util.mmHgToRaw(90)) //if pressure lover than 90mmHg
 		{
 			pc.turnMotorOn(255);
-			/*
-			while(ps.getCuffPressure() < util.mmHgToRaw(100))
-			{
-				Serial.print("\nCuffpressure: ");
-				Serial.print(util.rawToMmHg(ps.getCuffPressure()));
-			}
-			pc.turnMotorOff();
-			*/
 		}
-		else if(ps.getCuffPressure() > util.mmHgToRaw(100))
+		else if(ps.getCuffPressure() > util.mmHgToRaw(100)) //if pressure over 100mmHg
 		{
 			pc.turnMotorOff();
 		}
 	}
-	else
+	else //if startbutton is off deflate cuff
 	{
 		currentTime = millis();
 
-				if(tmpTimestamp < currentTime-2000 && cuffPressure < util.mmHgToRaw(20))
+				if(tmpTimestamp < currentTime-2000 && cuffPressure < util.mmHgToRaw(20)) //the valve may only be opend with an interval of two sec
 				{
 					pc.turnValveOff();
 					tmpTimestamp = currentTime;
@@ -116,14 +93,14 @@ unsigned short Senarios::occlusiontraining(volatile bool *start)
 		pc.turnMotorOff();
 	}
 
-	return util.rawToMmHg(cuffPressure);
+	return util.rawToMmHg(cuffPressure); //return cuffpressure
 }
 unsigned short Senarios::occlude(unsigned short pressure)
 {
 	long currentTime;
 	unsigned short cuffPressure = ps.getCuffPressure();
 
-	if(pressure > 0){
+	if(pressure > 0){ //if defined pressure is over
 		if(pressure+25 < 200)
 			pressure = 175;					//Set minimum pressure to 200mmHg
 		else if(pressure+25 > 300)
@@ -134,14 +111,6 @@ unsigned short Senarios::occlude(unsigned short pressure)
 		if(cuffPressure < util.mmHgToRaw(pressure-10))
 		{
 			pc.turnMotorOn(255); //change from 200 to 255
-			/*
-			while(ps.getCuffPressure() < util.mmHgToRaw(100))
-			{
-				Serial.print("\nCuffpressure: ");
-				Serial.print(util.rawToMmHg(ps.getCuffPressure()));
-			}
-			pc.turnMotorOff();
-			*/
 		}
 		else if(cuffPressure > util.mmHgToRaw(pressure+10))
 		{
@@ -152,7 +121,7 @@ unsigned short Senarios::occlude(unsigned short pressure)
 	{
 		currentTime = millis();
 
-		if(tmpTimestamp < currentTime-2000 && cuffPressure < util.mmHgToRaw(20))
+		if(tmpTimestamp < currentTime-2000 && cuffPressure < util.mmHgToRaw(20))  //the valve may only be opend with an interval of two sec
 		{
 			pc.turnValveOff();
 			tmpTimestamp = currentTime;

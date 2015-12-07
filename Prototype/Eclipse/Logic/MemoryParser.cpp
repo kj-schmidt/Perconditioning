@@ -13,13 +13,9 @@ Data::InternalMemory intMem;
 Data::ExternalMemory extMem;
 
 MemoryParser::MemoryParser() {
-	// TODO Auto-generated constructor stub
 
 }
 
-MemoryParser::~MemoryParser() {
-	// TODO Auto-generated destructor stub
-}
 
 unsigned short MemoryParser::getNoOfCycles(){
 	return intMem.readFromEEPROM(200);
@@ -32,7 +28,7 @@ unsigned short MemoryParser::getTimePerCycle(){
 	//Handle overload
 	unsigned short val = intMem.readFromEEPROM(205);
 	unsigned overloadVal = 0;
-	if(val == 255)
+	if(val == 255) // if value is larger than 255 read the next Byte on EEPROM
 		return overloadVal = val + intMem.readFromEEPROM(206);
 	else
 		return val;
@@ -52,15 +48,16 @@ void MemoryParser::setTimePerCycle(unsigned short val){
 
 void MemoryParser::writeToSDCard(String timeStamp, boolean occlusionComplete,
 		unsigned short occlusionPressure, unsigned short sys, unsigned short map, unsigned short dia, boolean interruptOcclusion){
-	String totalString = String(timeStamp + "," + String(occlusionComplete) + "," + String(occlusionPressure, DEC) + "," +
-			String(sys, DEC) + "," + String(map, DEC) + "," + String(dia, DEC) + "," + String(interruptOcclusion));
 
-	extMem.writeToSDCard(totalString);
+	String totalString = String(timeStamp + "," + String(occlusionComplete) + "," + String(occlusionPressure, DEC) + "," +
+			String(sys, DEC) + "," + String(map, DEC) + "," + String(dia, DEC) + "," + String(interruptOcclusion)); //converts row data to string.
+
+	extMem.writeToSDCard(totalString);//writes string to SD-card
 }
 
 String MemoryParser::getID(){
-	String filename = extMem.getFilename();
-	return filename.substring(0,5);
+	String filename = extMem.getFilename(); //get filename of current .csv file
+	return filename.substring(0,5); //retun patient ID
 }
 
 bool MemoryParser::startInitSD(){

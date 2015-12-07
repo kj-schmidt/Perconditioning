@@ -12,27 +12,23 @@ namespace Logic {
 unsigned short BPAlgorithm::calculateMAP(unsigned short peaks[], unsigned short cuffPressure[],unsigned short peakArrayLength,
 			unsigned short *totalNumberOfPeaks)
 	{
-		//double MAP;
+
 		unsigned short i;
-		unsigned short loc = 0;
-		unsigned short maxValue1 = 0;
-		//unsigned short maxValue2 = 0;
-		//unsigned short maxValue3 = 0;
-		unsigned short tNOPeaks = *totalNumberOfPeaks;
+		unsigned short loc = 0; //location MAP i arrays
+		unsigned short maxValue1 = 0; //max peak hieght
+		unsigned short tNOPeaks = *totalNumberOfPeaks; //total number of peaks
 
 		for( i=0; i<tNOPeaks; i++)
 		{
-			if(peaks[i]>maxValue1)
+			if(peaks[i]>maxValue1) //if the new peak height is higher than the last value
 			{
-				maxValue1 = peaks[i];
-				//maxValue2 = maxValue1;
-				//maxValue3 = maxValue2;
-				loc = i;
+				maxValue1 = peaks[i]; //save peak value
+				loc = i; //save peak location
 			}
 		}
 
 
-		return cuffPressure[loc];
+		return cuffPressure[loc]; //returns MAP value
 	};
 
 
@@ -40,42 +36,38 @@ unsigned short BPAlgorithm::calculateSYS(unsigned short peaks[], unsigned short 
 		unsigned short *totalNumberOfPeaks, unsigned short MAP)
 {
 	unsigned short i;
-	unsigned short loc = 0;
-	unsigned short maxValue1 = 0;
-	unsigned short SYS = 0;
-	//int peakHightSys = MAP *0.6;
-	int currentClosestPeakhight;
+	double fixedRatio = 0.38; //the fixed-ratio of where the SYS can be found i data
+	unsigned short loc = 0; //location of MAP
+	unsigned short maxValue1 = 0; //max peak hieght
+	unsigned short SYS = 0; //SYS value
+	int currentClosestPeakhight; //the closest peak hight to SYS
 	int tmpValue = 1000;
-	unsigned short tNOPeaks = *totalNumberOfPeaks;
+	unsigned short tNOPeaks = *totalNumberOfPeaks; //total number of peaks
 
 
-	for( i=0; i<tNOPeaks; i++)
+	for( i=0; i<tNOPeaks; i++) //find MAP
 			{
 				if(peaks[i]>maxValue1)
 				{
 					maxValue1 = peaks[i];
-					//maxValue2 = maxValue1;
-					//maxValue3 = maxValue2;
 					loc = i;
 				}
 			}
-	int peakHightSys = peaks[loc]*0.38;
+	int peakHightSys = peaks[loc]*fixedRatio; //calculate the estimated peakhight of SYS
 
-
-	for(i=0;i<tNOPeaks;i++)
+	for(i=0;i<tNOPeaks;i++) //find SYS array
 	{
-		if(cuffPressure[i] == MAP)
+		if(cuffPressure[i] == MAP) //calculate the estimated peakhight of SYS
 		{
-			Serial.print("\n BREAK\n");
 			break;
 		}
 		currentClosestPeakhight = peaks[i]-peakHightSys;
-		currentClosestPeakhight = abs(currentClosestPeakhight);
-		if (currentClosestPeakhight<tmpValue)
+		currentClosestPeakhight = abs(currentClosestPeakhight); //The distance between current value and the estimated SYS value
+		if (currentClosestPeakhight<tmpValue) //if value is closer than the last save value. save the new one
 		{
 
-			SYS = cuffPressure[i];
-			tmpValue = currentClosestPeakhight;
+			SYS = cuffPressure[i]; //save cuffpressure
+			tmpValue = currentClosestPeakhight; //save peak height
 		}
 	}
 	return SYS;
@@ -85,36 +77,34 @@ unsigned short BPAlgorithm::calculateDIA(unsigned short peaks[], unsigned short 
 		unsigned short *totalNumberOfPeaks, unsigned short MAP)
 {
 	unsigned short i;
-	unsigned short loc = 0;
-	unsigned short maxValue1 = 0;
-	unsigned short DIA = 0;
-	//int peakHightSys = MAP *0.6;
-	int currentClosestPeakhight;
+	double fixedRatio = 0.48; //the fixed-ratio of where the SYS can be found i data
+	unsigned short loc = 0; //location of MAP
+	unsigned short maxValue1 = 0; //max peak hieght
+	unsigned short DIA = 0; //DIA value
+	int currentClosestPeakhight;  //the closest peak height to DIA
 	int tmpValue = 1000;
-	unsigned short tNOPeaks = *totalNumberOfPeaks;
+	unsigned short tNOPeaks = *totalNumberOfPeaks; //total number of peaks
 
 
-	for( i=0; i<tNOPeaks; i++)
+	for( i=0; i<tNOPeaks; i++) //find MAP
 			{
 				if(peaks[i]>maxValue1)
 				{
 					maxValue1 = peaks[i];
-					//maxValue2 = maxValue1;
-					//maxValue3 = maxValue2;
 					loc = i;
 				}
 			}
-	int peakHightDia = peaks[loc]*0.48;
+	int peakHightDia = peaks[loc]*fixedRatio; //calculate the estimated peakhight of DIA
 
 
-	for(i=loc;i<tNOPeaks;i++)
+	for(i=loc;i<tNOPeaks;i++) //calculate the estimated peakhight of SYS
 	{
-		currentClosestPeakhight = peaks[i]-peakHightDia;
-		currentClosestPeakhight = abs(currentClosestPeakhight);
+		currentClosestPeakhight = peaks[i]-peakHightDia; //The distance between current value and the estimated SYS value
+		currentClosestPeakhight = abs(currentClosestPeakhight); //if value is closer than the last save value. save the new one
 		if (currentClosestPeakhight<tmpValue)
 		{
-			DIA = cuffPressure[i];
-			tmpValue = currentClosestPeakhight;
+			DIA = cuffPressure[i]; //save cuffpressure
+			tmpValue = currentClosestPeakhight; //save peak height
 		}
 	}
 	return DIA;

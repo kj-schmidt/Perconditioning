@@ -14,14 +14,14 @@ namespace Data {
 
 class PressureControl {
 public:
-	void runMotor();
-	void runValve();
+	void runMotor(); //starts motor at full speed while the digitalport 18 is high
+	void runValve(); //opens the valve while the digitalport 19 is high
 
-	void turnMotorOn(unsigned short speed);
-	void turnMotorOff();
+	void turnMotorOn(unsigned short speed); //start moter at the specified speed from 0-255
+	void turnMotorOff(); //stop motor from running
 
-	void turnValveOn();
-	void turnValveOff();
+	void turnValveOn(); //open valve
+	void turnValveOff(); //close valve
 };
 
 } /* namespace Data */

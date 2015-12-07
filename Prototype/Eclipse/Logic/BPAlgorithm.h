@@ -16,11 +16,11 @@ class BPAlgorithm {
 
 public:
 	unsigned short calculateMAP(unsigned short peaks[], unsigned short cuffPressure[],unsigned short peakArrayLength,
-			unsigned short *totalNumberOfPeaks);
+			unsigned short *totalNumberOfPeaks); //calculated the MAP from given data
 	unsigned short calculateSYS(unsigned short peaks[], unsigned short cuffPressure[],unsigned short peakArrayLength,
-			unsigned short *totalNumberOfPeaks, unsigned short MAP);
+			unsigned short *totalNumberOfPeaks, unsigned short MAP); //calculate SYS from MAP and data
 	unsigned short calculateDIA(unsigned short peaks[], unsigned short cuffPressure[],unsigned short peakArrayLength,
-			unsigned short *totalNumberOfPeaks, unsigned short MAP);
+			unsigned short *totalNumberOfPeaks, unsigned short MAP); //calculate DIA from MAP and data
 };
 
 } /* namespace Logic */

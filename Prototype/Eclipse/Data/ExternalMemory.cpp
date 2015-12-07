@@ -13,11 +13,11 @@ File fileToRead;
 String filename  = "empty";
 
 ExternalMemory::ExternalMemory() {
-	// TODO Auto-generated constructor stub
 
 }
 
 bool ExternalMemory::initializeSD(){
+
 	bool statusSD;
 	if(SD.begin(4)){
 		filename = checkFilesSD();
@@ -32,7 +32,7 @@ bool ExternalMemory::initializeSD(){
 
 String ExternalMemory::generateRandomNumber(){
 	String deviceID = "001";
-	randomSeed(analogRead(A5)); //Ensure that the random number is not generated in the same order
+	randomSeed(analogRead(A14)); //Ensure that the random number is not generated in the same order
 	long randNumber = random(100000, 999999); //Generates a 6 digit random number
 	String randNumberHEX = String(String(randNumber, HEX) + deviceID + ".csv"); //Convert number to HEX and adds the file type
 	//Serial.print("2. The generated id: "); Serial.println(randNumberHEX);
@@ -86,7 +86,6 @@ void ExternalMemory::writeToSDCard(String textToSD){
 	file = SD.open(bufName, FILE_WRITE);
 	file.println(textToSD);
 	file.close();
-	Serial.print("*** Data was written to: "); Serial.println(filename);
 }
 
 
@@ -95,7 +94,6 @@ void ExternalMemory::createFileTemplate(String filename){
 	File file;
 	filename.toCharArray(buf, filename.length()+1);
 	file = SD.open(buf, FILE_WRITE);
-	Serial.print("File name is set to: "); Serial.println(buf);
 	file.println("Tidsstempel,Gennemfoert afklemning,Afklemningstryk,Systolisk blodtryk,Middeltryk(MAP),Diastolisk blodtryk,Afklemning afbrudt");
 	file.close();
 }

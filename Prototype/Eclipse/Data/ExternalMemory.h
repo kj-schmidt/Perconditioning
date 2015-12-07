@@ -14,15 +14,17 @@
 
 namespace Data {
 
+//ExternalMemory class contains all the methods dealing with the SD card.
 class ExternalMemory {
 public:
+
 	ExternalMemory();
-	void writeToSDCard(String textToSD);
-	String generateRandomNumber();
-	String checkFilesSD();
-	void createFileTemplate(String filename);
-	bool initializeSD();
-	String getFilename();
+	void writeToSDCard(String textToSD); //Method writes to the SD card and closes the file afterwards
+	String generateRandomNumber(); //Generate random number according to an analog port
+	String checkFilesSD(); //This function checks if a .csv file exists on the SD-card
+	void createFileTemplate(String filename); //Builds a .csv file with the right column names
+	bool initializeSD(); //Initializes the connection to SD-card. this is only done ones.
+	String getFilename(); //returns the filname of the .CSV file in the SC-card
 };
 
 } /* namespace Data */

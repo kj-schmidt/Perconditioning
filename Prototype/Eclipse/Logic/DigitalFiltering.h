@@ -15,7 +15,7 @@ namespace Logic {
 class DigitalFiltering {
 public:
 
-	void averagingZeroGroupDelay(unsigned short peaks[],unsigned short peakArrayLength, unsigned short *totalNumberOfPeaks, double alpha);
+	void averagingZeroGroupDelay(unsigned short peaks[],unsigned short peakArrayLength, unsigned short *totalNumberOfPeaks, double alpha); //A exponetial filter with zero group delay
 };
 
 } /* namespace Logic */
