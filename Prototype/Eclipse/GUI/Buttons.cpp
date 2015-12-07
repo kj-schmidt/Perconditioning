@@ -59,15 +59,15 @@ unsigned short Buttons::changer(volatile unsigned short *state){
 	else if(*state == 2)
 		if(memoryBT.getTimePerCycle() <= 450){
 			disp.clearAreaDisp(10, 70, 90, 40); //Erase old value
-			memoryBT.setTimePerCycle(memoryBT.getTimePerCycle()+30);
+			memoryBT.setTimePerCycle(memoryBT.getTimePerCycle()+30); //Increment the value with 30s
 		}else{
 			disp.clearAreaDisp(10, 70, 90, 40);
 			memoryBT.setTimePerCycle(180);
 		}
 	else if(*state == 3){
 		if(memoryBT.getNoOfCycles() <=8){
-			disp.clearAreaDisp(170, 70, 35, 40);
-			memoryBT.setNoOfCycles(memoryBT.getNoOfCycles()+1);
+			disp.clearAreaDisp(170, 70, 35, 40); //Erase old value
+			memoryBT.setNoOfCycles(memoryBT.getNoOfCycles()+1); //Increment value
 
 		}else{
 			disp.clearAreaDisp(170, 70, 35, 40);

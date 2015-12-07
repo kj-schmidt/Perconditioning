@@ -1,2 +1,2 @@
-Libraries/Adafruit_GFX/glcdfont.c.d Libraries/Adafruit_GFX/glcdfont.c.o:  \
- /home/simon/Dropbox/arduino-1.5.5/libraries/Adafruit_GFX/glcdfont.c
+Libraries/Adafruit_GFX/glcdfont.c.o Libraries/Adafruit_GFX/glcdfont.c.o:  \
+ /Applications/Arduino1.5.5.app/Contents/Resources/Java/libraries/Adafruit_GFX/glcdfont.c

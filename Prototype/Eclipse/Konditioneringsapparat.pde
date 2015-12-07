@@ -30,7 +30,6 @@ unsigned short programToRun = 0;
 //instances
 GUI::Buttons btt;
 GUI::Display disp;
-Data::ExternalMemory ex;
 
 //The setup function is called once at startup of the sketch
 void intCon_ISR(){

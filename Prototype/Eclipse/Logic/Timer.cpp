@@ -7,14 +7,14 @@
 
 #include "Timer.h"
 
-
+//Pin definition for the RTC module
 const int kCePin   = 5;  // Chip Enable
 const int kIoPin   = 6;  // Input/Output
 const int kSclkPin = 7;  // Serial Clock
 
 //Initialize values for timer
 bool timerHasEnded = false;
-unsigned short seconds = 0, minutes = 0;
+unsigned short seconds = 0, minutes = 0; //Values to hold the current value of either stopWatch() or countdown()
 
 //Initialize instances
 DS1302 rtc(kCePin, kIoPin, kSclkPin);
@@ -27,7 +27,7 @@ Timer::Timer() {
 }
 
 void Timer::setTimestamp(){
-	timestamp = rtc.time();
+	timestamp = rtc.time(); // get the current time on the RTC module
 }
 
 Time Timer::getTimestamp(){
@@ -36,9 +36,11 @@ Time Timer::getTimestamp(){
 
 void Timer::stopWatch(){
 	Time elapsedTime = rtc.time();
-	unsigned short hoursToSec = (elapsedTime.hr-timestamp.hr) * 60 * 60;
-	unsigned short minutesToSec = (elapsedTime.min- timestamp.min) * 60;
-	unsigned short elapsedTotalSeconds = hoursToSec + minutesToSec + (elapsedTime.sec - timestamp.sec);
+	unsigned short hoursToSec = (elapsedTime.hr-timestamp.hr) * 60 * 60; //Convert hours into seconds
+	unsigned short minutesToSec = (elapsedTime.min- timestamp.min) * 60; //Convert minutes in seconds
+	unsigned short elapsedTotalSeconds = hoursToSec + minutesToSec + (elapsedTime.sec - timestamp.sec); //Calculate total elapsed seconds
+
+	//Update the timer value
 	seconds = elapsedTotalSeconds % 60;
 	minutes = (elapsedTotalSeconds - seconds)/60;
 
@@ -46,14 +48,17 @@ void Timer::stopWatch(){
 
 void Timer::countdown(unsigned short totalTime){
 	timerHasEnded = false;
-	Time elapsedTime = rtc.time();
+	Time elapsedTime = rtc.time(); //Get the current time from the RTC module
 	String elapsedTimeString;
-	unsigned short hoursToSec = (elapsedTime.hr-timestamp.hr) * 60 * 60;
-	unsigned short minutesToSec = (elapsedTime.min- timestamp.min) * 60;
-	unsigned short elapsedTotalSeconds = hoursToSec + minutesToSec + (elapsedTime.sec - timestamp.sec);
+	unsigned short hoursToSec = (elapsedTime.hr-timestamp.hr) * 60 * 60; //Convert hours into seconds
+	unsigned short minutesToSec = (elapsedTime.min- timestamp.min) * 60; //Convert minutes in seconds
+	unsigned short elapsedTotalSeconds = hoursToSec + minutesToSec + (elapsedTime.sec - timestamp.sec); //Calculate total elapsed seconds
+
+	//Update the timer value
 	seconds = (totalTime - elapsedTotalSeconds) % 60;
 	minutes = (totalTime - elapsedTotalSeconds - seconds)/60;
 
+	//Stops the timer if the countdown is finished
 	if(minutes == 0 && seconds == 0)
 		timerHasEnded = true;
 }
@@ -63,6 +68,7 @@ String Timer::displayTimer(){
 	String secString = String(seconds, DEC);
 	String timeString;
 
+	//Ensure currect format, if minString is "1", then a extra zero is added, so the string is "01"
 	if(0 <=minutes && minutes < 10)
 		minString = String("0" + minString);
 	else

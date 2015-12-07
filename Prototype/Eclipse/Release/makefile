@@ -24,35 +24,32 @@ RM := rm -rf
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
-ifneq ($(strip $(CC_DEPS)),)
--include $(CC_DEPS)
-endif
 ifneq ($(strip $(C++_DEPS)),)
 -include $(C++_DEPS)
-endif
-ifneq ($(strip $(C_UPPER_DEPS)),)
--include $(C_UPPER_DEPS)
-endif
-ifneq ($(strip $(CXX_DEPS)),)
--include $(CXX_DEPS)
 endif
 ifneq ($(strip $(ASM_DEPS)),)
 -include $(ASM_DEPS)
 endif
-ifneq ($(strip $(INO_DEPS)),)
--include $(INO_DEPS)
+ifneq ($(strip $(C_DEPS)),)
+-include $(C_DEPS)
 endif
-ifneq ($(strip $(PDE_DEPS)),)
--include $(PDE_DEPS)
-endif
-ifneq ($(strip $(S_UPPER_DEPS)),)
--include $(S_UPPER_DEPS)
+ifneq ($(strip $(CC_DEPS)),)
+-include $(CC_DEPS)
 endif
 ifneq ($(strip $(CPP_DEPS)),)
 -include $(CPP_DEPS)
 endif
-ifneq ($(strip $(C_DEPS)),)
--include $(C_DEPS)
+ifneq ($(strip $(PDE_DEPS)),)
+-include $(PDE_DEPS)
+endif
+ifneq ($(strip $(CXX_DEPS)),)
+-include $(CXX_DEPS)
+endif
+ifneq ($(strip $(C_UPPER_DEPS)),)
+-include $(C_UPPER_DEPS)
+endif
+ifneq ($(strip $(S_UPPER_DEPS)),)
+-include $(S_UPPER_DEPS)
 endif
 endif
 
@@ -60,7 +57,7 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 AR += \
-/home/simon/Documents/GitRep/Prototype/Eclipse/Release/arduino.ar \
+arduino.ar \
 
 ELF += \
 Konditioneringsapparat.elf \
@@ -79,37 +76,37 @@ all: Konditioneringsapparat
 Konditioneringsapparat: $(FLASH_IMAGE)
 	@echo 'Building target: $@'
 	@echo 'Printing size:'
-	"/home/simon/Dropbox/arduino-1.5.5/hardware/tools/avr/bin/avr-size" -A "/home/simon/Documents/GitRep/Prototype/Eclipse/Release/Konditioneringsapparat.elf"
+	"/Applications/Arduino1.5.5.app/Contents/Resources/Java/hardware/tools/avr/bin/avr-size" -A "/Users/kjschmidt/GitHub/Perconditioning/Prototype/Eclipse/Release/Konditioneringsapparat.elf"
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-/home/simon/Documents/GitRep/Prototype/Eclipse/Release/arduino.ar: $(AR_OBJ)
+arduino.ar: $(AR_OBJ)
 	@echo 'Starting archiver'
-	"/home/simon/Dropbox/arduino-1.5.5/hardware/tools/avr/bin/avr-ar" rcs "/home/simon/Documents/GitRep/Prototype/Eclipse/Release/arduino.ar"   $(AR_OBJ)
+	"/Applications/Arduino1.5.5.app/Contents/Resources/Java/hardware/tools/avr/bin/avr-ar" rcs "/Users/kjschmidt/GitHub/Perconditioning/Prototype/Eclipse/Release/arduino.ar"   $(AR_OBJ)
 	@echo 'Finished building: $@'
 	@echo ' '
 
 Konditioneringsapparat.elf: $(LINK_OBJ) $(AR)
 	@echo 'Starting combiner'
-	"/home/simon/Dropbox/arduino-1.5.5/hardware/tools/avr/bin/avr-gcc" -Os -Wl,--gc-sections -mmcu=atmega2560 -o "/home/simon/Documents/GitRep/Prototype/Eclipse/Release/Konditioneringsapparat.elf"   $(LINK_OBJ) $(AR)  "/home/simon/Documents/GitRep/Prototype/Eclipse/Release/arduino.ar" "-L/home/simon/Documents/GitRep/Prototype/Eclipse/Release" -lm
+	"/Applications/Arduino1.5.5.app/Contents/Resources/Java/hardware/tools/avr/bin/avr-gcc"  -Os -Wl,--gc-sections,--relax -mmcu=atmega2560 -o "/Users/kjschmidt/GitHub/Perconditioning/Prototype/Eclipse/Release/Konditioneringsapparat.elf"   $(LINK_OBJ) $(AR)  "/Users/kjschmidt/GitHub/Perconditioning/Prototype/Eclipse/Release/arduino.ar" "-L/Users/kjschmidt/GitHub/Perconditioning/Prototype/Eclipse/Release" -lm
 	@echo 'Finished building: $@'
 	@echo ' '
 
 Konditioneringsapparat.eep: $(ELF)
 	@echo 'Create eeprom image'
-	"/home/simon/Dropbox/arduino-1.5.5/hardware/tools/avr/bin/avr-objcopy" -O ihex -j .eeprom --set-section-flags=.eeprom=alloc,load --no-change-warnings --change-section-lma .eeprom=0 "/home/simon/Documents/GitRep/Prototype/Eclipse/Release/Konditioneringsapparat.elf" "/home/simon/Documents/GitRep/Prototype/Eclipse/Release/Konditioneringsapparat.eep"
+	"/Applications/Arduino1.5.5.app/Contents/Resources/Java/hardware/tools/avr/bin/avr-objcopy" -O ihex -j .eeprom --set-section-flags=.eeprom=alloc,load --no-change-warnings --change-section-lma .eeprom=0 "/Users/kjschmidt/GitHub/Perconditioning/Prototype/Eclipse/Release/Konditioneringsapparat.elf" "/Users/kjschmidt/GitHub/Perconditioning/Prototype/Eclipse/Release/Konditioneringsapparat.eep"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 Konditioneringsapparat.hex: $(EEP)
 	@echo 'Create Flash image (ihex format)'
-	"/home/simon/Dropbox/arduino-1.5.5/hardware/tools/avr/bin/avr-objcopy" -O ihex -R .eeprom "/home/simon/Documents/GitRep/Prototype/Eclipse/Release/Konditioneringsapparat.elf" "/home/simon/Documents/GitRep/Prototype/Eclipse/Release/Konditioneringsapparat.hex"
+	"/Applications/Arduino1.5.5.app/Contents/Resources/Java/hardware/tools/avr/bin/avr-objcopy" -O ihex -R .eeprom "/Users/kjschmidt/GitHub/Perconditioning/Prototype/Eclipse/Release/Konditioneringsapparat.elf" "/Users/kjschmidt/GitHub/Perconditioning/Prototype/Eclipse/Release/Konditioneringsapparat.hex"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(C_UPPER_DEPS)$(PDE_DEPS)$(C_DEPS)$(AR)$(EEP)$(FLASH_IMAGE)$(CC_DEPS)$(AR_OBJ)$(C++_DEPS)$(LINK_OBJ)$(CXX_DEPS)$(ASM_DEPS)$(INO_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(ELF)$(CPP_DEPS) Konditioneringsapparat
+	-$(RM) $(C_DEPS)$(AR)$(FLASH_IMAGE)$(EEP)$(CXX_DEPS)$(S_UPPER_DEPS)$(ELF)$(C++_DEPS)$(ASM_DEPS)$(CC_DEPS)$(AR_OBJ)$(CPP_DEPS)$(PDE_DEPS)$(LINK_OBJ)$(C_UPPER_DEPS)$(SIZEDUMMY) Konditioneringsapparat
 	-@echo ' '
 
 .PHONY: all clean dependents

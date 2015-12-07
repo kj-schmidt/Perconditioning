@@ -19,7 +19,7 @@ ExternalMemory::ExternalMemory() {
 bool ExternalMemory::initializeSD(){
 
 	bool statusSD;
-	if(SD.begin(4)){
+	if(SD.begin(4)){ //check if the SD card is connected correctly
 		filename = checkFilesSD();
 		statusSD = true;
 	}
