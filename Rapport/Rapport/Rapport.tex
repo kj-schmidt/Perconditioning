@@ -71,7 +71,7 @@
 \appendix														% Appendiks/bilag start - giver chapter bogstaver i stedet for tal
 \clearforchapter												% Sikrer at pagestylen aktiveres paa den rigtige side
 \phantomsection													% Kunstigt afsnit, som hyperlinks kan 'holde fast i'
-\pdfbookmark[0]{Appendiks}{appendiks}							% Tildeler en klikbar bookmark til den endelige PDF
+%\pdfbookmark[0]{Appendiks}{appendiks}							% Tildeler en klikbar bookmark til den endelige PDF
 
 %% Indstillinger for appendiks (deaktiveret med "%") %%
 
@@ -82,7 +82,21 @@
 
 %% Filer til appendiks %%
 
-\include{appendiks/appendiks1}
+%\include{appendiks/appendiks1}
+\chapter{Appendiks} 
+\input{appendiks/PulsoximeterTest}
+\newpage
+\input{appendiks/samarbejdeaftale}
+\newpage
+\input{appendiks/tidsplan}
+\newpage
+\input{appendiks/fortrolighedsaftale}
+\newpage
+\input{appendiks/kalibrering}
+\newpage
+\input{appendiks/logbog}
+\newpage
+\input{appendiks/vejledermoder}
 
 
 %%%% Bilag %%%%
