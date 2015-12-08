@@ -7,7 +7,7 @@ Konditioneringsapparatet er opbygget af flere blokke, som kan ses på figur \ref
 \end{figure}
 
 \subsection{Oscilumetrisk blodtryks apparat}
-Den oscillometriske blodtryks måle metode, beskrevet i afsnit \ref{noninvasivBloodpressureMeasurement}, er implementeret i implementeringsdokumentet\fixme{reff: implementeringsdokument} og resultaterne er beskrevet i dette afsnit.
+Den oscillometriske blodtryks målemetode, beskrevet i afsnit \ref{noninvasivBloodpressureMeasurement}, er implementeret og resultaterne er beskrevet i dette afsnit (Se beskrivelse i implementeringen under udviklingsdokumentationen).
 
 Det pulserende signal fra tryksensoren, som blodtryksmåleren analyserer er i sin rå (ubehandlet) tilstand støjfyldt. Signalet beskrevet i afsnit \ref{noninvasivBloodpressureMeasurement} på figur \ref{fig:OscillometriskMetode} er meget rent og amplitudehøjderne danner en flot parabel formet kurve. På figur \ref{fig:rawPulseSignal} ses det pulserende signal direkte fra tryksensoren, som er indhyldet i støj. Kurven er stødt faldende, fordi trykket i manchetten langsomt lukkes ud. Ydermere observeres der også varierende amplitudehøjder, som ikke er stødt stigende/faldende, men virker som tilfældigheder.  
 
@@ -47,7 +47,7 @@ Det resulterende analoge filter, er bestemt ud fra test opsætninger og litterat
 \end{figure}
 
 \subsubsection{Digital filtrering}
-For at opnå en glat parabel, som vist på  figur \ref{fig:OscillometriskMetode}, er der implementeret et digitalt filter, som har til opgave at udglatte oscillutions amplituderne fra blodtryksmålingerne. Resultatet af implementeringen kan ses på figur \ref{fig:digitalFilterData}. Det bedste forhold mellem udglatning og reaktionshastighed af filteret er opnået ved et ekspotentielt midlingsfilter (se \ref{eq:ekspotentielmidlingsfilter}) med alfa værdi på 0.15 (se \fixme{reff: implementeringsdokument} for uddybende beskrivelse).  
+For at opnå en glat parabel, som vist på  figur \ref{fig:OscillometriskMetode}, er der implementeret et digitalt filter, som har til opgave at udglatte oscillutions amplituderne fra blodtryksmålingerne. Resultatet af implementeringen kan ses på figur \ref{fig:digitalFilterData}. Det bedste forhold mellem udglatning og reaktionshastighed af filteret er opnået ved et ekspotentielt midlingsfilter (se \ref{eq:ekspotentielmidlingsfilter}) med alfa værdi på 0.15 (Se uddybende beskrivelse i implementeringen under udviklingsdokumentationen).  
 
 \begin{equation}
 y(n)=\alpha*x(n)+(1-\alpha)*y(n-1)
@@ -63,7 +63,7 @@ y(n)=\alpha*x(n)+(1-\alpha)*y(n-1)
 \subsection{Fikseret-ratio} \label{Fikseret-ratio}
 Konditioneringsapparatets mest avancerede egenskab er uden tvivl estimering af blodtrykket. Apparatet anvender den oscillometriske metode hvor det systoliske og diastoliske tryk blandt andet bestemmes ud fra MAP. Under udviklingen af konditioneringsapparatet blev det besluttet at anvende den fikserede-ratio metode for at forsimple udviklingsarbejdet.
 
-Fikseret-ratio metoden anvender empirisk data til at bestemme hvor store oscillationerne i manchettenv skal være i forhold til oscillationerne ved MAP, for at identificerer SYS og DIA. Dette betyder at systolisk og diastolisk tryk er bestemt ved manchettrykket når amplituden af oscillationerne er en ratio af den maksimale værdi.\fixme{ref: Theory of the Oscillometric Maximum and the Systolic and Diastolic Detection Ratios}
+Fikseret-ratio metoden anvender empirisk data til at bestemme hvor store oscillationerne i manchettenv skal være i forhold til oscillationerne ved MAP, for at identificerer SYS og DIA. Dette betyder at systolisk og diastolisk tryk er bestemt ved manchettrykket når amplituden af oscillationerne er en ratio af den maksimale værdi.\fixme{ref: Theory of the Oscillometric Maximum and the Systolic and Diastolic Detection Ratios} 
 
 \begin{minipage}[c]{0.5\textwidth}
 	Ratio værdierne til \textit{konditioneringsapparatet} kunne ikke bestemmes ud fra en større mængde empirisk data fra patienter, på grund af projektets omfang. I stedet er empirisk data blevet indsamlet fra "Fluke biomedicalBP Pump 2" en oscillometrisk blodtrykssimulator (se figur \ref{fig:TheFlukeBiomedicalBPPump2L}). \textit{Konditioneringsapparatet} opsamlede data fra simulatoren, hvilket kan ses på figur \ref{fig:digitalFilterData} og \ref{fig:digitalFilterDataSysMapDia}. Fordi simulatoren indstilles til kendte blodtryksværdier kan de fikserede-ratiorer bestemmes ud fra oscillations amplituden (OA) ved et givent manchettryk. f.eks ved simulering af 120/80 skal oscillations amplituden ved manchettrykket 120mmHg aflæses og forholdet mellem MAP og denne aflæste værdi er den systoliske ratio.
