@@ -17,45 +17,11 @@
 
 %%%% EKSEMPLER (book, article, manual, techreport og misc) %%%%
 
-@online{Billede:1,
-	author={{www.presentation-process.com}},
-	title={Scrum model},
- 	url = {http://www.presentation-process.com/scrum-powerpoint-ppcd.html},
-  	note = {3-12-2015}
-}
-@online{Billede:2,
-	author={{en.wikipedia.org}},
-	title={Trelags model},
- 	url = {https://en.wikipedia.org/wiki/Multitier_architecture},
-  	note = {4-12-2015}
-}
-@online{Billede:3,
-	author={{http://www.halsesf.com/}},
-	title={Okklutionstræning},
- 	url = {http://www.halsesf.com/cns-fatigue/},
-  	note = {3-12-2015}
-}
 
-@online{Manual:1,
-	author={{http://www.strokecenter.org/}},
-	title={Modified Rankin Scale},
- 	url = {http://www.strokecenter.org/wp-content/uploads/2011/08/modified_rankin.pdf},
-  	note = {4-12-2015}
-}
 
-@misc{Manual:2,
-  	author = 	{{Maxim integrated}},
- 	year = 	 	{2015},
-  	month = 	{March},
-  	title = 	{Datasheet, DS1302, Trickle-Charge Timekeeping Chip},
-}
 
-@online{Manual:3,
-	author={{www.arduino.cc}},
-	title={Arduino MotorShield Rev3-schematic},
- 	url = {https://www.arduino.cc/en/uploads/Main/arduino_MotorShield_Rev3-schematic.pdf},
-  	note = {8-12-2015}
-}
+
+
 
 @techreport{RefWorks:21,
 	author={{Dansk Selskab for Apopleksi}},
@@ -69,8 +35,10 @@
   author = 	 {{EDABUSA}},
   year = 	 {2010},
   month = 	 {December},
-  title = 	 {Maunual, H100B, Pulse Oximeter}
-	institution=	{Dansk Selskab for Apopleksi}
+  title = 	 {Maunual
+H100B
+Pulse Oximeter}
+institution={Dansk Selskab for Apopleksi}
 }
 
 @techreport{RefWorks:42,
@@ -85,117 +53,112 @@
 	author={{FCG Software Service}},
 	year={2007},
 	title={Applying 4+1 View Architecture with UML 2},
-	institution={http://www.sparxsystems.com.au/}
+	volume={2015},
+	number={11/26}
 }
 
 @misc{RefWorks:18,
-  	author = 	{{Freescale Semiconductor}},
- 	year = 	 	{2010},
-  	month = 	{May},
-  	title = 	{Datasheet, MPX5100, Integrated Silicon Pressure Sensor On-Chip Signal Conditioned, Temperature Compensated and Calibrated},
-	note =		V13
+  author = 	 {{Freescale Semiconductor}},
+  year = 	 {2010},
+  month = 	 {May},
+  title = 	 {Datasheet
+MPX5100
+  Integrated Silicon Pressure Sensor On-Chip Signal Conditioned, Temperature Compensated and Calibrated}
 }
 
-@online{RefWorks:33,
+@misc{RefWorks:33,
 	author={{Hjernesagen}},
 	year={2015},
 	month={15 April},
 	title={Fakta om apopleksi}
- 	url = {http://www.hjernesagen.dk/om-hjerneskader/bloedning-eller-blodprop-i-hjernen/fakta-om-apopleksi},
-  	note = {27-11-2015}
 }
 
-@manual{RefWorks:14,
-  	author = {{ILITEK}},
-  	title =  {Datasheet, ILI9340, a-Si TFT LCD Single Chip Driver  240RGBx320 Resolution and 262K color},
-	note =	V0.12
+@misc{RefWorks:14,
+  author = 	 {{ILITEK}},
+  title = 	 {Datasheet
+ILI9340
+  a-Si TFT LCD Single Chip Driver  240RGBx320 Resolution and 262K color}
 }
 
-@manual{RefWorks:17,
- 	author = {{Microchip}},
-  	year = 	 {2009},
-  	month =  {November},
-  	title =  {Datasheet, MCP6001/1R/1U/2/4, 1 MHz, Low-Power Op Amp},
-	note =	V12
+@misc{RefWorks:17,
+  author = 	 {{Microchip}},
+  year = 	 {2009},
+  month = 	 {November},
+  title = 	 {Datasheet
+MCP6001/1R/1U/2/4
+1 MHz, Low-Power Op Amp}
 }
 
-@manual{RefWorks:12,
+@misc{RefWorks:12,
   author = 	 {{Motorola}},
   year = 	 {1996},
-  title = 	 {Datasheet, MC7800, Series}
+  title = 	 {Datasheet
+MC7800 Series}
 }
 
 @misc{RefWorks:11,
-  	author = 	 {{NXP Semiconductors}},
-  	year = 	 {2009},
-  	month = 	 {4/5},
-  	title = 	 {Datasheet, 74AHCT14,  Hex inverting Schmitt trigger},
-	note =	V5
+  author = 	 {{NXP Semiconductors}},
+  year = 	 {2009},
+  month = 	 {4/5},
+  title = 	 {Datasheet
+  74AHC14; 74AHCT14  Hex inverting Schmitt trigger}
 }
 
-@online{RefWorks:36,
+@misc{RefWorks:36,
 	author={{Pivotal Software}},
 	title={Tracker simplifies collaboration and crystallizes priorities to help your teams focus on what’s essential.}
- 	url = {https://www.pivotaltracker.com/},
-  	note = {27-11-2015}
 }
 
-@manual{RefWorks:16,
+@misc{RefWorks:16,
   author = 	 {{STMicroelectronics}},
   year = 	 {2000},
   month = 	 {January},
-  title = 	 {Datasheet, L298, DUAL FULL-BRIDGE DRIVER}
+  title = 	 {Datasheet
+L298
+DUAL FULL-BRIDGE DRIVER}
 }
 
-@online{RefWorks:43,
+@misc{RefWorks:43,
 	author={{Sundhedsstyrelsen}},
 	year={2015},
-	month={August},
-	title={CE-mærkning},
- 	url = {http://sundhedsstyrelsen.dk/da/medicin/medicinsk-udstyr/ce-maerkning},
-  	note = {1-12-2015}
-
+	month={26 August},
+	title={CE-mærkning}
 }
 
-@online{RefWorks:41,
+@misc{RefWorks:41,
 	author={{Sundhedsstyrelsen}},
 	year={2013},
-	month={March},
-	title={Introduktion til klinisk afprøvning af medicinsk udstyr},
- 	url = {http://sundhedsstyrelsen.dk/da/medicin/medicinsk-udstyr/klinisk-afproevning/introduktion},
-  	note = {1-12-2015}
+	month={14 March},
+	title={Introduktion til klinisk afprøvning af medicinsk udstyr}
 }
 
-@online{RefWorks:40,
+@misc{RefWorks:40,
 	author={{www.Arduino.cc}},
-	title={Arduino MEGA 2560 \& Genuino MEGA 2560},
- 	url = {https://www.arduino.cc/en/Main/ArduinoBoardMega2560},
-  	note = {29-11-2015}
-
+	title={Arduino MEGA 2560 & Genuino MEGA 2560}
 }
 
 @misc{RefWorks:15,
-  author = 	 {Rick Steiner and Alan Moore},
+  author = 	 {Rick Steiner Alan Moore},
   year = 	 {2009},
   month = 	 {September},
-  title = 	 {Tutorial, OMG Systems Modeling Language  (OMG SysMLTM)   }
+  title = 	 {Tutorial
+OMG Systems Modeling Language  (OMG SysMLTM)   }
 }
 
 @misc{RefWorks:39,
   author = 	 {Grethe Andersen},
   year = 	 {2014},
-  month = 	 {December},
-  title = 	 {Study Protocol, Effect of Remote Ischemic Per- and Postconditioning on clinical outcome in patients with Acute Ischemic Stroke: A Multicentre randomized controlled clinical study.}
+  month = 	 {8 December},
+  title = 	 {Study Protocol
+  Effect of Remote Ischemic Per- and Postconditioning on clinical outcome in patients with Acute Ischemic Stroke: A Multicentre randomized controlled clinical study.}
 }
 
-@online{RefWorks:35,
+@misc{RefWorks:35,
 	author={Kent Beck and James Grenning and ...}
- 	url = {http://www.agilemanifesto.org/iso/dk/},
-  	note = {1-12-2015}
 }
 
 @book{RefWorks:31,
-	author={Braude, Eric J. and Bernstein,Michael E.,},
+	author={Braude, Eric J., Bernstein,Michael E.,},
 	year={2011},
 	title={Software engineering : modern approaches},
 	publisher={J. Wiley \& Sons},
@@ -210,7 +173,8 @@
 	author={Lars Ehlers and Lotte Groth Jensen and Wilhelmina Maria Müskens and Helle Bødker Madsen},
 	year={2006},
 	month={25 September},
-	title={MTV, Økonomiske konsekvenser ved indførelse af trombolysebehandling i Danmark},
+	title={MTV
+Økonomiske konsekvenser ved indførelse af trombolysebehandling i Danmark},
 	institution={MTV-enheden ved Århus Universitetshospital i samarbejde med Hjerteforeningen},
 	isbn={87-991564-0-7}
 }
@@ -261,13 +225,11 @@
 	publisher={Springer}
 }
 
-@online{RefWorks:34,
+@misc{RefWorks:34,
 	author={Christina Rostrup Kruuse},
 	year={2014},
-	month={September},
+	month={29 September},
 	title={Behandling ved apopleksi}
- 	url = {https://www.sundhed.dk/borger/sygdomme-a-aa/hjerte-og-blodkar/sygdomme/apopleksi/behandling-ved-apopleksi/},
-  	urldate = {1-12-2015}
 }
 
 @article{RefWorks:13,
@@ -299,7 +261,7 @@
 @article{RefWorks:38,
 	author={Joshua Slysz and Jack Stultz and Jamie F. Burr},
 	year={2015},
-	title={The efficacy of blood flow restricted exercise: A systematic review \& meta-analysis},
+	title={The efficacy of blood flow restricted exercise: A systematic review & meta-analysis},
 	journal={Journal of Science and Medicine in Sport}
 }
 
@@ -313,6 +275,9 @@
 	number={3},
 	pages={537-542},
 	note={JID: 8306882; ppublish},
+	abstract={For more than half a century measurement of blood pressure in the doctor's office using a mercury sphygmomanometer and the auscultatory method has been the cornerstone for hypertension management. However, due to the environmental and service issues mercury devices will not be available in the near future. As the mercury sphygmomanometer is being progressively eliminated from clinical use, it is being replaced by a variety of devices, which may not have been validated. This change in the practice of measurement may have an unpredictable impact on the threshold levels used for the diagnosis of hypertension and may also influence the management of hypertension. This expert document provides (i) information on the current availability of technologies and devices with potential for professional use (oscillometric, hybrid, aneroid and mercury devices) and the advantages and limitations of each one of them, and (ii) guidance on the requirements and selection of mercury-free blood pressure monitors for professional use. With the increasing use of automated oscillometric devices it is likely that the auscultatory technique will soon become redundant. However, consideration will be given to some of the technical aspects of the oscillometric technique and to the educational aspects of auscultation that may make it premature to abandon the technique altogether.},
+	keywords={Blood Pressure Determination/instrumentation; Blood Pressure Monitors; Humans; Primary Health Care},
+	isbn={1473-5598; 0263-6352},
 	language={eng}
 }
 

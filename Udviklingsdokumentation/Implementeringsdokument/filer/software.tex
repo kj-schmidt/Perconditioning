@@ -15,3 +15,6 @@ Oversigtsklassediagram, se figur \ref{fig:classDiagramSimple}, som fortæller st
 \input{Implementeringsdokument/filer/DataLaget}
 
 \input{Implementeringsdokument/filer/helpMetoder}
+
+\section{Test af software}
+Det var ikke muligt at debugge direkte på arduino'en med \textit{Eclipse}, da den ikke understøttede debugging på hardware. Step by step gennemgang af koden, med breakpoints, har derfor ikke været muligt. Test af de enkelte software elementer i unit test og implementationstest, er sket gennem udprint på seriel porten. Koden er altså skrevet med variabel udskrift og flag, som udskrives på serielporten, for at sikre at de enkelte metoder fungerer efter hensigten. Eksempel på seriel udprintet data kan ses på figur \ref{fig:bpMeasurement}.

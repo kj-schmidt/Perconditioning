@@ -11,7 +11,7 @@ Det analoge filter design har blandt andet funktionen at isolerer og forstærke 
 \end{figure}
 CuffPressure er forstærket DC og Oscillations er forstærket AC mellem 0.22Hz og 11Hz
 
-Oscillationerne i manchetten isoleres med 11Hz anden ordens butterworth for at opnå god dæmpning på 50Hz brummen. L.A. Geddes\fixme{REFERENCE} et al. Sætter knæk frekvensen til 30Hz, men efter som at puls signalet befinder sig på ca 1Hz og at Geddes med høj sandsynlighed har anvendt kaskade filtre sættes butterworth filterets knæk til 11Hz, svarende til elve afledte af puls grund frekvensen. Højpasfilteret fjerner DC ved at knække ved 0.22Hz. For at forstærke oscillationerne op i en størrelse, som arduinoen kan sample forstærkes det pulserende signal med gain X101.
+Oscillationerne i manchetten isoleres med 11Hz anden ordens butterworth for at opnå god dæmpning på 50Hz brummen. \cite{RefWorks:8} Sætter knæk frekvensen til 30Hz, men efter som at puls signalet befinder sig på ca 1Hz og at Geddes med høj sandsynlighed har anvendt kaskade filtre sættes butterworth filterets knæk til 11Hz, svarende til elve afledte af puls grund frekvensen. Højpasfilteret fjerner DC ved at knække ved 0.22Hz. For at forstærke oscillationerne op i en størrelse, som arduinoen kan sample forstærkes det pulserende signal med gain X101.
 
 \section{Komponent udregninger}
 \input{Implementeringsdokument/filer/filterCalculations}
@@ -48,9 +48,9 @@ Det ses meget tydeligt på billede (se figur \ref{fig:filterthree} og \ref{fig:f
 
 \begin{figure}[H]
 	\includegraphics[width=\textwidth]{Implementeringsdokument/billeder/OptimalBlodtryksmaling.png}
-	\caption{Signal fra oscillometrisk blodtryksmåling }\label{fig:goodMeasurement}
+	\caption{Signal fra oscillometrisk blodtryksmåling. Kilde: (\cite{RefWorks:8}) }\label{fig:goodMeasurement}
 \end{figure}
-Reference \fixme{Billedet er taget fra CHARACTERIZATION 	 OF THE OSClLLOMETRlC METHOD FOR MEASURING INDIRECT BLOOD 	PRESSURE}
+
 
 \section{Digital filtrering} \label{title:digitalFilter}
 Til digital filtrering er der anvendt et ekspotentiel midlingsfilter med zero group delay.

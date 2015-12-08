@@ -38,14 +38,14 @@ Filtreringen af signalet er opdelt i isolering af manchet tryk og isolering af p
 \end{figure}
 
 \section{Timer}
-For at kunne lave tidsstempler til målinger med konditioneringsapparatet var prototypen nød til at have en real time clock, som kunne holde korrekt tid, selvom apparatet blev slukket. Dette er opnået ved hjælp af en \textit{timekeeping chip} model DS1302(Se datablad \fixme{reference til datablad DS1302}. Når prototypen er tændt forsynes den via konditioneringsapparatets strømforsyning, og når prototypen er slukket forsynes DS1302 med et knapcelle batteri. Se figur \ref{fig:timerschematic} for at se hvordan timeren er komplet på arduino. 
+For at kunne lave tidsstempler til målinger med \textit{konditioneringsapparatet} var prototypen nød til at have en real time clock, som kunne holde korrekt tid, selvom apparatet blev slukket. Dette er opnået ved hjælp af en \textit{timekeeping chip} model DS1302 (Se datablad \cite{Manual:2}. Når prototypen er tændt forsynes den via \textit{konditioneringsapparatets} strømforsyning, og når prototypen er slukket forsynes DS1302 med et knapcelle batteri. Se figur \ref{fig:timerschematic} for at se hvordan timeren er komplet på arduino. 
 \begin{figure}[H]
 	\includegraphics[trim = 15 30 0 0, clip = true, width = \textwidth]{Implementeringsdokument/billeder/Timer_schem.pdf}
 	\caption{Oversigt over hvordan DS1302 er forbundet}\label{fig:timerschematic}
 \end{figure}
 
 \section{Display}
-Til styring af bruger interfacet og feedback. Displayet er 2.2" med en opløsning på 320x240. Displayet styres med IC'en ILI9340 (Se datablad \fixme{Reference til ILI9340}). Kommunikation med displayet foregår via en SPI forbindelse som er koblet til Arduino Mega's digitale port 50, 51 og 52. For komplet interface se figur
+Til styring af bruger interfacet og feedback. Displayet er 2.2" med en opløsning på 320x240. Displayet styres med IC'en ILI9340 (Se datablad \cite{RefWorks:14}). Kommunikation med displayet foregår via en SPI forbindelse som er koblet til Arduino Mega's digitale port 50, 51 og 52. For komplet interface se figur
 \begin{figure}[H]
 	\includegraphics[trim = 10 30 0 0, clip = true, width = \textwidth]{Implementeringsdokument/billeder/Display_schem.pdf}
 	\caption{Oversigt over hvordan ILI9340 er forbundet}\label{fig:displayschematic}
@@ -53,7 +53,7 @@ Til styring af bruger interfacet og feedback. Displayet er 2.2" med en opløsnin
 
 
 \section{Motor shield}
-Arduino motor shield implementerer L298P (se figur \ref{fig:shieldfront} og \ref{fig:shieldback} med selvinduktion beskyttelse og en galvanisk adskillelse af motor forsyning og den logiske strømforsyning. Schematics over boarded kan ses i bilag \fixme{reference til datablad}. Desuden er motor shield modificeret, så det har en ekstern strøm forsyning på 12V. Derfor er 5V forbindelse mellem arduino og motor shield brudt.
+Arduino motor shield implementerer L298P (se figur \ref{fig:shieldfront} og \ref{fig:shieldback} med selvinduktion beskyttelse og en adskillelse af motor forsyning og den logiske strømforsyning. Schematics over boarded er taget fra (\cite{Manual:3}). Desuden er motor shield modificeret, så det har en ekstern strøm forsyning på 12V. Derfor er 5V forbindelse mellem arduino og motor shield brudt.
 \begin{figure}[H]
 	\begin{minipage}{0.5\textwidth}
 		\includegraphics[width = \textwidth]{Implementeringsdokument/billeder/shieldforside.png}
