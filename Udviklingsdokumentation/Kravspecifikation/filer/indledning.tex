@@ -1,18 +1,18 @@
 	\chapter{Indledning}
-	Dokumentet specificere de krav der eksisterer til produktet, \textit{Konditioneringsapparatet}, som har til formål at udføre konditioneringsbehandling på patienter der har fået en apopleksi. Apparatet udvikles i samarbejde med læge Rolf Blauenfeldt, Neurologisk afsnit, Aarhus Universitetshospital (AUH). Med udgangspunkt i et blodtryksapparat skal produktet kunne måle blodtrykket og derefter skabe arteriel okklusion i en specificeret tidsperiode, efterfulgt af en pause. Dette gentages i et fastsat antal cyklusser. Produktet indgår i et forskningsprojekt, hvor patienten med AIS som udgangspunkt skal behandles med RIPC så snart de møder præhospitalet, og apparatet og behandling forsættes under og efter indskrivelse på hospitalet. 
-	Kravene til \textit{konditioneringsapparatet} er fastsat igennem flere faser. Som udgangspunkt er kravene blevet specificeret af projektets ophavsmand, Rolf Blauenfeldt. Dette er sket igennem flere møder og mailkorrespondancer i projektets opstartsfase. Kravene omkring produktet som også skal kunne håndtere okklusionstræning er kommet til i samarbejde med vejleder, Peter Johansen. 
+	Dokumentet specificerer de krav, der eksisterer til produktet, \textit{Konditioneringsapparatet}, som har til formål at udføre konditioneringsbehandling på patienter, der har fået en apopleksi. Apparatet udvikles i samarbejde med læge Rolf Blauenfeldt, Neurologisk afsnit, Aarhus Universitetshospital (AUH). Med udgangspunkt i et blodtryksapparat skal produktet kunne måle blodtrykket og derefter skabe arteriel okklusion i en specificeret tidsperiode, efterfulgt af en pause. Dette gentages i et fastsat antal cyklusser. Produktet indgår i et forskningsprojekt, hvor patienten med AIS, som udgangspunkt skal behandles med RIC så snart de møder præhospitalet, derefter fortsætter behandlingen under og efter udskrivelse fra hospitalet 
+	Kravene til \textit{konditioneringsapparatet} er fastsat igennem flere faser. Som udgangspunkt er kravene blevet specificeret af projektets ophavsmand, Rolf Blauenfeldt. Dette er sket igennem flere møder og mailkorrespondancer i projektets opstartsfase. Kravet omkring produktet også skal kunne udføre okklusionstræning, er kommet til senere, efter opfordring fra vejleder, Peter Johansen.
 	
 	\section{Formål}
-	Kravspecifikation udarbejdes for at sikre enighed mellem kunden, vejleder og projektgruppen inden udviklingsfasen igangsættes. Dokumentet beskriver samtlig funktionaliteter for \textit{konditioneringsapparatet}. Udviklingen af prototypen og hele projektet er en iterativ proces og derfor kan krav opdateres undervej. 
+	Kravspecifikation udarbejdes for at sikre enighed mellem kunden, vejleder og projektgruppen inden udviklingsfasen igangsættes. Dokumentet beskriver samtlig funktionaliteterne for \textit{konditioneringsapparatet}. Udviklingen af prototypen og hele projektet er en iterativ proces og derfor kan krav opdateres undervej. 
 	
 	\section{Læsevejledning og dokumentstruktur}
-	Dokumentet er struktureret således at første beskrives det overordnede system som helhed. Dernæst beskrives de funktionelle krav til produktet. De funktionelle krav er struktureret som fully dressed use cases og beskriver forskellige krav igennem scenarier. De ikke funktionelle krav afgrænser projektet, og er beskrevet i punktform. Til sidst dokumentet beskrives user interfacet. 
+	Dokumentet er struktureret således at først beskrives det overordnede system som helhed. Dernæst beskrives de funktionelle krav til produktet. De funktionelle krav er struktureret som fully dressed use cases og beskriver forskellige krav igennem scenarier. De ikke-funktionelle krav afgrænser projektet, og er beskrevet i punktform. Til sidst dokumentet beskrives user interfacet. 
 		\newpage
 	\section{Versionshistorik}
 		\begin{longtable}{ |p{0.24\textwidth} |p{0.42\textwidth}| p{0.25\textwidth}|  } 
 			\hline
 			\rowcolor{usDef}
-			\textbf{Versions nummer} &  \textbf{Ændring} & \textbf{Dato og initialer} \\
+			\textbf{Versionsnummer} &  \textbf{Ændringer} & \textbf{Dato og initialer} \\
 			\hline
 			0.1 &  Oprettelse af dokument & 12.09.15 KJS \\
 			\hline
@@ -32,11 +32,12 @@
 
 	
 	\section{Definitioner og forkortelser}
-	\begin{longtable}{ |p{0.34\textwidth} |p{0.6\textwidth}| } 
+	\begin{longtable}{ |p{0.30\textwidth} |p{0.64\textwidth}| } 
 		\hline
-		\textbf{Udtryk / Forkortelse} &  \textbf{Forklaring} \\
+		\rowcolor{usDef}
+		\textbf{Udtryk / Forkortelser} &  \textbf{Forklaring} \\
 		\hline
-		RIPC & Remote ischemic pre/per/post conditioning. Længerevarende okklusion af ydre ekstremitet, efterfulgt af en deflations fase\\
+		RIP & Remote ischemic pre/per/post conditioning. Længerevarende okklusion af ydre ekstremitet, efterfulgt af en reperfusionsfasen\\
 		\hline
 		AIS / apopleksi & Acute ischemic stroke, en pludseligt opstået neurologisk skade eller udfald på baggrund af iskæmi (nedsat blodforsyning) i hjernen \\
 		\hline
@@ -46,11 +47,13 @@
 		\hline
 		\textit{Okklusionsfase} & Periode hvor på manchetten skaber arteriel okklusion \\
 		\hline
-		\textit{Deflationsfase} & Periode der er altid er efterfulgt en okklusionsfase, hvor manchetten er deflateret i under 50mmHg\\
+		\textit{reperfusionsfasen} & Periode der er altid er efterfulgt en okklusionsfase, hvor manchetten er deflateret i under 50mmHg\\
 		\hline
-		\textit{Cyklus} & Forløb bestående af én \textit{okklusionfase} og én \textit{deflationsfase} \\
+		\textit{Cyklus} & Forløb bestående af én \textit{okklusionfase} og én \textit{reperfusionsfasen} \\
 		\hline
 		\textit{Gennemført afklemning} & Boolean værdi der bruges til at bestemme om en cyklus er gennemfør eller ej \\
+		\hline
+		\textit{Afbrudt afklemning} & Boolean værdi, der er 1 hvis konditioneringsbehandling bliver afbrudt \\ 
 		\hline
 		\textit{Tid pr cyklus} & Værdi, der angiver hvor mange sekunder en cyklus skal være. For at simplificere use cases er denne værdi fastsat til 5 minutter, men det kan ændres \\
 		\hline
@@ -58,6 +61,7 @@
 		\hline
 	\end{longtable}
 	
+	\newpage
 	\section{Baggrund}
 	Beskrivelse af projektet: 
 	\begin{quote}
@@ -68,9 +72,9 @@
 
 		
 	\section{Samarbejdspartner}
-	Bachelor gruppen kunde er Rolf Blauenfeldt, Neurologisk afsnit, Aarhus Universitetshospital (AUH). Projektet er udbudt af Rolf og det er i samarbejde med ham at projektet er blevet specificeret 
+	Bachelorgruppen kunde er Rolf Blauenfeldt, Neurologisk afsnit, Aarhus Universitetshospital (AUH). Projektet er udbudt af Rolf og det er i samarbejde med ham at projektet er blevet specificeret 
 	
-	Peter Johansen er vejleder for bachelor gruppen. Der afholdes faste møder med vejlederen hver anden uge, hvor der gives det status over projektet og diskuteres aktuelle problemstilling
+	Peter Johansen er vejleder for bachelorgruppen. Der afholdes faste møder med vejlederen hver anden uge, hvor der gives det status over projektet og diskuteres aktuelle problemstilling
 	
-	Anders Esager og Anders Toft er bachelor gruppen review partner. De har også underskrevet tavshedserklæring og har derfor mulighed for at blive sat ind i projektet og fungere som sparringspartnere. 
+	Anders Esager og Anders Toft er bachelorgruppens review partnere. De har også underskrevet en tavshedserklæring og har derfor mulighed for at blive sat ind i projektet og fungere som sparringspartnere. 
 	

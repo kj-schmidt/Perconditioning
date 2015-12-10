@@ -51,7 +51,7 @@ Denne klasse gør brug af to arduino biblioteker hhv. SD og SPI.  De to bibliote
 \\ \textbf{Beskrivelse: }  Denne metode generer et 6-cifret tilfældigt nummer. Arduinos indbyggede funktion \textit{random()} laver et tilfældigt nummer i det interval man specificerer, men den generer dem i samme rækkefølge hver gang. For at gøre nummeret “mere tilfældigt” styres rækkefølgen af de generede numre af værdien fra en analog port, som svæver. Den tilfældige HEX værdi skal bruges som ID for patienten der modtager konditioneringsbehandling 
 \begin{lstlisting}
 	randomSeed(analogRead(A5)); 
-	long randNumber = random(100000, 999999); /
+	long randNumber = random(100000, 999999); 
 	String randNumberHEX = String(String(randNumber, HEX) +	".csv");
 	return randNumberHEX; 
 \end{lstlisting}
