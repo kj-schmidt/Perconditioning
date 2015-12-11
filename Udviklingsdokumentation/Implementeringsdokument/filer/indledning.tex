@@ -2,7 +2,7 @@
 	Implementeringsdokument giver et detaljeret design overblik over hvordan både hardware og software er blevet implementeret i udviklingen af prototypen. Dokumentet indeholder beskrivelse af strukturen af software klasser og deres funktionalitet. For hardware delen er der beskrevet de forskellige hardware blokke og hvordan de er blevet implementeret for at kunne leve op til kravene stillet i kravspecifikationen. 
 	
 	\section{Formål}
-	Dette dokument har til formål at give læseren et teknisk indblik i \textit{Konditioneringsapparatets} funktionalitet og opbygning, samt skabe fuld forståelse for alle systemets under dele gennem en detaljeret design beskrivelse. I forlængelse af system arkitekturen, som beskriver hvordan systemet skulle designes, beskriver dette dokument det færdig design i detaljer og hvordan det har opnået sin funktionalitet
+	Dette dokument har til formål at give læseren et teknisk indblik i \textit{Konditioneringsapparatets} funktionalitet og opbygning, samt skabe fuld forståelse for alle systemets under dele gennem en detaljeret design beskrivelse. I forlængelse af system designet, som beskriver hvordan systemet skulle designes, beskriver dette dokument det færdig design i detaljer og hvordan det har opnået sin funktionalitet
 	
 	\section{Projektreferencer}
 	\begin{itemize}
@@ -43,9 +43,9 @@
 		\hline
 		Modeswitch & Knap til at styre hvilket program Konditioneringsapparatet skal køre \\
 		\hline
-		Tid pr cyklus & Variable som indeholder hvor mange sekunder et konditioneringscyklus skal vare \\
+		\textit{Tid pr cyklus} & Variable som indeholder hvor mange sekunder et konditioneringscyklus skal vare \\
 		\hline
-		Antal cyklusser & Variable som indeholder hvor mange cyklusser et konditioneringsforløb skal vare \\
+		\textit{Antal cyklusser} & Variable som indeholder hvor mange cyklusser et konditioneringsforløb skal vare \\
 		\hline
 		EEPROM & Intern flash hukommelse på arduino som der kan skrives og læses fra \\
 		\hline

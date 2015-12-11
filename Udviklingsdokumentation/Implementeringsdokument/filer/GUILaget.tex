@@ -27,10 +27,11 @@ TFTscreen.setTextColor(ILI9340_WHITE);  TFTscreen.setTextSize(2);
 TFTscreen.setCursor(0, 0);
 TFTscreen.println("ID: ");
 \end{lstlisting}
-Først fortælles hvilken farve teksten skal have, dernæst tekststørrelse og placering. Til sidst angives hvilken tekst der skal printes på skærmen
+Først fortælles hvilken farve teksten skal have, dernæst tekststørrelse og placering. Til sidst angives hvilken tekst der skal printes på skærmen.
 
 \begin{figure}[H]
-	\includegraphics[width=\textwidth]{Implementeringsdokument/billeder/conditioning.png}
+	\centering
+	\includegraphics[width=0.6\textwidth]{Implementeringsdokument/billeder/conditioning.png}
 	\caption{Layout på displayet når initConditioning() bliver kaldt}\label{pic:conditiong}
 \end{figure}
 
@@ -40,7 +41,8 @@ Først fortælles hvilken farve teksten skal have, dernæst tekststørrelse og p
 \\ \textbf{Beskrivelse: }  Denne metode bruges til at opsætte skærmen for okklusionstræningsforløb. Der skrives tid og enheden for tryk på skærmen. Se billedet nedenfor for layoutet. 
 
 \begin{figure}[H]
-	\includegraphics[width=\textwidth]{Implementeringsdokument/billeder/occlusion.png}
+	\centering
+	\includegraphics[width=0.6\textwidth]{Implementeringsdokument/billeder/occlusion.png}
 	\caption{Layout på displayet når initOcclusion() bliver kaldt}\label{pic:occlusion}
 \end{figure}
 
@@ -50,7 +52,8 @@ Først fortælles hvilken farve teksten skal have, dernæst tekststørrelse og p
 \\ \textbf{Beskrivelse: } Her opsættes skærmen for setup programmet. Teksten “\textit{Tid pr cyklus}” og “\textit{Antal cyklusser}” er faste værdi på skærmen. Men værdierne hentes fra logik laget, så de er opdateret. 
 
 \begin{figure}[H]
-	\includegraphics[width=\textwidth]{Implementeringsdokument/billeder/setup.png}
+	\centering
+	\includegraphics[width=0.6\textwidth]{Implementeringsdokument/billeder/setup.png}
 	\caption{Layout på displayet når initSetup() bliver kaldt}\label{pic:setup}
 \end{figure}
 
@@ -62,7 +65,7 @@ Først fortælles hvilken farve teksten skal have, dernæst tekststørrelse og p
 \subsubsection{Metode: updateConditioning()}
 \textbf{Parameter: } \textit{volatile bool *buttonPressed, volatile bool *btPressed}
 \\ \textbf{Returtype: } \textit{void}
-\\ \textbf{Beskrivelse: } Metoden modtager to pointers, som peger på værdien af \textit{buttonPressed} og \textit{btPressen}. Derfor kan metoden i princippet være i 4 forskellige stadier (Se sandhedstabel \ref{tabel:truthtable} )
+\\ \textbf{Beskrivelse: } Metoden modtager to pointers, som peger på værdien af \textit{buttonPressed} og \textit{btPressen}. Derfor kan metoden i princippet være i 4 forskellige stadier (Se sandhedstabel \ref{tabel:truthtable}).
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|l|l|l|l|l|}
@@ -129,7 +132,7 @@ Metoden håndtere ikke hvis både \textit{*buttonPressed} og \textit{btPressed} 
 \subsubsection{Metode: updateTimeLeft()}
 \textbf{Parameter: } \textit{unsigned short value}
 \\ \textbf{Returtype: } \textit{void}
-\\ \textbf{Beskrivelse: } Denne metode er lavet til opdatere tiden under konditioneringsforløbet. Da det kræver fem kald af metoder fra biblioteket \textit{Adafruit\_ILI9340} for at skrive tekst på skærmen er dette indkapslet i én metode, som blot skal have en String value. Metoden sørge også for at tiden kun opdateres når sekund tælleren på uret ændres
+\\ \textbf{Beskrivelse: } Denne metode er lavet til opdatere tiden under konditioneringsforløbet. Da det kræver fem kald af metoder fra biblioteket \textit{Adafruit\_ILI9340} for at skrive tekst på skærmen er dette indkapslet i én metode, som blot skal have en String value. Metoden sørge også for at tiden kun opdateres når sekund tælleren på uret ændres.
 
 \subsubsection{Metode: updateNoOfCycles()}
 \textbf{Parameter: } \textit{String value}
@@ -137,7 +140,7 @@ Metoden håndtere ikke hvis både \textit{*buttonPressed} og \textit{btPressed} 
 \\ \textbf{Beskrivelse: } Når metoden kaldes opdateres antallet cyklusser på skærmen. Da værdien som metoden modtager indeholder to gange så mange cyklusser som der skal foretages, håndtere metoder at der kun hvis det eksakte antal. Grunden til at der regnes med to gange så mange cyklusser skyldes at programmet intern skal håndtere en okklusion fase og en reperfusions fase for hver cyklus. Håndtering foregår på følgende måde: 
 
 \begin{lstlisting}
-	if(value%2)
+	if(value %2)
 	valToDisplay = (valToDisplay+1)/2;
 	else
 	valToDisplay = valToDisplay/2;
@@ -151,7 +154,7 @@ Metoden håndtere ikke hvis både \textit{*buttonPressed} og \textit{btPressed} 
 \subsubsection{Metode: updateBloodPressure}
 \textbf{Parameter: } \textit{unsigned short sys, unsigned short dia, unsigned short map)} 
 \\ \textbf{Returtype: } \textit{void}
-\\ \textbf{Beskrivelse: } Metoden modtager tre parameter med systolisk, diastolisk og middel arterie trykket. Disse værdi konverteres til en String og skrives på skærmen i følgende format: \textit{"120/80(93)"}
+\\ \textbf{Beskrivelse: } Metoden modtager tre parameter med systolisk, diastolisk og middel arterie trykket. Disse værdi konverteres til en String og skrives på skærmen i følgende format: \textit{"120/80(93)"}.
 
 \subsection{Klasse: Buttons}
 
@@ -173,7 +176,7 @@ Metoden håndtere ikke hvis både \textit{*buttonPressed} og \textit{btPressed} 
 \subsubsection{Metode: startStopOcclusion()}
 \textbf{Parameter: } \textit{volatile bool startButtonPressed}
 \\ \textbf{Returtype: } \textit{void}
-\\ \textbf{Beskrivelse: } Her invertes værdien af \textit{startButtonPressed} og returneres. Hvis denne værdi er falsk kaldes en metode fra display klassen som fjerner en værdi på skærmen og der sættes et tidsstempel, fordi at værdien af \textit{startButtonPressed} går fra falsk til sand og derfor skal der startes et okklusionstræningsforløb 
+\\ \textbf{Beskrivelse: } Her invertes værdien af \textit{startButtonPressed} og returneres. Hvis denne værdi er falsk kaldes en metode fra display klassen som fjerner en værdi på skærmen og der sættes et tidsstempel, fordi at værdien af \textit{startButtonPressed} går fra falsk til sand og derfor skal der startes et okklusionstræningsforløb. 
 
 \subsubsection{Metode: changer()}
 \textbf{Parameter: } \textit{volatile unsigned short state}

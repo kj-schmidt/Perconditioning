@@ -25,17 +25,17 @@
 \subsubsection{Metode: turnMotorOff()}
 \textbf{Parameter: } 
 \\ \textbf{Returtype: } \textit{void}
-\\ \textbf{Beskrivelse: }   Funktionen stopper for motoren ved at sætte pin 3 lav
+\\ \textbf{Beskrivelse: }   Funktionen stopper for motoren ved at sætte pin 3 lav.
 
 \subsubsection{Metode: turnValveOn()}
 \textbf{Parameter: } 
 \\ \textbf{Returtype: } \textit{void}
-\\ \textbf{Beskrivelse: }  Funktionen åbner for ventilen ved at sætte pin 11 høj
+\\ \textbf{Beskrivelse: }  Funktionen åbner for ventilen ved at sætte pin 11 høj.
 
 \subsubsection{Metode: turnValveOff()}
 \textbf{Parameter: } 
 \\ \textbf{Returtype: } \textit{void}
-\\ \textbf{Beskrivelse: }  Funktionen lukker for ventilen ved at sætte pin 11 lav
+\\ \textbf{Beskrivelse: }  Funktionen lukker for ventilen ved at sætte pin 11 lav.
 
 \subsection{Klasse: ExternalMemory}
 Denne klasse gør brug af to arduino biblioteker hhv. SD og SPI.  De to biblioteker muliggøre kommunikation med SD kortet via en SPI forbindelse. 
@@ -48,7 +48,7 @@ Denne klasse gør brug af to arduino biblioteker hhv. SD og SPI.  De to bibliote
 \subsubsection{Metode: generateRandomNumber()} \label{title:RandomNumber}
 \textbf{Parameter: } 
 \\ \textbf{Returtype: } \textit{String}
-\\ \textbf{Beskrivelse: }  Denne metode generer et 6-cifret tilfældigt nummer. Arduinos indbyggede funktion \textit{random()} laver et tilfældigt nummer i det interval man specificerer, men den generer dem i samme rækkefølge hver gang. For at gøre nummeret “mere tilfældigt” styres rækkefølgen af de generede numre af værdien fra en analog port, som svæver. Den tilfældige HEX værdi skal bruges som ID for patienten der modtager konditioneringsbehandling 
+\\ \textbf{Beskrivelse: }  Denne metode generer et 6-cifret tilfældigt nummer. Arduinos indbyggede funktion \textit{random()} laver et tilfældigt nummer i det interval man specificerer, men den generer dem i samme rækkefølge hver gang. For at gøre nummeret “mere tilfældigt” styres rækkefølgen af de generede numre af værdien fra en analog port, som svæver. Den tilfældige HEX værdi skal bruges som ID for patienten der modtager konditioneringsbehandling.
 \begin{lstlisting}
 	randomSeed(analogRead(A5)); 
 	long randNumber = random(100000, 999999); 
@@ -107,7 +107,7 @@ For at sikre at alle filer på SD kortet kontrolleres, kører metode i et loop, 
 \subsubsection{Metode: getFilename()}
 \textbf{Parameter: }\textit{}
 \textbf{Returtype: } \textit{String}
-\textbf{Beskrivelse: } Simple metode der returnere en lokal variable, som indeholder navnet på den fundne .csv fil
+\textbf{Beskrivelse: } Simple metode der returnere en lokal variable, som indeholder navnet på den fundne .csv fil.
 
 \subsection{Klasse: InternalMemory}
 Klassen gør brug af bibliotektet \textit{EEPROM}, dette bibliotek gør kommunikation muligt med EEPROMen. 
@@ -127,7 +127,7 @@ Klassen gør brug af bibliotektet \textit{EEPROM}, dette bibliotek gør kommunik
 \subsubsection{Metode: getCuffPressure()}
 \textbf{Parameter: } 
 \\ \textbf{Returtype: } \textit{unsigned short }
-\\ \textbf{Beskrivelse: } Returnerer det aktuelle tryk i manchetten ved at sample 10 gange og tage middelværdien
+\\ \textbf{Beskrivelse: } Returnerer det aktuelle tryk i manchetten ved at sample 10 gange og tage middelværdien.
 
 \subsubsection{Metode: runningPeakDetect())}
 \textbf{Parameter: } \textit{unsigned short peaks[], unsigned short cuffPressure[],unsigned short peakArrayLength, unsigned short *totalNumberOfPeaks, PressureControl pc, Utilities util}

@@ -7,7 +7,7 @@
 \end{figure}
 
 \subsection{Klasse: Utilities}
-Denne klasse tilhører det globale namespace og kan tilgås af alle namespaces. Klassen skal ses som en hjælpe klasse med funktioner der kan være brugbare flere steder
+Denne klasse tilhører det globale namespace og kan tilgås af alle namespaces. Klassen skal ses som en hjælpe klasse med funktioner der kan være brugbare flere steder.
 
 \subsubsection{Metode: rawToMmHG()}
 \textbf{Parameter: } \textit{unsigned short rawPressure}
@@ -26,13 +26,13 @@ Da interrupt ikke kan sættes fra andre steder end main filen, bliver der initie
 \subsubsection{Metoder: intCon\_ISR(), intBT\_ISR(), intOcc\_ISR(), intCha\_ISR() og intSel\_ISR()}
 \textbf{Parameter: } 
 \\ \textbf{Returtype: } \textit{void}
-\\ \textbf{Beskrivelse: } Disse fem interrupt service rutiner kalder alle sammen deres respektive metode fra klassen Buttons. Alle metoder indeholder et delay på 100 ms og derefter et if statement, som tjekker om interrupt pin’en stadig er høj, dette software imødekommer debouncing, se afsnit \ref{title:buttons}
+\\ \textbf{Beskrivelse: } Disse fem interrupt service rutiner kalder alle sammen deres respektive metode fra klassen Buttons. Alle metoder indeholder et delay på 100 ms og derefter et if statement, som tjekker om interrupt pin’en stadig er høj, dette software imødekommer debouncing, se afsnit \ref{title:buttons}.
 
 
 \subsubsection{Metode: setup()}
 \textbf{Parameter: } 
 \\ \textbf{Returtype: } \textit{void}
-\\ \textbf{Beskrivelse: } Denne metode bruges til opsætning af arduino, og det er derfor også her at det afgøres om arduinoen skal køre hhv konditioneringsforløb, okklusionstræning eller setup. Derfor aflæses værdien af 3 digital porte for at afgøre hvilket program der skal køres. Derefter opsættes de respektive interrupt for det valgte program. Dette er nødvendigt da prototypen kun har 2 knapper og disse skifter funktion efter hvilket program der er valgt
+\\ \textbf{Beskrivelse: } Denne metode bruges til opsætning af arduino, og det er derfor også her at det afgøres om arduinoen skal køre hhv konditioneringsforløb, okklusionstræning eller setup. Derfor aflæses værdien af 3 digital porte for at afgøre hvilket program der skal køres. Derefter opsættes de respektive interrupt for det valgte program. Dette er nødvendigt da prototypen kun har 2 knapper og disse skifter funktion efter hvilket program der er valgt.
 \begin{lstlisting}
 	programToRun = btt.readModeSwitch();
 	

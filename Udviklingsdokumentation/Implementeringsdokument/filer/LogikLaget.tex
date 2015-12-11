@@ -10,7 +10,7 @@
 \subsubsection{Metode: calculateMap()}
 \textbf{Parameter: } \textit{unsigned short peaks[], unsigned short cuffPressure[], unsigned short peakArrayLength, unsigned short *totalNumberOfPeaks}
 \\ \textbf{Returtype: } \textit{unsigned short}
-\\ \textbf{Beskrivelse: } Denne metode beregner MAP ud fra digitalt filtreret peakdata i peaks[] og cuffPressure[]. MAP findes som trykket i manchetten ved den højeste peak amplitude (se figur \ref{fig:bpMeasurement})
+\\ \textbf{Beskrivelse: } Denne metode beregner MAP ud fra digitalt filtreret peakdata i peaks[] og cuffPressure[]. MAP findes som trykket i manchetten ved den højeste peak amplitude (se figur \ref{fig:bpMeasurement}).
 
 \newpage
 \begin{figure}[H]
@@ -85,7 +85,7 @@ Klassen timer gør brug af en hardware Real Time Clock(RTC) med IC’en \textit{
 \subsubsection{Metode: countdown()}
 \textbf{Parameter: } \textit{unsigned short totalTime}
 \\ \textbf{Returtype: } \textit{void}
-\\ \textbf{Beskrivelse: } Denne metode modtager parameteren \textit{totalTime}, som indeholder det ønskede antal sekunder nedtællingen skal vare. Variablen \textit{elapsedTime} indeholder den nuværende tid og timestamp indeholder et tidsstempel der bliver sat når timeren skal starte. Hver gang metoden køres trækkes den nuværende tid i hhv timer, minutter og sekunder fra hinanden. Dernæst omregnes de forskellige difference til samlede antal sekunder, hvorefter det tal omregnes til sekunder og minutter. For at få antal sekunder tages differencen mellem \textit{totalTime} og \textit{elapsedTotalSeconds} udregner modulus 60 til dette tal(Se formel \ref{eq:totalSeconds})
+\\ \textbf{Beskrivelse: } Denne metode modtager parameteren \textit{totalTime}, som indeholder det ønskede antal sekunder nedtællingen skal vare. Variablen \textit{elapsedTime} indeholder den nuværende tid og timestamp indeholder et tidsstempel der bliver sat når timeren skal starte. Hver gang metoden køres trækkes den nuværende tid i hhv timer, minutter og sekunder fra hinanden. Dernæst omregnes de forskellige difference til samlede antal sekunder, hvorefter det tal omregnes til sekunder og minutter. For at få antal sekunder tages differencen mellem \textit{totalTime} og \textit{elapsedTotalSeconds} udregner modulus 60 til dette tal(Se formel \ref{eq:totalSeconds}).
 \begin{equation} \label{eq:totalSeconds}
 seconds = (totalTime - elapsedTotalSeconds) \bmod 60
 \end{equation}
@@ -131,7 +131,7 @@ Når det er regnet ud hvor mange minutter og sekunder der er tilbage i nedtælli
 	secString = String(seconds, DEC);
 	return timeString = String(minString + ":" + secString);
 \end{lstlisting}
-For at sikre at tiden vises på formatet mm:ss, tjekker metoden for om \textit{seconds} eller \textit{minutes} er større eller lig med 0 og mindre end 10. Hvis det er tilfældet tilføjes et nul foran værdien 
+For at sikre at tiden vises på formatet mm:ss, tjekker metoden for om \textit{seconds} eller \textit{minutes} er større eller lig med 0 og mindre end 10. Hvis det er tilfældet tilføjes et nul foran værdien.
 
 \subsubsection{Metode: getTimerStatus()}
 \textbf{Parameter: } 
@@ -146,7 +146,7 @@ For at sikre at tiden vises på formatet mm:ss, tjekker metoden for om \textit{s
 \subsubsection{Metode: timeToString()}
 \textbf{Parameter: } 
 \\ \textbf{Returtype: } \textit{String}
-\\ \textbf{Beskrivelse: } For at kunne gemme tidsstempler på SD kortet, er denne metode lavet til at konvertere et tidsstempel til en string på formatet: \textit{tt:mm:ss DD-MM-YY}. Ligesom metoden \textit{displayTimer()} håndterer denne metode hvis enten timer, minutter eller sekunder er mindre end 10 og sætter et nul foran. Metoden returnere en samlede string med et tidsstempel 
+\\ \textbf{Beskrivelse: } For at kunne gemme tidsstempler på SD kortet, er denne metode lavet til at konvertere et tidsstempel til en string på formatet: \textit{tt:mm:ss DD-MM-YY}. Ligesom metoden \textit{displayTimer()} håndterer denne metode hvis enten timer, minutter eller sekunder er mindre end 10 og sætter et nul foran. Metoden returnere en samlede string med et tidsstempel.
 
 \subsection{Klasse: MemoryParser}
 Denne klasse er lavet for at overholde 3-lags modellen. Da informations læsning fra fx EEPROM og SD kort skal foregå i data laget, skal der en række metoder til at sende information igennem logik laget og videre til GUI laget. Derfor indeholder denne klasse som udgangspunkt kun get og set metoder. 
@@ -154,7 +154,8 @@ Denne klasse er lavet for at overholde 3-lags modellen. Da informations læsning
 \subsubsection{Metode: getNoOfCycles()}
 \textbf{Parameter: } 
 \\ \textbf{Returtype: } \textit{unsigned short}
-\\ \textbf{Beskrivelse: } Denne metode returnere værdien fra data laget via metoden \textit{“intMem.readFromEEPROM()”}.
+\\ \textbf{Beskrivelse: } Denne metode returnere værdien fra data laget via metoden 
+\\ \textit{“intMem.readFromEEPROM()”}.
 
 \subsubsection{Metode: setNoOfCycles()}
 \textbf{Parameter: } \textit{unsigned short val}
@@ -191,7 +192,7 @@ Denne klasse er lavet for at overholde 3-lags modellen. Da informations læsning
 \end{lstlisting}
 Det er forinden bestemt at adresserne 205 og 206 bruges til at gemme \textit{TimePerCycle}. Metoden får en parameter som indeholder antallet af sekunder en cyklus skal vare, og for sørge for værdien skrives korrekt til EEPROM udregnes modulus 255 af antallet af sekunder og den rest gemmes på adressen 206. 
 
-String timeStamp, boolean occlusionComplete, unsigned short occlusionPressure, unsigned short sys, unsigned short map, unsigned short dia, boolean interruptOcclusion
+String timeStamp, boolean occlusionComplete, unsigned short occlusionPressure, unsigned short sys, unsigned short map, unsigned short dia, boolean interruptOcclusion.
 
 \subsubsection{Metode: writeToSDCard()}
 \textbf{Parameter: } \textit{String timeStamp, boolean occlusionComplete, unsigned short occlusionPressure, unsigned short sys, unsigned short map, unsigned short dia, boolean interruptOcclusion}
