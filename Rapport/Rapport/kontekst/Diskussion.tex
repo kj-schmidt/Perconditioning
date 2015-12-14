@@ -4,24 +4,20 @@
 Den oscillometriske fikseret-ratio metode er brugt i vid udstrækning til non-invasive målinger af det systoliske og diastoliske blodtryk. Det er derfor ikke unormalt, at apparatet beskrevet i denne rapport under afsnit \ref{Fikseret-ratio}, anvender fikseret-ratio fastsat ud fra empirisk data. Flere studier har også vist, at denne metode har en høj nøjagtighed, (\cite{drzewiecki1994theory}). Problemet med denne rigide fortolkning, er at det systoliske og diastoliske blodtryk altid befinder sig samme procentsats fra middelarterietrykket, og der opstår fejl ved individernes forskellighed.
 
  \cite{RefWorks:13} opstiller en matematisk model for den oscillometriske fikseret-ratio metode medregnet arterie eftergivenheden og undersøger ud fra dette hvilke faktorer, som påvirker den fikserede-ratio, og hvor stor en afvigelse, fra den sande værdi, dette giver. Resultaterne af denne gennemgang er teoretiske afvigelser på op til 58 mmHg ved svær arteriestivhed. Eftersom at stive arterier ofte er til stede ved arteriosklerose, er apopleksipatienter (også beskrevet i afsnit \ref{chap:Baggrund}) særligt udsatte for fejlmålinger med fikseret-ratio metoden. Den korte forklaring på dette problem er ændringer af manchetoscillationernes kurve bredde. Kurven som dannes af peak amplituderne af oscillationerne (se figur \ref{fig:OscillometriskMetode}), ændrer karakter ved ændring af arterie stivheden. 
-
-\begin{minipage}[t]{0.5\textwidth}
-På figur \ref{fig:ErrorMechanismOfFixedRatio} er fejlmekanismen ved fikseret-ratio bestemt systolisk tryk (SP) og diastolisk tryk (DP) illustreret. Peak amplituderne er normaliseret, hvilket tydeliggør ændringerne i kurvebredden, når arterieeftergivenheden ændres. 
-
-Ved normale arterievægge passer de empiriske ratio-værdier godt, men eftersom arteriet afviger fra det normale, stiger fejl estimationen af SP og DP i takt med ændringer i eftergivenheden. Hvis karrene er stivere end normalt, resulterer det i en overestimation af det systoliske tryk og en underestimation af det diastoliske tryk. Overestimationen finder sted, fordi den konstante ratio for det systoliske tryk (SP/MAP) nu indtræffer tidligere på den normaliserede trykkurve, og her er manchettrykket højere, og derfor overestimeres SP. På samme måde, som det systoliske tryk overestimeres, underestimeres det diastoliske tryk, fordi den konstante ratio for det diastoliske tryk (SP/MAP) nu befinder sig på et senere på trykkurven, hvor manchettrykket er lavere. Det samme scenarie gør sig gældende bare modsat for en blodtryksmåling på arterier med en højere eftergivenhed end normalt. Ændringer i arterievæggens eftergivenhed påvirker ikke estimationen af MAP, som altid befinder sig med de største oscillationer i manchetten.
+ 
+ På figur \ref{fig:ErrorMechanismOfFixedRatio} er fejlmekanismen ved fikseret-ratio bestemt systolisk tryk (SP) og diastolisk tryk (DP) illustreret. Peak amplituderne er normaliseret, hvilket tydeliggør ændringerne i kurvebredden, når arterieeftergivenheden ændres. 
+ 
+ Ved normale arterievægge passer de empiriske ratio-værdier godt, men eftersom arteriet afviger fra det normale, stiger fejl estimationen af SP og DP i takt med ændringer i eftergivenheden. Hvis karrene er stivere end normalt, resulterer det i en overestimation af det systoliske tryk og en underestimation af det diastoliske tryk. Overestimationen finder sted, fordi den konstante ratio for det systoliske tryk (SP/MAP) nu indtræffer tidligere på den normaliserede trykkurve, og her er manchettrykket højere, og derfor overestimeres SP. På samme måde, som det systoliske tryk overestimeres, underestimeres det diastoliske tryk, fordi den konstante ratio for det diastoliske tryk (SP/MAP) nu befinder sig på et senere på trykkurven, hvor manchettrykket er lavere. Det samme scenarie gør sig gældende bare modsat for en blodtryksmåling på arterier med en højere eftergivenhed end normalt. Ændringer i arterievæggens eftergivenhed påvirker ikke estimationen af MAP, som altid befinder sig med de største oscillationer i manchetten.
 
 Anvendelse af oscillometrisk fikseret-ratio metoden, til at måle blodtryk på patienter med apopleksi kan være problematisk på grund af arteriestivheden, som giver anledning til fejlestimationer på op til 58 mmHg. Det bør derfor overvejes, om andre metoder til at estimere det sys- og diastoliske tryk skal anvendes i stedet, for at sikre en højere nøjagtighed af blodtryksmålingerne.
-\end{minipage}
-\begin{minipage}[t]{0.5\textwidth}
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=1\textwidth]{billeder/ErrorFixed-Ratio.pdf}
-		\caption{Fejlmekanismen i fixed-ratio metoden ved ændringer af arterie stivheden. Pc er manchet tryk. DP er det diastoliske tryk og SP er det systoliske tryk, kilde: \cite{RefWorks:13}}\label{fig:ErrorMechanismOfFixedRatio}
-	\end{figure}
-\end{minipage}
-
 
 Overestimationen af det systoliske blodtryk optræder ikke som fejlkilde ved konditioneringen, da her blot ønskes en total okklusion af arterierne. Overestimationen giver ikke anledning til et for lavt afklemningstryk, som tillader blod til den afklemte ekstremitet. Fejlkonditionering på grund af blodtryksmålingen opstår kun ved underestimering af SYS.
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.6\textwidth]{billeder/ErrorFixed-Ratio.pdf}
+		\caption{Fejlmekanismen i fixed-ratio metoden ved ændringer af arterie stivheden. Pc er manchet tryk. DP er det diastoliske tryk og SP er det systoliske tryk, kilde: \cite{RefWorks:13}}\label{fig:ErrorMechanismOfFixedRatio}
+	\end{figure}
 
 \section{Okklusionstræning og trykregulering}
 Sådan som okklusionstræning er implementeret i \textit{Konditioneringsapparatet} findes, der ingen nedregulering af trykket, hvis en pudselig trykstigning opstår, og derfor varierer trykket i manchetten meget under træning. Ved okklusionstræning af fx biceps brachii, vil en normal blodtryksmanchet pga. dens størrelse sidde meget i vejen under okklusionstræning. Desuden vil manchetten sidde ovenpå en stor del af bicepsmusklen, og dette vil betyde store variationer i trykket mellem den koncentriske og excentriske fase. Denne effekt kan reduceres ved at udskifte den brede manchet til en smallere manchet, som i stedet kun blev placeret proximalt for biceps brachii (Se figur \ref{fig:okklcuff}). En anden måde at imødekomme trykvariationer på, kunne være ved at montere en \textquotedbl reserve-tank\textquotedbl{} under okklusionstræningen. Dette vil betyde en større volume i det pneumatiske system, og mindske trykændringer ved kontraktion af musklen. 
@@ -35,7 +31,11 @@ Sådan som okklusionstræning er implementeret i \textit{Konditioneringsapparate
 Under resultatafsnittet \ref{title:pulsOxi} er der beskrevet en test, som bruger pulsoximeter for at kontrollere kredsløbets status på armen under RIC behandling. Der blev kun foretaget én test af denne type, og den blev foretaget på en person, som er sund og rask. Derfor er testen ikke et gyldigt grundlag for at ekskludere pulsoximetri som sikkerhedskontrol. Men teorien bag pulsoximeteri, som beskrives i projektafgrænsningsafsnittet (\ref{title:sikkerhedskontrol}), sætter tydelige begrænsninger for brugen af pulsoximetri som sikkerhedskontrol, og testen underbygger kun denne påstand. 
 
 \section{Medicinsk godkendelse}
-Det er relevant at diskutere medicinsk godkendelse, fordi dette bør overvejes inden \textit{konditioneringsapparatet} anvendes på patienter. Til opsummering må det konkluderes, at det skal nøje overvejes om konditioneringsapparatet skal CE godkendes med det samme, for at kunne bruges til flere studier og forsøg, eller om apparatet blot skal godkendes til det ene studie beskrevet i studieprotokolden (se \ref{title:studieprotokold}).
+Det er relevant at diskutere medicinsk godkendelse, fordi dette skal overvejes inden \textit{konditioneringsapparatet} anvendes på patienter. 
+Til opsummering af resultatafsnittet \cite{title:medGodkendelse} må konkluderes, at det nøje bør overvejes om \textit{konditioneringsapparatet} skal CE godkendes med det samme, for at kunne bruges til ydeligere studier og forsøg, eller om apparatet blot skal godkendes til det ene studie beskrevet i studieprotokolen (se \ref{title:studieprotokold}).
+
+\subsection{Økonomiske konflikter}
+Kunden Rolf, skal kun bruge apparatet til forskning, og får af denne grund ikke nødvendigvis en økonomisk gevinst, ved et CE mærket apparat. Tværtimod, så er det meget ressourcekrævende at CE godkende medicinsk udstyr og derfor bliver det en økonomisk byrde. Seagull, distributør af blodtryksapparater, er interesseret i så stor en efterspørgsel som muligt og kan af denne grund få en økonomisk gevinst ved et CE godkendt \textit{konditioneringsapparatet}. 
 
 \section{Projektplanlægning og gennemførsel}
 Dette afsnit omhandler, hvad der gik godt og mindre godt i projektet og tanker om dette.
