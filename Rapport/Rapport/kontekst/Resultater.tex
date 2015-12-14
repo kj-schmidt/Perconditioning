@@ -4,32 +4,34 @@
 \input{kontekst/Resultater_oscillometrisk}
 
 \subsection{Dataopsamling}
-I forbindelse med udviklingen af prototypen var der et ønske fra kundens side omkring dataopsamling fra \textit{Konditioneringsapparatet}. For at apparatet kan bruges til forskningsprojektet er nødvendigt, at kunne dokumentere hvor mange konditioneringscyklusser en patient har modtaget. I samarbejde med kunden blev aftalt at et \textit{konditioneringsapparat} skal følge en patient i gennem hele forløbet, altså fra præhospital, til hospital og til sidst i hjemmet. Derfor blev det besluttet at data blev gemt på et SD kort, som hver gang et apparat returneres fra en patient bliver tømt for data og formateret. 
+I forbindelse med udviklingen af prototypen var der et ønske fra kundens side omkring dataopsamling fra \textit{Konditioneringsapparatet}. For at apparatet kan bruges til forskningsprojektet, er det nødvendigt at kunne dokumentere, hvor mange konditioneringscyklusser en patient har modtaget. I samarbejde med kunden blev det aftalt, at et \textit{konditioneringsapparat} skal følge en patient igennem hele forløbet, altså fra præhospital, til hospital og til sidst i hjemmet. Derfor blev det besluttet, at data bliver gemt på et SD kort, og når et apparatet returneres skal data eksporteres fra SD kortet, og til sidst skal kortet formateres.
+
+som hver gang et apparat returneres fra en patient, bliver tømt for data og formateret. 
 
 \begin{figure}[H]
 	\includegraphics[width = \textwidth]{billeder/fileksempel-crop.pdf}
 	\caption{Et eksempel på fil udtræk fra SD kortet}\label{fig:fileksempel}
 \end{figure}
 
-På figur \ref{fig:fileksempel} ses oversigt over fil udtræk. Her er udført en konditioneringsbehandling, hvor blodtrykket først er blevet målt til 174/100(124) mmHg. Der gemmes en værdi ved blodtryksmåling, hver gang trykket i manchetten når afklemningstrykket og når en okklusionsfase er færdig. Endvidere skrives der til SD kortet hvis konditioneringsbehandlingen afbrydes. Hver gang der skrives til SD kortet gemmes et tidsstempel, om afklemningen er gennemført, afklemningstrykket, blodtrykket og om konditioneringsbehandling blev færdig gjort. 
+På figur \ref{fig:fileksempel} ses en oversigt over filudtræk. Her er udført en konditioneringsbehandling, hvor blodtrykket først er blevet målt til 174/100(124) mmHg. Der gemmes en værdi ved blodtryksmåling, hver gang trykket i manchetten når afklemningstrykket, og når en okklusionsfase er færdig. Endvidere skrives der til SD kortet, hvis konditioneringsbehandlingen afbrydes. Hver gang der skrives til SD kortet gemmes et tidsstempel, om afklemningen er gennemført, afklemningstrykket, blodtrykket og om konditioneringsbehandling blev færdiggjort. 
 
-I målingen vist på figur \ref{fig:fileksempel}, er der foretaget en blodtrykmåling, 2 fulde cyklusser og en afbrudt cyklus. En okklusion cyklus var sat til 10 sekunder og antallet af cyklusser var 3. Grundet til tidsstemplerne ikke er med 10 sekunder forskel er at der først skrives til SD kortet når afklemningstrykket er højere end det målte systoliske tryk. Det tager lidt tid for motoren at pumpe manchetten op til dette tryk. 
+I målingen vist på figur \ref{fig:fileksempel}, er der foretaget en blodtrykmåling, 2 fulde cyklusser og en afbrudt cyklus. En okklusionscyklus var sat til 10 sekunder, og antallet af cyklusser var 3. Grunden til tidsstemplerne ikke er med 10 sekunder forskel er, at der først skrives til SD kortet, når afklemningstrykket er højere end det målte systoliske tryk. Det tager lidt tid for motoren at pumpe manchetten op til dette tryk. 
 
-Det sikres at informationen på SD kortet kan kobles til en patient, ved at genererer et unikt ID på 5 hexidecimaler, som sammen med apparat ID'et på 3 cifre, bliver til navnet på filen. Filen, der er vist på figur \ref{fig:fileksempel}, har derfor navnet \textit{93C09001.csv}. \textit{93C09} er det unikke patient ID og \textit{001} er apparat ID. Når den første måling fortages på et apparat med formateret SD kort bliver der generet en .csv fil med det 8 cifrede navn. Patient ID bliver vist på skærmen af \textit{Konditioneringsapparatet}. Patient ID'et skal noteres af ambulance personalet, Patient ID'et parres med CPR nummeret, så dette er utilgængeligt for alle involveret i forskningsprojektet. Dette gøres for at apparatet ikke skal håndtere patient følsomme oplysninger.
+Det sikres at informationen på SD kortet kan kobles til en patient ved at generere et unikt ID på 5 hexidecimaler, som sammen med apparat-ID'et på 3 cifre bliver til navnet på filen. Filen, der er vist på figur \ref{fig:fileksempel}, har derfor navnet \textit{93C09001.csv}. \textit{93C09} er det unikke patient-ID, og \textit{001} er apparat-ID. Når den første måling fortages på et apparat med formateret SD kort bliver der genereret en .csv fil med det 8 cifrede navn. Patient ID bliver vist på skærmen af \textit{Konditioneringsapparatet}. Patient ID'et skal noteres af ambulance personalet. Patient ID'et parres med CPR-nummeret, så dette er utilgængeligt for alle involveret i forskningsprojektet. Dette gøres, for at apparatet ikke skal håndtere patientfølsomme oplysninger.
 
 \subsection{Pulsoximetri} \label{title:pulsOxi}
-Som beskrevet i projektafgrænsninger (se afsnit \ref{title:sikkerhedskontrol}) blev projektet afgrænset fra at have sikkerhedskontrol med pulsoximeteri. For at bekræfte brugbarheden af pulsoximeteri til sikkerhedskontrol, har projektgruppen foretaget test med et pulsoximeter. Formålet med testen var at se om puls og saturation gav nogle brugbare udsving efter en endt okklusionsfase. I testen blev der lavet to fulde cyklusser, som hver især bestod af en 5 minutters okklusionsfase efterfulgt af en 5 minutters reperfusionsfasen. Saturation og puls var de målbare parametre i denne test. Parametrene blev noteret lige før okklusionsfasen blev påbegyndt, hvert 30. sekunder under okklusionen og hhv. 10, 20 og 30 sekunder inde i reperfusionsfasen. Pulsoximeteret der blev brugt til målingerne var fra EDAN, model H100B (Se datablad \cite{RefWorks:30}). Blodtrykket på testpersonen var målt til 120/63 mmHg og afklemningstrykket blev valgt til 220mmHg. Trykket i manchetten lå med en tolerance på +/-20 mmHg under okklusionsfasen. 
+Som beskrevet i projektafgrænsninger (se afsnit \ref{title:sikkerhedskontrol}) blev projektet afgrænset fra at have sikkerhedskontrol med pulsoximeteri. For at bekræfte brugbarheden af pulsoximeteri til sikkerhedskontrol, har projektgruppen foretaget test med et pulsoximeter. Formålet med testen var at se, om puls og saturation gav nogle brugbare udsving efter en endt okklusionsfase. I testen blev der lavet to fulde cyklusser, som hver især bestod af en 5 minutters okklusionsfase efterfulgt af en 5 minutters reperfusionsfasen. Saturation og puls var de målbare parametre i denne test. Parametrene blev noteret lige før okklusionsfasen blev påbegyndt, hvert 30. sekunder under okklusionen og hhv. 10, 20 og 30 sekunder inde i reperfusionsfasen. Pulsoximeteret, der blev brugt til målingerne, var fra EDAN, model H100B (Se datablad \cite{RefWorks:30}). Blodtrykket på testpersonen var målt til 120/63 mmHg, og afklemningstrykket blev valgt til 220mmHg. Trykket i manchetten lå med en tolerance på +/-20 mmHg under okklusionsfasen. 
 
-Testen viste ingen indikation af udsving i saturationen når armen var afklemt. Når trykket i manchetten faldt, fandt pulsoximeter med det samme puls og saturation. Pulsen, der blev fundet, lå på samme niveau før og efter okklusionsfasen. Saturation var i begge tilfælde cirka 20 sekunder om at nå tilbage til samme værdi, som før okklusionsfasen. Se test resultatet under appendiks \ref{app:pulstest}.
+Testen viste ingen indikation af udsving i saturationen, når armen var afklemt. Når trykket i manchetten faldt, fandt pulsoximeter med det samme puls og saturation. Pulsen, der blev fundet, lå på samme niveau før og efter okklusionsfasen. Saturation var i begge tilfælde cirka 20 sekunder om at nå tilbage til samme værdi, som før okklusionsfasen. Se testresultatet under appendiks \ref{app:pulstest}.
 
 \subsection{Konditionering}
-\textit{Konditioneringsapparatets} hovedfunktion er, som beskrevet i problemformuleringen (afsnit \ref{title:problemformulering}), konditionering af patienter deltagende i RIC forskningsstudiet (afsnit \ref{title:studieprotokold}). Implementeringen af konditioneringsbehandlingen, som en funktion i prototypen, viste med accepttesten gode resultater, (se afsnit \ref{title:accepttest1}). \textit{Konditioneringsapparatet} kan foretage en non-invasiv blodtryksmåling, med den ocillometriske fikseret-ratio metode. Ud fra det målte blodtryk foretager apparatet en okklusion med et tryk på 25mmHg over systolisk tryk, dog med et minimumstryk på 200mmHg og et maksimumstryk på 300mmHg. Okklusionsfasen varer i et tidsrum prædefineret af brugeren. Okklusionsfasen efterfølges af en reperfusionsfase, som tidsmæssigt er tilsvarende okklusionsfasen. \textit{Konditioneringsapparatet} holder selv styr på antallet af cyklusser, som en konditioneringsbehandling skal vare. Dette skal prædefineres af brugeren inden behandlingen starter. En cyklus består af en okklusions og reperfusionsfasen, og når en cyklus gennemføres opdateres antallet af tilbageværende cyklusser. 
+\textit{Konditioneringsapparatets} hovedfunktion er, som beskrevet i problemformuleringen (afsnit \ref{title:problemformulering}), konditionering af patienter deltagende i RIC forskningsstudiet (afsnit \ref{title:studieprotokold}). Implementeringen af konditioneringsbehandlingen, som en funktion i prototypen, viste med accepttesten gode resultater, (se afsnit \ref{title:accepttest1}). \textit{Konditioneringsapparatet} kan foretage en non-invasiv blodtryksmåling med den ocillometriske fikseret-ratio metode. Ud fra det målte blodtryk foretager apparatet en okklusion med et tryk på 25mmHg over systolisk tryk, dog med et minimumstryk på 200mmHg og et maksimumstryk på 300mmHg. Okklusionsfasen varer i et tidsrum prædefineret af brugeren. Okklusionsfasen efterfølges af en reperfusionsfase, som tidsmæssigt er tilsvarende okklusionsfasen. \textit{Konditioneringsapparatet} holder selv styr på antallet af cyklusser, som en konditioneringsbehandling skal vare. Dette skal prædefineres af brugeren inden behandlingen starter. En cyklus består af en okklusions og reperfusionsfasen, og når en cyklus gennemføres, opdateres antallet af tilbageværende cyklusser. 
 
 \subsection{Okklusionstræning}
-Resultatet af okklusionstræningen, er et apparat, som holder et konstant tryk i manchetten, alt imens der kører et stopur på skærmen. Trykket i manchetten fyldes til 100mmHg. Trykket falder herefter stille og roligt til under 90mmHg hvorefter trykket i manchetten igen opreguleres til 100mmHg ved hjælp af pumpen. 
+Resultatet af okklusionstræningen, er et apparat som holder et konstant tryk i manchetten, alt imens der kører et stopur på skærmen. Trykket i manchetten fyldes til 100mmHg. Trykket falder herefter stille og roligt til under 90mmHg, hvorefter trykket i manchetten igen opreguleres til 100mmHg ved hjælp af pumpen. 
  
 \subsection{Grafisk interface}
-Det blev specificeret i kravspecifikationen at \textit{Konditioneringsapparatet} skulle levere feedback til brugeren ved hjælp af et display (Se kravspecifikationen under udviklingsdokumentationen). Resultatet af dette krav, blev implementeringen af et 2.2" farve display. Af de forskellige brugerfeedbacks displayet leverer, er det værd at fremhæve manchettrykket, patient ID, antal cyklusser og tidsforløbet. Visningen af manchettrykket er vigtigt, for at brugeren eller det medicinske personale kan observere om konditioneringsbehandling er i gang med okklusion eller reprefusion. Tidsinformation omkring konditioneringsbehandling sikre at patienten og det medicinske personale kender den resterende tid af behandlingen. I tilfælde hvor patienten skal modtage anden behandling eller kontrol hvor \textit{Konditioneringsapparatet} ikke kan være monteret, kan tidsinformationen hjælpe med beslutningen om hvornår apparatet skal afmonteres. 
+Det blev specificeret i kravspecifikationen at \textit{Konditioneringsapparatet} skulle levere feedback til brugeren ved hjælp af et display (Se kravspecifikationen under udviklingsdokumentationen). Resultatet af dette krav, blev implementeringen af et 2.2" farvedisplay. Af de forskellige brugerfeedbacks displayet leverer, er det værd at fremhæve manchettrykket, patient ID, antal cyklusser og tidsforløbet. Visningen af manchettrykket er vigtigt, for at brugeren eller det medicinske personale kan observere, om konditioneringsbehandling er i gang med okklusion eller reperfusion. Tidsinformation omkring konditioneringsbehandling sikrer, at patienten og det medicinske personale kender den resterende tid af behandlingen. I tilfælde hvor patienten skal modtage anden behandling eller kontrol, hvor \textit{Konditioneringsapparatet} ikke kan være monteret, kan tidsinformationen hjælpe med beslutningen, om hvornår apparatet skal afmonteres. 
 
 \begin{figure}[H]
 \centering
@@ -39,15 +41,15 @@ Det blev specificeret i kravspecifikationen at \textit{Konditioneringsapparatet}
 	\includegraphics[trim={0 3.3cm 0 1.5cm},clip, width=0.328\textwidth]{billeder/display/okklusion.png}}
 \subbottom[Setup]{%
 	\includegraphics[trim={0 3.3cm 0 1.5cm},clip, width=0.328\textwidth]{billeder/display/setup.png}}
-\caption{Billederne viser tre forskellige programmer \textit{Konditioneringsapparatet} kan udføre. (a) viser en igangværende konditioneringsbehandling, hvor trykket i manchetten ses i midten af billede a og blodtrykket vises lige under. Der ses også patient ID, antal cyklusser og den resterende tid på billedet. (b) her vises displayet under okklusionstræning. Manchettrykket vises på skærmen sammen med et stopur. (c) Her vises setup programmet, hvor det er muligt at ændre \textit{tid pr cyklus} og \textit{antal cyklusser} for konditioneringsforløbet vist på (a)}\label{fig:interface}
+\caption{Billederne viser tre forskellige programmer \textit{Konditioneringsapparatet} kan udføre. (a) Viser en igangværende konditioneringsbehandling, hvor trykket i manchetten ses i midten af billede \textit{a}, og blodtrykket vises lige under. Der ses også patient ID, antal cyklusser og den resterende tid på billedet. (b) Her vises displayet under okklusionstræning. Manchettrykket vises på skærmen sammen med et stopur. (c) Her vises setupprogrammet, hvor det er muligt at ændre \textit{tid pr cyklus} og \textit{antal cyklusser} for konditioneringsforløbet vist på (a).}\label{fig:interface}
 \end{figure}
 
-\textit{Konditioneringsapparatet} kan som beskrevet før, udføre to andre programmer; hhv. okklusionstræning og setup. Eksempel på brugerfeedback ved de tre forskellige programmer kan ses på figur \ref{fig:interface}. Ved okklusionstræning er kravene til brugerfeedback meget simple, her bliver brugeren informeret om det aktuelle tryk i manchetten, som sikre at armen er afklemt tilstrækkeligt under træningssættet. Desuden vises der en tid på skærmen for hvor længe armen har været afklemt. Ved setup programmet består brugerfeedbacken i en blinkende cursor når der skal vælges i mellem \textit{tid pr cyklus} og \textit{antal cyklusser}. Når et af emnerne er valgt, stopper cursoren med at blinke (solid hvid cursor) og brugeren kan ændre i den valgte værdi.
+\textit{Konditioneringsapparatet} kan som beskrevet før udføre to andre programmer; hhv. okklusionstræning og setup. Eksempel på brugerfeedback ved de tre forskellige programmer kan ses på figur \ref{fig:interface}. Ved okklusionstræning er kravene til brugerfeedback meget simple, her bliver brugeren informeret om det aktuelle tryk i manchetten, som sikrer, at armen er afklemt tilstrækkeligt under træningssættet. Desuden vises der en tid på skærmen for, hvor længe armen har været afklemt. Ved setup programmet består brugerfeedbacken i en blinkende cursor, når der skal vælges i mellem \textit{tid pr cyklus} og \textit{antal cyklusser}. Når et af emnerne er valgt, stopper cursoren med at blinke (solid hvid cursor), og brugeren kan ændre i den valgte værdi.
 
 \section{Accepttest} \label{title:accepttest1}
 Accepttesten blev udført i samarbejde med kunden Rolf Blauenfeldt den 30-11-2015. Accepttesten kan læses i udviklingsdokumentation under afsnit II. Testen forløb uden vejleder Peter Johansen, som ikke kunne være tilstede.
 
-Resultatet ef selve accepttesten er en delvis godkendelse. Alle use cases (UC) blev godkendt med undtagelse af UC 7 (Afbryd) og UC 5 (Sikkerhedskontrold med pulsoximeter). UC 7 opfyldte ikke krav 2.7.3 tilfredsstillende, idet at \textit{konditioneringsapparatet} ikke med 100\% træfsikkerhed afbrød konditioneringsbehandlingen ved tryk på [Start/Stop]. UC 5 blev aldrig implementeret i \textit{konditioneringsapparatet} (se afsnit \ref{title:pulsOxi}) og derfor kunne krav 2.5 ikke testes. Læs hvorfor UC 5 ikke blev implementeret under projektafgrænsning i afsnit \ref{title:sikkerhedskontrol}.
+Resultatet af selve accepttesten er en delvis godkendelse. Alle use cases (UC) blev godkendt med undtagelse af UC 7 (Afbryd) og UC 5 (Sikkerhedskontrold med pulsoximeter). UC 7 opfyldte ikke krav 2.7.3 tilfredsstillende, idet at \textit{konditioneringsapparatet} ikke med 100\% træfsikkerhed afbrød konditioneringsbehandlingen ved tryk på [Start/Stop]. UC 5 blev aldrig implementeret i \textit{konditioneringsapparatet} (se afsnit \ref{title:pulsOxi}), og derfor kunne krav 2.5 ikke testes. Læs hvorfor UC 5 ikke blev implementeret under projektafgrænsning i afsnit \ref{title:sikkerhedskontrol}.
 
 De fuldt godkendte use cases var UC 1 (se figur \ref{fig:udsnitAfAccepttest}),2, 3, 4, 6, 8 også kendt som krav 2.1, 2.2, 2.3, 2.4, 2.6, 2.8. Alle ikke-funktionelle krav blev også godkendt. 
 
@@ -56,3 +58,50 @@ De fuldt godkendte use cases var UC 1 (se figur \ref{fig:udsnitAfAccepttest}),2,
 	\includegraphics[width=0.6\textwidth]{billeder/udsnitAfAccepttest.pdf}
 	\caption{Udsnit af acceptesten foretaget den 30-11-2015. Her ses krav 2.1.1-2.1.8 godkendt. Figuren er scannet af originalen.}\label{fig:udsnitAfAccepttest}
 \end{figure}
+
+\section{Medicinsk godkendelse} \label{title:medGodkendelse}
+I dette afsnit udledes hvilke krav produktet skal opfylde, for at kunne anvendes i kliniske forsøg (se afsnit \ref{title:studieprotokold}) og til hjemmebehandling (Se afsnit \ref{title:Hjemmebehandling}). 
+
+\subsection{Medicinsk udstyr}
+Apparater, som skal anvendes i medicinsk sammenhæng, skal godkendes af sikkerhedsmæssige årsager, men kravene er forskellige alt efter, hvilken kontekst apparatet skal bruges, i og hvor farligt apparatet potentielt kan være (klassificering). \textit{Konditioneringsapparatet} er af kategorien \textit{medicinsk udstyr}, fordi dens anvendelse er beskrevet i direktivet om medicinsk udstyr (MDD 93/42/EEC) Artikel 1, 2.a:
+
+\begin{quote}
+	"Medicinsk udstyr: ethvert instrument, apparat, udstyr, software,
+	materiale eller anden genstand anvendt alene eller i kombination,
+	herunder software, som af fabrikanten er beregnet til specifik anvendelse
+	til diagnostiske og/eller terapeutiske formål, og som hører med
+	til korrekt brug heraf, og som af fabrikanten er beregnet til anvendelse
+	på mennesker med henblik på:
+	\begin{itemize}
+		\item Diagnosticering, forebyggelse, overvågning, behandling eller
+		lindring af sygdomme
+		\item Diagnosticering, overvågning, behandling, lindring af eller
+		kompensation for skader eller handicap
+		\item Undersøgelse, udskiftning eller ændring af anatomien eller en
+		fysiologisk proces
+		\item Svangerskabsforebyggelse
+	\end{itemize}
+	
+	og hvis forventede hovedvirkning i eller på det menneskelige
+	legeme ikke fremkaldes ad farmakologisk, immunologisk eller metabolisk
+	vej, men hvis virkning kan understøttes ad denne vej"
+	
+	Kilde: \cite{Manual:4}
+\end{quote}
+
+\textit{Konditioneringsapparatet} opfylder første punkt, fordi den skal forebygge celledød ved apopleksi. Ydermere opfyldes punkt to også, fordi \textit{konditioneringsapparatet} måler blodtrykket af patienten, og dermed hjælper til diagnosticering af patienten.
+
+\subsubsection{Klassificering af medicinsk udstyr}
+Klassificering af medicisk udstyr er krævet, fordi dokumentationskravene varierer heraf. Desto højere klasse desto farligere er apparatet klassificeret. I følge \cite{RefWorks:42} er konditioneringsapparatet klasse IIa. Klassificeringen er bestemt ud fra regel 10 punkt 3, som beskriver elektriske apparater til måling af blodtrykket non-invasivt.
+
+\subsection{Medicinsk udstyr til klinisk forsøg}
+Den nationale myndighed i Danmark er Sundhedsstyrelsen, som stiller krav til medicinsk udstyr. Ud over at de skal kontaktes og indformeres inden et klinisk forsøg med ikke CE godkendt udstyr, så stiller de også krav til dokumentationen af apparatet. Den krævede dokumentation er opfyldelse af relevante krav fra bekendtgørelsens \textit{væsentlige krav}, (\cite{RefWorks:41}). De væsentlige krav kan læses i MDD Bilag 1.
+
+\subsection{Medicinsk udstyr til hjemmebrug}
+Når apparatet skal avendes uden observation af medicinsk personale, skal det være CE godkendt. For at opnå denne godkendelse skal det bemyndigede organ (f.eks. Mermaid Medical) godkende klassificeringen af apparatet og dokumentationen, som opfylder enten MDD bilag II, IV, V eller VI. 
+
+\begin{quote}
+	"Når fabrikanten har underskrevet EF-overensstemmelseserklæringen, kan udstyret CE-mærkes."
+	
+	Kilde: \cite{RefWorks:43}
+\end{quote}
